@@ -21,6 +21,11 @@
         .form_section
           %span.form_section_header Billing Information
           %hr.form_section_separator
+          .form_errors
+            %ul
+              - @order.errors[:base].each do |error|
+                %li.form_error
+                  = error
           = f.inputs :class => "v_lists c_list" do
             = f.input :member_type_id,  :as => :hidden, :value => @order.member_type.id
             = f.input :name_on_card,    :as => :string, :required => true, :placeholder => 'Full Name'
