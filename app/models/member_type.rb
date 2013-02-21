@@ -10,6 +10,8 @@ class MemberType < ActiveRecord::Base
   has_many :notes, :as => :asset
   has_many :members
 
+  has_attached_file :image
+
   def price=(num)
     @price = num.to_i
   end
