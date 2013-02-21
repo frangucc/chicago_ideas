@@ -7,7 +7,7 @@
         %br
         Price:
         = number_to_currency member_type.price
+  .member_more_info
+    = link_to 'More Info', '', :class => 'gray_btn'
   .member_buy
     = link_to 'Buy Now', payment_path(:member_id => member_type.id), :class => 'blue_btn'
-  .member_more_info
-    = link_to 'More Info', '', :class => 'blue_btn'
