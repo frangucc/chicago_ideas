@@ -2,6 +2,7 @@
   .detailed_header.group
     = image_tag 'application/member_types/member_type_big.png'
     .detailed_title_projected
+      = link_to 'BUY NOW', payment_path(:member_id => member_type.id), :class => 'blue_btn'
       %p.detailed_title
         = member_type.name
         %br
@@ -14,4 +15,3 @@
   %p.detailed_total
     Value =
     = number_to_currency member_type.price
-    = link_to 'BUY', payment_path(:member_id => member_type.id), :class => 'blue_btn'
