@@ -7,6 +7,7 @@
     .member_type_detailed_container
       - member_types.each do |member_type|
         = render 'member_types/member_type_detailed', :member_type => member_type
+      = render 'member_types/membership_info'
     .member_types_summaries
       %p.join_membership
         Join our Membership Programs

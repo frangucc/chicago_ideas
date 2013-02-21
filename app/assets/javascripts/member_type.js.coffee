@@ -1,6 +1,4 @@
 $(document).ready ->
-  $('.member_detailed').first().addClass 'active_member_type'
-
   $('.member_summary').live 'hover', ->
     member_id = $(this).attr 'data-id'
 
