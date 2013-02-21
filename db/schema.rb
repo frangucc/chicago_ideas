@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130221014955) do
+ActiveRecord::Schema.define(:version => 20130221211426) do
 
   create_table "affiliate_event_applications", :force => true do |t|
     t.string   "first_name",           :null => false
@@ -50,23 +50,23 @@ ActiveRecord::Schema.define(:version => 20130221014955) do
   create_table "bhsi_applications", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "first_name",                                                                  :null => false
-    t.text     "last_name",                                                                   :null => false
-    t.text     "address1",                                                                    :null => false
-    t.text     "address2"
-    t.text     "city",                                                                        :null => false
-    t.text     "state",                                                                       :null => false
+    t.string   "first_name",                           :limit => 25,       :default => "",    :null => false
+    t.string   "last_name",                            :limit => 25,       :default => "",    :null => false
+    t.string   "address1",                             :limit => 100,      :default => "",    :null => false
+    t.string   "address2",                             :limit => 55
+    t.string   "city",                                 :limit => 55,       :default => "",    :null => false
+    t.string   "state",                                :limit => 15,       :default => "",    :null => false
     t.string   "country",                                                  :default => "US",  :null => false
-    t.text     "email",                                                                       :null => false
+    t.string   "email",                                :limit => 50,       :default => "",    :null => false
     t.text     "gender",                               :limit => 16777215,                    :null => false
     t.text     "birthdate",                            :limit => 16777215,                    :null => false
-    t.text     "title",                                                                       :null => false
+    t.string   "title",                                :limit => 50,       :default => "",    :null => false
     t.text     "social_venture_name",                  :limit => 16777215,                    :null => false
-    t.text     "legal_structure",                                                             :null => false
-    t.text     "url",                                                                         :null => false
-    t.text     "twitter_handle",                                                              :null => false
+    t.string   "legal_structure",                      :limit => 100,      :default => "",    :null => false
+    t.string   "url",                                  :limit => 100,      :default => "",    :null => false
+    t.string   "twitter_handle",                       :limit => 20,       :default => "",    :null => false
     t.text     "video_url",                            :limit => 16777215,                    :null => false
-    t.text     "applied_before",                                                              :null => false
+    t.string   "applied_before",                       :limit => 3,        :default => "",    :null => false
     t.text     "about_yourself",                       :limit => 16777215
     t.text     "social_venture_description",           :limit => 16777215
     t.text     "venture_launched",                     :limit => 16777215
@@ -80,14 +80,14 @@ ActiveRecord::Schema.define(:version => 20130221014955) do
     t.text     "distinguish_yourself",                 :limit => 16777215
     t.text     "strong_midwest_connections_explained", :limit => 16777215
     t.text     "additional_comments",                  :limit => 16777215
-    t.text     "reference_1_name",                                                            :null => false
-    t.text     "reference_1_relationship",                                                    :null => false
-    t.text     "reference_1_phone",                                                           :null => false
-    t.text     "reference_1_email",                                                           :null => false
-    t.text     "reference_2_name",                                                            :null => false
-    t.text     "reference_2_relationship",                                                    :null => false
-    t.text     "reference_2_phone",                                                           :null => false
-    t.text     "reference_2_email",                                                           :null => false
+    t.string   "reference_1_name",                     :limit => 50,       :default => "",    :null => false
+    t.string   "reference_1_relationship",             :limit => 100,      :default => "",    :null => false
+    t.string   "reference_1_phone",                    :limit => 15,       :default => "",    :null => false
+    t.string   "reference_1_email",                    :limit => 50,       :default => "",    :null => false
+    t.string   "reference_2_name",                     :limit => 50,       :default => "",    :null => false
+    t.string   "reference_2_relationship",             :limit => 100,      :default => "",    :null => false
+    t.string   "reference_2_phone",                    :limit => 15,       :default => "",    :null => false
+    t.string   "reference_2_email",                    :limit => 50,       :default => "",    :null => false
     t.integer  "user_id",                                                                     :null => false
     t.text     "three_standout_statistics",            :limit => 16777215
     t.boolean  "agreement_accepeted",                                      :default => false, :null => false
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20130221014955) do
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
-    t.text     "phone_number",                                                                :null => false
+    t.string   "phone_number",                         :limit => 11,       :default => "",    :null => false
     t.string   "previous_budget_file_name"
     t.string   "previous_budget_content_type"
     t.integer  "previous_budget_file_size"
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20130221014955) do
     t.string   "press_clipping_3_content_type"
     t.integer  "press_clipping_3_file_size"
     t.datetime "press_clipping_3_updated_at"
-    t.text     "zipcode",                                                                     :null => false
+    t.string   "zipcode",                              :limit => 11,       :default => "",    :null => false
   end
 
   create_table "bhsi_longtexts", :force => true do |t|
@@ -366,9 +366,13 @@ ActiveRecord::Schema.define(:version => 20130221014955) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.integer  "price_in_cents",    :default => 0
-    t.integer  "projected_members", :default => 0
-    t.integer  "maximum_members",   :default => 0
+    t.integer  "price_in_cents",     :default => 0
+    t.integer  "projected_members",  :default => 0
+    t.integer  "maximum_members",    :default => 0
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "member_types", ["name"], :name => "index_member_types_on_name"
