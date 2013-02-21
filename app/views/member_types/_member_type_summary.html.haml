@@ -1,6 +1,6 @@
 %div{ :id => "member_summary_#{member_type.id}", :class => 'member_summary group', :data => { :id => member_type.id } }
   .member_info
-    = image_tag 'application/member_types/member_type.png'
+    = image_tag member_type.image.url
     .member_name_price
       %p
         = truncate member_type.name, :length => 20
