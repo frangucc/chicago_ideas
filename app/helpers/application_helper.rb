@@ -106,11 +106,15 @@ module ApplicationHelper
 
   def member_type_price(member_type)
     price_str = number_to_currency(member_type.min_price)
-    if member_type.min_price != member_type.max_price
-      price_str += " - #{number_to_currency(member_type.max_price)}"
+    unless member_type.has_fixed_price?
+      price_str += " - #{ number_to_currency(member_type.max_price) }"
     end
     price_str
   end
 
-
+  def amount_field(form_obj, order)
+    unless order.member_type.has_fixed_price?
+      form_obj.input :amount, :as => :string, :required => true, :hint => "Please enter the amount you wish to contribute. (Minimum: #{ number_to_currency(order.member_type.min_price) }, Maximum: #{ number_to_currency(order.member_type.max_price) })"
+    end
+  end
 end

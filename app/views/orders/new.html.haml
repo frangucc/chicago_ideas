@@ -40,7 +40,10 @@
                   %li= image_tag 'application/orders/billing_card2.png'
                   %li= image_tag 'application/orders/billing_card3.png'
                   %li= image_tag 'application/orders/billing_card4.png'
-            = f.input :card_number,     :as => :string, :required => true
+            - opts = { :as => :string, :required => true }
+            - opts.merge!({ :value => "370000000000002" }) if Rails.env == 'development'
+            = f.input :card_number, opts
+            = amount_field(f, @order)
             = f.inputs :class => 'form_expdate_cvc' do
               = f.input :expiry_date,   :as => :string, :required => true, :label => 'Exp Date', :placeholder => 'MMYY'
               = f.input :cvc,           :as => :string, :required => true, :label => "CVC"

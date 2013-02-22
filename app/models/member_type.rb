@@ -84,4 +84,8 @@ class MemberType < ActiveRecord::Base
     maximum_members
   end
 
+  def has_fixed_price?
+    min_price == max_price
+  end
+
 end
