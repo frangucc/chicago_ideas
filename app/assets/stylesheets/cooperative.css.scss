@@ -79,8 +79,9 @@ ul.list-expand li.top_level #member_exp ol li {
 .bg-white {background-color:#fff}
 .bg-blue {background-color: #4354C9;}
 a{
-  text-decoration: none;
+  text-decoration: none !important;
   .join-coop{
+    background-color: rgb(0, 0, 255);
     padding: 20px;
     color: #fff;
     font-size: 22px;
