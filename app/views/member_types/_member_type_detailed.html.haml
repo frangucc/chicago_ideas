@@ -10,8 +10,7 @@
         = member_type_price(member_type)
       %p.detailed_projected
         (projected members=#{ member_type.projected_members }, maximum=#{ member_type.maximum_members_string })
-  %p.detailed_content
-    = member_type.description
+  = simple_format member_type.description, :class => 'detailed_content'
   %p.detailed_total
     Value =
     = member_type.value
