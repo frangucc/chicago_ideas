@@ -1,5 +1,4 @@
 .main_content {
-  min-height: 650px;
   background: url(application/member_types/main_content_background.png) repeat;
   background-size: 100% 100%;
   .main_title {
@@ -15,11 +14,11 @@
     font-size: 15px;
   }
   .member_types {
-    width: 90%;
-    margin: 50px auto;
+    width: 1050px;
+    margin: 50px auto 70px auto;
     .member_type_detailed_container {
       float: left;
-      width: 50%;
+      width: 530px;
       border-right: 1px solid rgb(182, 176, 176);
       .member_detailed {
         display: none;
@@ -85,8 +84,7 @@
     }
     .member_types_summaries {
       float: left;
-      width: 45%;
-      padding-left: 30px;
+      padding-left: 35px;
       .join_membership {
         font-size: 13px;
         font-weight: bold;
@@ -150,7 +148,7 @@
   border-top: 1px solid rgb(194, 194, 194);
   border-bottom: 1px solid rgb(194, 194, 194);
   .join_content {
-    width: 65%;
+    width: 880px;
     height: 100%;
     margin: auto auto;
     p {
