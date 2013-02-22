@@ -1,6 +1,6 @@
 $(document).ready ->
-  $('.member_summary').live 'hover', ->
-    member_id = $(this).attr 'data-id'
+  $('.member_more_info a').live 'hover', ->
+    member_id = $(this).parent().parent().attr 'data-id'
 
     $member_type_to_hide = $('.member_type_detailed_container').find '.active_member_type'
     $member_type_to_hide.removeClass 'active_member_type'
