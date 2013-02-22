@@ -1,12 +1,17 @@
 %tr{:member_type => member_type.id}
-  %td.name= link_to member_type.name, admin_member_type_path(member_type)
+  %td.title= link_to member_type.title, admin_member_type_path(member_type)
   %td.description= h(simple_format(member_type.description))
-  %td.price= number_to_currency(member_type.price, :precision => 2)
+  %td.prices
+    %p
+      Min: #{ number_to_currency(member_type.min_price, precision: 2) }
+    %p
+      Max: #{ number_to_currency(member_type.max_price, precision: 2) }
   %td.limits
     %p
       Projected: #{ member_type.projected_members }
     %p
       Maximum: #{ member_type.maximum_members_string }
+  %td.value= member_type.value
   %td.options
     = edit_model_link member_type
     = destroy_model_link member_type

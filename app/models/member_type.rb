@@ -3,8 +3,10 @@ class MemberType < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
 
-  validates :projected_members, numericality: { :greater_than => 0, only_integer: true }
-  validates :maximum_members, numericality: { :greater_than_or_equal_to => 0, only_integer: true }
+  validates :projected_members, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  validates :maximum_members, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  validates :min_price_in_cents, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  validates :max_price_in_cents, numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
@@ -12,19 +14,48 @@ class MemberType < ActiveRecord::Base
 
   has_attached_file :image
 
-  def price=(num)
-    @price = num.to_i
+  %w(min max).each do |str|
+    # defines two setters:
+    # min_price=
+    # max_price=
+    # this is used by formtastic
+
+    price_setter = "#{str}_price=".to_sym
+    define_method price_setter do |num|
+      instance_variable_set("@#{str}_price", num)
+    end
+
+
+    # defines the accessors for the decimal price
+    # min_price
+    # max_price
+    # we use this in the views
+    # could be relpaced by a view helper
+    price_getter = "#{str}_price".to_sym
+    define_method price_getter do
+      val = self.send("#{price_getter}_in_cents".to_sym)
+      val / 100
+    end
+
+    # defines the callback that transforms the users input into an integer
+    # set_min_price_in_cents
+    # set_max_price_in_cents
+    # rather metaprogrammed all in one block
+    # than in two sepparate blocks
+
+    db_col_name = "#{str}_price_in_cents".to_sym
+    callback_name = "set_#{db_col_name}".to_sym
+    define_method callback_name do
+      orig_price_in_cents = send(db_col_name)
+      sent_price_in_cents = instance_variable_get("@#{str}_price").to_i
+      if sent_price_in_cents != (orig_price_in_cents / 100)
+        send("#{db_col_name}=", sent_price_in_cents * 100)
+      end
+    end
+
+    before_save callback_name
   end
 
-  def price
-    price_in_cents / 100
-  end
-
-  before_save :set_price_in_cents
-
-  def set_price_in_cents
-    self.price_in_cents = @price.to_i * 100 if @price.to_i * 100 != price_in_cents
-  end
 
   # the hash representing this model that is returned by the api
   def api_attributes

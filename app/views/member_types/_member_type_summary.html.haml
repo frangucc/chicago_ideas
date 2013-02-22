@@ -3,10 +3,10 @@
     = image_tag(member_type.image.url, width: 40, heigth: 40)
     .member_name_price
       %p
-        = truncate member_type.name, :length => 20
+        = truncate member_type.title, :length => 20
         %br
         Price:
-        = number_to_currency member_type.price
+        = member_type_price(member_type)
   .member_more_info
     = link_to 'More Info', '', :class => 'gray_btn'
   .member_buy

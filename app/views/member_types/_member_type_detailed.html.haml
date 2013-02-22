@@ -4,14 +4,14 @@
     .detailed_title_projected
       = link_to 'BUY NOW', payment_path(:member_id => member_type.id), :class => 'blue_btn'
       %p.detailed_title
-        = member_type.name
+        = member_type.title
         %br
         Price:
-        = number_to_currency member_type.price
+        = member_type_price(member_type)
       %p.detailed_projected
         (projected members=#{ member_type.projected_members }, maximum=#{ member_type.maximum_members_string })
   %p.detailed_content
     = member_type.description
   %p.detailed_total
     Value =
-    = number_to_currency member_type.price
+    = member_type.value
