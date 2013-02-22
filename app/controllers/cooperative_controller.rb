@@ -15,6 +15,7 @@ class CooperativeController < ApplicationController
 
     if @resource.save
       CooperativeMailer.send_form(@resource).deliver
+      CooperativeMailer.thank_you_application(@resource).deliver
 
       respond_to do |format|
         format.html { redirect_to thankyou_cooperative_index_path }
