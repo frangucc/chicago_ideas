@@ -32,12 +32,27 @@ ul.list-expand{
     }
   }
 }
-	ul.list-expand li.top_level {background:url(application/bg-border.png) top left repeat-x; margin:0; padding:0; overflow:hidden; color:#666; padding:45px 25px 45px 20px }
-	ul.list-expand li.top_level h3 {float:left; width:440px; font-size:16px; font-weight:bold; color:#666}
-	ul.list-expand li.top_level a.expand-btn { font-size:14px; color:#666666; float:right}
-	ul.list-expand li.top_level a.expand-btn  i {background:url(application/expand.png) top left no-repeat; width:17px; height:16px; display:inline-block; vertical-align:middle; margin-right:2px;}
-	ul.list-expand li.top_level a.expand-btn:hover {text-decoration:none}
-	.hide-expand {display:none;}
+
+ul.list-expand li.top_level {background:url(application/bg-border.png) top left repeat-x; margin:0; padding:0; overflow:hidden; color:#666; padding:45px 25px 45px 20px }
+ul.list-expand li.top_level h3 {float:left; width:440px; font-size:16px; font-weight:bold; color:#666}
+ul.list-expand li.top_level a.expand-btn { font-size:14px; color:#666666; float:right}
+ul.list-expand li.top_level a.expand-btn  {
+  i {
+    width: 17px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+  }
+  .expand {
+    background: url(application/expand.png) top left no-repeat;
+  }
+  .contract {
+    background: url(application/contract.png) top left no-repeat;
+  }
+}
+ul.list-expand li.top_level a.expand-btn:hover {text-decoration:none}
+.hide-expand {display:none;}
 
 ul.list-expand li.top_level #member_exp ol li {
   list-style-type: decimal;

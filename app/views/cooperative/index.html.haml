@@ -40,7 +40,7 @@
         %ul.list-expand
           %li.top_level
             %h3 Co-op Member Benefits
-            = link_to "<i></i>click here to expand".html_safe, "#member_benefits", class: "expand-btn"
+            = link_to "<i class='expand'></i>click here to expand".html_safe, "#member_benefits", class: "expand-btn"
             #member_benefits.hide-expand
               %ol
                 %li Invites to three (3) core Co-op events, as well as opportunities for select invites to supplementary group meet-ups intimate gatherings throughtout the year
@@ -53,7 +53,7 @@
                 %li Potential CIW Lab opportunities
           %li.top_level
             %h3 Members at a Glance
-            = link_to "<i></i>click here to expand".html_safe, "#member_glance", class: "expand-btn"
+            = link_to "<i class='expand'></i>click here to expand".html_safe, "#member_glance", class: "expand-btn"
             #member_glance.hide-expand
               %ol
                 %li 75-100 members
@@ -63,7 +63,7 @@
                 %li Collectively challenging the status quo related to their own ventures and driven to use connections and platform to better serve the community in innovative, creative and collaborative ways
           %li.top_level
             %h3 Members Expectations and Requirements
-            = link_to "<i></i>click here to expand".html_safe, "#member_exp", class: "expand-btn"
+            = link_to "<i class='expand'></i>click here to expand".html_safe, "#member_exp", class: "expand-btn"
             #member_exp.hide-expand
               %ol
                 %li Must be operating founder, CEO, key stakeholder of organization OR individual championing social change, innovation, arts &amp; culture, education reform or similar impactful initiative/something of consequence in the City of Chicago
@@ -95,11 +95,11 @@
       e.preventDefault();
       content_element = $(this).attr('href');
       $(content_element).toggleClass('hide-expand');
-      
+
       if($(this).html().indexOf("expand") > 0){
-        $(this).html("<i></i>click here to contract");
+        $(this).html("<i class='contract'></i>click here to contract");
       }else{
-        $(this).html("<i></i>click here to expand");
+        $(this).html("<i class='expand'></i>click here to expand");
       }
     });
   });
