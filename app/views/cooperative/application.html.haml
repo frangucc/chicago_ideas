@@ -94,6 +94,10 @@
                 .red= @resource.errors[:recommend].first
         .row
           = f.submit "Submit Application", class: "btn submit form-submit"
+
+    #sidebar
+      = render "partials/social"
+      = render "partials/newsletter_form"
   .clr
 
 = render :partial => 'shared/thank_you_modal',
