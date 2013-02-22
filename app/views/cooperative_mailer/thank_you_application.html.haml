@@ -1,0 +1,44 @@
+!!! 5
+%html
+  %head
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+    -#TODO: Move inline styles to asset pipeline.
+  %body
+    .application_email{ :style => 'width: 800px; border: 1px solid rgb(216, 216, 216)' }
+      .application_headline{ :style => 'width: 100%;' }
+        = image_tag 'application/cooperative/application_headline.png', :style => 'width: 100%;'
+      .application_main_content{ :style => 'width: 100%' }
+        %h1{ :style => 'color: rgb(83, 83, 83); font-size: 45px; width: 500px; margin: 30px auto; text-align: center;' }
+          We Just Want To Say Thank You!
+        %hr{ :style => 'width: 600px;' }
+        %p{ :style => 'width: 600px; margin: 30px auto 0 auto; font-size: 18px; color: rgb(83, 83, 83); line-height: 26px;' }
+          %span{ :style => 'color: rgb(85, 142, 192);' }
+            Hi, #{@cooperative_application.name},
+          %br
+          Thanks for applying to the Co-op! On behalf of everybody at CIW, we appreciate your interest and ethusiasm - we couldn't do this without you!
+        %p{ :style => 'width: 600px; margin: 30px auto 0 auto; font-size: 18px; color: rgb(83, 83, 83); line-height: 26px;' }
+          We'll be in touch within the next few weeks. In the meantime, feel free to connect with us on Facebook and Twitter!
+        %p{ :style => 'width: 600px; margin: 30px auto 0 auto; font-size: 18px; color: rgb(83, 83, 83); line-height: 26px;' }
+          Thanks,
+          %br
+          Kelly Hagler
+          %br
+          Program &amp; Community Manager
+          %br
+          %strong
+            = mail_to 'kelly@chicagoideas.com'
+          %br
+          312-765-7819
+      .application_footer{ :style => 'width: 100%; background-color: rgb(246, 246, 246); margin-top: 50px; border-top: 1px solid rgb(215, 215, 215);' }
+        %div{ :style => 'width: 600px; overflow: hidden; margin: 0 auto; padding: 40px;' }
+          %p{ :style => 'float: left; width: 280px; font-size: 18px; color:rgb(91, 91, 91); line-height: 26px;' }
+            %strong
+              Let's make an impact together
+            %br
+            Help share your experience with CIW on social media. Please get involved.
+          .membership_contacts{ :style => 'float: left; margin-top: 40px; margin-left: 10px;' }
+            = link_to (image_tag 'email/facebook.png'),    '#'
+            = link_to (image_tag 'email/twitter.png'),     '#', :style => 'margin-left: 20px;'
+            = link_to (image_tag 'email/linkedin.png'),    '#', :style => 'margin-left: 20px;'
+            = link_to (image_tag 'email/google_plus.png'), '#', :style => 'margin-left: 20px;'
+      .clearfix{ :style => 'clear: both;' }

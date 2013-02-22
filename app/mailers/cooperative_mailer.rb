@@ -9,4 +9,9 @@ class CooperativeMailer < ActionMailer::Base
     mail(:to => 'kelly@chicagoideas.com')
   end
 
+  def thank_you_application(cooperative_application)
+    @cooperative_application = cooperative_application
+    mail(:to => @cooperative_application.email)
+  end
+
 end
