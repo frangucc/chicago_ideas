@@ -9,15 +9,15 @@
       %li= link_to "Jobs", jobs_path, :rel => "bookmark", :title => "Jobs at CIW"
       %li= link_to "FAQ", faq_path, :rel => "bookmark", :title => "Frequently Asked Questions"
       %li= link_to "Contact", contact_path, :rel => "bookmark", :title => "Contact"
-    
+
 %li#gn_videos
   = link_to "Videos", year_videos_path(@current_year), :rel => "bookmark", :title => "View all CIW Talks Videos"
-    
+
 %li#gn_edison_talks
   = link_to "Edison Talks", edison_path, :title => "Edison Talks"
-   
+
 %li#gn_partners.nav_parent
-  = link_to "Supporters", sponsors_path, :rel => "bookmark", :title => "View the CIW Partners"
+  = link_to "Support Us", sponsors_path, :rel => "bookmark", :title => "View the CIW Partners"
   .dropdown
     %ul
       %li= link_to "Sponsors", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
@@ -26,28 +26,28 @@
       %li= link_to "The Cooperative", cooperative_index_path, :rel => "bookmark", :title => "View Community Partners"
       %li= link_to "Become a Supporter", support_path, :rel => "bookmark", :title => "Become a Supporter"
       %li= link_to "Become a Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Become a Volunteer"
-          
-          
+
+
 %li#gn_special_programs.nav_parent
   = link_to "Special Programs & Awards", special_programs_path, :rel => "bookmark", :title => "Special Programs & Awards"
   .dropdown
-    %ul      
+    %ul
       %li= link_to "Project You(th)", project_youth_path, :rel => "bookmark", :title => "Project You(th)"
       %li= link_to "ThinkChicago", thinkchicago_path, :rel => "bookmark", :title => "ThinkChicago"
       %li= link_to "#WhatIfChicago", whatifchicago_path, :rel => "bookmark", :title => "View #WhatIfChicago"
       %li= link_to "Bluhm/Helfand Social Innovation Fellowship", blum_helfand_path, :rel => "bookmark", :title => "Bluhm/Helfand Social Innovation Fellowship"
       %li= link_to "CIW Artist in Residence", artist_path, :rel => "bookmark", :title => "View CIW Artist in Residence"
-    
-    
+
+
 %li#gn_newsroom.nav_parent
   = link_to link_to "Newsroom", newsroom_path, :rel => "bookmark", :title => "View Newsroom"
   .dropdown
-    %ul 
+    %ul
       %li= link_to link_to "In the News", press_clippings_path, :rel => "bookmark", :title => "View News Releases"
       %li= link_to link_to "Press Releases", press_releases_path, :rel => "bookmark", :title => "View Press Releases"
       %li= link_to "Blog", "http://blog.chicagoideas.com", :title => "CIW Blog", :target => "_blank"
-     
-    
+
+
 %li#nav_user.nav_parent{:style => 'display:none;'}
   = link_to "My Account", user_root_path, :id => 'users_full_name'
   .dropdown
@@ -61,6 +61,6 @@
     = link_to "Login", new_user_session_path, :title => "Login"
     .dropdown#dd_login_form
       = render "partials/login_form"
- 
+
 %li#gn_search
   = render "layouts/application/search"
