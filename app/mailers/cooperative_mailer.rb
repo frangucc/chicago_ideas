@@ -1,12 +1,12 @@
 class CooperativeMailer < ActionMailer::Base
 
-  default :from => "forms@chicagoideas.com"
-  default :to => "kelly@chicagoideas.com"
+  default :from    => 'kelly@chicagoideas.com'
   default :subject => "Cooperative Application Form Submission"
 
-  def send_form
+  def send_form(cooperative_application)
     #attachments[filename] = File.read("#{Rails.root}/tmp/#{filename}");
-    mail()
+    @cooperative_application = cooperative_application
+    mail(:to => 'kelly@chicagoideas.com')
   end
 
 end

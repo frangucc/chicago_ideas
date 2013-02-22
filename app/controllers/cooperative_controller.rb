@@ -14,7 +14,8 @@ class CooperativeController < ApplicationController
     #@resource.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
 
     if @resource.save
-      CooperativeMailer.send_form.deliver
+      CooperativeMailer.send_form(@resource).deliver
+
       respond_to do |format|
         format.html { redirect_to thankyou_cooperative_index_path }
         format.js   { render :nothing => true, :status => 200 }
