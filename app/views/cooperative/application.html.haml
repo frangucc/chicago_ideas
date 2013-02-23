@@ -3,12 +3,16 @@
   .banner_wrapper{:style => "background: url(#{asset_path "application/ciw_banner.jpg"}) top center no-repeat;"}
 .bg-white.clearfix
   #page.coop_application
-    = semantic_form_for @resource, url: cooperative_index_path, method: :post, :remote => true do |f|
-      .left-column
+    #page_header
+      #page_title.left
         %h1.head-page-tab
           CIW 2013: Co-op Application
-        .desc-page
+        .desc-page.application_desc
           Thanks for applying to The Cooperative! But just in case something crazy happens, we recommend you save all your entries before submitting. If you experience technical problems or if you have any questions, please contact Kelly@chicagoideas.com.
+      = render "partials/share"
+
+    = semantic_form_for @resource, url: cooperative_index_path, method: :post, :remote => true do |f|
+      .left-column
         %fieldset.inputs
           .head-box-form.icon3
             %p

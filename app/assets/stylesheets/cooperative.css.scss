@@ -107,7 +107,7 @@ a{
 #page {width:1060px; margin:0 auto; padding:30px 0; background-color:#fff}
 
 #page h1.head-page-tab {
-  font-size: 49px;
+  font-size: 49px !important;
   border-bottom: none;
   height: auto;
   line-height: normal;
@@ -221,3 +221,11 @@ a{
 	.bor-top {border-top:#dcdcdc 1px solid; margin-top:20px; padding-top:25px;}
 	.wrap-row-form.bor-top .wrap-form {margin-bottom:20px;}
 .box-upload-file {background-color:#f8f8f8; border-top:#e6e6e6 1px solid; border-bottom:#e6e6e6 1px solid; padding:23px 35px; width:90%; margin-bottom:30px;}
+
+.application_desc {
+  margin: 30px auto 0 auto !important;
+}
+
+.coop_application #sidebar {
+  margin-top: -90px;
+}
