@@ -7,7 +7,19 @@
     .member_type_detailed_container
       - member_types.each do |member_type|
         = render 'member_types/member_type_detailed', :member_type => member_type
-      = render 'member_types/membership_info'
+
+      #membership_info.member_detailed.active_member_type
+        = image_tag 'application/member_types/think_out_loud.png'
+        %p
+          %strong Chicago Ideas Week
+          is a 501c3 non-profit organization that brings hundreds of speakers from across the globe to present on a cross section of topics. With the goal of establishing a more informed, connected and enlightened community, CIW strives to be the most inclusive and accessible ideas platform. Through exposure to global thought leaders and unique behind-the-scenes experiences, we aim to inspire creative solutions, catalyze connections, and build an even richer, more vibrant world.
+        %p
+          Your support allows us to provide world-class, affordable programming to a wide audience that's open to any and all passionate thinkers and doers. Your generous support has also enabled us to provide complimentary CIW tickets to a diverse and far-reaching group of extraordinary individuals who are interested in innovation and taking action to make our community a better place.
+        %p
+          %strong
+            Please Note:
+          Our Member Program is reserved for individual patrons only, except for our Business Council Member level. Only your name will be listed on our website and in our CIW Show Guide. Unfortunately we cannot include the name of your company or organization.
+
     .member_types_summaries
       %p.join_membership
         Join our Membership Programs
