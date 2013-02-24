@@ -19,6 +19,12 @@
     #membership_form_section.column_row
       = semantic_form_for(@order, url: '/payment', method: :post, :remote => true) do |f|
         .form_section
+          %span.form_section_header Contribution Amount
+          %hr.form_section_separator
+          = f.inputs :class => "v_lists c_list" do
+            = amount_field(f, @order)
+
+        .form_section
           %span.form_section_header Billing Information
           %hr.form_section_separator
           .form_errors
@@ -43,7 +49,6 @@
             - opts = { :as => :string, :required => true }
             - opts.merge!({ :value => "370000000000002" }) if Rails.env == 'development'
             = f.input :card_number, opts
-            = amount_field(f, @order)
             = f.inputs :class => 'form_expdate_cvc' do
               = f.input :expiry_date,   :as => :string, :required => true, :label => 'Exp Date', :placeholder => 'MMYY'
               = f.input :cvc,           :as => :string, :required => true, :label => "CVC"

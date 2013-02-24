@@ -113,8 +113,12 @@ module ApplicationHelper
   end
 
   def amount_field(form_obj, order)
-    unless order.member_type.has_fixed_price?
-      form_obj.input :amount, :as => :string, :required => true, :hint => "Please enter the amount you wish to contribute. (Minimum: #{ number_to_currency(order.member_type.min_price) }, Maximum: #{ number_to_currency(order.member_type.max_price) })"
+    opts = { :as => :string, :required => true }
+    if order.member_type.has_fixed_price?
+      opts.merge!({ :hint => "You will be charged for #{ number_to_currency(order.member_type.max_price) }", :input_html => { :disabled => true, :value => order.member_type.max_price } })
+    else
+      opts.merge!({ :hint => "Enter the amount you wish to contribute. (Minimum: #{ number_to_currency(order.member_type.min_price) }, Maximum: #{ number_to_currency(order.member_type.max_price) })" })
     end
+    form_obj.input :amount, opts
   end
 end
