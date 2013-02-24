@@ -7,7 +7,7 @@ gem 'nested_form'
 gem 'mysql2'
 gem 'foreigner'
 # mongodb is perfect for logging and analytics which we care less about
-gem "mongoid", '2.4.2'
+# gem "mongoid", '2.4.2'
 gem "bson_ext"
 
 # Bundle the extra gems:
