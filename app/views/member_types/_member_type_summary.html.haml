@@ -3,7 +3,7 @@
     = image_tag(member_type.image.url, width: 40, heigth: 40)
     .member_name_price
       %p
-        = truncate member_type.title, :length => 20
+        = truncate(member_type.title, :length => 29)
         %br
         Price:
         = member_type_price(member_type)

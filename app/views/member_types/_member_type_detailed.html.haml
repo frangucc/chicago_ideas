@@ -8,9 +8,8 @@
         %br
         Price:
         = member_type_price(member_type)
-      %p.detailed_projected
-        (projected members=#{ member_type.projected_members }, maximum=#{ member_type.maximum_members_string })
-  = simple_format member_type.description, :class => 'detailed_content'
-  %p.detailed_total
-    Value =
-    = member_type.value
+
+  .detailed_content
+    %ul
+      - member_type.description.split("\r\n").reject { |i| i.empty? }.each do |line|
+        %li= h(line)
