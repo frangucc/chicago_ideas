@@ -24,19 +24,21 @@
         display: none;
         padding-right: 30px;
         .detailed_header {
-          img {
+          .img_container {
             float: left;
+            width: 129px;
           }
           .detailed_title_projected {
             float: left;
-            width: 369px;
-            margin: 15px auto auto 30px;
+            width: 354px;
+            margin: 15px auto auto 15px;
+            border-bottom: 1px solid rgb(160, 154, 154);
             .blue_btn {
               float: right;
-              font-size: 17px;
+              font-size: 15px;
               font-weight: normal;
               width: 90px;
-              padding: 8px;
+              padding: 5px 0;
             }
             .detailed_title {
               margin-bottom: 0;
@@ -44,7 +46,6 @@
               color: #262223;
               font-weight: bold;
               font-size: 23px;
-              border-bottom: 1px solid rgb(160, 154, 154);
             }
             .detailed_projected {
               padding-top: 15px;

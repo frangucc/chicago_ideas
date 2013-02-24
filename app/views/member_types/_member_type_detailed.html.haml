@@ -1,6 +1,6 @@
 %div{ :id => "member_type_#{member_type.id}", :class => 'member_detailed' }
   .detailed_header.group
-    = image_tag member_type.image.url
+    .img_container= image_tag member_type.image.url
     .detailed_title_projected
       = link_to 'BUY NOW', payment_path(:member_id => member_type.id), :class => 'blue_btn'
       %p.detailed_title
