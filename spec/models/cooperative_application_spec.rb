@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe CooperativeApplication do
 
-  let(:co_app) { FactoryGirl.build(:cooperative_application) }
+  let(:co_app) { CooperativeApplication.new }
 
   ['name', 'last_name', 'organization', 'phone', 'email', 'org_mission', 'org_website', 'org_twitter', 'reason', 'worked_on', 'part_meaningful', 'ins_failure', 'neighborhood', 'assisted_area', 'recommend'].each do |attr|
     it "should require #{attr}" do
