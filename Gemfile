@@ -75,6 +75,7 @@ end
 # useful in development
 group :development do
   gem 'guard'
+  gem 'guard-rspec'
   # the debugger
   #gem 'ruby-debug19', :require => 'ruby-debug'
 end
