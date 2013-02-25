@@ -74,6 +74,7 @@ end
 
 # useful in development
 group :development do
+  gem 'guard'
   # the debugger
   #gem 'ruby-debug19', :require => 'ruby-debug'
 end
