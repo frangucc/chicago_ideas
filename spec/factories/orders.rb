@@ -7,7 +7,6 @@ FactoryGirl.define do
     state        'Texas'
     card_number  123456789
     zip          11400
-    password     'password'
     expiry_date  2215
     cvc          123
   end
