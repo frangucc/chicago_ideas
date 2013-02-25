@@ -25,3 +25,4 @@ db/sphinxconfig/development.sphinx.conf
 config/database.yml
 config/mongoid.yml
 config/amazon_s3.yml
+coverage

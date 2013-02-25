@@ -91,6 +91,7 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'simplecov', :require => false
 end
 
 # test-only gems (accessable to development so their generators and rake tasks are available)
