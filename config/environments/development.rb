@@ -21,21 +21,19 @@ CraigsAdmin::Application.configure do
 
   # Enable serving of email images
   config.action_mailer.asset_host = "http://localhost:3000"
-  config.action_mailer.default_url_options = {:host => 'localhost:3000'}
-
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   # mail configuration
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => ENV['GMAIL_DOMAIN'],
-    :user_name            => ENV['GMAIL_USER_NAME'],
-    :password             => ENV['GMAIL_PASSWORD'],
-    :authentication       => 'plain',
-    :enable_starttls_auto => true
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :user_name            => 'mytest1221@gmail.com',
+  :password             => '1234qwerQ',
+  :authentication       => 'plain',
+  :enable_starttls_auto => true
   }
 
   #ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)

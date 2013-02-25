@@ -20,11 +20,21 @@ class Order < ActiveRecord::Base
   validates :cvc, :presence => true, :length => { :is => 3 }, :numericality => true
 
   validate :amount_should_match_member_types
+  before_validation :assign_total_in_cents
+
+  def assign_total_in_cents
+    total_in_cents = amount.to_f * 100
+  end
 
   def amount_should_match_member_types
-    self.amount = member_type.has_fixed_price? ? member_type.min_price : amount.to_f
-    if amount.to_f <= member_type.min_price || amount.to_f >= member_type.max_price
-      errors.add(:amount, "Must be between #{ member_type.min_price } and #{ member_type.max_price }")
+    fixed_amount_expected = member_type.has_fixed_price?
+    self.amount = fixed_amount_expected ? member_type.max_price.to_f : self.amount.to_f
+    if amount < member_type.min_price || amount > member_type.max_price
+      if fixed_amount_expected
+        errors.add(:amount, "must be #{ member_type.max_price }")
+      else
+        errors.add(:amount, "must be between #{ member_type.min_price } and #{ member_type.max_price }")
+      end
     end
   end
 
@@ -38,7 +48,6 @@ class Order < ActiveRecord::Base
       response = transaction.purchase(amount, credit_card)
       if response.success?
         # TODO: Serialize
-        order.total_in_cents = amount*100
         save
         return true
       else

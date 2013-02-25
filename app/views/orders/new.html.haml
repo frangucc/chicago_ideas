@@ -22,7 +22,7 @@
           %span.form_section_header Contribution Amount
           %hr.form_section_separator
           = f.inputs :class => "v_lists c_list" do
-            = amount_field(f, @order)
+            = f.input :amount, opts_for_amount(@order)
 
         .form_section
           %span.form_section_header Billing Information
@@ -47,12 +47,13 @@
                   %li= image_tag 'application/orders/billing_card3.png'
                   %li= image_tag 'application/orders/billing_card4.png'
             - opts = { :as => :string, :required => true }
-            - opts.merge!({ :value => "370000000000002" }) if Rails.env == 'development'
+            - opts.merge!({ :input_html => { :value => "370000000000002" } }) if Rails.env == 'development'
             = f.input :card_number, opts
             = f.inputs :class => 'form_expdate_cvc' do
               = f.input :expiry_date,   :as => :string, :required => true, :label => 'Exp Date', :placeholder => 'MMYY'
               = f.input :cvc,           :as => :string, :required => true, :label => "CVC"
             = f.input :zip,             :as => :string, :required => true, :label => "Zip Code"
+
         = f.buttons do
           = f.submit :value => "Confirm Purchase", :class => "btn submit", :id => "confirm_purchase"
     #membership_summary_section.colum_row

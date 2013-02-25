@@ -102,4 +102,5 @@ group :development, :test do
   # for devise generators
   gem 'hpricot'
   gem 'ruby_parser'
+  gem 'debugger'
 end
