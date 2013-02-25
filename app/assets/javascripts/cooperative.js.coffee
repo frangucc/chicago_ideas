@@ -20,6 +20,8 @@ $(document).ready ->
     $main_header = $('#wrapper > #main_header').detach()
     $('#wrapper').empty()
     $('#wrapper').html($main_header).append(data.responseText)
+    twttr.widgets.load()
+    FB.XFBML.parse()
   ).live('ajax:complete', (xhr, data, status) ->
     $.fancybox.hideActivity()
   )
