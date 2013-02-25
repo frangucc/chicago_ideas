@@ -19,7 +19,7 @@ describe CooperativeMailer do
 
     it 'should have proper content' do
       @email.body.should match(/Cooperative Application Information\./)
-      @email.body.should have_link('Application', :href => admin_cooperative_application_path(co_app))
+      @email.body.should have_link('Application', :href => admin_cooperative_application_url(co_app))
     end
 
   end
