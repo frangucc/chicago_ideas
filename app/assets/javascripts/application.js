@@ -15,6 +15,7 @@
 // =require order.js
 // =require cooperative.js
 // =require member_type.js
+// =require buttons.js
 
 // all pages on the front end of the website have the dynamic account links lazy loaded, this allows for the rest of the page to be cached by varnish, squid etc. and results in extremely fasy user experience
 $(document).ready(function(){
@@ -56,4 +57,8 @@ $(document).ready(function(){
 
   }, 'JSON');
 
+});
+
+stLight.options({
+  publisher: 'defcc141-a8b2-4734-8cde-5662ed8a4501'
 });
