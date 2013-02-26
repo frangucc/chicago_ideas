@@ -11,65 +11,54 @@
           Thank you for joining CIW's Member Program
       .membership_main_content{ :style => 'clear:both; width: 100%; display: inline-block; margin-top: 30px; padding-left: 50px;' }
         %div
-          %p{ :style => 'width: 350px; float: left; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
-            Hi, #{@order.name_on_card},
-            %br
-            Thank you for becoming a CIW Member!
-            %br
-            %br
-
-            With your support we are able to provide world-class,
-            accessible programming to a wide audience that's
-            inclusive to any and all passionate thinkers and doers.
-            Your generous contributions will also enable us to provide
-            complimentary tickets to 100 of the Midwest's
-            brightest students as part of ThinkChicago, support the
-            development of CIW YOU(th), which aims to inspire and
-            empower Chicago teens, and reward the hundreds of
-            dedicated volunteers that donate their time to CIW.
-            %br
-            %br
-
-            Included in your Ignition Member package you receive:
-            %br
-            %strong
-              \- 10% discount on all ticket sales
+          %div{ :style => 'width: 350px; float: left; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
+            %p
+              Hi, #{@order.name_on_card},
               %br
-              \- Insider Updates
-              %br
-              \- Member recognition on badges
+              Thank you for becoming a CIW Member!
+
+            %p
+              With your support we are able to provide world-class,
+              accessible programming to a wide audience that's
+              inclusive to any and all passionate thinkers and doers.
+              Your generous contributions will also enable us to provide
+              complimentary tickets to 100 of the Midwest's
+              brightest students as part of ThinkChicago, support the
+              development of CIW YOU(th), which aims to inspire and
+              empower Chicago teens, and reward the hundreds of
+              dedicated volunteers that donate their time to CIW.
+
+            %p
+              Included in your #{@order.member_type.title} package you receive:
+              %strong
+                %ul
+                  - @order.member_type.try(:description).split("\r\n").reject { |i| i.empty? }.each do |line|
+                    %li= h(line)
           .membership_pdf_receipt{ :style => 'float: left; margin-top: 80px; margin-left: 90px;' }
             = image_tag 'email/people.png', :style => 'display: block;'
             = link_to 'Download PDF of Receipt', '#', :style => 'display: block; margin-top: 30px; padding: 10px 25px; color: #FFF; font-size: 1.2em; font-weight: 700; border: 1px solid #0072BC; background-color: #0072BC; -webkit-box-shadow: inset 0px 1px 0px #45aef1;background-image: -webkit-linear-gradient(top, #1c91dc, #0072bc); border-radius: 3px; text-shadow: 1px 1px 1px #00548a; text-align: center; text-decoration: none'
-        %p{ :style => 'display: inline-block; width: 700px; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
-          Be sure to visit us at www.chicagoideasweek.com for more information and event updates. Have a
-          Member Program question? Please contact us at membership@chicagoideas.com or 312.999.5809.
-          %br
-          %br
-
-          Once again, thank you for being a part of our supportive community as we continue to grow in 2013.
-          We are very excited about this year's event, and we're glad to have you on board!
-          %br
-          %br
-
-          Best,
-          %br
-          Becky Ahasic
-          %br
-          Membership Manager
+        %div{ :style => 'display: inline-block; width: 700px; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
+          %p
+            Be sure to visit us at www.chicagoideasweek.com for more information and event updates. Have a
+            Member Program question? Please contact us at membership@chicagoideas.com or 312.999.5809.
+          %p
+            Once again, thank you for being a part of our supportive community as we continue to grow in 2013.
+            We are very excited about this year's event, and we're glad to have you on board!
+          %p
+            Best,
+            %br
+            Becky Ahasic
+            %br
+            Membership Manager
       .membership_footer{ :style => 'clear: both; width: 100%; display: inline-block; margin-top: 30px; padding-left: 50px; padding-top: 20px; padding-bottom: 20px; background: rgb(246, 246, 246); border: 1px solid rgb(217, 217, 217);' }
         %p{ :style => 'float: left; width: 350px; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
-          %strong
-            Let's make an impact together
+          %strong Let's make an impact together
           %br
           Help us spread the word about CIW through
-          %strong
-            twitter
+          %strong twitter
           and
-          %strong
-            Facebook
-          and don't forget to
-          check out our blog for CIW updates!
+          %strong Facebook
+          and don't forget to check out our blog for CIW updates!
         .membership_contacts{ :style => 'float: left; margin-left: 60px; margin-top: 50px;' }
           = link_to (image_tag 'email/facebook.png'),    member_types_url
           = link_to (image_tag 'email/twitter.png'),     member_types_url, :style => 'margin-left: 20px;'

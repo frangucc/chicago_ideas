@@ -10,5 +10,6 @@ FactoryGirl.define do
     zip           11400
     expiry_date   2215
     cvc           123
+    association   :member_type, :factory => :member_type
   end
 end
