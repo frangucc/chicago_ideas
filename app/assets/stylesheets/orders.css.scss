@@ -124,19 +124,17 @@
       }
       .member_type_info {
         float: left;
+        min-height: 80px;
         width: 250px;
-        padding-left: 10px;
+        padding-left: 30px;
         .member_type_name {
+          margin: 30px auto;
           color: rgb(14, 113, 195);
           font-weight: bold;
           font-size: 20px;
           .member_type_price {
             color: rgb(85, 85, 85);
           }
-        }
-        .member_type_description {
-          font-size: 13px;
-          line-height: 20px;
         }
       }
     }
