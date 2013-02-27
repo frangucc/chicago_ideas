@@ -35,7 +35,7 @@
                   - @order.member_type.try(:description).split("\r\n").reject { |i| i.empty? }.each do |line|
                     %li= h(line)
           .membership_pdf_receipt{ :style => 'float: left; margin-top: 80px; margin-left: 90px;' }
-            = image_tag 'email/people.png', :style => 'display: block;'
+            = link_to (image_tag 'email/people.png'), member_types_url, :style => 'display: block;'
             = link_to 'Download PDF of Receipt', '#', :style => 'display: block; margin-top: 30px; padding: 10px 25px; color: #FFF; font-size: 1.2em; font-weight: 700; border: 1px solid #0072BC; background-color: #0072BC; -webkit-box-shadow: inset 0px 1px 0px #45aef1;background-image: -webkit-linear-gradient(top, #1c91dc, #0072bc); border-radius: 3px; text-shadow: 1px 1px 1px #00548a; text-align: center; text-decoration: none'
         %div{ :style => 'display: inline-block; width: 700px; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
           %p
