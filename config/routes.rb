@@ -102,7 +102,7 @@ CraigsAdmin::Application.routes.draw do
 
 
   # memberships
-  resources :member_types, :only => [:index]
+  match 'memberships' => 'member_types#index'
 
   # checkout
   match 'payment' => 'orders#new', :via => :get
