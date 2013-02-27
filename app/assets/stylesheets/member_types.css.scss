@@ -24,6 +24,8 @@
         display: none;
         padding-right: 30px;
         .detailed_header {
+          border-bottom: 1px solid rgb(167, 160, 160);
+          padding-bottom: 12px;
           .img_container {
             float: left;
             width: 129px;
@@ -31,7 +33,7 @@
           .detailed_title_projected {
             float: left;
             width: 354px;
-            margin: 15px auto auto 15px;
+            margin: 28px auto 28px 12px;
             .blue_btn {
               float: right;
               padding: 8px 10px !important;
@@ -61,13 +63,19 @@
           }
         }
         .detailed_content {
-          padding-left: 60px;
           padding-top: 40px;
           padding-bottom: 40px;
           margin-bottom: 0;
           font-size: 13px;
           ul {
+            padding-left: 15px;
             list-style: circle;
+          }
+          p {
+            margin-top: 15px;
+            margin-bottom: 0;
+            font-size: 13px;
+            color: #262223;
           }
         }
         .detailed_total {

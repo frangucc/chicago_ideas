@@ -12,7 +12,8 @@
         - member_type.specific_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
           %li= h line
     - if member_type.general_benefits
-      %strong General Benefits
+      %p
+        %strong General Benefits:
       %ul
         - member_type.general_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
           %li= h line
