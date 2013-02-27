@@ -13,7 +13,7 @@
         %div
           %div{ :style => 'width: 350px; float: left; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
             %p
-              Hi, #{@order.name_on_card},
+              %span{ :style => 'color: #297cb9;' }  Hi, #{@order.name_on_card},
               %br
               Thank you for becoming a CIW Member!
 
@@ -39,8 +39,19 @@
             = link_to 'Download PDF of Receipt', '#', :style => 'display: block; margin-top: 30px; padding: 10px 25px; color: #FFF; font-size: 1.2em; font-weight: 700; border: 1px solid #0072BC; background-color: #0072BC; -webkit-box-shadow: inset 0px 1px 0px #45aef1;background-image: -webkit-linear-gradient(top, #1c91dc, #0072bc); border-radius: 3px; text-shadow: 1px 1px 1px #00548a; text-align: center; text-decoration: none'
         %div{ :style => 'display: inline-block; width: 700px; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
           %p
-            Be sure to visit us at www.chicagoideasweek.com for more information and event updates. Have a
-            Member Program question? Please contact us at membership@chicagoideas.com or 312.999.5809.
+            Help us spread the word about CIW through 
+            = link_to 'Twitter', 'https://twitter.com/chicagoideas', :style => 'color: #297cb9; text-decoration: none;'
+            and 
+            = link_to 'Facebook', 'https://www.facebook.com/ChicagoIdeasWeek', :style => 'color: #297cb9; text-decoration: none;'
+            and don't forget to check out our 
+            = link_to 'Blog', 'http://blog.chicagoideas.com/', :style => 'color: #297cb9; text-decoration: none;'
+          %p
+            Be sure to visit us at 
+            = link_to 'www.chicagoideasweek.com', 'http://www.chicagoideasweek.com', :style => 'color: #297cb9; text-decoration: none;'
+            for more information and event updates. Have a
+            Member Program question? Please contact us at 
+            = mail_to 'membership@chicagoideas.com', nil, :style => 'color: #297cb9; text-decoration: none;'
+            or 312.999.5809.
           %p
             Once again, thank you for being a part of our supportive community as we continue to grow in 2013.
             We are very excited about this year's event, and we're glad to have you on board!
@@ -60,7 +71,7 @@
           %strong Facebook
           and don't forget to check out our blog for CIW updates!
         .membership_contacts{ :style => 'float: left; margin-left: 60px; margin-top: 50px;' }
-          = link_to (image_tag 'email/facebook.png'),    member_types_url
-          = link_to (image_tag 'email/twitter.png'),     member_types_url, :style => 'margin-left: 20px;'
-          = link_to (image_tag 'email/linkedin.png'),    member_types_url, :style => 'margin-left: 20px;'
-          = link_to (image_tag 'email/google_plus.png'), member_types_url, :style => 'margin-left: 20px;'
+          = link_to (image_tag 'email/facebook.png'),    'https://www.facebook.com/ChicagoIdeasWeek'
+          = link_to (image_tag 'email/twitter.png'),     'https://twitter.com/chicagoideas',                    :style => 'margin-left: 20px;'
+          = link_to (image_tag 'email/linkedin.png'),    'www.linkedin.com/company/chicago-ideas-week',         :style => 'margin-left: 20px;'
+          = link_to (image_tag 'email/google_plus.png'), 'https://plus.google.com/113007296557109921813/posts', :style => 'margin-left: 20px;'
