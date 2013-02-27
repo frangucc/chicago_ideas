@@ -1,6 +1,7 @@
 %tr{:member_type => member_type.id}
   %td.title= link_to member_type.title, admin_member_type_path(member_type)
-  %td.description= h(simple_format(member_type.description))
+  %td.specific_benefits= h(simple_format(member_type.specific_benefits))
+  %td.general_benefits= h(simple_format(member_type.general_benefits))
   %td.prices
     %p
       Min: #{ number_to_currency(member_type.min_price, precision: 2) }
