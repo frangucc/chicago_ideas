@@ -41,7 +41,6 @@ describe CooperativeMailer do
       @email.body.should match(/We Just Want To Say Thank You\!/)
       @email.body.should match(/Hi, #{co_app.name},/)
       @email.body.should match(/Thanks for applying to the Co-op\! On behalf of everybody at CIW, we appreciate your interest and ethusiasm - we couldn't do this without you\!/)
-      @email.body.should match(/We'll be in touch within the next few weeks\. In the meantime, feel free to connect with us on Facebook and Twitter\!/)
       @email.body.should have_link('kelly@chicagoideas.com')
       @email.body.should match(/312-765-7819/)
     end

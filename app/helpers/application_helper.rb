@@ -1,5 +1,14 @@
 module ApplicationHelper
 
+  CIW_FACEBOOK_URL     = 'https://www.facebook.com/ChicagoIdeasWeek'
+  CIW_TWITTER_URL      = 'https://twitter.com/chicagoideas'
+  CIW_LINKEDIN_URL     = 'www.linkedin.com/company/chicago-ideas-week'
+  CIW_GPLUS_URL        = 'https://plus.google.com/113007296557109921813/posts'
+  CIW_BLOG_URL         = 'http://blog.chicagoideas.com/'
+  CIW_MEMBERSHIP_EMAIL = 'membership@chicagoideas.com'
+  CIW_FORMS_EMAIL      = 'forms@chicagoideas.com'
+  CIW_KELLY_EMAIL      = 'kelly@chicagoideas.com'
+
   def conditional_html( lang = "en", &block )
     fb_meta = "xml:lang='en' xmlns:fb='http://www.facebook.com/2008/fbml' xmlns:og='http://opengraphprotocol.org/schema/' xmlns='http://www.w3.org/1999/xhtml'"
     haml_concat Haml::Util::html_safe <<-"HTML".gsub( /^\s+/, '' )

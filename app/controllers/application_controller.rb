@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  helper :application
+
   # which pages are we caching
   before_filter :cache_rendered_page, :only => [:index, :contact, :team, :terms, :about, :special_programs_awards, :privacy, :volunteer]
   before_filter :get_sponsors
