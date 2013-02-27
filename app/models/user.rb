@@ -36,12 +36,12 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :sponsor_user, :allow_destroy => true
 
   # useful scopes
-  scope :admin, :conditions => { :admin => true }
-  scope :speaker, :conditions => { "is_speaker" => true }
-  scope :volunteer, :conditions => { "is_volunteer" => true }
-  scope :staff, :conditions => { :staff => true }
+  scope :admin,     conditions: { admin:        true }
+  scope :speaker,   conditions: { is_speaker:   true }
+  scope :volunteer, conditions: { is_volunteer: true }
+  scope :staff,     conditions: { staff:        true }
 
-  scope :current, joins(:years).where("years.id = #{DateTime.now.year}")
+  scope :current,  joins(:years).where("years.id = #{DateTime.now.year}")
   scope :archived, joins(:years).where("years.id != #{DateTime.now.year}")
 
   scope :by_name, order('name asc')
