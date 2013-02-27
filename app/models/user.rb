@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
   scope :speaker,   conditions: { is_speaker:   true }
   scope :volunteer, conditions: { is_volunteer: true }
   scope :staff,     conditions: { staff:        true }
+  scope :member,    conditions: { is_member:    true }
 
   scope :current,  joins(:years).where("years.id = #{DateTime.now.year}")
   scope :archived, joins(:years).where("years.id != #{DateTime.now.year}")
@@ -117,14 +118,14 @@ class User < ActiveRecord::Base
   }
 
   # send out the welcome email
-  after_create {|user|
-    if not self.is_admin_created.present? or (self.is_admin_created.present? and not self.is_admin_created)
+  after_create do |user|
+    if !self.is_admin_created.present? || (self.is_admin_created.present? && !self.is_admin_created)
       begin
-      ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
+        ApplicationMailer.welcome(user).deliver unless Rails.env == 'test'
       rescue
       end
     end
-  }
+  end
 
   validates :permalink, :presence => true, :uniqueness => true, :format => {:with => /^[\w\d_]+$/}
   #validate :validate_portrait_dimensions, :if => "portrait.present?", :unless => "errors.any?"
@@ -294,8 +295,8 @@ class User < ActiveRecord::Base
 
     def create_role_association
       case top_role
-        when 'is_speaker'
-          self.speakers.create(year_id: DateTime.now.year) unless self.years.map(&:id).include?(DateTime.now.year)
+      when 'is_speaker'
+        self.speakers.create(year_id: DateTime.now.year) unless self.years.map(&:id).include?(DateTime.now.year)
       end
     end
 end
