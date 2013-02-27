@@ -4,6 +4,7 @@
     .member_name_price
       %p
         = truncate(member_type.title, :length => 29)
+        Member
         %br
         Price:
         = member_type_price(member_type)

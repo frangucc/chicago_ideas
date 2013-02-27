@@ -5,6 +5,8 @@
       = link_to 'BUY NOW', payment_path(:member_id => member_type.id), :class => 'blue_btn'
       %p.detailed_title
         = member_type.title
+        %br
+        Member
 
   .detailed_content
     - if member_type.specific_benefits

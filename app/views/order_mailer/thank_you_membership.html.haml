@@ -29,7 +29,7 @@
               dedicated volunteers that donate their time to CIW.
 
             %p
-              Included in your #{@order.member_type.title} package you receive:
+              Included in your #{@order.member_type.title} Member package you receive:
               %strong
                 %ul
                   - @order.member_type.try(:specific_benefits).split("\r\n").reject { |i| i.empty? }.each do |line|
