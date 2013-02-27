@@ -51,7 +51,6 @@ GEM
     activesupport (3.1.11)
       multi_json (~> 1.0)
     addressable (2.3.2)
-    ansi (1.4.3)
     arel (2.2.3)
     authorize-net (1.5.2)
       nokogiri (~> 1.4)
@@ -95,7 +94,6 @@ GEM
       currencies (>= 0.4.0)
     currencies (0.4.0)
     dalli (2.6.0)
-    database_cleaner (0.9.1)
     debugger (1.3.1)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.1.1)
@@ -159,7 +157,6 @@ GEM
     highline (1.6.15)
     hike (1.2.1)
     hot_body (0.1.1)
-    hpricot (0.8.6)
     httparty (0.10.0)
       multi_json (~> 1.0)
       multi_xml
@@ -179,8 +176,6 @@ GEM
     koala (1.1.0)
       multi_json (~> 1.0)
       multipart-post (~> 1.0)
-    launchy (2.1.2)
-      addressable (~> 2.3)
     libwebsocket (0.1.7.1)
       addressable
       websocket
@@ -286,8 +281,6 @@ GEM
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
     ruby-hmac (0.4.0)
-    ruby_parser (3.1.1)
-      sexp_processor (~> 4.1)
     rubyzip (0.9.9)
     rvm-capistrano (1.2.7)
       capistrano (>= 2.0.0)
@@ -302,7 +295,6 @@ GEM
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
-    sexp_processor (4.1.3)
     simple_oauth (0.2.0)
     simplecov (0.7.1)
       multi_json (~> 1.0)
@@ -326,8 +318,6 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    turn (0.9.6)
-      ansi
     twitter (4.4.4)
       faraday (~> 0.8, < 0.10)
       multi_json (~> 1.0)
@@ -364,7 +354,6 @@ DEPENDENCIES
   coffee-rails (~> 3.1.1)
   countries
   dalli
-  database_cleaner
   debugger
   devise (= 1.5.3)
   devise_invitable
@@ -380,13 +369,11 @@ DEPENDENCIES
   guard-rspec
   haml
   hot_body (= 0.1.1)
-  hpricot
   httparty
   jquery-rails (= 1.0.14)
   json_output_helper (= 0.1.0)
   kaminari
   koala
-  launchy
   mysql2
   nested_form
   newrelic_rpm
@@ -397,13 +384,11 @@ DEPENDENCIES
   rails (= 3.1.11)
   redcarpet
   rspec-rails
-  ruby_parser
   rvm-capistrano
   sass-rails (~> 3.1.5)
   simplecov
   spatial_adapter
   thinking-sphinx (= 2.0.10)
-  turn
   twitter
   uglifier (>= 1.0.3)
   unicorn

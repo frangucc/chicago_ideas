@@ -89,8 +89,6 @@ group :assets do
 end
 
 group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
   gem 'simplecov', :require => false
 end
 
@@ -99,11 +97,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'capybara'
-  # gem 'cucumber-rails'
-  gem 'database_cleaner'
-  gem 'launchy'
-  # for devise generators
-  gem 'hpricot'
-  gem 'ruby_parser'
   gem 'debugger'
 end
