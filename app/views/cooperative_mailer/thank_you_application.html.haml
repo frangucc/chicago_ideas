@@ -12,12 +12,15 @@
           We Just Want To Say Thank You!
         %hr{ :style => 'width: 600px;' }
         %p{ :style => 'width: 600px; margin: 30px auto 0 auto; font-size: 18px; color: rgb(83, 83, 83); line-height: 26px;' }
-          %span{ :style => 'color: rgb(85, 142, 192);' }
+          %span{ :style => 'color: #297cb9;' }
             Hi, #{@cooperative_application.name},
           %br
           Thanks for applying to the Co-op! On behalf of everybody at CIW, we appreciate your interest and ethusiasm - we couldn't do this without you!
         %p{ :style => 'width: 600px; margin: 30px auto 0 auto; font-size: 18px; color: rgb(83, 83, 83); line-height: 26px;' }
-          We'll be in touch within the next few weeks. In the meantime, feel free to connect with us on Facebook and Twitter!
+          We'll be in touch within the next few weeks. In the meantime, feel free to connect with us on 
+          = link_to 'Facebook', 'https://www.facebook.com/ChicagoIdeasWeek', :style => 'color: #297cb9; text-decoration: none;'
+          and 
+          = link_to 'Twitter!', 'https://twitter.com/chicagoideas', :style => 'color: #297cb9; text-decoration: none;'
         %p{ :style => 'width: 600px; margin: 30px auto 0 auto; font-size: 18px; color: rgb(83, 83, 83); line-height: 26px;' }
           Thanks,
           %br
@@ -26,7 +29,7 @@
           Program &amp; Community Manager
           %br
           %strong
-            = mail_to 'kelly@chicagoideas.com'
+            = mail_to 'kelly@chicagoideas.com', nil, :style => 'color: #297cb9; text-decoration: none;'
           %br
           312-765-7819
       .application_footer{ :style => 'width: 100%; background-color: rgb(246, 246, 246); margin-top: 50px; border-top: 1px solid rgb(215, 215, 215);' }
@@ -37,8 +40,8 @@
             %br
             Help share your experience with CIW on social media. Please get involved.
           .membership_contacts{ :style => 'float: left; margin-top: 40px; margin-left: 10px;' }
-            = link_to (image_tag 'email/facebook.png'),    cooperative_index_url
-            = link_to (image_tag 'email/twitter.png'),     cooperative_index_url, :style => 'margin-left: 20px;'
-            = link_to (image_tag 'email/linkedin.png'),    cooperative_index_url, :style => 'margin-left: 20px;'
-            = link_to (image_tag 'email/google_plus.png'), cooperative_index_url, :style => 'margin-left: 20px;'
+            = link_to (image_tag 'email/facebook.png'),    'https://www.facebook.com/ChicagoIdeasWeek'
+            = link_to (image_tag 'email/twitter.png'),     'https://twitter.com/chicagoideas', :style => 'margin-left: 20px;'
+            = link_to (image_tag 'email/linkedin.png'),    'www.linkedin.com/company/chicago-ideas-week', :style => 'margin-left: 20px;'
+            = link_to (image_tag 'email/google_plus.png'), 'https://plus.google.com/113007296557109921813/posts', :style => 'margin-left: 20px;'
       .clearfix{ :style => 'clear: both;' }
