@@ -90,6 +90,7 @@ end
 
 group :test do
   gem 'simplecov', :require => false
+  gem "shoulda-matchers"
 end
 
 # test-only gems (accessable to development so their generators and rake tasks are available)
