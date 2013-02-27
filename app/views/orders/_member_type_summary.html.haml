@@ -3,5 +3,6 @@
   .member_type_info
     %p.member_type_name
       = truncate member_type.title, :length => 27
+      %br
       %span.member_type_price
         = member_type_price(member_type)
