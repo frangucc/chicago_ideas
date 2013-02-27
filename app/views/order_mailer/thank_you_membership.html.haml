@@ -32,8 +32,13 @@
               Included in your #{@order.member_type.title} package you receive:
               %strong
                 %ul
-                  - @order.member_type.try(:description).split("\r\n").reject { |i| i.empty? }.each do |line|
-                    %li= h(line)
+                  - @order.member_type.try(:specific_benefits).split("\r\n").reject { |i| i.empty? }.each do |line|
+                    %li= h line
+                - if @order.member_type.general_benefits
+                  General Benefits:
+                  %ul
+                    - @order.member_type.general_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
+                      %li= h line
           .membership_pdf_receipt{ :style => 'float: left; margin-top: 120px; margin-left: 90px;' }
             = link_to (image_tag @order.member_type.image, :width => '250px'), memberships_url, :style => 'display: block;'
             = link_to 'Download PDF of Receipt', '#', :style => 'display: block; margin-top: 30px; padding: 10px 25px; color: #FFF; font-size: 1.2em; font-weight: 700; border: 1px solid #0072BC; background-color: #0072BC; -webkit-box-shadow: inset 0px 1px 0px #45aef1;background-image: -webkit-linear-gradient(top, #1c91dc, #0072bc); border-radius: 3px; text-shadow: 1px 1px 1px #00548a; text-align: center; text-decoration: none'

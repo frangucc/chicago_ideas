@@ -7,6 +7,12 @@
         = member_type.title
 
   .detailed_content
-    %ul
-      - member_type.description.split("\r\n").reject { |i| i.empty? }.each do |line|
-        %li= h(line)
+    - if member_type.specific_benefits
+      %ul
+        - member_type.specific_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
+          %li= h line
+    - if member_type.general_benefits
+      %strong General Benefits
+      %ul
+        - member_type.general_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
+          %li= h line

@@ -21,8 +21,10 @@ describe OrderMailer do
       @email.body.should match(/Thank you for joining CIW's Member Program/)
       @email.body.should match(/Hi, #{order.name_on_card}/)
       @email.body.should match(/Included in your #{order.member_type.title} package you receive/)
-      order.member_type.try(:description).split("\r\n").reject { |i| i.empty? }.each do |line|
-        @email.body.should match(/#{line}/)
+      [:specific_benefits, :general_benefits].each do |benefit|
+        order.member_type.try(benefit).split("\r\n").reject { |i| i.empty? }.each do |line|
+          @email.body.should match(/#{line}/)
+        end
       end
     end
 
