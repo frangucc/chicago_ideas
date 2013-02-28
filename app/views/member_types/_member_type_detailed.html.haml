@@ -9,11 +9,14 @@
 
   .detailed_content
     - if member_type.specific_benefits
-      %ul
-        - member_type.specific_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
-          %li= h line
+      %p.detailed_highlighted_title
+        %strong Highlighted Benefits:
+      .detailed_highlighted_box
+        %ul
+          - member_type.specific_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
+            %li= h line
     - if member_type.general_benefits
-      %p
+      %p.detailed_general_title
         %strong General Benefits:
       %ul
         - member_type.general_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|

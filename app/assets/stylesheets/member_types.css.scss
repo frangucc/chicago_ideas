@@ -57,7 +57,7 @@
           }
         }
         .detailed_content {
-          padding-top: 40px;
+          padding-top: 15px;
           padding-bottom: 40px;
           margin-bottom: 0;
           font-size: 13px;
@@ -70,6 +70,15 @@
             margin-bottom: 0;
             font-size: 13px;
             color: #262223;
+          }
+          .detailed_highlighted_title {
+            font-size: 14px;
+          }
+          .detailed_highlighted_box {
+            background-color: #FFF;
+            border: 1px solid rgb(169, 169, 169);
+            margin-top: 10px;
+            padding: 20px;
           }
         }
         .detailed_total {
