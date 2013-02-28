@@ -26,40 +26,31 @@
         .detailed_header {
           border-bottom: 1px solid rgb(167, 160, 160);
           padding-bottom: 12px;
-          .img_container {
-            float: left;
-            width: 129px;
+          .blue_btn {
+            float: right;
+            padding: 8px 10px !important;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: normal;
+            text-align: center;
+            text-decoration: none;
+            width: 90px;
+            padding: 5px 0;
           }
-          .detailed_title_projected {
-            float: left;
-            width: 354px;
-            margin: 28px auto 28px 12px;
-            .blue_btn {
-              float: right;
-              padding: 8px 10px !important;
-              border-radius: 4px;
-              font-size: 15px;
-              font-weight: normal;
-              text-align: center;
-              text-decoration: none;
-              width: 90px;
-              padding: 5px 0;
-            }
-            .detailed_title {
-              margin-bottom: 0;
-              padding-bottom: 15px;
-              color: #262223;
-              font-weight: bold;
-              font-size: 28px;
-              line-height: 30px;
-            }
-            .detailed_projected {
-              padding-top: 15px;
-              color: rgb(18,117,197);
-              font-weight: bold;
-              font-size: 16px;
-              border-top: 1px solid white;
-            }
+          .detailed_title {
+            margin-bottom: 0;
+            padding-bottom: 15px;
+            color: #262223;
+            font-weight: bold;
+            font-size: 28px;
+            line-height: 30px;
+          }
+          .detailed_projected {
+            padding-top: 15px;
+            color: rgb(18,117,197);
+            font-weight: bold;
+            font-size: 16px;
+            border-top: 1px solid white;
           }
         }
         .detailed_content {
