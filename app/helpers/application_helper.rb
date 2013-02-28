@@ -10,6 +10,8 @@ module ApplicationHelper
   CIW_KELLY_EMAIL      = 'kelly@chicagoideas.com'
   CIW_INFO_EMAIL       = 'info@chicagoideas.com'
 
+  TK_SHOPCLASS_EMAIL   = 'tk@shopclass.co'
+
   def conditional_html( lang = "en", &block )
     fb_meta = "xml:lang='en' xmlns:fb='http://www.facebook.com/2008/fbml' xmlns:og='http://opengraphprotocol.org/schema/' xmlns='http://www.w3.org/1999/xhtml'"
     haml_concat Haml::Util::html_safe <<-"HTML".gsub( /^\s+/, '' )

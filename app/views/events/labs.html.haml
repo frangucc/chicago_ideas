@@ -59,7 +59,7 @@
             = link_to "Click here to apply!", "https://docs.google.com/spreadsheet/viewform?formkey=dFRadzR5dHp2ck9LSWVrTWxENS1YdVE6MQ", :target => "_blank"
           %p
             For questions and more information on CIW Labs, please email us 
-            =link_to "info@chicagoideas.com.", "mailto:info@chicagoideas.com"
+            = mail_to ApplicationHelper::TK_SHOPCLASS_EMAIL
     
     -# Labs List
     - if @labs.present?
