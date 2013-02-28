@@ -4,6 +4,8 @@
     %p.detailed_title
       = member_type.title
       Member
+      %br
+      %span.detailed_price= member_type_price(member_type)
 
   .detailed_content
     - if member_type.specific_benefits

@@ -120,9 +120,9 @@ module ApplicationHelper
   end
 
   def member_type_price(member_type)
-    price_str = number_to_currency(member_type.min_price)
+    price_str = number_to_currency(member_type.min_price, :precision => 0)
     unless member_type.has_fixed_price?
-      price_str += " - #{ number_to_currency(member_type.max_price) }"
+      price_str += " - #{ number_to_currency(member_type.max_price, :precision => 0) }"
     end
     price_str
   end
