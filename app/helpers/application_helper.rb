@@ -1,15 +1,18 @@
 module ApplicationHelper
 
+  # URLs
   CIW_FACEBOOK_URL     = 'https://www.facebook.com/ChicagoIdeasWeek'
   CIW_TWITTER_URL      = 'https://twitter.com/chicagoideas'
   CIW_LINKEDIN_URL     = 'www.linkedin.com/company/chicago-ideas-week'
   CIW_GPLUS_URL        = 'https://plus.google.com/113007296557109921813/posts'
   CIW_BLOG_URL         = 'http://blog.chicagoideas.com/'
+  LABS_DOC_URL         = 'https://docs.google.com/spreadsheet'
+
+  # EMAILS
   CIW_MEMBERSHIP_EMAIL = 'membership@chicagoideas.com'
   CIW_FORMS_EMAIL      = 'forms@chicagoideas.com'
   CIW_KELLY_EMAIL      = 'kelly@chicagoideas.com'
   CIW_INFO_EMAIL       = 'info@chicagoideas.com'
-
   TK_SHOPCLASS_EMAIL   = 'tk@shopclass.co'
 
   def conditional_html( lang = "en", &block )
