@@ -4,69 +4,66 @@
     %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
     -#TODO: Move inline styles to asset pipeline.
   %body
-    .membership_email{ :style => 'width: 800px;' }
-      .membership_headline{ :style => 'width: 100%; display: inline-block; padding: 30px 0; border-top: 2px solid rgb(43, 108, 171); border-bottom: 1px solid #000;' }
+    .membership_email{ :style => 'width: 850px;' }
+      .membership_headline{ :style => 'width: 850px; display: inline-block; padding: 30px 0; border-top: 2px solid rgb(43, 108, 171); border-bottom: 1px solid #000;' }
         = link_to (image_tag 'email/ciw_logo.png'), root_url, :style => 'float: left; margin-left: 50px;'
         %h1{ :style => 'width: 500px; float: left; color: rgb(83, 83, 83); margin-left: 80px; font-size: 3.4em;' }
           Thank you for joining CIW's Member Program
-      .membership_main_content{ :style => 'clear:both; width: 100%; display: inline-block; margin-top: 30px; padding-left: 50px;' }
-        %div
-          %div{ :style => 'width: 350px; float: left; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
-            %p
-              %span{ :style => 'color: #297cb9;' }  Hi, #{@order.name_on_card},
-              %br
-              Thank you for becoming a CIW Member!
+      .membership_main_content{ :style => 'clear:both; width: 800px; display: inline-block; margin-top: 30px; padding-left: 50px; color: rgb(91, 91, 91); line-height: 1.6em; font-size: 1.5em;' }
+        = link_to 'Download PDF of Receipt', '#', :style => 'float: right; margin-top: 20px; padding: 9px 25px; color: #FFF; font-size: 1em; border: 1px solid #0072BC; background-color: #0072BC; -webkit-box-shadow: inset 0px 1px 0px #45aef1;background-image: -webkit-linear-gradient(top, #1c91dc, #0072bc); border-radius: 3px; text-shadow: 1px 1px 1px #00548a; text-align: center; text-decoration: none'
+        %p
+          %span{ :style => 'color: #297cb9;' }  Hi, #{@order.name_on_card},
+          %br
+          Thank you for becoming a CIW Member!
 
-            %p
-              With your support we are able to provide world-class,
-              accessible programming to a wide audience that's
-              inclusive to any and all passionate thinkers and doers.
-              Your generous contributions will also enable us to provide
-              complimentary tickets to 100 of the Midwest's
-              brightest students as part of ThinkChicago, support the
-              development of CIW YOU(th), which aims to inspire and
-              empower Chicago teens, and reward the hundreds of
-              dedicated volunteers that donate their time to CIW.
+        %p{ :style => 'margin-top: 40px;' }
+          With your support we are able to provide world-class,
+          accessible programming to a wide audience that's
+          inclusive to any and all passionate thinkers and doers.
+          Your generous contributions will also enable us to provide
+          complimentary tickets to 100 of the Midwest's
+          brightest students as part of ThinkChicago, support the
+          development of CIW YOU(th), which aims to inspire and
+          empower Chicago teens, and reward the hundreds of
+          dedicated volunteers that donate their time to CIW.
 
-            %p
-              Included in your #{@order.member_type.title} Member package you receive:
-              %strong
-                %ul
-                  - @order.member_type.try(:specific_benefits).split("\r\n").reject { |i| i.empty? }.each do |line|
-                    %li= h line
-                - if @order.member_type.general_benefits
-                  General Benefits:
-                  %ul
-                    - @order.member_type.general_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
-                      %li= h line
-          .membership_pdf_receipt{ :style => 'float: left; margin-top: 120px; margin-left: 90px;' }
-            = link_to (image_tag @order.member_type.image, :width => '250px'), memberships_url, :style => 'display: block;'
-            = link_to 'Download PDF of Receipt', '#', :style => 'display: block; margin-top: 30px; padding: 10px 25px; color: #FFF; font-size: 1.2em; font-weight: 700; border: 1px solid #0072BC; background-color: #0072BC; -webkit-box-shadow: inset 0px 1px 0px #45aef1;background-image: -webkit-linear-gradient(top, #1c91dc, #0072bc); border-radius: 3px; text-shadow: 1px 1px 1px #00548a; text-align: center; text-decoration: none'
-        %div{ :style => 'display: inline-block; width: 700px; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
-          %p
-            Help us spread the word about CIW through 
-            = link_to 'Twitter', ApplicationHelper::CIW_TWITTER_URL, :style => 'color: #297cb9; text-decoration: none;'
-            and 
-            = link_to 'Facebook', ApplicationHelper::CIW_FACEBOOK_URL, :style => 'color: #297cb9; text-decoration: none;'
-            and don't forget to check out our 
-            = link_to 'Blog', ApplicationHelper::CIW_BLOG_URL, :style => 'color: #297cb9; text-decoration: none;'
-          %p
-            Be sure to visit us at 
-            = link_to 'www.chicagoideas.com', root_url, :style => 'color: #297cb9; text-decoration: none;'
-            for more information and event updates. Have a
-            Member Program question? Please contact us at 
-            = mail_to ApplicationHelper::CIW_MEMBERSHIP_EMAIL, nil, :style => 'color: #297cb9; text-decoration: none;'
-            or 312.999.5809.
-          %p
-            Once again, thank you for being a part of our supportive community as we continue to grow in 2013.
-            We are very excited about this year's event, and we're glad to have you on board!
-          %p
-            Best,
-            %br
-            Becky Ahasic
-            %br
-            Membership Manager
-      .membership_footer{ :style => 'clear: both; width: 100%; display: inline-block; margin-top: 30px; padding-left: 50px; padding-top: 20px; padding-bottom: 20px; background: rgb(246, 246, 246); border: 1px solid rgb(217, 217, 217);' }
+        %p{ :style => 'margin-top: 40px;' }
+          Included in your #{@order.member_type.title} Member package you receive:
+
+        - if @order.member_type.specific_benefits
+          %strong Highlighted Benefits:
+          %ul{ :style => 'font-weight: bold;' }
+            - @order.member_type.specific_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
+              %li= h line
+        - if @order.member_type.general_benefits
+          %strong General Benefits:
+          %ul{ :style => 'font-weight: bold;' }
+            - @order.member_type.general_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
+              %li= h line
+        %p{ :style => 'margin-top: 40px;' }
+          Help us spread the word about CIW through 
+          = link_to 'Twitter', ApplicationHelper::CIW_TWITTER_URL, :style => 'color: #297cb9; text-decoration: none;'
+          and 
+          = link_to 'Facebook', ApplicationHelper::CIW_FACEBOOK_URL, :style => 'color: #297cb9; text-decoration: none;'
+          and don't forget to check out our 
+          = link_to 'Blog', ApplicationHelper::CIW_BLOG_URL, :style => 'color: #297cb9; text-decoration: none;'
+        %p{ :style => 'margin-top: 40px;' }
+          Be sure to visit us at 
+          = link_to 'www.chicagoideas.com', root_url, :style => 'color: #297cb9; text-decoration: none;'
+          for more information and event updates. Have a
+          Member Program question? Please contact us at 
+          = mail_to ApplicationHelper::CIW_MEMBERSHIP_EMAIL, nil, :style => 'color: #297cb9; text-decoration: none;'
+          or 312.999.5809.
+        %p{ :style => 'margin-top: 40px;' }
+          Once again, thank you for being a part of our supportive community as we continue to grow in 2013.
+          We are very excited about this year's event, and we're glad to have you on board!
+        %p{ :style => 'margin-top: 40px;' }
+          Best,
+          %br
+          Becky Ahasic
+          %br
+          Membership Manager
+      .membership_footer{ :style => 'clear: both; width: 800px; display: inline-block; margin-top: 30px; padding-left: 50px; padding-top: 20px; padding-bottom: 20px; background: rgb(246, 246, 246); border: 1px solid rgb(217, 217, 217);' }
         %p{ :style => 'float: left; width: 350px; font-size: 1.5em; color:rgb(91, 91, 91); line-height: 1.6em;' }
           %strong Let's make an impact together
           %br
