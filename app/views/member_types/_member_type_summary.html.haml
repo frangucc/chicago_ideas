@@ -6,7 +6,6 @@
       %br
       Price:
       = member_type_price(member_type)
-  .member_more_info
+  .member_buttons
     = link_to 'More Info', '#', :class => 'gray_btn'
-  .member_buy
     = link_to 'Buy Now', payment_path(:member_id => member_type.id), :class => 'blue_btn'

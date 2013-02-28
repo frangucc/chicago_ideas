@@ -23,7 +23,8 @@
     .member_types_summaries
       %p.join_membership
         Join our Membership Programs
-      - member_types.each do |member_type|
-        = render 'member_types/member_type_summary', :member_type => member_type
+      .member_summaries_container
+        - member_types.each do |member_type|
+          = render 'member_types/member_type_summary', :member_type => member_type
 
 

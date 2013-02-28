@@ -1,5 +1,5 @@
 $(document).ready ->
-  $('.member_more_info a').live 'hover', 'click', (event) ->
+  $('.member_buttons a').live 'hover', 'click', (event) ->
     event.preventDefault()
     member_id = $(this).parent().parent().attr 'data-id'
 

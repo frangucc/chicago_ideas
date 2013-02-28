@@ -18,11 +18,10 @@
     margin: 50px auto 70px auto;
     .member_type_detailed_container {
       float: left;
-      width: 530px;
-      border-right: 1px solid rgb(182, 176, 176);
+      width: 500px;
+      margin-top: 40px;
       .member_detailed {
         display: none;
-        padding-right: 30px;
         .detailed_header {
           border-bottom: 1px solid rgb(167, 160, 160);
           padding-bottom: 12px;
@@ -109,56 +108,63 @@
     }
     .member_types_summaries {
       float: left;
-      padding-left: 35px;
+      padding-left: 45px;
       .join_membership {
-        font-size: 13px;
+        font-size: 16px;
         font-weight: bold;
         color: rgb(97, 97, 97);
       }
-      .member_summary {
-        width: 450px;
-        margin-top: 15px;
-        background: url(application/member_types/member_summary_background.png) repeat;
-        background-size: 100% 100%;
-        border-radius: 7px;
-        border-top: 1px solid rgb(166, 166, 166);
-        border-bottom: 1px solid #FFF;
-        div {
-          float: left;
-        }
-        .member_info {
-          width: 54%;
-          padding: 2px 0 2px 10px;
-          border-right: 1px solid #FFF;
-          p {
-            margin-top: 5px;
-            margin-left: 10px;
-            color: #000;
-            font-size: 12px;
-            font-weight: bold;
-            line-height: 15px;
+      .member_summaries_container {
+        background-color: #FFF;
+        border: 3px inset rgb(220, 220, 220);
+        padding: 15px 15px 25px 15px;
+        .member_summary {
+          min-height: 55px;
+          width: 450px;
+          margin-top: 15px;
+          background: url(application/member_types/member_summary_background.png) repeat;
+          background-size: 100% 100%;
+          border-radius: 7px;
+          border-top: 1px solid rgb(166, 166, 166);
+          border-bottom: 1px solid #FFF;
+          div {
+            float: left;
           }
-        }
-        .member_buy, .member_more_info {
-          height: 45px;
-          width: 21%;
-          text-align: center;
-          border-left: 1px solid rgb(159, 152, 152);
-          a {
-            margin: 8px auto;
-            font-size: 11px;
-            font-weight: bold;
-            width: 60px;
+          .member_info {
+            width: 40%;
+            padding: 2px 0 2px 10px;
+            border-right: 1px solid #FFF;
+            p {
+              width: 165px;
+              margin-top: 9px;
+              margin-left: 10px;
+              color: #000;
+              font-size: 13px;
+              font-weight: bold;
+              line-height: 15px;
+            }
           }
-          .blue_btn {
-            display: block;
-            padding: 4px 11px;
-            border-radius: 4px;
-            text-decoration: none;
+          .member_buttons {
+            height: 55px;
+            width: 56%;
+            text-align: center;
+            border-left: 1px solid rgb(159, 152, 152);
+            a {
+              float: left;
+              margin-left: 16px;
+              margin-top: 10px;
+              padding: 11px 15px;
+              font-size: 12px;
+              font-weight: bold;
+              width: 70px;
+            }
+            .blue_btn {
+              display: block;
+              padding: 7px 15px;
+              border-radius: 4px;
+              text-decoration: none;
+            }
           }
-        }
-        .member_more_info {
-          border-right: 1px solid #FFF;
         }
       }
     }
