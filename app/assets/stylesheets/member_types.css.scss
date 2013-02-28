@@ -127,20 +127,13 @@
           width: 54%;
           padding: 2px 0 2px 10px;
           border-right: 1px solid #FFF;
-          img {
-            float: left;
-          }
-          .member_name_price {
-            float: left;
+          p {
             margin-top: 5px;
             margin-left: 10px;
-            p {
-              margin: 0;
-              color: #000;
-              font-size: 12px;
-              font-weight: bold;
-              line-height: 15px;
-            }
+            color: #000;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 15px;
           }
         }
         .member_buy, .member_more_info {
