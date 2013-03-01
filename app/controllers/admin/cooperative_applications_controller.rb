@@ -27,6 +27,7 @@ class Admin::CooperativeApplicationsController < Admin::AdminController
       format.html {
         render
       }
+      format.xls
     end
   end
 

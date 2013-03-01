@@ -36,5 +36,12 @@ class CooperativeApplication < ActiveRecord::Base
     end
   end
 
+  def self.to_csv(co_op, options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      csv << co_op.attributes.values_at(*column_names)
+    end
+  end
+
 end
 
