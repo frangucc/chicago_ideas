@@ -2,8 +2,11 @@
 - content_for :top_links do
   = destroy_model_link @cooperative_application, true
 
+= link_to 'Download Excel', admin_cooperative_application_path(:format => 'xls')
+
 %h1
   = @cooperative_application.name
+  = @cooperative_application.last_name
 
 #model_detail
   %h4 Name
