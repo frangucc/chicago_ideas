@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @order.build_billing_address
     @order.member_type = MemberType.find(params[:member_id])
   end
 
