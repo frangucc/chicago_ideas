@@ -29,6 +29,8 @@ gem 'countries'
 
 # pdf-generation
 gem 'doc_raptor'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 # very useful to see what exceptions have been thrown - logs stcktrace too
 gem 'exceptional'

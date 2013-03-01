@@ -1,0 +1,99 @@
+!!! 5
+%html
+  %head
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+    = stylesheet_link_tag 'invoice'
+
+
+  %body
+    .header
+      %hr
+      .ciw_header
+        .img_container
+          = image_tag('http://chicagoideas.com/assets/email/ciw_logo.png')
+        %p
+          %b Chicago Ideas Week
+          %br/
+          600 West Chicago
+          %br/
+          Suite 700
+          %br/
+          Chicago, IL 60654
+
+      .ciw_header
+        %p.with_border
+          %b For Questions Contact:
+          %br/
+          %b Becky Asahic
+          %br/
+          Membership & Ticketing Manager
+          %br/
+          memberships@chicagoideas.com
+
+    .clear
+    .order_details Order Details
+
+    .details_container
+      %h1
+        John Doe
+
+      .payment
+        %h3 Order:
+        \#731AD9F0
+
+        %br/
+        %h3 Date:
+        February 27, 2013
+
+        %br/
+        %h3 Visa:
+        XXXX-XXXX-XXXX-1234
+
+        %br/
+        %h3 Transaction Type:
+        Purchase
+
+    %h1.indented Transaction
+
+    %table
+      %tbody
+        %tr
+          %th.invoice
+            Reference
+          %th.invoice.product
+            Product
+          %th.invoice
+            Price
+        %tr
+          %td.invoice
+            \#EUO
+          %td.invoice
+            Membership
+          %td.invoice
+            $75.00
+        %tr
+          %td.total_label{ colspan: 2 }
+            %b Total Amount Paid
+          %td.total_paid
+            $75.00
+
+    %h1.indented Billing Information
+
+    %table
+      %tbody
+        %tr
+          %th.invoice
+            Address
+        %tr
+          %td.invoice
+            Chicago Ideas Week
+            %br/
+            600 West Chicago
+            %br/
+            Suite 700
+            %br/
+            Chicago, IL 60654
+
+    .clear
+    .footer
+      www.chicagoideas.com
