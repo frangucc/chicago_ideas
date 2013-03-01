@@ -2,17 +2,15 @@ require 'authorize_net'
 class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :member_type
+  belongs_to :billing_address, foreign_key: :address_id, class_name: "Address"
 
-  attr_accessor :name_on_card, :email, :address, :city, :state, :card_number,
-                :expiry_date, :cvc, :zip, :amount
+  accepts_nested_attributes_for :billing_address
+
+  attr_accessor :name_on_card, :email, :card_number, :expiry_date, :cvc, :amount
 
 
   validates_presence_of :name_on_card
-  validates_presence_of :address
-  validates_presence_of :city
-  validates_presence_of :state
   validates_presence_of :card_number
-  validates_presence_of :zip
   validates_presence_of :amount
 
   validates :email, :email => true, :presence => true
@@ -40,6 +38,7 @@ class Order < ActiveRecord::Base
 
   def process_transaction
     if self.valid?
+
       transaction = AuthorizeNet::AIM::Transaction.new(AUTHNET_LOGIN,
                                                        AUTHNET_KEY,
                                                        :gateway => AUTHNET_ENV)
