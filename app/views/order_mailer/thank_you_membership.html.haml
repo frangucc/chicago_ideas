@@ -41,17 +41,17 @@
             - @order.member_type.general_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
               %li= h line
         %p{ :style => 'margin-top: 40px;' }
-          Help us spread the word about CIW through 
+          Help us spread the word about CIW through
           = link_to 'Twitter', ApplicationHelper::CIW_TWITTER_URL, :style => 'color: #297cb9; text-decoration: none;'
-          and 
+          and
           = link_to 'Facebook', ApplicationHelper::CIW_FACEBOOK_URL, :style => 'color: #297cb9; text-decoration: none;'
-          and don't forget to check out our 
+          and don't forget to check out our
           = link_to 'Blog', ApplicationHelper::CIW_BLOG_URL, :style => 'color: #297cb9; text-decoration: none;'
         %p{ :style => 'margin-top: 40px;' }
-          Be sure to visit us at 
+          Be sure to visit us at
           = link_to 'www.chicagoideas.com', root_url, :style => 'color: #297cb9; text-decoration: none;'
           for more information and event updates. Have a
-          Member Program question? Please contact us at 
+          Member Program question? Please contact us at
           = mail_to ApplicationHelper::CIW_MEMBERSHIP_EMAIL, nil, :style => 'color: #297cb9; text-decoration: none;'
           or 312.999.5809.
         %p{ :style => 'margin-top: 40px;' }
