@@ -12,8 +12,6 @@ class MemberType < ActiveRecord::Base
   has_many :notes, :as => :asset
   has_many :members
 
-  has_attached_file :image
-
   %w(min max).each do |str|
     # defines two setters:
     # min_price=
