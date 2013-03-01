@@ -25,7 +25,7 @@ gem 'paperclip'
 gem 'fog'
 # markdown
 gem 'redcarpet'
-gem 'countries'
+gem 'carmen'
 gem 'zip-code-info'
 
 # pdf-generation
