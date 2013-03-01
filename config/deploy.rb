@@ -8,7 +8,7 @@ require 'thinking_sphinx/deploy/capistrano'
 set :application,             'chicago_ideas'
 set :rails_env,               'production'
 set :user,                    'ciw_deploy'       # 'deployer' is a far too common name
-set :domain,                  '23.23.114.156'
+set :domain,                  'chicagoideas.com'
 set :rvm_ruby_string,         '1.9.3-p385'
 set :use_sudo,                false
 set :scm,                     :git
