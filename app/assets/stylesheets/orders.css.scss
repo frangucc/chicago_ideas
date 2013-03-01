@@ -39,6 +39,10 @@
             float: left;
             width: 56%;
           }
+          #order_state {
+            width: 214px;
+            margin-top: 8px;
+          }
           p {
             float: left;
             margin-left: 134px;
@@ -55,7 +59,7 @@
             }
           }
           .form_cards {
-            float: left;
+            float: right;
             width: 40%;
             ul {
               margin-top: 6px;
@@ -95,7 +99,7 @@
         }
       }
     }
-    .buttons ol input {
+    .actions ol input {
       float: right;
       font-size: 17px;
       font-weight: normal;

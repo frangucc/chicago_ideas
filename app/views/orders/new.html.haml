@@ -38,24 +38,25 @@
             = f.input :email,           :as => :string, :required => true
             = f.input :address,         :as => :string, :required => true
             = f.input :city,            :as => :string, :required => true
-            = f.inputs :class => 'form_state_cards' do
-              = f.input :state,         :as => :string, :required => true
-              %li.form_cards
-                %ul
-                  %li= image_tag 'application/orders/billing_card1.png'
-                  %li= image_tag 'application/orders/billing_card2.png'
-                  %li= image_tag 'application/orders/billing_card3.png'
-                  %li= image_tag 'application/orders/billing_card4.png'
+            = f.input :state,           :as => :select, :required => true, :collection => Carmen::states[0..-12]
+            = f.input :zip,             :as => :string, :required => true, :label => "Zip Code"
             - opts = { :as => :string, :required => true }
             - opts.merge!({ :input_html => { :value => "370000000000002" } }) if Rails.env == 'development'
             = f.input :card_number, opts
             = f.inputs :class => 'form_expdate_cvc' do
               = f.input :expiry_date,   :as => :string, :required => true, :label => 'Exp Date', :placeholder => 'MMYY'
               = f.input :cvc,           :as => :string, :required => true, :label => "CVC"
-            = f.input :zip,             :as => :string, :required => true, :label => "Zip Code"
+            = f.inputs :class => 'form_state_cards' do
+              %li.form_cards
+                %ul
+                  %li= image_tag 'application/orders/billing_card1.png'
+                  %li= image_tag 'application/orders/billing_card2.png'
+                  %li= image_tag 'application/orders/billing_card3.png'
+                  %li= image_tag 'application/orders/billing_card4.png'
 
-        = f.buttons do
+        = f.actions do
           = f.submit :value => "Confirm Purchase", :class => "btn submit", :id => "confirm_purchase"
+
     #membership_summary_section.colum_row
       %p.summary_header
         Summary &amp; Support
