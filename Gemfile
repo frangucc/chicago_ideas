@@ -26,6 +26,7 @@ gem 'fog'
 # markdown
 gem 'redcarpet'
 gem 'countries'
+gem 'zip-code-info'
 
 # pdf-generation
 gem 'doc_raptor'
