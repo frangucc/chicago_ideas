@@ -1,6 +1,6 @@
 class OrderMailer < ActionMailer::Base
 
-  default :from    => ApplicationHelper::CIW_FORMS_EMAIL
+  default :from    => "'CIW Receipt of Purchase' <#{ApplicationHelper::CIW_FORMS_EMAIL}>"
   default :subject => "Thank you for joining CIW's Member Program"
 
   def thank_you_membership(order)
