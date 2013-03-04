@@ -14,7 +14,7 @@
   %meta{:name => "Distribution", :content => "Global"}
   %meta{:name => "revisit-after", :content => "1days"}
   %meta{:name => "google-site-verification", :content => "SeB1qa1XQe19bhoKs3rRWrcypy4qL5SwDKRdNEcYSg0"}
-  
+
 /%meta{:property => "og:title", :content => "#{@meta_data[:og_title]}"}
 %meta{:property => "og:title", :content => "#{@meta_data.present? ? @meta_data[:og_title] : ''}"}
 %meta{:property => "og:description", :content => "#{@meta_data.present? ? @meta_data[:og_desc] : ''}"}
@@ -41,3 +41,4 @@
 = javascript_include_tag :application
 = csrf_meta_tag
 
+= yield :head_tag
