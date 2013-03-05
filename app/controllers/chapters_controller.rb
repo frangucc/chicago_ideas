@@ -33,7 +33,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
     @talk = @chapter.talk
     @chapters = @talk.chapters.all
-    @meta_data = {:page_title => "#{@chapter.title}", :og_image => "#{@chapter.banner(:thumb)}", :og_title => "#{@chapter.title} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@chapter.description[0..200]}"}
+    @meta_data = {:page_title => "#{@chapter.title}", :og_image => "#{@chapter.banner(:medium)}", :og_title => "#{@chapter.title} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@chapter.description[0..200]}"}
   end
 
   def edison
