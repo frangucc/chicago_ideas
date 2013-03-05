@@ -10,7 +10,7 @@
         %h1{ :style => 'width: 500px; float: left; color: rgb(83, 83, 83); margin-left: 80px; font-size: 3.4em;' }
           Thank you for joining CIW's Member Program
       .membership_main_content{ :style => 'clear:both; width: 800px; display: inline-block; margin-top: 30px; padding-left: 50px; color: rgb(91, 91, 91); line-height: 1.6em; font-size: 1.5em;' }
-        = link_to 'Download PDF of Receipt', thank_you_path(@order, format: 'pdf'), :style => 'float: right; margin-top: 20px; padding: 9px 25px; color: #FFF; font-size: 1em; border: 1px solid #0072BC; background-color: #0072BC; -webkit-box-shadow: inset 0px 1px 0px #45aef1;background-image: -webkit-linear-gradient(top, #1c91dc, #0072bc); border-radius: 3px; text-shadow: 1px 1px 1px #00548a; text-align: center; text-decoration: none'
+        = link_to 'Download PDF of Receipt', "http://chicagoideas.com/#{thank_you_path(@order, format: 'pdf')}", :style => 'float: right; margin-top: 20px; padding: 9px 25px; color: #FFF; font-size: 1em; border: 1px solid #0072BC; background-color: #0072BC; -webkit-box-shadow: inset 0px 1px 0px #45aef1;background-image: -webkit-linear-gradient(top, #1c91dc, #0072bc); border-radius: 3px; text-shadow: 1px 1px 1px #00548a; text-align: center; text-decoration: none'
         %p
           %span{ :style => 'color: #297cb9;' }  Hi, #{@order.name_on_card},
           %br
