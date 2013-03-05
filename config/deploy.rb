@@ -3,6 +3,7 @@ default_run_options[:pty] = true
 load 'deploy/assets'
 require 'bundler/capistrano'
 require 'rvm/capistrano'
+require 'thinking_sphinx/deploy/capistrano'
 
 set :application,             'chicago_ideas'
 set :rails_env,               'production'
@@ -73,5 +74,14 @@ def remote_file_exists?(full_path)
   'true' ==  capture("if [ -e #{full_path} ]; then echo 'true'; fi").strip
 end
 
-after 'deploy:update_code', 'deploy:copy_shared_files'
+# before 'deploy:update_code', 'thinking_sphinx:stop'
+after 'deploy:update_code', 'deploy:copy_shared_files'#, 'thinking_sphinx:start'
 
+namespace :sphinx do
+  desc "Symlink Sphinx indexes"
+  task :symlink_indexes, :roles => [:app] do
+    run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
+  end
+end
+
+after 'deploy:finalize_update', thinking_sphinx.rebuild
