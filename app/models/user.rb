@@ -283,13 +283,13 @@ class User < ActiveRecord::Base
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_portrait_dimensions
-      dimensions = Paperclip::Geometry.from_file(portrait.to_file(:full))
+      dimensions = Paperclip::Geometry.from_file(portrait.queued_for_write[:full].path)
       errors.add(:portrait, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait1_dimensions_string}") unless dimensions.width == PORTRAIT1_WIDTH && dimensions.height == PORTRAIT1_HEIGHT
     end
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_portrait2_dimensions
-      dimensions = Paperclip::Geometry.from_file(portrait2.to_file(:full))
+      dimensions = Paperclip::Geometry.from_file(portrait2.queued_for_file[:full].path)
       errors.add(:portrait2, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{portrait2_dimensions_string}") unless dimensions.width == PORTRAIT2_WIDTH && dimensions.height == PORTRAIT2_HEIGHT
     end
 
