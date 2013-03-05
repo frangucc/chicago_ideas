@@ -58,8 +58,9 @@
             Interested in hosting a CIW Lab in 2013? 
             = link_to "Click here to apply!", ApplicationHelper::LABS_DOC_URL, :target => "_blank"
           %p
-            For questions and more information on CIW Labs, please email us 
-            = mail_to ApplicationHelper::TK_SHOPCLASS_EMAIL
+            For questions and more information on CIW Labs, please email Lab Director Tommy King at
+            = succeed '.' do
+              = mail_to ApplicationHelper::TK_SHOPCLASS_EMAIL
     
     -# Labs List
     - if @labs.present?
