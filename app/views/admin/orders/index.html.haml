@@ -1,0 +1,11 @@
+= render '/admin/admin/collection_controls'
+- content_for :breadcrumbs do
+  .crumb.end Orders
+
+.table_section
+  %h3
+    Orders
+  .table_wrapper
+    = render 'admin/orders/table.html.haml', :orders => @orders
+  = paginate @orders
+

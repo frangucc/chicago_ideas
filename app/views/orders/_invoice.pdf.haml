@@ -4,7 +4,6 @@
     %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
     = stylesheet_link_tag 'invoice'
 
-
   %body
     .header
       %hr
@@ -35,19 +34,19 @@
 
     .details_container
       %h1
-        John Doe
+        = @order.name_on_card
 
       .payment
         %h3 Order:
-        \#731AD9F0
+        \##{@order.code}
 
         %br/
         %h3 Date:
-        February 27, 2013
+        = @order.created_at.to_date.strftime("%B %d, %Y")
 
         %br/
-        %h3 Visa:
-        XXXX-XXXX-XXXX-1234
+        %h3= @order.authnet_response.fields[:card_type]
+        = @order.authnet_response.fields[:account_number]
 
         %br/
         %h3 Transaction Type:
@@ -66,16 +65,16 @@
             Price
         %tr
           %td.invoice
-            \#EUO
+            \---
           %td.invoice
-            Membership
+            = @order.member_type.title
           %td.invoice
-            $75.00
+            = number_to_currency(@order.total_in_cents/100)
         %tr
           %td.total_label{ colspan: 2 }
             %b Total Amount Paid
           %td.total_paid
-            $75.00
+            = number_to_currency(@order.total_in_cents/100)
 
     %h1.indented Billing Information
 
@@ -86,13 +85,14 @@
             Address
         %tr
           %td.invoice
-            Chicago Ideas Week
+            = @order.name_on_card
             %br/
-            600 West Chicago
+            = @order.billing_address.street_1
+            - if @order.billing_address.street_2.present?
+              %br/
+              = @order.billing_address.street_2
             %br/
-            Suite 700
-            %br/
-            Chicago, IL 60654
+            #{ @order.billing_address.city }, #{ @order.billing_address.state } #{ @order.billing_address.zip }
 
     .clear
     .footer

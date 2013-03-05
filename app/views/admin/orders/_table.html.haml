@@ -1,0 +1,9 @@
+%table#orders
+  %tr
+    %th Code
+    %th Full Name
+    %th Email
+    %th Membership
+    %th Total Paid
+    %th Date Placed
+  = render :partial => 'admin/orders/order.html.haml', :collection => orders

@@ -560,6 +560,8 @@ CraigsAdmin::Application.routes.draw do
 
     resources :venues
 
+    resources :orders, :only => [:index]
+
   end
 
   namespace :sponsor do

@@ -27,17 +27,17 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     respond_to do |format|
       # format.html
-      format.html { render partial: "invoice", layout: false }
+      format.html
       format.pdf do
         html = render_to_string(partial: "invoice", layout: false)
         kit = PDFKit.new(html, "margin-bottom" => "0.5in", "margin-top" => "0.5in", page_size: 'A4')
         css_path =  if Rails.env == "production"
                       "#{Rails.root}/public/assets/invoice.css"
                     else
-                      "#{Rails.root}/app/assets/invoice.css"
+                      "#{Rails.root}/app/assets/stylesheets/invoice.css"
                     end
         kit.stylesheets << css_path
-        send_data kit.to_pdf, filename: "invoice.pdf", type: 'application/pdf'
+        send_data kit.to_pdf, filename: "#{@order.code}.pdf", type: 'application/pdf'
       end
     end
   end
