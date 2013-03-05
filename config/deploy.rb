@@ -75,13 +75,4 @@ def remote_file_exists?(full_path)
 end
 
 # before 'deploy:update_code', 'thinking_sphinx:stop'
-after 'deploy:update_code', 'deploy:copy_shared_files'#, 'thinking_sphinx:start'
-
-namespace :sphinx do
-  desc "Symlink Sphinx indexes"
-  task :symlink_indexes, :roles => [:app] do
-    run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
-  end
-end
-
-after 'deploy:finalize_update', thinking_sphinx.rebuild
+after 'deploy:update_code', 'deploy:copy_shared_files'
