@@ -28,8 +28,8 @@ class Chapter < ActiveRecord::Base
 
   validates :sort, :presence => true
   validates_uniqueness_of :sort, :scope => :talk_id
-  validate :validate_banner_dimensions, :if => "banner.present?", :unless => "errors.any?"
-  validate :validate_homepage_banner_dimensions, :if => "homepage_banner.present?", :unless => "errors.any?"
+  validate :validate_banner_dimensions, :if => "banner.present? && errors.empty?"
+  validate :validate_homepage_banner_dimensions, :if => "homepage_banner.present? && errors.empty?"
 
   scope :by_sort, order('sort asc')
 
