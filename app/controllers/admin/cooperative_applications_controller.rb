@@ -1,6 +1,10 @@
 class Admin::CooperativeApplicationsController < Admin::AdminController
   def index
     @cooperative_applications = CooperativeApplication.search_sort_paginate(params)
+    respond_to do |format|
+      format.html
+      format.xls
+    end
   end
 
   def show
@@ -27,7 +31,6 @@ class Admin::CooperativeApplicationsController < Admin::AdminController
       format.html {
         render
       }
-      format.xls
     end
   end
 

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Last Name</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Title</Data></Cell>
+        <Cell><Data ss:Type="String">Organization</Data></Cell>
+        <Cell><Data ss:Type="String">Phone</Data></Cell>
+        <Cell><Data ss:Type="String">Organization Mission</Data></Cell>
+        <Cell><Data ss:Type="String">Organization Website</Data></Cell>
+        <Cell><Data ss:Type="String">Twitter Handle</Data></Cell>
+        <Cell><Data ss:Type="String">Joining Purpose</Data></Cell>
+        <Cell><Data ss:Type="String">Worked On Projects</Data></Cell>
+        <Cell><Data ss:Type="String">Meaningful or magical part of 2012</Data></Cell>
+        <Cell><Data ss:Type="String">Most inspiring failure</Data></Cell>
+        <Cell><Data ss:Type="String">Neighborhood</Data></Cell>
+        <Cell><Data ss:Type="String">Assisted Area From Chicado Ideas Week</Data></Cell>
+        <Cell><Data ss:Type="String">Passion 1</Data></Cell>
+        <Cell><Data ss:Type="String">Passion 2</Data></Cell>
+        <Cell><Data ss:Type="String">Passion 3</Data></Cell>
+        <Cell><Data ss:Type="String">Recommend</Data></Cell>
+      </Row>
+      <% @cooperative_applications.each do |co_op| %>
+        <Row>
+          <Cell><Data ss:Type="String"><%= co_op.name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.last_name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.email %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.title %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.organization %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.phone %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.org_mission %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.org_website %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.org_twitter %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.reason %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.worked_on %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.part_meaningful %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.ins_failure %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.neighborhood %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.assisted_area %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.passion_1 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.passion_2 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.passion_3 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= co_op.recommend %></Data></Cell>
+        </Row>
+      <% end %>
+   </Table>
+  </Worksheet>
+</Workbook>
