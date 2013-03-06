@@ -67,8 +67,10 @@ class Partner < ActiveRecord::Base
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_logo_dimensions
-      dimensions = Paperclip::Geometry.from_file(logo.queued_for_write[:original].path)
-      errors.add(:logo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{logo_dimensions_string}") unless dimensions.width == LOGO_WIDTH && dimensions.height == LOGO_HEIGHT
+      if logo.queued_for_write[:original]
+        dimensions = Paperclip::Geometry.from_file(logo.queued_for_write[:original].path)
+        errors.add(:logo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{logo_dimensions_string}") unless dimensions.width == LOGO_WIDTH && dimensions.height == LOGO_HEIGHT
+      end
     end
 
 end

@@ -137,13 +137,17 @@ class Event < ActiveRecord::Base
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_banner_dimensions
-      dimensions = Paperclip::Geometry.from_file(banner.queued_for_write[:original].path)
-      errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
+      if banner.queued_for_write[:original]
+        dimensions = Paperclip::Geometry.from_file(banner.queued_for_write[:original].path)
+        errors.add(:banner, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{banner_dimensions_string}") unless dimensions.width == BANNER_WIDTH && dimensions.height == BANNER_HEIGHT
+      end
     end
 
     def validate_lab_host_dimensions
-      dimensions = Paperclip::Geometry.from_file(lab_host.queued_for_write[:original].path)
-      errors.add(:lab_host, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{lab_host_dimensions_string}") unless dimensions.width == LAB_HOST_WIDTH && dimensions.height == LAB_HOST_HEIGHT
+      if lab_host.queued_for_write[:original]
+        dimensions = Paperclip::Geometry.from_file(lab_host.queued_for_write[:original].path)
+        errors.add(:lab_host, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{lab_host_dimensions_string}") unless dimensions.width == LAB_HOST_WIDTH && dimensions.height == LAB_HOST_HEIGHT
+      end
     end
 
     # ensure end time is after start time

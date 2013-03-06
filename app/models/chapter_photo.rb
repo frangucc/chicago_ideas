@@ -63,8 +63,10 @@ class ChapterPhoto < ActiveRecord::Base
   private
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_photo_dimensions
-      dimensions = Paperclip::Geometry.from_file(photo.queued_for_write[:original].path)
-      errors.add(:photo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{self.photo_dimensions_string}") unless dimensions.width >= PHOTO_WIDTH && dimensions.height >= PHOTO_HEIGHT
+      if photo.queued_for_write[:original]
+        dimensions = Paperclip::Geometry.from_file(photo.queued_for_write[:original].path)
+        errors.add(:photo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{self.photo_dimensions_string}") unless dimensions.width >= PHOTO_WIDTH && dimensions.height >= PHOTO_HEIGHT
+      end
     end
 
 end

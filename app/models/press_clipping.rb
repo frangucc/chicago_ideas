@@ -72,8 +72,10 @@ class PressClipping < ActiveRecord::Base
   private
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
     def validate_image_dimensions
-      dimensions = Paperclip::Geometry.from_file(image.queued_for_write[:original].path)
-      errors.add(:image, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{image_dimensions_string}") unless dimensions.width == IMAGE_WIDTH && dimensions.height == IMAGE_HEIGHT
+      if image.queued_for_write[:original]
+        dimensions = Paperclip::Geometry.from_file(image.queued_for_write[:original].path)
+        errors.add(:image, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{image_dimensions_string}") unless dimensions.width == IMAGE_WIDTH && dimensions.height == IMAGE_HEIGHT
+      end
     end
 
 end
