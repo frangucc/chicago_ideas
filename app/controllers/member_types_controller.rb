@@ -1,5 +1,8 @@
 class MemberTypesController < ApplicationController
+
   def index
-    @member_types = MemberType.order("min_price_in_cents ASC")
+    current_year = Time.current.year
+    @member_types = Year.find_by_id(current_year).member_types.order("min_price_in_cents ASC")
   end
+
 end
