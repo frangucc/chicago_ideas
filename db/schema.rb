@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301194155) do
+ActiveRecord::Schema.define(:version => 20130307151109) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -387,9 +387,8 @@ ActiveRecord::Schema.define(:version => 20130301194155) do
     t.integer  "max_price_in_cents", :default => 0
     t.string   "value"
     t.text     "general_benefits"
+    t.integer  "year_id"
   end
-
-  add_index "member_types", ["title"], :name => "index_member_types_on_name"
 
   create_table "members", :force => true do |t|
     t.integer  "user_id"

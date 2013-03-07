@@ -3,6 +3,7 @@ class Year < ActiveRecord::Base
   has_many :days
   has_many :speakers, :dependent => :destroy
   has_many :users, :through => :speakers
+  has_many :member_types
 
   # Get all years that are not this year - for archived talks
   scope :not_this_year, where("id != #{Time.now.year}")
