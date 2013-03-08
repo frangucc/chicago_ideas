@@ -30,14 +30,12 @@ class User < ActiveRecord::Base
   has_one :sponsor_user, :dependent => :destroy
   has_one :sponsor, through: :sponsor_user
   has_one :simulate_user
-  has_one :member
+  has_one :member, :autosave => true
 
-  belongs_to :address
+  belongs_to :address, :autosave => true
 
   accepts_nested_attributes_for :quotes, :allow_destroy => true
   accepts_nested_attributes_for :sponsor_user, :allow_destroy => true
-  accepts_nested_attributes_for :member
-  accepts_nested_attributes_for :address
 
   # useful scopes
   scope :admin,     conditions: { admin:        true }

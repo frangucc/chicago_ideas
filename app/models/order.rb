@@ -1,8 +1,8 @@
 require 'authorize_net'
 class Order < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :autosave => true
   belongs_to :member_type
-  belongs_to :billing_address, foreign_key: :address_id, class_name: "Address"
+  belongs_to :billing_address, foreign_key: :address_id, class_name: "Address", :autosave => true
 
   serialize :authnet_response
 
