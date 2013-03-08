@@ -1,0 +1,30 @@
+%h1
+  Order #
+  = @order.code
+
+#model_detail
+  %p
+    Total
+    = number_to_currency(@order.total_in_cents/100)
+
+  %h4 Name
+  %p
+    = "#{@order.user.member.first_name} #{@order.user.member.last_name}"
+
+  %h4 Member Type
+  %p= link_to(@order.member_type.title, admin_member_type_path(@order.member_type))
+
+  %h4 Email Address
+  %p= @order.user.email
+
+  %h4 User Address
+  %p
+    = @order.user.address.street_1
+    %br/
+    = @order.user.address.street_2
+    %br/
+    = @order.user.address.city
+    %br/
+    = @order.user.address.state
+    %br/
+    = @order.user.address.zip

@@ -5,4 +5,4 @@
   %td= order.member_type.title
   %td= number_to_currency(order.total_in_cents / 100)
   %td= order.created_at.to_s(:long)
-  %td= icon_link_to "view more", admin_order_path(order), "zoomin"
+  %td= icon_link_to "view more", admin_order_path(order.code), "zoomin"
