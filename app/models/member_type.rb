@@ -20,9 +20,11 @@ class MemberType < ActiveRecord::Base
 
     price_setter = "#{str}_price=".to_sym
     define_method price_setter do |num|
-      instance_variable_set("@#{str}_price", num)
+      if num.present?
+        instance_variable_set("@new_#{str}_price", num)
+      end
+      instance_variable_set("@changed_#{str}_price", num.present?)
     end
-
 
     # defines the accessors for the decimal price
     # min_price
@@ -45,9 +47,10 @@ class MemberType < ActiveRecord::Base
     callback_name = "set_#{db_col_name}".to_sym
     define_method callback_name do
       orig_price_in_cents = send(db_col_name)
-      sent_price_in_cents = instance_variable_get("@#{str}_price").to_i
-      if sent_price_in_cents != (orig_price_in_cents / 100)
-        send("#{db_col_name}=", sent_price_in_cents * 100)
+      sent_price_in_cents = instance_variable_get("@new_#{str}_price").to_i
+      changed_price_in_cents = instance_variable_get("@changed_#{str}_price")
+      if changed_price_in_cents
+        send("#{db_col_name}=", sent_price_in_cents * 100) if (sent_price_in_cents != (orig_price_in_cents / 100))
       end
     end
 
