@@ -70,7 +70,7 @@ h1.indented { margin-left: 20px; }
 
 table {
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 th.invoice {
@@ -89,14 +89,23 @@ th .price_range {
 
 td.invoice {
   background-color: #ECECEC;
-  line-height: 40px;
+  line-height: 30px;
   padding-left: 15px;
   text-align: left;
 }
 
+td.address {
+  line-height: 25px;
+}
+
+td.tax_disclaimer {
+  background-color: #ECECEC;
+  font-size: 12px;
+}
+
 td.total_label {
   background-color: #DFDFDF;
-  line-height: 40px;
+  line-height: 25px;
   padding-left: 15px;
 }
 

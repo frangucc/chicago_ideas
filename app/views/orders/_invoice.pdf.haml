@@ -67,7 +67,7 @@
           %td.invoice
             = number_to_currency(@order.total_in_cents/100)
         %tr
-          %td.total_label{ colspan: 2 }
+          %td.total_label
             %b Total Amount Paid
           %td.total_paid
             = number_to_currency(@order.total_in_cents/100)
@@ -80,7 +80,7 @@
           %th.invoice
             Address
         %tr
-          %td.invoice
+          %td.address.invoice
             = @order.name_on_card
             %br/
             = @order.billing_address.street_1
@@ -99,7 +99,7 @@
             %span.price_range
               = member_type_price(@order.member_type)
         %tr
-          %td
+          %td.tax_disclaimer
             - if @order.member_type.title == 'Ignition'
               For tax purposes you received no goods or services in exchange for your contribution.
             - else
