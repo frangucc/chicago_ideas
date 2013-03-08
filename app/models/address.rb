@@ -5,5 +5,6 @@ class Address < ActiveRecord::Base
   validates :zip, presence: true
   validates :country, presence: true
   validates :state, presence: true
+  validates :phone, presence: true
 
 end

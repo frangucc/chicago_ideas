@@ -58,6 +58,7 @@
                 = billing_address.input :state,    :as => :select, :required => true, :collection => Carmen::states[0..-12], :input_html => { style: "width: 214px; margin-top: 8px;" }
                 = billing_address.input :country,  :as => :hidden, :value => 'US'
                 = billing_address.input :zip,      :as => :string, :required => true, :label => "Zip Code"
+                = billing_address.input :phone,    :as => :string, :required => true, :label => "Phone Number"
 
           .form_section#personal
             %span.form_section_header Personal Information
@@ -78,6 +79,8 @@
                   = ad.input :state,    :as => :select, :required => true, :collection => Carmen::states[0..-12], :input_html => { style: "width: 214px; margin-top: 8px;" }
                   = ad.input :country,  :as => :hidden, :value => 'US'
                   = ad.input :zip,      :as => :string, :required => true, :label => "Zip Code"
+                  = ad.input :phone,    :as => :string, :required => true, :label => "Phone Number"
+
 
 
         = f.actions do
