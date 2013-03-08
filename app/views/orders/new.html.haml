@@ -59,24 +59,25 @@
                 = billing_address.input :country,  :as => :hidden, :value => 'US'
                 = billing_address.input :zip,      :as => :string, :required => true, :label => "Zip Code"
 
-          .form_section
+          .form_section#personal
             %span.form_section_header Personal Information
             %hr.form_section_separator
             %fieldset.v_lists.c_lists
               %ol
                 = f.semantic_fields_for :user do |u|
                   = u.input :email, :as => :string, :required => true
-                  = u.semantic_fields_for :member do |m|
-                    = m.input :first_name, :as => :string, :required => true
-                    = m.input :last_name,  :as => :string, :required => true
 
-                  = u.semantic_fields_for :address do |ad|
-                    = ad.input :street_1, :as => :string, :required => true
-                    = ad.input :street_2, :as => :string
-                    = ad.input :city,     :as => :string, :required => true
-                    = ad.input :state,    :as => :select, :required => true, :collection => Carmen::states[0..-12], :input_html => { style: "width: 214px; margin-top: 8px;" }
-                    = ad.input :country,  :as => :hidden, :value => 'US'
-                    = ad.input :zip,      :as => :string, :required => true, :label => "Zip Code"
+                = f.semantic_fields_for @member do |m|
+                  = m.input :first_name, :as => :string, :required => true
+                  = m.input :last_name,  :as => :string, :required => true
+
+                = f.semantic_fields_for @address do |ad|
+                  = ad.input :street_1, :as => :string, :required => true
+                  = ad.input :street_2, :as => :string
+                  = ad.input :city,     :as => :string, :required => true
+                  = ad.input :state,    :as => :select, :required => true, :collection => Carmen::states[0..-12], :input_html => { style: "width: 214px; margin-top: 8px;" }
+                  = ad.input :country,  :as => :hidden, :value => 'US'
+                  = ad.input :zip,      :as => :string, :required => true, :label => "Zip Code"
 
 
         = f.actions do

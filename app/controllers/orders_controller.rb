@@ -1,20 +1,34 @@
 class OrdersController < ApplicationController
 
   def new
-    @order = Order.new
+    @address  = Address.new
+    @member   = Member.new
+    @order    = Order.new
     @order.build_billing_address
     @order.build_user
-    @order.user.build_address
-    @order.user.build_member
     @order.member_type = MemberType.find(params[:member_id])
   end
 
   def create
-    @order = Order.new(params[:order])
-    @order.member_type = MemberType.find(params[:order][:member_type_id])
+    address_params = params[:order].delete "address"
+    member_params  = params[:order].delete "member"
+
+    @order    = Order.new(params[:order])
+    @address  = Address.new(address_params)
+    @member   = Member.new(member_params)
+
+    @order.user.address   = @address
+    @order.user.member    = @member
+    @order.user.is_member = true
+    @order.user.password  = SecureRandom.hex(5).upcase
+    @order.user.name      = "#{@member.first_name} #{@member.last_name}"
+
+    @member.year = Year.last
+
+    @order.member_type = @member.member_type = MemberType.find(params[:order][:member_type_id])
 
     if @order.process_transaction
-      OrderMailer.thank_you_membership(@order).deliver
+      # OrderMailer.thank_you_membership(@order).deliver
       respond_to do |format|
         format.js { render :nothing => true, :status => 200 }
       end
