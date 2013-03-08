@@ -1,18 +1,15 @@
-require 'simplecov'
-SimpleCov.start 'rails'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/rspec'
 
 RSpec.configure do |config|
-  config.mock_with :rspec
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
-  config.global_fixtures = :all
+  config.infer_base_class_for_anonymous_controllers = false
   config.treat_symbols_as_metadata_keys_with_true_values = true
-  config.filter_run focus: true
   config.run_all_when_everything_filtered = true
+  config.filter_run_including focus: true
 end
 
 def assert_presence(model, field)
@@ -29,3 +26,13 @@ def assert_max_words_count(model, field, max_words)
   model.should be_invalid
   model.errors[field].join.should match(/You have exceeded the #{max_words} word count!/)
 end
+
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+
+  def self.connection
+    @@shared_connection || retrieve_connection
+  end
+end
+ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
