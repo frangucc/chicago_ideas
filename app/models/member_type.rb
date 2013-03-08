@@ -3,8 +3,8 @@ class MemberType < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
 
-  validates :projected_members, numericality: { greater_than_or_equal_to: 0, only_integer: true }
-  validates :maximum_members, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  validates :projected_members,  numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  validates :maximum_members,    numericality: { greater_than_or_equal_to: 0, only_integer: true }
   validates :min_price_in_cents, numericality: { greater_than_or_equal_to: 0, only_integer: true }
   validates :max_price_in_cents, numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
