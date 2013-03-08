@@ -83,6 +83,10 @@ th.product {
   width: 450px;
 }
 
+th .price_range {
+  color: #297CB9;
+}
+
 td.invoice {
   background-color: #ECECEC;
   line-height: 40px;
@@ -109,4 +113,11 @@ td.total_paid {
   line-height: 40px;
   color: white;
   text-align: center;
+}
+
+.pdf_end {
+  color: #297CB9;
+  background-color: #297CB9;
+  height: 2px;
+  margin: 0;
 }

@@ -94,6 +94,31 @@
             %br/
             #{ @order.billing_address.city }, #{ @order.billing_address.state } #{ @order.billing_address.zip }
 
+    %table
+      %tbody
+        %tr
+          %th.invoice
+            = @order.member_type.title
+            Member
+            %span.price_range
+              = member_type_price(@order.member_type)
+        %tr
+          %td
+            - if @order.member_type.title == 'Ignition'
+              For tax purposes you received no goods or services in exchange for your contribution.
+            - else
+              The IRS requires us to inform you that the amount of your contribution that is
+              deductible for federal income tax purposes is limited to the excess of the
+              amount of any money (and the value of any property other than money) contributed
+              by you over the value of the goods and services provided by The Innovation
+              Foundation (d/b/a Chicago Ideas Week). We estimate the value of your
+              = @order.member_type.title
+              membership to be
+              = @order.member_type.estimated_value
+
     .clear
     .footer
       www.chicagoideas.com
+    %p
+      The Innovation Foundation (d/b/a Chicago Ideas Week) is a 501c3 organization.
+    %hr.pdf_end
