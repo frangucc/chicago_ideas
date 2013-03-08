@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308164708) do
+ActiveRecord::Schema.define(:version => 20130308170751) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -280,6 +280,17 @@ ActiveRecord::Schema.define(:version => 20130308164708) do
 
   add_index "days", ["date"], :name => "index_days_on_date"
   add_index "days", ["year_id"], :name => "index_days_on_year_id"
+
+  create_table "demographic_infos", :force => true do |t|
+    t.string   "race"
+    t.string   "industry"
+    t.string   "income"
+    t.string   "gender"
+    t.string   "age"
+    t.string   "travel"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "edison_talks_applications", :force => true do |t|
     t.string   "name",                                 :null => false
@@ -742,6 +753,7 @@ ActiveRecord::Schema.define(:version => 20130308164708) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.integer  "address_id"
   end
 
   add_index "users", ["admin"], :name => "index_users_on_admin"
