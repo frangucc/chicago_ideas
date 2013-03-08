@@ -94,6 +94,8 @@ end
 group :test do
   gem 'simplecov', :require => false
   gem "shoulda-matchers"
+  gem 'rb-fsevent'
+  gem 'launchy'
 end
 
 # test-only gems (accessable to development so their generators and rake tasks are available)
