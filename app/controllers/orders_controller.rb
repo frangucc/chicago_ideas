@@ -3,6 +3,9 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @order.build_billing_address
+    @order.build_user
+    @order.user.build_address
+    @order.user.build_member
     @order.member_type = MemberType.find(params[:member_id])
   end
 

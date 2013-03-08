@@ -21,42 +21,36 @@
         .form_section
           %span.form_section_header Contribution Amount
           %hr.form_section_separator
-          = f.inputs :class => "v_lists c_list" do
-            = f.input :amount, opts_for_amount(@order)
-
-        .form_section
-          %span.form_section_header Card Information
-          %hr.form_section_separator
           .form_errors
             %ul
               - @order.errors[:base].each do |error|
                 %li.form_error
                   = error
+
+          = f.inputs :class => "v_lists c_list" do
+            = f.input :amount, opts_for_amount(@order)
+
+        .form_section
+          %span.form_section_header Billing Information
+          %hr.form_section_separator
           = f.inputs :class => "v_lists c_list" do
             = f.input :member_type_id,  :as => :hidden, :value => @order.member_type.id
-            = f.input :name_on_card,    :as => :string, :required => true, :placeholder => 'Full Name'
-
-
+            = f.input :name_on_card,    :as => :string, :required => true, :placeholder => 'Doe Jane'
             - opts = { :as => :string, :required => true }
             - opts.merge!({ :input_html => { :value => "370000000000002" } }) if Rails.env == 'development'
             = f.input :card_number, opts
             = f.inputs :class => 'form_expdate_cvc' do
               = f.input :expiry_date,   :as => :string, :required => true, :label => 'Exp Date', :placeholder => 'MMYY'
               = f.input :cvc,           :as => :string, :required => true, :label => "CVC"
-            -# = f.inputs :class => 'form_state_cards' do
-            -#   %li.form_cards
-            -#     %ul
-            -#       %li= image_tag 'application/orders/billing_card1.png'
-            -#       %li= image_tag 'application/orders/billing_card2.png'
-            -#       %li= image_tag 'application/orders/billing_card3.png'
-            -#       %li= image_tag 'application/orders/billing_card4.png'
+            = f.inputs :class => 'form_state_cards' do
+              %li.form_cards
+                %ul
+                  %li= image_tag 'application/orders/billing_card1.png'
+                  %li= image_tag 'application/orders/billing_card2.png'
+                  %li= image_tag 'application/orders/billing_card3.png'
+                  %li= image_tag 'application/orders/billing_card4.png'
 
-        .form_section
-          %span.form_section_header Billing Information
-          %hr.form_section_separator
-          %fieldset.v_lists.c_lists
             %ol
-              = f.input :email,           :as => :string, :required => true
               = f.semantic_fields_for :billing_address do |billing_address|
                 = billing_address.input :street_1, :as => :string, :required => true
                 = billing_address.input :street_2, :as => :string
@@ -64,6 +58,26 @@
                 = billing_address.input :state,    :as => :select, :required => true, :collection => Carmen::states[0..-12], :input_html => { style: "width: 214px; margin-top: 8px;" }
                 = billing_address.input :country,  :as => :hidden, :value => 'US'
                 = billing_address.input :zip,      :as => :string, :required => true, :label => "Zip Code"
+
+          .form_section
+            %span.form_section_header Personal Information
+            %hr.form_section_separator
+            %fieldset.v_lists.c_lists
+              %ol
+                = f.semantic_fields_for :user do |u|
+                  = u.input :email, :as => :string, :required => true
+                  = u.semantic_fields_for :member do |m|
+                    = m.input :first_name, :as => :string, :required => true
+                    = m.input :last_name,  :as => :string, :required => true
+
+                  = u.semantic_fields_for :address do |ad|
+                    = ad.input :street_1, :as => :string, :required => true
+                    = ad.input :street_2, :as => :string
+                    = ad.input :city,     :as => :string, :required => true
+                    = ad.input :state,    :as => :select, :required => true, :collection => Carmen::states[0..-12], :input_html => { style: "width: 214px; margin-top: 8px;" }
+                    = ad.input :country,  :as => :hidden, :value => 'US'
+                    = ad.input :zip,      :as => :string, :required => true, :label => "Zip Code"
+
 
         = f.actions do
           = f.submit :value => "Confirm Purchase", :class => "btn submit", :id => "confirm_purchase"
