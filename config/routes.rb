@@ -560,7 +560,7 @@ CraigsAdmin::Application.routes.draw do
 
     resources :venues
 
-    resources :orders, :only => [:index]
+    resources :orders, :only => [:index, :show]
 
   end
 
