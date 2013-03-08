@@ -1,4 +1,4 @@
-.thank_you_modal_hidden {
+.thank_you_modal_hidden, .demographic_modal_hidden {
   display: none;
 }
 
@@ -88,6 +88,67 @@
           background: url(application/fancybox/fancy_stairs.png) no-repeat center;
         }
         border-left: 1px solid rgb(183, 181, 181);
+      }
+    }
+  }
+}
+
+#demographic_modal {
+  height: 650px;
+  width: 450px;
+  background: transparent;
+  .demographic_modal_inner {
+    background: url(application/fancybox/fancy_shadow_n.png) no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    .demographic_content{
+      height: 550px;
+      width: 350px;
+      margin: auto;
+      padding-top: 40px;
+      .demographic_header {
+        h1 {
+          color: #666666;
+          font-weight: bold;
+        }
+        hr {
+          border-color: rgb(171, 171, 171);
+        }
+      }
+      .demographic_options {
+        p {
+          margin-top: 20px;
+          margin-bottom: 2px;
+          color: #666666;
+          font-weight: bold;
+        }
+        select {
+          width: 100%;
+        }
+      }
+      .demographic_footer {
+        margin-top: 50px;
+        .send_survey {
+          width: 125px;
+          margin: auto;
+          #send_survey {
+            padding: 12px 40px;
+            font-size: 18px;
+            text-decoration: none;
+          }
+        }
+        .skip_survey {
+          width: 125px;
+          margin: auto;
+          margin-top: 22px;
+          text-align: center;
+          #skip_survey {
+            color: #666666;
+            font-size: 15px;
+            text-decoration: none;
+          }
+        }
       }
     }
   }

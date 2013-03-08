@@ -1,13 +1,40 @@
 $(document).ready ->
 
-  $('a.thank_you_close_button') .live "click", ->
+  $('a.thank_you_close_button').live 'click', ->
     $.fancybox.close()
+
+  $('a#skip_survey').live 'click', ->
+    $.fancybox.close()
+    $.fancybox
+      content: $('#thank_you_modal')
+      autoDimensions: true
+      autoScale: true
+      padding: 0
+      margin: 0
+      showCloseButton: false
+      hideOnContentClick: false
+      hideOnOverlayClick: false
+      centerOnScroll: true
+
+  $('a#send_survey').live 'click', ->
+    $.fancybox.close()
+    $.fancybox
+      content: $('#thank_you_modal')
+      autoDimensions: true
+      autoScale: true
+      padding: 0
+      margin: 0
+      showCloseButton: false
+      hideOnContentClick: false
+      hideOnOverlayClick: false
+      centerOnScroll: true
+    # TODO: SEND SURVEY
 
   $('#new_order').live('ajax:beforeSend', ->
     $.fancybox.showActivity()
   ).live('ajax:success', (xhr, data, status) ->
     $.fancybox
-      content: $('#thank_you_modal')
+      content: $('#demographic_modal')
       autoDimensions: true
       autoScale: true
       padding: 0

@@ -1,0 +1,32 @@
+.demographic_modal_hidden
+  #demographic_modal
+    .demographic_modal_inner
+      .demographic_content
+        .demographic_header
+          %h1
+            Survey
+          %hr
+        .demographic_options
+          %p
+            What race/ethnicity do you most identify with?
+          = select_tag ''
+          %p
+            What Industry do you work in?
+          = select_tag ''
+          %p
+            What is your household income?
+          = select_tag ''
+          %p
+            What gender do you most identify with?
+          = select_tag ''
+          %p
+            What category below includes your age?
+          = select_tag ''
+          %p
+            Did you travel to Chicago to attend CIW?
+          = select_tag ''
+        .demographic_footer
+          .send_survey
+            = link_to 'Send', '', :class => 'blue_btn', :id => 'send_survey'
+          .skip_survey
+            = link_to 'skip survey', '', :id => 'skip_survey'
