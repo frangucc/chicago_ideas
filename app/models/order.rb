@@ -7,19 +7,20 @@ class Order < ActiveRecord::Base
   serialize :authnet_response
 
   accepts_nested_attributes_for :billing_address
+  accepts_nested_attributes_for :user
 
-  attr_accessor :email, :card_number, :expiry_date, :cvc, :amount
+  attr_accessor :card_number, :expiry_date, :cvc, :amount
 
   validates_presence_of :name_on_card
   validates_presence_of :card_number
   validates_presence_of :amount
 
-  validates :email, :email => true, :presence => true
   validates :expiry_date, :presence => true, :length => { :is => 4 }, :numericality => true
   validates :cvc, :presence => true, :length => { :is => 3 }, :numericality => true
+  validates :member_type_id, :presence => true
 
-  validate :amount_should_match_member_types, :email_available
   before_validation :assign_total_in_cents
+  after_validation :amount_should_match_member_types
   before_save :code_and_member, on: :create
 
   def assign_total_in_cents
@@ -35,14 +36,6 @@ class Order < ActiveRecord::Base
       else
         errors.add(:amount, "must be between #{ member_type.min_price } and #{ member_type.max_price }")
       end
-    end
-  end
-
-  def email_available
-    if User.exists?(email: self.email)
-      errors.add(:email, "is taken")
-    else
-      true
     end
   end
 
@@ -72,6 +65,5 @@ class Order < ActiveRecord::Base
   protected
   def code_and_member
     while Order.find_by_code(self.code = SecureRandom.hex(4).upcase).present?; end
-    self.create_user!(email: self.email, name: self.name_on_card, password: self.code)
   end
 end
