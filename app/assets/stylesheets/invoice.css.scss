@@ -101,6 +101,7 @@ td.address {
 td.tax_disclaimer {
   background-color: #ECECEC;
   font-size: 12px;
+  padding: 20px;
 }
 
 td.total_label {
@@ -121,6 +122,10 @@ td.total_paid {
   width: 100%;
   line-height: 40px;
   color: white;
+  text-align: center;
+}
+
+.footer_info {
   text-align: center;
 }
 
