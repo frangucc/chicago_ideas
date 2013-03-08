@@ -32,8 +32,12 @@ class User < ActiveRecord::Base
   has_one :simulate_user
   has_one :member
 
+  belongs_to :address
+
   accepts_nested_attributes_for :quotes, :allow_destroy => true
   accepts_nested_attributes_for :sponsor_user, :allow_destroy => true
+  accepts_nested_attributes_for :member
+  accepts_nested_attributes_for :address
 
   # useful scopes
   scope :admin,     conditions: { admin:        true }
