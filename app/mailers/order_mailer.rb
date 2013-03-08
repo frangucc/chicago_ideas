@@ -5,7 +5,7 @@ class OrderMailer < ActionMailer::Base
 
   def thank_you_membership(order)
     @order = order
-    mail(:to => @order.email) do |format|
+    mail(:to => @order.user.email) do |format|
       format.html { render }
     end
   end

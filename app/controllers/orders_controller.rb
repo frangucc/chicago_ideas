@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
     @order.member_type = @member.member_type = MemberType.find(params[:order][:member_type_id])
 
     if @order.process_transaction
-      # OrderMailer.thank_you_membership(@order).deliver
+      OrderMailer.thank_you_membership(@order).deliver
       respond_to do |format|
         format.js { render :nothing => true, :status => 200 }
       end
