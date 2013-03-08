@@ -47,6 +47,7 @@ $(document).ready ->
     $main_header = $('#wrapper > #main_header').detach()
     $('#wrapper').empty()
     $('#wrapper').html($main_header).append(data.responseText)
+    stButtons.locateElements()
   ).live('ajax:complete', (xhr, data, status) ->
     $.fancybox.hideActivity()
   )
