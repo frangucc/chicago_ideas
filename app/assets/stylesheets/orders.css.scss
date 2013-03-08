@@ -202,4 +202,12 @@
       }
     }
   }
+  #personal {
+    ol li label {
+      font-weight: inherit;
+    }
+  }
+  #confirm_purchase {
+    padding: 6px 42px;
+  }
 }
