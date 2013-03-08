@@ -1,6 +1,7 @@
 %tr{:order => order.code}
   %td= order.code
   %td= order.name_on_card
+  %td= order.user.address.phone
   %td= order.user.email
   %td= order.member_type.title
   %td= number_to_currency(order.total_in_cents / 100)

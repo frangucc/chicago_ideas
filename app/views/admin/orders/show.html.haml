@@ -17,6 +17,9 @@
   %h4 Email Address
   %p= @order.user.email
 
+  %h4 Member phone #
+  %p= @order.user.address.phone
+
   %h4 User Address
   %p
     = @order.user.address.street_1
