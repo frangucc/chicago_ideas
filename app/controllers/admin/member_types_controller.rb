@@ -3,7 +3,7 @@ class Admin::MemberTypesController < Admin::AdminController
   # COLLECTION ACTIONS
   # ---------------------------------------------------------------------------------------------------------
   def index
-    @member_types = MemberType.search_sort_paginate(params)
+    @member_types = MemberType.where(:year_id => Time.now.year).order("min_price_in_cents ASC")
   end
 
   # MEMBER ACTIONS

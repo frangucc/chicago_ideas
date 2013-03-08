@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
       format.html
       format.pdf do
         html = render_to_string(partial: "invoice", layout: false)
-        kit = PDFKit.new(html, "margin-bottom" => "0.5in", "margin-top" => "0.5in", page_size: 'A4')
+        kit = PDFKit.new(html, "margin-bottom" => "0.5in", "margin-top" => "0.5in", page_size: 'Letter')
         css_path =  if Rails.env == "production"
                       "#{Rails.root}/public/assets/invoice.css"
                     else
