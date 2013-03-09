@@ -70,6 +70,10 @@ gem 'unicorn'
 # Authorize.net
 gem 'authorize-net'
 
+# js environment
+gem 'execjs'
+gem 'therubyracer'
+
 # third party SAS solution for monitoring performance
 group :production do
   gem 'newrelic_rpm'
