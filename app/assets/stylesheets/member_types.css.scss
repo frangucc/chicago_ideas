@@ -3,24 +3,27 @@
   .banner_wrapper {
     background: url(application/member_types/memberships_banner.png) top center no-repeat;
     height: 188px;
+    .main_title {
+      margin-top: 40px;
+      color: #FFFFFF;
+      font-family: helvetica;
+      font-size: 52px;
+      text-align: center;
+    }
+    .main_subtitle {
+      margin: 30px auto 0 auto;
+      color: #FFFFFF;
+      width: 420px;
+      font-family: helvetica;
+      font-size: 20px;
+      text-align: center;
+    }
   }
 }
 
 .main_content {
   background: url(application/member_types/main_content_background.png) repeat;
   background-size: 100% 100%;
-  .main_title {
-    margin: 50px auto auto auto;
-    font-size: 48px;
-    color: #262223;
-    text-align: center;
-  }
-  .main_subtitle {
-    width: 330px;
-    margin: 20px auto auto auto;
-    text-align: center;
-    font-size: 15px;
-  }
   .member_types {
     width: 1050px;
     margin: 50px auto 70px auto;
