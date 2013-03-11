@@ -25,7 +25,7 @@
               What category below includes your age?
             = f.select(:age, options_for_select(DemographicInfo.options_hash(:age)), prompt: "-- SELECT ONE --")
             %p
-              Did you travel to Chicago to attend CIW?
+              Will you be traveling to Chicago to attend CIW?
             Yes
             = f.radio_button :travel, true
             No
