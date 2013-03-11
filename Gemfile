@@ -73,6 +73,7 @@ gem 'authorize-net'
 # js environment
 gem 'execjs'
 gem 'therubyracer'
+gem 'exception_notification'
 
 # third party SAS solution for monitoring performance
 group :production do

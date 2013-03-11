@@ -79,3 +79,8 @@ CraigsAdmin::Application.configure do
 
   config.filter_parameters << [:card_number, :cvc]
 end
+
+CraigsAdmin::Application.config.middleware.use ExceptionNotifier,
+  :email_prefix => "[CIW] ",
+  :sender_address => %{"Error" <err@example.com>},
+  :exception_recipients => %w{leandro@meetmantra.com martin@meetmantra.com}
