@@ -1,20 +1,21 @@
 %div{ :id => "member_type_#{member_type.id}", :class => 'member_detailed' }
-  .detailed_header.group
-    = link_to 'BUY NOW', payment_path(:member_id => member_type.id), :class => 'blue_btn'
-    %p.detailed_title
-      = member_type.title
-      Member
-      %br
-      %span.detailed_price= member_type_price(member_type)
+  .highlighted_benefits
+    .detailed_header.group
+      = link_to 'BUY NOW', payment_path(:member_id => member_type.id), :class => 'blue_btn'
+      %p.detailed_title
+        = member_type.title
+        Member
+        %br
+        %span.detailed_price= member_type_price(member_type)
 
-  .detailed_content
     - if member_type.specific_benefits
       %p.detailed_highlighted_title
         %strong Highlighted Benefits:
-      .detailed_highlighted_box
-        %ul
-          - member_type.specific_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
-            %li= h line
+      %ul
+        - member_type.specific_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
+          %li= h line
+
+  .general_benefits
     - if member_type.general_benefits
       %p.detailed_general_title
         %strong General Benefits:

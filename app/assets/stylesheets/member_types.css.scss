@@ -30,65 +30,69 @@
     .member_type_detailed_container {
       float: left;
       width: 500px;
-      margin-top: 40px;
       .member_detailed {
         display: none;
-        .detailed_header {
-          border-bottom: 1px solid rgb(167, 160, 160);
-          padding-bottom: 12px;
-          .blue_btn {
-            float: right;
-            padding: 12px 15px !important;
-            border-radius: 4px;
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            width: 90px;
-            padding: 5px 0;
-          }
-          .detailed_title {
-            margin-bottom: 0;
-            padding-bottom: 15px;
-            color: #262223;
-            font-weight: bold;
-            font-size: 28px;
-            line-height: 30px;
-            .detailed_price {
-              font-size: 24px;
+        .highlighted_benefits {
+          background: #FFFFFF;
+          .detailed_header {
+            padding: 30px;
+            border-bottom: 1px solid rgb(167, 160, 160);
+            .blue_btn {
+              float: right;
+              padding: 12px 15px !important;
+              border-radius: 4px;
+              font-size: 18px;
+              font-weight: bold;
+              text-align: center;
+              text-decoration: none;
+              width: 90px;
+            }
+            .detailed_title {
+              margin-bottom: 0;
+              padding-bottom: 15px;
+              color: #262223;
+              font-weight: bold;
+              font-size: 28px;
+              line-height: 30px;
+              .detailed_price {
+                font-size: 24px;
+              }
+            }
+            .detailed_projected {
+              padding-top: 15px;
+              color: rgb(18,117,197);
+              font-weight: bold;
+              font-size: 16px;
+              border-top: 1px solid white;
             }
           }
-          .detailed_projected {
-            padding-top: 15px;
-            color: rgb(18,117,197);
-            font-weight: bold;
-            font-size: 16px;
-            border-top: 1px solid white;
-          }
         }
-        .detailed_content {
-          padding-top: 15px;
-          padding-bottom: 40px;
-          margin-bottom: 0;
+        .highlighted_benefits, .general_benefits {
+          background: #FFFFFF;
+          border: 1px inset gainsboro;
           font-size: 13px;
           ul {
-            padding-left: 15px;
+            padding: 0 30px 30px 30px;
+            margin-left: 20px;
             list-style: circle;
+            font-size: 16px;
           }
-          p {
-            margin-top: 15px;
+          .detailed_highlighted_title, .detailed_general_title {
+            padding: 30px 30px 10px 30px;
             margin-bottom: 0;
-            font-size: 13px;
             color: #262223;
           }
           .detailed_highlighted_title {
-            font-size: 14px;
+            font-size: 23px;
           }
-          .detailed_highlighted_box {
-            background-color: #FFF;
-            border: 1px solid rgb(169, 169, 169);
-            margin-top: 10px;
-            padding: 20px;
+          .detailed_general_title {
+            font-size: 21px;
+          }
+        }
+        .general_benefits {
+          margin-top: 30px;
+          p {
+            font-size: 21px;
           }
         }
         .detailed_total {
