@@ -1,9 +1,8 @@
 class DemographicInfosController < ApplicationController
 
   def create
-    debugger
     respond_to do |format|
-      format.js { render nothing: true, status: 200 }
+      format.js { render nothing: true, status: :ok }
     end
   end
 end

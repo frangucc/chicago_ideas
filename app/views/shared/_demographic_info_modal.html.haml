@@ -6,7 +6,7 @@
           %h1
             Survey
           %hr
-        = form_for('/demographic_infos', remote: true) do |f|
+        = form_for('/demographic_infos', remote: true, :id => 'new_demographic') do |f|
           .demographic_options
             = hidden_field_tag :order_id, ''
             %p
@@ -32,6 +32,6 @@
             = f.radio_button :travel, false
           .demographic_footer
             .send_survey
-              = link_to "Send", :class => "blue_btn", :id => 'send_survey'
+              = f.submit "Send", :class => "blue_btn", :id => 'send_survey'
             .skip_survey
               = link_to 'skip survey', '', :id => 'skip_survey'

@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
     if @order.process_transaction
       OrderMailer.delay.thank_you_membership(@order)
       respond_to do |format|
-        format.js { render :nothing => true, :status => 200 }
+        format.js { render :text => "#{@order.id}", :status => 200 }
       end
     else
       respond_to do |format|
