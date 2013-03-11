@@ -134,6 +134,19 @@
       }
       .member_summaries_container {
         padding: 15px 15px 25px 15px;
+        #become_innovation {
+          margin-top: 30px;
+          display: block;
+          width: 450px;
+          .become_innovation_council {
+            padding: 20px;
+            background: #007AC2;
+            font-size: 23px;
+            font-weight: bold;
+            line-height: 27px;
+            color: #FFFFFF;
+          }
+        }
         .member_summary {
           min-height: 55px;
           width: 450px;

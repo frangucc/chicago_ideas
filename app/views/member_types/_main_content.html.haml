@@ -21,6 +21,9 @@
         Join our Membership Programs
       .member_summaries_container
         - member_types.each do |member_type|
-          = render 'member_types/member_type_summary', :member_type => member_type
-
-
+          - if member_type.title == 'Innovation Council'
+            = link_to '#', :id => 'become_innovation' do
+              .become_innovation_council
+                BECOME AN INNOVATION COUNCIL MEMBER! CLICK HERE
+          - else
+            = render 'member_types/member_type_summary', :member_type => member_type
