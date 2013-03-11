@@ -1,10 +1,5 @@
-%section#header_toolbar.container-fluid
-  .container
-    #breadcrumbs
-      %ul
-        %li= link_to "Home", "/"
-        %li
-          %span Member Program
+%section#memberships_banner.banner.container-fluid
+  .banner_wrapper
 
 = render 'member_types/main_content', :member_types => @member_types
 = render 'member_types/join_ciw'

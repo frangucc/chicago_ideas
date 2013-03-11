@@ -1,3 +1,11 @@
+#memberships_banner {
+  height: 248px;
+  .banner_wrapper {
+    background: url(application/member_types/memberships_banner.png) top center no-repeat;
+    height: 188px;
+  }
+}
+
 .main_content {
   background: url(application/member_types/main_content_background.png) repeat;
   background-size: 100% 100%;
