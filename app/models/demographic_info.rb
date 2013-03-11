@@ -59,4 +59,12 @@ class DemographicInfo < ActiveRecord::Base
           "60 or older"
         ]
 
+  def self.options_hash(attr)
+    const = attr.upcase.to_sym
+    if self.constants.include?(const)
+      hash = {}
+      self.const_get(const).each_with_index { |value, index| hash[value] = index }
+      hash
+    end
+  end
 end

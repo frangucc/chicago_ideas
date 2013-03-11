@@ -6,27 +6,32 @@
           %h1
             Survey
           %hr
-        .demographic_options
-          %p
-            What race/ethnicity do you most identify with?
-          = select_tag ''
-          %p
-            What Industry do you work in?
-          = select_tag ''
-          %p
-            What is your household income?
-          = select_tag ''
-          %p
-            What gender do you most identify with?
-          = select_tag ''
-          %p
-            What category below includes your age?
-          = select_tag ''
-          %p
-            Did you travel to Chicago to attend CIW?
-          = select_tag ''
-        .demographic_footer
-          .send_survey
-            = link_to 'Send', '', :class => 'blue_btn', :id => 'send_survey'
-          .skip_survey
-            = link_to 'skip survey', '', :id => 'skip_survey'
+        = form_for('/demographic_infos', remote: true) do |f|
+          .demographic_options
+            = hidden_field_tag :order_id, ''
+            %p
+              What race/ethnicity do you most identify with?
+            = f.select(:race, options_for_select(DemographicInfo.options_hash(:race)), prompt: "-- SELECT ONE --")
+            %p
+              What Industry do you work in?
+            = f.select(:industry, options_for_select(DemographicInfo.options_hash(:industry)), prompt: "-- SELECT ONE --")
+            %p
+              What is your household income?
+            = f.select(:income, options_for_select(DemographicInfo.options_hash(:income)), prompt: "-- SELECT ONE --")
+            %p
+              What gender do you most identify with?
+            = f.select(:gender, options_for_select(DemographicInfo.options_hash(:gender)), prompt: "-- SELECT ONE --")
+            %p
+              What category below includes your age?
+            = f.select(:age, options_for_select(DemographicInfo.options_hash(:age)), prompt: "-- SELECT ONE --")
+            %p
+              Did you travel to Chicago to attend CIW?
+            Yes
+            = f.radio_button :travel, true
+            No
+            = f.radio_button :travel, false
+          .demographic_footer
+            .send_survey
+              = link_to "Send", :class => "blue_btn", :id => 'send_survey'
+            .skip_survey
+              = link_to 'skip survey', '', :id => 'skip_survey'
