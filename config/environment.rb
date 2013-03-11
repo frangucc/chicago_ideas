@@ -16,3 +16,4 @@ DocRaptor.api_key 'tl8fHT64wxhkLUTW0Y6V'
 AUTHNET_LOGIN = "2y9kBc3rXn"
 AUTHNET_KEY = "8SXA34Ag6qa28SuH"
 AUTHNET_ENV = :sandbox
+BING_MAPS_API_KEY = "AuGgGandaCq-kaRoSzngT0VCwi8MWNk0BgOj5pxdiJvooLyZrGwoNnFpT3ZRBMTi"
