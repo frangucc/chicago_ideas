@@ -11,10 +11,7 @@
             = message
         %p.thank_you_share
           = submessage
-      -#.thank_you_share_links
-        -#.thank_you_twitter
-          -#= link_to '', '#'
-        -#.thank_you_facebook
-          -#= link_to '', '#'
-        -#.thank_you_stairs
-          -#= link_to '', '#'
+      .thank_you_share_links
+        %span{ :class => 'st_twitter_large',  'st_url' => share_url, :id => 'thank_twitter_share' }
+        %span{ :class => 'st_facebook_large', 'st_url' => share_url, :id => 'thank_facebook_share' }
+        %span{ :class => 'st_linkedin_large', 'st_url' => share_url, :id => 'thank_linkedin_share' }
