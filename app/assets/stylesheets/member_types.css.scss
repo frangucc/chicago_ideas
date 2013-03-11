@@ -126,13 +126,13 @@
       float: left;
       padding-left: 45px;
       .join_membership {
-        font-size: 16px;
+        padding-left: 15px;
+        margin: 15px 0 0 0;
+        font-size: 23px;
         font-weight: bold;
-        color: rgb(97, 97, 97);
+        color: #000000;
       }
       .member_summaries_container {
-        background-color: #FFF;
-        border: 1px inset rgb(220, 220, 220);
         padding: 15px 15px 25px 15px;
         .member_summary {
           min-height: 55px;
