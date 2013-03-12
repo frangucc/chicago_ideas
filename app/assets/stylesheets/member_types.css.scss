@@ -70,7 +70,9 @@
         }
         .highlighted_benefits, .general_benefits {
           background: #FFFFFF;
-          border: 1px inset gainsboro;
+          -moz-box-shadow: 0 0 5px #888888;
+          -webkit-box-shadow: 0 0 5px #888888;
+          box-shadow: 0 0 5px #888888;
           font-size: 13px;
           ul {
             padding: 0 30px 30px 30px;
@@ -110,7 +112,9 @@
       }
       #membership_info {
         background: #FFFFFF;
-        border: 1px inset gainsboro;
+        -moz-box-shadow: 0 0 5px #888888;
+        -webkit-box-shadow: 0 0 5px #888888;
+        box-shadow: 0 0 5px #888888;
         p {
           padding: 25px 25px 0 25px;
           margin: 0;
