@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308212627) do
+ActiveRecord::Schema.define(:version => 20130312054509) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -282,15 +282,32 @@ ActiveRecord::Schema.define(:version => 20130308212627) do
   add_index "days", ["date"], :name => "index_days_on_date"
   add_index "days", ["year_id"], :name => "index_days_on_year_id"
 
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
   create_table "demographic_infos", :force => true do |t|
     t.string   "race"
     t.string   "industry"
     t.string   "income"
     t.string   "gender"
     t.string   "age"
-    t.string   "travel"
+    t.boolean  "travel",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "edison_talks_applications", :force => true do |t|

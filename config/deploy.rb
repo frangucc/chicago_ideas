@@ -4,6 +4,7 @@ load 'deploy/assets'
 require 'bundler/capistrano'
 require 'rvm/capistrano'
 require 'thinking_sphinx/deploy/capistrano'
+require "delayed/recipes"
 
 set :application,             'chicago_ideas'
 set :rails_env,               'production'
@@ -76,3 +77,7 @@ end
 
 # before 'deploy:update_code', 'thinking_sphinx:stop'
 after 'deploy:update_code', 'deploy:copy_shared_files'
+
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"

@@ -74,7 +74,9 @@ gem 'authorize-net'
 gem 'execjs'
 gem 'therubyracer'
 gem 'exception_notification'
+gem 'daemons'
 
+gem 'delayed_job_active_record'
 # third party SAS solution for monitoring performance
 group :production do
   gem 'newrelic_rpm'
