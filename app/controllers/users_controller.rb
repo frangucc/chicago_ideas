@@ -100,7 +100,7 @@ class UsersController < ApplicationController
     # Get all chapters that the speaker is part of that are archived
     @chapters = @speaker.chapters.all
     @events = @speaker.events.all
-    @meta_data = {:page_title => "#{@speaker.name}", :og_image => "#{@speaker.portrait(:thumb)}", :og_title => "#{@speaker.name} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@speaker.bio.present? ? @speaker.bio[0..200] : ""}"}
+    @meta_data = {:page_title => "#{@speaker.name}", :og_image => "#{@speaker.portrait(:thumb)}", :og_title => "#{@speaker.name} | Chicago Ideas Week", :og_type => "article", :og_desc => "#{@speaker.bio_abbreviated}"}
     render "speakers/show"
   end
 
@@ -117,7 +117,7 @@ class UsersController < ApplicationController
   def team_member
     get_team_members
     @team_member = User.find(params[:id])
-    @meta_data = {:page_title => "About #{@team_member.name}", :og_image => "#{@team_member.portrait(:thumb)}", :og_title => "About #{@team_member.name} | Chicago Ideas Week", :og_type => "website", :og_desc => "#{@team_member.bio[0..200]}"}
+    @meta_data = {:page_title => "About #{@team_member.name}", :og_image => "#{@team_member.portrait(:thumb)}", :og_title => "About #{@team_member.name} | Chicago Ideas Week", :og_type => "website", :og_desc => "#{@team_member.bio_abbreviated}"}
   end
 
   def end_simulate
