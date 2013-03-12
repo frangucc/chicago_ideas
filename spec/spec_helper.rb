@@ -27,6 +27,16 @@ def assert_max_words_count(model, field, max_words)
   model.errors[field].join.should match(/You have exceeded the #{max_words} word count!/)
 end
 
+def assert_numericality(model, field)
+  model.should be_invalid
+  model.errors[field].join.should match(/is not a number/)
+end
+
+def assert_numerical_range(model, field, length)
+  model.should be_invalid
+  model.errors[field].join.should match(/is the wrong length \(should be #{length} characters\)/)
+end
+
 class ActiveRecord::Base
   mattr_accessor :shared_connection
   @@shared_connection = nil

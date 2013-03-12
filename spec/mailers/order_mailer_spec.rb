@@ -14,7 +14,7 @@ describe OrderMailer do
     it 'email has proper headers' do
       @email.subject.should == "Thank you for joining CIW's Member Program"
       @email.from[0].should == 'forms@chicagoideas.com'
-      @email.to[0].should   == order.email
+      @email.to[0].should   == order.user.email
     end
 
     it 'email has proper content' do

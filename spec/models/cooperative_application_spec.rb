@@ -6,9 +6,9 @@ describe CooperativeApplication do
 
   describe 'Validations' do
 
-    ['name', 'last_name', 'organization', 'phone', 'email', 'org_mission', 'org_website', 'org_twitter', 'reason', 'worked_on', 'part_meaningful', 'ins_failure', 'neighborhood', 'assisted_area', 'recommend'].each do |attr|
-      it "requires #{attr}" do
-        assert_presence co_app, attr.to_sym
+    [:name, :last_name, :organization, :phone, :email, :org_mission, :org_website, :org_twitter, :reason, :worked_on, :part_meaningful, :ins_failure, :neighborhood, :assisted_area, :recommend].each do |attribute|
+      it "requires #{attribute}" do
+        assert_presence co_app, attribute
       end
     end
 
