@@ -75,9 +75,7 @@ def remote_file_exists?(full_path)
   'true' ==  capture("if [ -e #{full_path} ]; then echo 'true'; fi").strip
 end
 
-# before 'deploy:update_code', 'thinking_sphinx:stop'
 after 'deploy:update_code', 'deploy:copy_shared_files'
 
 after "deploy:stop",    "delayed_job:stop"
-after "deploy:start",   "delayed_job:start"
-after "deploy:restart", "delayed_job:restart"
+after "deploy:start",   "delayed_job:start", "thinking_sphinx:rebuild"
