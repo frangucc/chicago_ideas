@@ -1,7 +1,7 @@
 = render '/admin/admin/collection_controls'
 - content_for :breadcrumbs do
   = breadcrumbs @member
-  .crumb.end= section_title   
+  .crumb.end= section_title
 
 - content_for :top_links do
   = edit_model_link @member, true
@@ -26,3 +26,22 @@
   %h4 Year
   %p= @member.year.id.to_s
 
+  %h3 Demographic Info
+
+  - if @member.user.demographic_info.present?
+    %h4 Race
+    %p= @member.user.demographic_info.race_value
+
+    %h4 Industry
+    %p= @member.user.demographic_info.industry_value
+
+    %h4 Income
+    %p= @member.user.demographic_info.income_value
+
+    %h4 Gender
+    %p= @member.user.demographic_info.gender_value
+
+    %h4 Age Group
+    %p= @member.user.demographic_info.age_value
+  - else
+    This Member skipped the survey
