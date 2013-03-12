@@ -116,7 +116,6 @@ class User < ActiveRecord::Base
       end
       permalink = "#{permalink}#{i}"
       record.permalink = permalink
-      puts permalink
     end
   }
 
