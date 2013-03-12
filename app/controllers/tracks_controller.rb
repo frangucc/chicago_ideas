@@ -10,7 +10,7 @@ class TracksController < ApplicationController
 
 
   def show
-    @track = Track.find_by_name(params[:id])
+    @track = Track.find_by_name!(params[:id])
     @tracks = Track.search_sort_paginate(params)
 
     @talks = @track.talks.search_sort_paginate(params)

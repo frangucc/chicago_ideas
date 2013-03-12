@@ -4,6 +4,6 @@ class Admin::OrdersController < Admin::AdminController
   end
 
   def show
-    @order = Order.includes(:member_type, :billing_address, :user => [:member, :address] ).find_by_code(params[:id])
+    @order = Order.includes(:member_type, :billing_address, :user => [:member, :address] ).find_by_code!(params[:id])
   end
 end

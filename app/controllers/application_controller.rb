@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     @talks = Talk.current.order('RAND()').limit(8)
     @speakers = User.speaker.not_deleted.current.order('RAND()').limit(8)
     @featured = Chapter.homepage_featured.where('id != 67').order('RAND()').limit(7)
-    @clinton = Chapter.find_by_id(67);
+    @clinton = Chapter.find_by_id!(67);
     @meta_data = {:page_title => "Welcome", :og_image => "http://www.chicagoideas.com/assets/application/logo.png", :og_title => "Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
   end
 

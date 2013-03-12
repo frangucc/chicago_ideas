@@ -19,7 +19,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       return
 
     # we are not signed in, but this facebook user already exists
-    elsif user = User.find_by_fb_uid(fb_uid)
+    elsif user = User.find_by_fb_uid!(fb_uid)
 
       # if this user is already connected to this facebook account, then sign_in
       sign_in user
@@ -27,7 +27,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       return
 
     # we are not signed in, but this user already exists
-    elsif user = User.find_by_email(user_data["email"])
+    elsif user = User.find_by_email!(user_data["email"])
 
       # if this is already connected to a facebook account then fail gracefully
       if user.connected_to_facebook?

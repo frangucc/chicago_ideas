@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       current_user.update_attribute(:newsletter, true)
 
     # as this is equivilent to subscribing someone to a newsletter, security isnt that importaint.  Just update the flag for existing users too
-    elsif existing_user = User.find_by_email(params[:user][:email])
+    elsif existing_user = User.find_by_email!(params[:user][:email])
       existing_user.update_attribute(:newsletter, true)
 
     # if a user with this email does not exist, create them with a temporary password and add them as a newsletter subscriber
@@ -95,7 +95,7 @@ class UsersController < ApplicationController
     if params[:id].is_number? # check if an ID or permalink is passed
       @speaker = User.find(params[:id])
     else
-      @speaker = User.find_by_permalink(params[:id])
+      @speaker = User.find_by_permalink!(params[:id])
     end
     # Get all chapters that the speaker is part of that are archived
     @chapters = @speaker.chapters.all
