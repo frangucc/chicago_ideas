@@ -75,6 +75,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'exception_notification'
 gem 'daemons'
+gem 'rack-ssl-enforcer'
 
 gem 'delayed_job_active_record', "0.4.2"
 # third party SAS solution for monitoring performance
