@@ -6,7 +6,7 @@
           %h1
             Survey
           %hr
-        = form_for('/demographic_infos', remote: true, :id => 'new_demographic') do |f|
+        = form_for(@demographic_info, remote: true, :id => 'new_demographic') do |f|
           .demographic_options
             = hidden_field_tag :order_id, ''
             %p

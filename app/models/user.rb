@@ -31,9 +31,9 @@ class User < ActiveRecord::Base
   has_one :sponsor, through: :sponsor_user
   has_one :simulate_user
   has_one :member, :autosave => true
+  has_one :demographic_info
 
   belongs_to :address, :autosave => true
-  belongs_to :demographic_info
 
   accepts_nested_attributes_for :quotes, :allow_destroy => true
   accepts_nested_attributes_for :sponsor_user, :allow_destroy => true

@@ -1,5 +1,7 @@
 class DemographicInfo < ActiveRecord::Base
 
+  belongs_to :user
+
   RACE = [ "Black or African American",
            "Asian",
            "Latino or Hispanic",

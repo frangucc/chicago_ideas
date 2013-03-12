@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
     @order.build_billing_address
     @order.build_user
     @order.member_type = MemberType.find(params[:member_id])
+    @demographic_info = DemographicInfo.new
   end
 
   def create
@@ -43,7 +44,6 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     respond_to do |format|
-      # format.html
       format.html
       format.pdf do
         html = render_to_string(partial: "invoice", layout: false)

@@ -108,6 +108,7 @@ CraigsAdmin::Application.routes.draw do
   match 'payment' => 'orders#new', :via => :get
   match 'payment' => 'orders#create', :via => :post
   match 'thank_you/:id' => 'orders#show', :via => :get, :as => :thank_you
+  resources :demographic_infos, :only => [:create]
 
   # forms we capture data from
   resources :volunteers, :only => [:new, :create]
