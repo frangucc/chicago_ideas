@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
     @member.year = Year.last
 
     @order.member_type = @member.member_type = MemberType.find(params[:order][:member_type_id])
+    @demographic_info = DemographicInfo.new
 
     if @order.process_transaction
       OrderMailer.delay.thank_you_membership(@order)
