@@ -77,7 +77,7 @@ CraigsAdmin::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.filter_parameters << [:card_number, :cvc]
+  config.filter_parameters = [:password, :card_number, :cvc]
 end
 
 CraigsAdmin::Application.config.middleware.use ExceptionNotifier,
