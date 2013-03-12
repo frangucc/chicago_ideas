@@ -24,7 +24,6 @@
       %li= link_to "Media Partners", sponsors_media_partners_path, :rel => "bookmark", :title => "View Media Partners"
       %li= link_to "Members", "/years/2012/members/", :rel => "bookmark", :title => "View Members"
       %li= link_to "Become A Member", "#", :rel => "bookmark", :title => "Become A Member"
-      %li= link_to "The Cooperative", cooperative_index_path, :rel => "bookmark", :title => "View Community Partners"
       %li= link_to "Become a Supporter", support_path, :rel => "bookmark", :title => "Become a Supporter"
       %li= link_to "Become a Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Become a Volunteer"
 
@@ -33,12 +32,12 @@
   = link_to "Special Programs & Awards", special_programs_path, :rel => "bookmark", :title => "Special Programs & Awards"
   .dropdown
     %ul
+      %li= link_to "The Cooperative", cooperative_index_path, :rel => "bookmark", :title => "View Community Partners"
+      %li= link_to "Bluhm/Helfand Social Innovation Fellowship", blum_helfand_path, :rel => "bookmark", :title => "Bluhm/Helfand Social Innovation Fellowship"
       %li= link_to "Project You(th)", project_youth_path, :rel => "bookmark", :title => "Project You(th)"
       %li= link_to "ThinkChicago", thinkchicago_path, :rel => "bookmark", :title => "ThinkChicago"
       %li= link_to "#WhatIfChicago", whatifchicago_path, :rel => "bookmark", :title => "View #WhatIfChicago"
-      %li= link_to "Bluhm/Helfand Social Innovation Fellowship", blum_helfand_path, :rel => "bookmark", :title => "Bluhm/Helfand Social Innovation Fellowship"
       %li= link_to "CIW Artist in Residence", artist_path, :rel => "bookmark", :title => "View CIW Artist in Residence"
-
 
 %li#gn_newsroom.nav_parent
   = link_to link_to "Newsroom", newsroom_path, :rel => "bookmark", :title => "View Newsroom"
