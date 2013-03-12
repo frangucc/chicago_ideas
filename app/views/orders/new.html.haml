@@ -84,7 +84,7 @@
 
 
         = f.actions do
-          = f.submit :value => "Confirm Purchase", :class => "btn submit", :id => "confirm_purchase"
+          = f.submit :value => "Confirm Purchase", :class => "btn submit", :id => "confirm_purchase", :data => { :disable_with => "Please Wait..." }
 
     #membership_summary_section.colum_row
       %p.summary_header
