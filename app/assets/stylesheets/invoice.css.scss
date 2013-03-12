@@ -50,6 +50,8 @@ body {
 .details_container {
   margin-top: 30px;
   margin-left: 20px;
+  width: 270px;
+  float: left;
 }
 
 .details_container h1 {
@@ -64,6 +66,14 @@ body {
 
 .details_container h3 {
   display: inline;
+}
+
+.address_container {
+  margin-top: 30px;
+  margin-left: 20px;
+  float: right;
+  width: 350px;
+  padding-top: 10px;
 }
 
 h1.indented { margin-left: 20px; }
@@ -94,8 +104,18 @@ td.invoice {
   text-align: left;
 }
 
+th.address {
+  background-color: #ECECEC;
+  line-height: 2.5em;
+  font-size: 1.5em;
+  padding-left: 18px;
+  text-align: left;
+}
+
 td.address {
-  line-height: 25px;
+  padding: 5px 15px;
+  line-height: 32px;
+  font-size: 16px;
 }
 
 td.tax_disclaimer {

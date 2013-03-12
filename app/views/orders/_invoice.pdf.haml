@@ -52,6 +52,25 @@
         %h3 Transaction Type:
         Purchase
 
+    .address_container
+      %table
+        %tbody
+          %tr
+            %th.address Billing Information
+
+          %tr
+            %td.address.invoice
+              = @order.name_on_card
+              %br/
+              = @order.billing_address.street_1
+              - if @order.billing_address.street_2.present?
+                %br/
+                = @order.billing_address.street_2
+              %br/
+              #{ @order.billing_address.city }, #{ @order.billing_address.state } #{ @order.billing_address.zip }
+
+
+    .clear
     %h1.indented Transaction
 
     %table
@@ -71,24 +90,6 @@
             %b Total Amount Paid
           %td.total_paid
             = number_to_currency(@order.total_in_cents/100)
-
-    %h1.indented Billing Information
-
-    %table
-      %tbody
-        %tr
-          %th.invoice
-            Address
-        %tr
-          %td.address.invoice
-            = @order.name_on_card
-            %br/
-            = @order.billing_address.street_1
-            - if @order.billing_address.street_2.present?
-              %br/
-              = @order.billing_address.street_2
-            %br/
-            #{ @order.billing_address.city }, #{ @order.billing_address.state } #{ @order.billing_address.zip }
 
     %table
       %tbody
