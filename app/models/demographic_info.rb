@@ -69,4 +69,11 @@ class DemographicInfo < ActiveRecord::Base
       hash
     end
   end
+
+  %w(race industry income gender age).each do |meth|
+    define_method "#{meth}_value" do
+      not_once = self.send(meth.to_sym)
+      not_once.present? ? DemographicInfo.const_get(meth.upcase)[not_once.to_i] : "-"
+    end
+  end
 end
