@@ -22,7 +22,7 @@
       .member_summaries_container
         - member_types.each do |member_type|
           - if member_type.title == 'Innovation Council'
-            = link_to '#', :id => 'become_innovation' do
+            = link_to support_path, :id => 'become_innovation' do
               .become_innovation_council
                 BECOME AN INNOVATION COUNCIL MEMBER! CLICK HERE
           - else
