@@ -11,11 +11,9 @@
     - if member_type.specific_benefits
       %p.detailed_highlighted_title
         %strong Highlighted Benefits:
-
-      .benefits
-        %ul
-          - member_type.specific_benefits.split("\r\n").reject { |i| i.empty? }.each_with_index do |line, index|
-            %li{ class: "benefit_#{index} benefits"}= h line
+      %ul
+        - member_type.specific_benefits.split("\r\n").reject { |i| i.empty? }.each do |line|
+          %li= h line
 
   .general_benefits
     - if member_type.general_benefits
