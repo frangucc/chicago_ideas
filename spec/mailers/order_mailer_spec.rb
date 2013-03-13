@@ -19,7 +19,7 @@ describe OrderMailer do
 
     it 'email has proper content' do
       @email.body.should match(/Thank you for joining CIW's Member Program/)
-      @email.body.should match(/Hi, #{order.name_on_card}/)
+      @email.body.should match(/Dear, #{order.name_on_card}/)
       @email.body.should match(/Included in your #{order.member_type.title} Member package you receive/)
       [:specific_benefits, :general_benefits].each do |benefit|
         order.member_type.try(benefit).split("\r\n").reject { |i| i.empty? }.each do |line|
