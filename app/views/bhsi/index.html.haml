@@ -104,17 +104,13 @@
         %h2 Questions?
         %p
           For questions or more information on the BHSI Fellowship, please contact Jessica Malkin at
-          = link_to "info@bluhmhelfand.com.", "mailto:info@bluhmhelfand.com"
-
-
-
-
+          = mail_to ApplicationHelper::INFO_BLUHMHELF_EMAIL
 
   -# Include Sidebar Items
   #sidebar
     .box.right.yellow_box#edison_talks_callout
       .column_row
-        %a{:href => "https://docs.google.com/spreadsheet/viewform?formkey=dGVKZGJmY1FsZUxsZ3UxRkE3Y1VQbXc6MQ#gid=0", :class => "callout_link"}
+        = link_to ApplicationHelper::NOMINATE_FELLOW_URL, :class => 'callout_link' do
           %span.call_out NOMINATE A BHSI FELLOW
     = render "partials/sponsors"
     = render "partials/social"

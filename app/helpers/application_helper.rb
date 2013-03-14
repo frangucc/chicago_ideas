@@ -6,7 +6,10 @@ module ApplicationHelper
   CIW_LINKEDIN_URL     = 'www.linkedin.com/company/chicago-ideas-week'
   CIW_GPLUS_URL        = 'https://plus.google.com/113007296557109921813/posts'
   CIW_BLOG_URL         = 'http://blog.chicagoideas.com/'
+
+  # GOOGLE DOCS
   LABS_DOC_URL         = 'https://docs.google.com/spreadsheet/viewform?formkey=dG5EZTFJTV81Y1VUdFFHeGp6V3hsdUE6MQ'
+  NOMINATE_FELLOW_URL  = 'https://docs.google.com/spreadsheet/viewform?formkey=dGVKZGJmY1FsZUxsZ3UxRkE3Y1VQbXc6MQ#gid=0'
 
   # EMAILS
   CIW_MEMBERSHIP_EMAIL = 'membership@chicagoideas.com'
