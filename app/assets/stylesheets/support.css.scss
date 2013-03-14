@@ -1,20 +1,18 @@
 #support_left {
-  #introduction {
+  #introduction p.thanks_annual {
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 36px;
+  }
+  #partner_testimonials {
+    p > span {
+      display: block;
+    }
     p.view_annual_report {
       text-align: center;
       a {
         font-size: 14px;
       }
-    }
-    p.thanks_annual {
-      font-size: 19px;
-      font-weight: bold;
-      line-height: 36px;
-    }
-  }
-  #partner_testimonials {
-    p > span {
-      display: block;
     }
   }
 }
