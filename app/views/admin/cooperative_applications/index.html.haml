@@ -2,7 +2,8 @@
 
 = ssp_search_form CooperativeApplication
 
-= link_to 'Download Excel', admin_cooperative_applications_path(:format => 'xls')
+- content_for :top_links do
+  = link_to 'Download Excel', admin_cooperative_applications_path(:format => 'xls')
 
 .table_section
   %h3 
