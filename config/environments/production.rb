@@ -52,8 +52,8 @@ CraigsAdmin::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.asset_host = "http://23.23.114.156"
-  config.action_mailer.default_url_options = {:host => "23.23.114.156"}
+  config.action_mailer.asset_host = "https://www.chicagoideas.com"
+  config.action_mailer.default_url_options = {:host => "www.chicagoideas.com"}
 
 
   ActionMailer::Base.smtp_settings = {
