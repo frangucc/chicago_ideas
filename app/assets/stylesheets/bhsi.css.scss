@@ -1,0 +1,38 @@
+#edison_talks_callout {
+  background: transparent;
+  box-shadow: none;
+  .column_row {
+    padding: 0;
+    a {
+      display: block;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 12px;
+      -moz-border-radius: 12px;
+    }
+    #nominate_fellow {
+      padding: 20px 25px;
+      line-height: 35px;
+      font-size: 30px;
+      color: #262223 !important;
+      border: 1px solid #CFBB00;
+      text-shadow: 1px 1px 1px #CFBB00;
+      background-color: #CFBB00;
+      background-image: url(images/fallback-gradient.png);
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFDB1D), to(#CFBB00));
+      background-image: -webkit-linear-gradient(top, #EFDB1D, #CFBB00);
+      background-image: -moz-linear-gradient(top, #EFDB1D, #CFBB00);
+      background-image: -ms-linear-gradient(top, #EFDB1D, #CFBB00);
+      background-image: -o-linear-gradient(top, #EFDB1D, #CFBB00);
+      box-shadow: inset 0px 1px 0px #FFF64C;
+      -moz-box-shadow: inset 0px 1px 0px #FFF64C;
+      -webkit-box-shadow: inset 0px 1px 0px #FFF64C;
+    }
+    #apply_here {
+      margin-top: 20px;
+      font-size: 31px;
+      text-align: center;
+      padding: 25px;
+    }
+  }
+}

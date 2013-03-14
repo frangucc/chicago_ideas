@@ -108,10 +108,10 @@
 
   -# Include Sidebar Items
   #sidebar
-    .box.right.yellow_box#edison_talks_callout
+    .box.right#edison_talks_callout
       .column_row
-        = link_to ApplicationHelper::NOMINATE_FELLOW_URL, :class => 'callout_link' do
-          %span.call_out NOMINATE A BHSI FELLOW
+        = link_to 'NOMINATE A BHSI FELLOW', ApplicationHelper::NOMINATE_FELLOW_URL, :id => 'nominate_fellow'
+        = link_to 'APPLY HERE', new_bhsi_application_path, :class => 'blue_btn', :id => 'apply_here'
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"

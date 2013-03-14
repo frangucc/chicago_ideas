@@ -26,6 +26,7 @@
 @import "orders";
 @import "member_types";
 @import "support";
+@import "bhsi";
 
 #devise_user_invitations_page{
   form#user_edit{
@@ -33,7 +34,7 @@
   }
 }
 
-.group:before, .group:after { 
+.group:before, .group:after {
   content: '';
   display: table;
 }
