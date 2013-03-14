@@ -60,4 +60,9 @@ class OrdersController < ApplicationController
     end
   end
 
+  private
+  def use_https?
+    true
+  end
+
 end

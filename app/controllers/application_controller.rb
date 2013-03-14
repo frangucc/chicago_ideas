@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   before_filter :get_nav_featured
   before_filter :get_header_models
   before_filter :capture_path
+  before_filter :https_redirect
+
 
   # the application homepage
   def index
@@ -250,4 +252,22 @@ class ApplicationController < ActionController::Base
       @team
     end
 
+    def https_redirect
+      if Rails.env.production?
+        if request.ssl? && !use_https? || !request.ssl? && use_https?
+          protocol = request.ssl? ? "http" : "https"
+          domain = use_https? ? "www." : ""
+          server_name = (request.server_name[0..2] == "www") ? request.server_name : "#{domain}#{request.server_name}"
+          flash.keep
+            # "PATH_INFO"=>"/payment", "QUERY_STRING"=>"member_id=9","SERVER_NAME"=>"chicago_ideas.work","HTTP_HOST"=>"chicago_ideas.work"
+          goto = "#{protocol}://#{server_name}#{request.path_info}?#{request.query_string}"
+          logger.fatal "REDIRECTING TO #{goto}"
+          redirect_to goto, status: :moved_permanently
+        end
+      end
+    end
+
+    def use_https?
+      false
+    end
 end
