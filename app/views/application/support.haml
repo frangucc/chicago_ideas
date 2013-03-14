@@ -32,13 +32,21 @@
         %p{:style => "text-align:center"}
           %a.btn.blue_btn{:style => "font-size:14px;", :href => "/files/CIW_AnnualReport_FINAL.pdf", :target => "_blank"}
             View our 2012 Annual Report
-            
+
         %p Thanks to the annual support of our sponsors, Chicago Ideas Week continues to deliver on our core mission of turning ideas into actionable results.  Sponsorship levels range from $50,000 - $2,000,000.
-    
+
+    .column_row.divided_row
+      .column.column_double
+        %span.column_header Connect with Us
+
+        %p
+          To learn more about sponsorship of Chicago Ideas Week, contact Leah Marshall, Director of Development, at 
+          = mail_to ApplicationHelper::CIW_LEAH_EMAIL
+
         %p Hear what our sponsors, speakers and attendees have to say about CIW:
-        
+
         %iframe{:width => "640", :height => "360", :src => "http://www.youtube.com/embed/6W6Gsh809vM", :frameborder => "0", :allowfullscreen => true}
-        
+
     .column_row.divided_row
       .column.column_double      
         %span.column_header Partner Testimonials
@@ -62,14 +70,6 @@
         %p 
           "It's an invaluable experience... We absolutely encourage employees to come here, because they are going to hear things and understand things and have conversations that are so far out of the realm of their daily existence. It makes them smarter, it makes them more experienced, better at what they do in theirday-to-day lives." 
           %span{:style => "display:block;"} &mdash;Matt Maloney, CEO, GrubHub 
-    
-    .column_row.divided_row
-      .column.column_double      
-        %span.column_header Connect with Us
-      
-        %p 
-          To learn more about sponsorship of Chicago Ideas Week, contact Leah Marshall, Director of Development, at 
-          = link_to "leah@chicagoideas.com.", "mailto:leah@chicagoideas.com"
 
 
   -# Include Sidebar Items

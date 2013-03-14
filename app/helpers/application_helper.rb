@@ -13,6 +13,7 @@ module ApplicationHelper
   CIW_FORMS_EMAIL      = 'forms@chicagoideas.com'
   CIW_KELLY_EMAIL      = 'kelly@chicagoideas.com'
   CIW_INFO_EMAIL       = 'info@chicagoideas.com'
+  CIW_LEAH_EMAIL       = 'leah@chicagoideas.com'
   TK_SHOPCLASS_EMAIL   = 'tk@shopclass.co'
 
   def conditional_html( lang = "en", &block )
