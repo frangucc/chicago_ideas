@@ -62,7 +62,7 @@ class OrdersController < ApplicationController
 
   private
   def use_https?
-    false
+    true
   end
 
 end

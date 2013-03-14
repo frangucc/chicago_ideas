@@ -255,7 +255,8 @@ class ApplicationController < ActionController::Base
     def https_redirect
       if Rails.env.production?
         if request.ssl? && !use_https? || !request.ssl? && use_https?
-          protocol = request.ssl? ? "http" : "https"
+          # protocol = request.ssl? ? "http" : "https"
+          protocol = "http"
           domain = use_https? ? "www." : ""
           server_name = (request.server_name[0..2] == "www") ? request.server_name : "#{domain}#{request.server_name}"
           flash.keep
