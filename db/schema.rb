@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312054509) do
+ActiveRecord::Schema.define(:version => 20130314193643) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -428,6 +428,7 @@ ActiveRecord::Schema.define(:version => 20130312054509) do
     t.integer  "year_id",        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "company_name"
   end
 
   add_index "members", ["member_type_id"], :name => "index_members_on_member_type_id"
