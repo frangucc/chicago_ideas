@@ -2,7 +2,7 @@
 worker_processes 4
 
 # App location
-@app = "/home/ciw_deploy/chicago_ideas/current"
+@app = "/home/ubuntu/rails_apps/chicago_ideas/current"
 
 # Listen on fs socket for better performance
 listen "#{@app}/tmp/sockets/unicorn.sock", :backlog => 64
