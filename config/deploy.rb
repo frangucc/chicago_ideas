@@ -14,7 +14,7 @@ set :rvm_ruby_string,         '1.9.3-p385'
 set :use_sudo,                false
 set :scm,                     :git
 set :repository,              'git@github.com:frangucc/chicago_ideas.git'
-set :branch,                  'staging'
+set :branch,                  'master'
 set :keep_releases,           3 # we need the space
 
 set :deploy_via,              :remote_cache
