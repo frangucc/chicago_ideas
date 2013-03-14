@@ -13,7 +13,9 @@ CraigsAdmin::Application.initialize!
 DocRaptor.api_key 'tl8fHT64wxhkLUTW0Y6V'
 
 
-AUTHNET_LOGIN = "2y9kBc3rXn"
-AUTHNET_KEY = "8SXA34Ag6qa28SuH"
-AUTHNET_ENV = :sandbox
+@auth_net = YAML.load_file(Rails.root + 'config/authorize_net.yml')
+
+AUTHNET_LOGIN = @auth_net["login"]
+AUTHNET_KEY   = @auth_net["key"]
+AUTHNET_ENV   = @auth_net["env"].to_sym
 BING_MAPS_API_KEY = "AuGgGandaCq-kaRoSzngT0VCwi8MWNk0BgOj5pxdiJvooLyZrGwoNnFpT3ZRBMTi"
