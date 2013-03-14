@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">First Name</Data></Cell>
+        <Cell><Data ss:Type="String">Last Name</Data></Cell>
+        <Cell><Data ss:Type="String">Phone Number</Data></Cell>
+        <Cell><Data ss:Type="String">Address 1</Data></Cell>
+        <Cell><Data ss:Type="String">Address 2</Data></Cell>
+        <Cell><Data ss:Type="String">City</Data></Cell>
+        <Cell><Data ss:Type="String">State</Data></Cell>
+        <Cell><Data ss:Type="String">Zip Code</Data></Cell>
+        <Cell><Data ss:Type="String">Country</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Gender</Data></Cell>
+        <Cell><Data ss:Type="String">Birthdate</Data></Cell>
+        <Cell><Data ss:Type="String">Previous Applicant</Data></Cell>
+        <Cell><Data ss:Type="String">Social Venture Name</Data></Cell>
+        <Cell><Data ss:Type="String">Title</Data></Cell>
+        <Cell><Data ss:Type="String">Legal Structure</Data></Cell>
+        <Cell><Data ss:Type="String">URL</Data></Cell>
+        <Cell><Data ss:Type="String">Twitter Handle</Data></Cell>
+        <Cell><Data ss:Type="String">YouTube or Video URL</Data></Cell>
+      </Row>
+      <% @bhsi_applications.each do |bhsi| %>
+        <Row>
+          <Cell><Data ss:Type="String"><%= bhsi.first_name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.last_name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.phone_number %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.address1 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.address2 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.city %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.state %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.zipcode %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.country %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.email %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.gender %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.birthdate %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.applied_before %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.social_venture_name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.title %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.legal_structure %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.url %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.twitter_handle %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= bhsi.video_url %></Data></Cell>
+        </Row>
+      <% end %>
+   </Table>
+  </Worksheet>
+</Workbook>
