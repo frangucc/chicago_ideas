@@ -39,14 +39,12 @@
                 = link_to "Support Us", sponsors_path, :rel => "bookmark", :title => "View the CIW Partners"
                 .dropdown
                   %ul
-                    %li= link_to "Sponsors", sponsors_path, :rel => "bookmark", :title => "View Sponsors"
-                    %li= link_to "Media Partners", sponsors_media_partners_path, :rel => "bookmark", :title => "View Media Partners"
-                    %li= link_to "Members", "/years/2012/members/", :rel => "bookmark", :title => "View Members"
-                    %li= link_to "Become A Member", "#", :rel => "bookmark", :title => "Become A Member"
-                    %li= link_to "The Cooperative", cooperative_index_path, :rel => "bookmark", :title => "View Cooperative"
-                    %li= link_to "Become a Supporter", support_path, :rel => "bookmark", :title => "Become a Supporter"
-                    %li= link_to "Become a Volunteer", new_volunteer_path, :rel => "bookmark", :title => "Become a Volunteer"
-                    
+                    %li= link_to "Become a Sponsor",    support_path,                 :rel => "bookmark", :title => "Become a Sponsor"
+                    %li= link_to "Become a Member",     "#",                          :rel => "bookmark", :title => "Become a Member"
+                    %li= link_to "Become a Volunteer",  new_volunteer_path,           :rel => "bookmark", :title => "Become a Volunteer"
+                    %li= link_to "Members",             "/years/2012/members/",       :rel => "bookmark", :title => "Members"
+                    %li= link_to "Past Sponsors",       sponsors_path,                :rel => "bookmark", :title => "Past Sponsors"
+                    %li= link_to "Past Media Partners", sponsors_media_partners_path, :rel => "bookmark", :title => "Past Media Partners"
                     
               %li#gn_special_programs.nav_parent
                 = link_to "Special Programs & Awards", special_programs_path, :rel => "bookmark", :title => "Special Programs & Awards"
