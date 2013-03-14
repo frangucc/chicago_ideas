@@ -27,7 +27,6 @@ class BhsiApplicationsController < ApplicationController
   end
 
   def create
-
     # Prevent duplicate submissions
     if current_user and current_user.bhsi_application.blank?
 
@@ -35,15 +34,16 @@ class BhsiApplicationsController < ApplicationController
       @bhsi_application = current_user.build_bhsi_application(params[:bhsi_application])
 
 
-      pdf = doc_raptor_send({:document_type => "pdf".to_sym})
+      #pdf = doc_raptor_send({:document_type => "pdf".to_sym})
       friendlyName = "Bhsi_#{@bhsi_application.social_venture_name}.pdf"
       friendlyName = friendlyName.gsub(" ", "")
       friendlyName = friendlyName.gsub("/", "_")
-      File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
-      @bhsi_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
+      #File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
+      #@bhsi_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
 
       if @bhsi_application.save
         BhsiApplicationsMailer.send_form(params[:bhsi_application], friendlyName).deliver
+        BhsiApplicationsMailer.thank_you_application(@bhsi_application).deliver
         render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying to the Bluhm/Helfand Social Innovation Fellowship. BHSI semi-finalists will be announced in mid-June.", :url => "http://bit.ly/wdTJfn", :share_text => "I applied to the #BHSI Fellowship at @chicagoideas! RT to all #innovative #socent! Applications close 5/21. Apply today: http://bit.ly/wdTJfn"}
 
       else
