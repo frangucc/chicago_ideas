@@ -12,9 +12,13 @@ module ApplicationHelper
   # EMAILS
   CIW_MEMBERSHIP_EMAIL = 'membership@chicagoideas.com'
   CIW_FORMS_EMAIL      = 'forms@chicagoideas.com'
+  CIW_BHSI_SUBM_EMAIL  = 'bhsi_submissions@chicagoideas.com'
   CIW_KELLY_EMAIL      = 'kelly@chicagoideas.com'
   CIW_INFO_EMAIL       = 'info@chicagoideas.com'
   CIW_LEAH_EMAIL       = 'leah@chicagoideas.com'
+  CIW_JESSICA_EMAIL    = 'jessica@chicagoideas.com'
+  CIW_COREY_EMAIL      = 'corey@chicagoideas.com'
+  DAVID_EMAIL          = 'david@davidburstein.com'
   TK_SHOPCLASS_EMAIL   = 'tk@shopclass.co'
   INFO_BLUHMHELF_EMAIL = 'info@bluhmhelfand.com'
 
