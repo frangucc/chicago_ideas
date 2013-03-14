@@ -24,30 +24,34 @@ describe CooperativeController do
 
   describe '#create' do
 
-    it 'sends mailers and success if valid params' do
-      CooperativeMailer.should_receive(:send_form).and_return(double('mailer', :deliver => true))
-      CooperativeMailer.should_receive(:thank_you_application).and_return(double('mailer', :deliver => true))
-      post :create, :format => 'js', :cooperative_application => { :name            => 'John',
-                                                                   :last_name       => 'Doe',
-                                                                   :email           => 'john@doe.com',
-                                                                   :organization    => 'Organization',
-                                                                   :phone           => '123-4567',
-                                                                   :org_mission     => 'Mission',
-                                                                   :org_website     => 'www.website.com',
-                                                                   :org_twitter     => 'twitter',
-                                                                   :reason          => 'Reason',
-                                                                   :worked_on       => 'volunteerism',
-                                                                   :part_meaningful => 'meaningful',
-                                                                   :ins_failure     => 'Inspiring Failure',
-                                                                   :neighborhood    => 'Neighborhood',
-                                                                   :assisted_area   => 'Assisted Area',
-                                                                   :recommend       => 'Recommendations' }
-      response.should be_success
+    context 'when valid params' do
+      it 'sends mailers and success' do
+        CooperativeMailer.should_receive(:send_form).and_return(double('mailer', :deliver => true))
+        CooperativeMailer.should_receive(:thank_you_application).and_return(double('mailer', :deliver => true))
+        post :create, :format => 'js', :cooperative_application => { :name            => 'John',
+                                                                     :last_name       => 'Doe',
+                                                                     :email           => 'john@doe.com',
+                                                                     :organization    => 'Organization',
+                                                                     :phone           => '123-4567',
+                                                                     :org_mission     => 'Mission',
+                                                                     :org_website     => 'www.website.com',
+                                                                     :org_twitter     => 'twitter',
+                                                                     :reason          => 'Reason',
+                                                                     :worked_on       => 'volunteerism',
+                                                                     :part_meaningful => 'meaningful',
+                                                                     :ins_failure     => 'Inspiring Failure',
+                                                                     :neighborhood    => 'Neighborhood',
+                                                                     :assisted_area   => 'Assisted Area',
+                                                                     :recommend       => 'Recommendations' }
+        response.should be_success
+      end
     end
 
-    it 'returns error if invalid params' do
-      post :create, :format => 'js'
-      response.status.should == 422
+    context 'when invalid params' do
+      it 'returns error' do
+        post :create, :format => 'js'
+        response.status.should == 422
+      end
     end
 
   end
