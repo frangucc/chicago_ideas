@@ -3,7 +3,10 @@ class Admin::BhsiApplicationsController < Admin::AdminController
   # COLLECTION ACTIONS
   # ---------------------------------------------------------------------------------------------------------
   def index
-    @bhsi_applications = BhsiApplication.search_sort_paginate(params)
+    respond_to do |format|
+      format.html { @bhsi_applications = BhsiApplication.search_sort_paginate(params) }
+      format.xls  { @bhsi_applications = BhsiApplication.all }
+    end
   end
 
   # MEMBER ACTIONS
