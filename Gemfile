@@ -97,6 +97,7 @@ group :test do
   gem "shoulda-matchers"
   gem 'rb-fsevent'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 # test-only gems (accessable to development so their generators and rake tasks are available)
