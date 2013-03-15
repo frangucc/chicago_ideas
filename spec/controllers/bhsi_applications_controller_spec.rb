@@ -70,6 +70,7 @@ describe BhsiApplicationsController do
             BhsiApplication.any_instance.should_receive(:save).and_return(true)
             BhsiApplicationsMailer.should_receive(:send_form).and_return(double('mailer', :deliver => true))
             BhsiApplicationsMailer.should_receive(:thank_you_application).and_return(double('mailer', :deliver => true))
+            # TODO: PDF generation should be mocked.
             post :create
             response.should be_success
           end
@@ -77,8 +78,9 @@ describe BhsiApplicationsController do
 
         context 'when invalid params' do
           it 'renders an error' do
+            # TODO: PDF generation should be mocked.
             post :create
-            #response.status.should == 422
+            response.status.should be_success
             flash[:notice].should match(/Please fill in all required fields\!/)
           end
         end
