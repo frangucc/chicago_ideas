@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314193643) do
-
+ActiveRecord::Schema.define(:version => 20130315232447) do
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
     t.string   "street_2"
@@ -125,6 +124,14 @@ ActiveRecord::Schema.define(:version => 20130314193643) do
     t.integer  "press_clipping_3_file_size"
     t.datetime "press_clipping_3_updated_at"
     t.string   "zipcode",                              :limit => 11,       :default => "",    :null => false
+    t.boolean  "org_founder"
+    t.text     "org_join_point"
+    t.text     "total_budget_current_year",                                                   :null => false
+    t.text     "major_sources_income",                                                        :null => false
+    t.text     "impact",                                                                      :null => false
+    t.text     "obstacles_needs",                                                             :null => false
+    t.text     "budget_previous_year",                                                        :null => false
+    t.text     "budget_current_year",                                                         :null => false
   end
 
   create_table "bhsi_longtexts", :force => true do |t|
