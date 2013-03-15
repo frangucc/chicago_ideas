@@ -2,11 +2,12 @@ class BhsiApplication < ActiveRecord::Base
 
   include SearchSortPaginate
 
-  MAX_MAKES_SOCIAL_INNOVATION_WORDS = 150
-  MAX_INSPIRATION_WORDS             = 1000
-  MAX_SUSTAINABITILITY_MODEL_WORDS  = 1000
-  MAX_IMPROVEMENTS_WORDS            = 1000
-  MAX_DISTINGUISH_YOURSELF_WORDS    = 1000
+  MAX_MAKES_SOCIAL_INNOVATION_WORDS = 100
+  MAX_INSPIRATION_WORDS             = 300
+  MAX_SUSTAINABITILITY_MODEL_WORDS  = 400
+  MIN_IMPROVEMENTS_WORDS            = 100
+  MAX_IMPROVEMENTS_WORDS            = 200
+  MAX_DISTINGUISH_YOURSELF_WORDS    = 400
 
   belongs_to :user
 
@@ -65,27 +66,27 @@ class BhsiApplication < ActiveRecord::Base
 
   validates :makes_social_innovation, :presence => true, :length => {
     :maximum   => MAX_MAKES_SOCIAL_INNOVATION_WORDS,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :inspiration, :presence => true, :length => {
     :maximum   => MAX_INSPIRATION_WORDS,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :sustainability_model, :length => {
     :maximum   => MAX_SUSTAINABITILITY_MODEL_WORDS,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :improvements, :presence => true, :length => {
     :maximum   => MAX_IMPROVEMENTS_WORDS,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"
   }
   validates :distinguish_yourself, :length => {
     :maximum   => MAX_DISTINGUISH_YOURSELF_WORDS,
-    :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
+    :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"
   }
 
