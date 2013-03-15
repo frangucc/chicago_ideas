@@ -20,31 +20,15 @@ class Admin::BhsiApplicationsController < Admin::AdminController
     @bhsi_application = BhsiApplication.find(params[:id])
 
     respond_to do |format|
-      format.pdf {
-
-        #if Rails.env == 'development' or !@bhsi_application.pdf.exists?
-          pdf = doc_raptor_send({:document_type => "pdf".to_sym})
-          friendlyName = "BHSI_Application_#{@bhsi_application.first_name}_#{@bhsi_application.last_name}.pdf"
-          friendlyName = friendlyName.gsub(" ", "")
-          friendlyName = friendlyName.gsub("/", "_")
-          File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') {|f| f.write(pdf) }
-          @bhsi_application.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}");
-          @bhsi_application.save!({:validate => false})
-          send_data pdf, :filename => friendlyName, :type => "pdf"
-        #else
-          #redirect_to @bhsi_application.pdf.url
-        #end
-      }
-      format.html {
-        render
-      }
+      format.pdf do
+        html_file = render_to_string(:partial => 'bhsi_applications/bhsi_application_pdf', :layout => false)
+        kit = PDFKit.new(html_file, :page_size => 'Letter')
+        send_data kit.to_pdf, :filename => generate_pdf_name(@bhsi_application), :type => 'application/pdf'
+      end
+      format.html {}
     end
 
   end
-
-
-
-
 
   # MEMBER PAGES
   # ---------------------------------------------------------------------------------------------------------
@@ -59,5 +43,13 @@ class Admin::BhsiApplicationsController < Admin::AdminController
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------
 
+  private
+
+  def generate_pdf_name(bhsi_application)
+    pdf_name = "BHSI_Application_#{bhsi_application.first_name}_#{bhsi_application.last_name}.pdf"
+    pdf_name.gsub!(' ', '')
+    pdf_name.gsub!('/', '_')
+    pdf_name
+  end
 
 end
