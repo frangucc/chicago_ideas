@@ -85,6 +85,18 @@
           .column_double= @bhsi_application.bhsi_longtext.venture_launched
         .row.no_margin
           .column_double
+            %strong Are you the founder of your organization?
+          .column_double= @bhsi_application.org_founder
+        .row.no_margin
+          .column_double
+            %strong If not, at what point did you join?
+          .column_double= @bhsi_application.org_join_point
+        .row.no_margin
+          .column_double
+            %strong Total 2013 Budget in USD
+          .column_double= @bhsi_application.total_budget_current_year
+        .row.no_margin
+          .column_double
             %strong Legal Structure (501c3, LLC, L3C, B Corp, Fiscally Sponsored, etc.)
           .column_double
             %p= @bhsi_application.legal_structure
@@ -106,6 +118,9 @@
         .row
           %strong What is your venture's level of organizational development (e.g., growth stage, number of team members, etc.)?
           %p= @bhsi_application.bhsi_longtext.organizational_development
+        .row
+          %strong What are your major sources of funding or income, and who are your largest funders? (Limit 100 words)
+          %p= @bhsi_application.major_sources_income
         .row
           %strong If you are a 501c3, are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words)
           %p= @bhsi_application.sustainability_model
@@ -139,7 +154,12 @@
         .row
           %strong Please provide three statistics that eximplify your success
           %p= @bhsi_application.bhsi_longtext.three_standout_statistics
-
+        .row
+          %strong What metrics do you use to track your impact? How has your impact grown over time? (A strong response will use data that show's your impact in discussing your approach). (Limit 300 words)
+          %p= @bhsi_application.impact
+        .row
+          %strong What are your venture's greatest obstacles and needs? What would you want to get out of your participation in this fellowship (A strong response should include specific skills-based or strategic needs the organization has that the Fellowship may be able to address, partners you are hoping to secure, communities you are hoping to be introduced to, specific expertise you are seeking, etc). (Limit 400 words)
+          %p= @bhsi_application.obstacles_needs
       .section
         %h2 Additional Questions
 
@@ -185,3 +205,11 @@
           .column_double
             %strong #Reference 2 Email
           .column_double= @bhsi_application.reference_2_email
+        .row.no_margin
+          .column_double
+            %strong 2012 Budget
+          .column_double= @bhsi_application.budget_previous_year
+        .row.no_margin
+          .column_double
+            %strong 2013 Budget
+          .column_double= @bhsi_application.budget_current_year

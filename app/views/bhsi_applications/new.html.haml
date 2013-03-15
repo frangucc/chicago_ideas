@@ -65,12 +65,16 @@
               = f.input  :social_venture_name,        :as => :string, :required => true, :label => "Social Venture Name"
               = f.input  :title,                      :as => :string, :required => true, :label => "Your Title"
               = bl.input :venture_launched,           :as => :string, :required => true, :label => "Year the organization was founded:"
+              = f.input  :org_founder,                :as => :select, :required => true, :label => "Are you the founder of your organization?:", :collection => ["Yes", "No"]
+              = f.input  :org_join_point,             :as => :string,                    :label => "If not, at what point did you join?"
+              = f.input  :total_budget_current_year,  :as => :string, :required => true, :label => "Total 2013 Budget in USD"
               = f.input  :legal_structure,            :as => :string, :required => true, :label => "Legal Structure (501c3, LLC, L3C, B Corp, Fiscally Sponsored, etc.)"
               = f.input  :url,                        :as => :string, :required => true, :label => "URL",                  :hint => "ex. http://www.domain.com..."
               = f.input  :twitter_handle,             :as => :string, :required => true, :label => "Twitter Handle",       :hint => "ex. chicagoideas (no @ required)"
               = f.input  :video_url,                  :as => :string, :required => true, :label => "YouTube or Video URL", :hint => "ex. http://www.youtube.com/..."
               = bl.input :social_venture_description,                 :required => true, :label => "Please provide a clear and concise description of your social venture. (Limit 50 words):"
               = bl.input :organizational_development,                 :required => true, :label => "What is your venture's level of organizational development (e.g., growth stage, number of team members, etc.)?:"
+              = f.input  :major_sources_income,                       :required => true, :label => "What are your major sources of funding or income, and who are your largest funders? (Limit 100 words):"
               = f.input  :sustainability_model,                                          :label => "If you are a 501c3, are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words):"
               = f.input  :inspiration,                                :required => true, :label => "Describe you main programs and their impact. (Limit 300 words):"
               = f.input  :improvements,                               :required => true, :label => "What is your long-term vision for the organization, and how will you know if you have achieved success? (Limit 100-200 words):"
@@ -84,9 +88,11 @@
           .form_section
             %span.form_section_header Part 4: Impact &amp; Assessment
             = f.inputs :class => "c_list v_lists" do
-              = bl.input :number_people_affected, :as => :string, :required => true, :label => "How many people did you directly affect this year:"
-              = bl.input :explain_number,                         :required => true, :label => "Explain this number in a few sentences:"
-              = bl.input :three_standout_statistics,              :required => true, :label => "Please provide three statistics that eximplify your success:"
+              = bl.input :number_people_affected,    :as => :string, :required => true, :label => "How many people did you directly affect this year:"
+              = bl.input :explain_number,                            :required => true, :label => "Explain this number in a few sentences:"
+              = bl.input :three_standout_statistics,                 :required => true, :label => "Please provide three statistics that eximplify your success:"
+              = f.input  :impact,                                    :required => true, :label => "What metrics do you use to track your impact? How has your impact grown over time? (A strong response will use data that show's your impact in discussing your approach). (Limit 300 words):"
+              = f.input  :obstacles_needs,                           :required => true, :label => "What are your venture's greatest obstacles and needs? What would you want to get out of your participation in this fellowship (A strong response should include specific skills-based or strategic needs the organization has that the Fellowship may be able to address, partners you are hoping to secure, communities you are hoping to be introduced to, specific expertise you are seeking, etc). (Limit 400 words):"
 
           .form_section
             %span.form_section_header Optional Questions
@@ -109,6 +115,8 @@
               = f.input :press_clipping_1,         :as => :file,                      :label => "Press Clipping #1", :hint => "Must be a PDF and less than 4MB"
               = f.input :press_clipping_2,         :as => :file,                      :label => "Press Clipping #2", :hint => "Must be a PDF and less than 4MB"
               = f.input :press_clipping_3,         :as => :file,                      :label => "Press Clipping #3", :hint => "Must be a PDF and less than 4MB"
+              = f.input :budget_previous_year,     :as => :string, :required => true, :label => "2012 Budget"
+              = f.input :budget_current_year,      :as => :string, :required => true, :label => "2013 Budget"
 
           .form_section
             %span.form_section_header Agreement
@@ -117,6 +125,10 @@
 
           = f.buttons do
             = f.submit :value => "Submit Application", :class => "btn submit", :id => "submit_application"
+
+          %p
+            If you have any technical difficulties with this application please email
+            = mail_to ApplicationHelper::INFO_BLUHMHELF_EMAIL
 
   -# Include Sidebar Items
   #sidebar
