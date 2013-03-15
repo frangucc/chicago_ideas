@@ -8,6 +8,11 @@
         %br
         %span.detailed_price= member_type_price(member_type)
 
+    - if member_type.title == 'Innovation Council'
+      %p.innovation_description
+        The Innovation Council is an engaged group of businesses, families, associations, universities, and foundations that champion Chicago Ideas Week's vision of Chicago as a global hub of innovation and ideas.
+        The Innovation Council's support enables Chicago Ideas Week to be the most accessible and inclusive ideas platform in the country.
+
     - if member_type.specific_benefits
       %p.detailed_highlighted_title
         %strong Highlighted Benefits:
