@@ -1,15 +1,4 @@
 GIT
-  remote: git://github.com/flying-sphinx/flying-sphinx.git
-  revision: dd31442a7382096e5956ebfadf4dda602a1ff9fe
-  specs:
-    flying-sphinx (0.8.5)
-      faraday_middleware (~> 0.7)
-      multi_json (>= 1.0.1)
-      rash (~> 0.3.0)
-      riddle (>= 1.5.0)
-      thinking-sphinx
-
-GIT
   remote: git@github.com:thoughtbot/bourbon.git
   revision: e88945ad8a3f7f40c04319ee4b7214e7bed0e2f7
   ref: e88945ad8a3f7f40c04319ee4b7214e7bed0e2f7
@@ -94,7 +83,6 @@ GEM
     coffee-script-source (1.4.0)
     columnize (0.3.6)
     daemons (1.1.9)
-    dalli (2.6.0)
     debugger (1.3.1)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.1.1)
@@ -121,8 +109,6 @@ GEM
     erubis (2.7.0)
     exception_notification (3.0.1)
       actionmailer (>= 3.0.4)
-    exceptional (2.0.33)
-      rack
     excon (0.16.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -133,8 +119,6 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
-    faraday_middleware (0.9.0)
-      faraday (>= 0.7.4, < 0.9)
     ffi (1.4.0)
     fog (1.9.0)
       builder
@@ -271,8 +255,6 @@ GEM
       thor (~> 0.14.6)
     raindrops (0.10.0)
     rake (10.0.3)
-    rash (0.3.2)
-      hashie (~> 1.2.0)
     rb-fsevent (0.9.3)
     rdoc (3.12.2)
       json (~> 1.4)
@@ -374,7 +356,6 @@ DEPENDENCIES
   carmen
   coffee-rails (~> 3.1.1)
   daemons
-  dalli
   debugger
   delayed_job_active_record (= 0.4.2)
   devise (= 1.5.3)
@@ -382,10 +363,8 @@ DEPENDENCIES
   doc_raptor
   dynamic_models
   exception_notification
-  exceptional
   execjs
   factory_girl_rails
-  flying-sphinx (= 0.8.5)!
   fog
   foreigner
   formtastic (= 2.1.0)
@@ -406,7 +385,6 @@ DEPENDENCIES
   omniauth-twitter
   paperclip
   pdfkit
-  rack-cache
   rails (= 3.1.11)
   rb-fsevent
   redcarpet

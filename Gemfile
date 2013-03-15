@@ -33,19 +33,11 @@ gem 'doc_raptor'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 
-# very useful to see what exceptions have been thrown - logs stcktrace too
-gem 'exceptional'
-
 # for managing cron job
 gem 'whenever'
 
-# cache in memcache - varnish isnt availiable on cedar apps
-gem 'rack-cache'
-gem 'dalli'
-
 # search via sphinx deamon
 gem 'thinking-sphinx', '2.0.10'
-gem 'flying-sphinx',   '0.8.5', :git => 'git://github.com/flying-sphinx/flying-sphinx.git'
 
 # social
 gem 'koala'
@@ -73,10 +65,14 @@ gem 'authorize-net'
 # js environment
 gem 'execjs'
 gem 'therubyracer'
-gem 'exception_notification'
-gem 'daemons'
 
+# for exceptions duh
+gem 'exception_notification'
+
+# async stuff like mailing
+gem 'daemons'
 gem 'delayed_job_active_record', "0.4.2"
+
 # third party SAS solution for monitoring performance
 group :production do
   gem 'newrelic_rpm'
@@ -86,8 +82,6 @@ end
 group :development do
   gem 'guard'
   gem 'guard-rspec'
-  # the debugger
-  #gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 # Gems used only for assets and not required
