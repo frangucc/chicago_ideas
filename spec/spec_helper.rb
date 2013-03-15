@@ -24,7 +24,7 @@ end
 
 def assert_max_words_count(model, field, max_words)
   model.should be_invalid
-  model.errors[field].join.should match(/You have exceeded the #{max_words} word count!/)
+  model.errors[field].join.should match(/You have exceeded the #{max_words} word count!|must be less than #{max_words} words/)
 end
 
 def assert_numericality(model, field)
