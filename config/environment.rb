@@ -16,7 +16,7 @@ DocRaptor.api_key 'tl8fHT64wxhkLUTW0Y6V'
 if File.exists?(Rails.root + 'config/authorize_net.yml')
   @auth_net = YAML.load_file(Rails.root + 'config/authorize_net.yml')
 else
-  @auth_net = { "login" => "2y9kBc3rXn", "key" => "8SXA34Ag6qa28SuH", "env" => :staging }
+  @auth_net = { "login" => "2y9kBc3rXn", "key" => "8SXA34Ag6qa28SuH", "env" => :sandbox }
 end
 
 AUTHNET_LOGIN = @auth_net["login"]
