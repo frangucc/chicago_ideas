@@ -37,7 +37,7 @@ CraigsAdmin::Application.configure do
   # config.logger = SyslogLogger.new
 
   # Use a different cache store in production
-  config.cache_store = :dalli_store
+  # config.cache_store = :dalli_store
 
   # Use Dalli as the rack-cache metastore
   # $cache = Dalli::Client.new
