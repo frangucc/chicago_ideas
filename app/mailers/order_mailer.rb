@@ -7,7 +7,7 @@ class OrderMailer < ActionMailer::Base
   def thank_you_membership(order)
     @order = order
     pdf_file = create_pdf('orders/invoice', 'invoice.css', @order.code)
-    attachments["#{@order.code}.pdf"] = File.read("#{Rails.root}/tmp/pdf/#{@order.code}.pdf")
+    attachments["invoice-#{@order.code}.pdf"] = File.read("#{Rails.root}/tmp/pdf/invoice-#{@order.code}.pdf")
     mail(:to => @order.user.email) do |format|
       format.html { render }
     end
