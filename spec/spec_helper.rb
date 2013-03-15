@@ -22,6 +22,11 @@ def assert_email(model, field)
   model.errors[field].join.should match(/is not an email/)
 end
 
+def assert_min_words_count(model, field, min_words)
+  model.should be_invalid
+  model.errors[field].join.should match(/must be greater than #{min_words} words/)
+end
+
 def assert_max_words_count(model, field, max_words)
   model.should be_invalid
   model.errors[field].join.should match(/You have exceeded the #{max_words} word count!|must be less than #{max_words} words/)
