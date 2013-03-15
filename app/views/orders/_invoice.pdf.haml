@@ -98,7 +98,10 @@
             = @order.member_type.title
             Member
             %span.price_range
-              = member_type_price(@order.member_type)
+              - price_str = number_to_currency(@order.member_type.min_price, :precision => 0)
+              - price_str += " - #{ number_to_currency(@order.member_type.max_price, :precision => 0) }" unless @order.member_type.has_fixed_price?
+              = price_str
+
         %tr
           %td.tax_disclaimer
             - if @order.member_type.title == 'Ignition'
