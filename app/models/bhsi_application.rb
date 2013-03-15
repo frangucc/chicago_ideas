@@ -52,12 +52,6 @@ class BhsiApplication < ActiveRecord::Base
   validates :user_id,                  :presence => true
 
   validates_attachment_presence :previous_budget,  :presence => true
-  validates_attachment_presence :press_clipping_1, :presence => true
-
-  #validates_attachment_content_type :previous_budget, :content_type => 'application/pdf'
-  #validates_attachment_content_type :press_clipping_1, :content_type => 'application/pdf'
-  #validates_attachment_content_type :press_clipping_2, :content_type => 'application/pdf'
-  #validates_attachment_content_type :press_clipping_3, :content_type => 'application/pdf'
 
   validates_format_of :previous_budget_file_name,  :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
   validates_format_of :press_clipping_1_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
@@ -79,7 +73,7 @@ class BhsiApplication < ActiveRecord::Base
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
-  validates :sustainability_model, :presence => true, :length => {
+  validates :sustainability_model, :length => {
     :maximum   => MAX_SUSTAINABITILITY_MODEL_WORDS,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
@@ -89,7 +83,7 @@ class BhsiApplication < ActiveRecord::Base
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
   }
-  validates :distinguish_yourself, :presence => true, :length => {
+  validates :distinguish_yourself, :length => {
     :maximum   => MAX_DISTINGUISH_YOURSELF_WORDS,
     :tokenizer => lambda { |str| str.scan(/\b\S+\b/) },
     :too_long  => "must be less than %{count} words"
