@@ -10,8 +10,7 @@ describe BhsiApplication do
      :birthdate, :title, :social_venture_name, :legal_structure, :url, :twitter_handle, :video_url,
      :applied_before, :reference_1_name, :reference_1_relationship, :reference_1_email,
      :reference_2_name, :reference_2_relationship, :reference_2_phone, :reference_2_email,
-     :user_id, :makes_social_innovation, :inspiration, :sustainability_model,
-     :improvements, :distinguish_yourself].each do |attribute|
+     :user_id, :makes_social_innovation, :inspiration, :improvements].each do |attribute|
        it "requires #{attribute}" do
         assert_presence bhsi, attribute
        end

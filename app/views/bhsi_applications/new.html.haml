@@ -2,7 +2,6 @@
 -#     bhsi_applications/new.html.haml
 -#     02/17/2012
 
-
 -# Breadcrumbs and Explore button
 %section#header_toolbar.container-fluid
   .container
@@ -22,7 +21,7 @@
     #page_title.left
       %h1 Bluhm/Helfand Social Innovation Fellowship Application Form
     = render "partials/share"
-    
+
   -# Left column, main content: About Us information
   .box.double.left
 
@@ -38,97 +37,92 @@
                   = link_to "Click here to create a CIW account.", new_user_registration_path
             %center
               = image_tag('application/bluhm_helfand_logo.jpg', :class => "clearfix", :width => "200px")
-          
+
             %p
               Please save a copy of your application responses for your records. For questions or any technical difficulties, please email
               = link_to "info@bluhmhelfand.com.", "mailto:info@bluhmhelfand.com"
-            
+
             %span.form_section_header Part 1: About You
             = f.inputs :class => "c_list v_lists" do
-              = f.input :first_name, :as => :string, :required => true, :label => "First Name"
-              = f.input :last_name, :as => :string, :required => true, :label => "Last Name"
-              = f.input :address1, :as => :string,:required => true, :label => "Address"
-              = f.input :address2, :as => :string,:label => "Address 2"
-              = f.input :city, :as => :string,:required => true, :label => "City"
-              = f.input :state, :as => :string,:required => true, :label => "State"
-              = f.input :zipcode, :as => :string,:required => true, :label => "Zip Code"
-              = f.input :country, :required => true, :label => "Country"
-              = f.input :phone_number, :as => :phone, :required => true, :label => "Phone Number", :hint => "xxx-xxx-xxxx"
-              = f.input :email, :as => :email, :required => true, :label => "Email"
-              = f.input :gender, :as => :select, :required => true, :label => "Gender", :collection => ["Male", "Female"]
-              = f.input :birthdate, :as => :string, :required => true, :label => "Birthdate (you must have been born on or after 10/7/1977)", :hint => "mm/dd/yyyy"
-              = f.input :applied_before, :as => :select, :required => true, :label => "Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?", :collection => ["Yes", "No"]
-              = bl.input :about_yourself, :required => true, :label => "Tell us a little bit about yourself. Make sure to include any previous leadership recognition or awards (100-200 words):"
-            
-            
+              = f.input  :first_name,      :as => :string, :required => true, :label => "First Name"
+              = f.input  :last_name,       :as => :string, :required => true, :label => "Last Name"
+              = f.input  :phone_number,    :as => :phone,  :required => true, :label => "Phone Number", :hint => "xxx-xxx-xxxx"
+              = f.input  :address1,        :as => :string, :required => true, :label => "Street Address"
+              = f.input  :address2,        :as => :string,                    :label => "Address Line 2"
+              = f.input  :city,            :as => :string, :required => true, :label => "City"
+              = f.input  :state,           :as => :string, :required => true, :label => "State/Province"
+              = f.input  :zipcode,         :as => :string, :required => true, :label => "Zip/Postal Code"
+              = f.input  :country,                         :required => true, :label => "Country"
+              = f.input  :email,           :as => :email,  :required => true, :label => "Email"
+              = f.input  :gender,          :as => :select, :required => true, :label => "Gender", :collection => ["Male", "Female"]
+              = f.input  :birthdate,       :as => :string, :required => true, :label => "Birthdate (you must have been born on or after 10/13/1978)", :hint => "mm/dd/yyyy"
+              = f.input  :applied_before,  :as => :select, :required => true, :label => "Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?", :collection => ["Yes", "No"]
+              = bl.input :about_yourself,                  :required => true, :label => "Tell us your story. What inspired you to start your organization? (A strong response should include how and why you began your venture as well as your own personal background, including any previous leadership recognition or awards.) (Limit 100-200 words):"
+
           .form_section
             %span.form_section_header Part 2: About Your Venture
             = f.inputs :class => "c_list v_lists" do
-              = f.input :title, :as => :string, :required => true, :label => "Your Title"
-              = f.input :social_venture_name, :as => :string, :required => true, :label => "Social Venture Name"
-              = f.input :legal_structure, :as => :string, :required => true, :label => "Legal Structure (501c3, LLC, Fiscally Sponsored, etc.)"
-              = f.input :url, :required => true, :as => :string, :label => "Website URL", :hint => "ex. http://www.domain.com..."
-              = f.input :twitter_handle, :as => :string, :required => true, :label => "Twitter Handle", :hint => "ex. chicagoideas (no @ required)"
-              = f.input :video_url, :as => :string, :required => true, :label => "YouTube or Video URL", :hint => "ex. http://www.youtube.com/..."
-          
-            = f.inputs :class => "c_list v_lists" do
-              = bl.input :social_venture_description, :required => true, :label => "Capsule description of your social venture (50-100 words):"
-              = bl.input :venture_launched, :as => :string, :required => true, :label => "Date your social venture was officially launched:"
-              = bl.input :number_people_affected, :as => :string, :required => true, :label => "Number of people you affected this year:"
-              = bl.input :explain_number, :required => true, :label => "Please explain this number in a few sentences:"
-              = bl.input :three_standout_statistics, :required => true, :label => "Please provide three standout statistics marking your social venture’s achievement:"
-                      
-          .form_section
-            %span.form_section_header Part 3: Structure, Strategy & Goals
-            = f.inputs :class => "c_list v_lists" do
-              = bl.input :organizational_development, :required => true, :label => "Explain your venture’s level of organizational development. Also, detail the sources of your funding and your most significant large funders (i.e., second round of VC funding, number of team members, annual budget/income, etc.) (75-200 words):"
-              = f.input :makes_social_innovation, :required => true, :label => "Explain what makes your venture a social innovation (2-3 sentences):"
-              = f.input :inspiration, :required => true, :label => "Explain your inspiration for starting your social venture and describe your main programs and initiatives (300-600 words):"
-              = f.input :sustainability_model, :required => true, :label => "Explain your model for sustainability and share the results that prove your model is working. Also explain how you measure your social impact. (A strong response to this question should include ample data demonstrating your measurable impact.) (300-600 words)"
-              = f.input :improvements, :required => true, :label => "What can you improve? Where is your work headed in the next two years? Where would you like to be in the long term, 10 years from now and beyond? What is your plan to achieve those goals? (300-600 words)"
-              = f.input :distinguish_yourself, :label => "How do you distinguish yourself in your specific field? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (300-500 words)"
-
+              = f.input  :social_venture_name,        :as => :string, :required => true, :label => "Social Venture Name"
+              = f.input  :title,                      :as => :string, :required => true, :label => "Your Title"
+              = bl.input :venture_launched,           :as => :string, :required => true, :label => "Year the organization was founded:"
+              = f.input  :legal_structure,            :as => :string, :required => true, :label => "Legal Structure (501c3, LLC, L3C, B Corp, Fiscally Sponsored, etc.)"
+              = f.input  :url,                        :as => :string, :required => true, :label => "URL",                  :hint => "ex. http://www.domain.com..."
+              = f.input  :twitter_handle,             :as => :string, :required => true, :label => "Twitter Handle",       :hint => "ex. chicagoideas (no @ required)"
+              = f.input  :video_url,                  :as => :string, :required => true, :label => "YouTube or Video URL", :hint => "ex. http://www.youtube.com/..."
+              = bl.input :social_venture_description,                 :required => true, :label => "Please provide a clear and concise description of your social venture. (Limit 50 words):"
+              = bl.input :organizational_development,                 :required => true, :label => "What is your venture's level of organizational development (e.g., growth stage, number of team members, etc.)?:"
+              = f.input  :sustainability_model,                                          :label => "If you are a 501c3, are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words):"
+              = f.input  :inspiration,                                :required => true, :label => "Describe you main programs and their impact. (Limit 300 words):"
+              = f.input  :improvements,                               :required => true, :label => "What is your long-term vision for the organization, and how will you know if you have achieved success? (Limit 100-200 words):"
 
           .form_section
-            %span.form_section_header Part 4: Additional Questions
+            %span.form_section_header Part 3: Innovation
             = f.inputs :class => "c_list v_lists" do
-              = bl.input :strong_midwest_connections_explained, :label => "Do you have a strong connection to the Midwest? If so, please explain (50-100 words):"
-              = bl.input :additional_comments, :label => "Additional Comments"
-            
-    
+              = f.input :makes_social_innovation, :required => true, :label => "What specifically makes your venture innovative? (Limit 100 words):"
+              = f.input :distinguish_yourself,                       :label => "How do you distinguish yourself in your specific sector? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (Limit 400 words)"
+
           .form_section
-            %span.form_section_header Part 5: Budget, Press Clippings & References
+            %span.form_section_header Part 4: Impact &amp; Assessment
             = f.inputs :class => "c_list v_lists" do
-              = f.input :previous_budget, :required => true, :as => :file, :label => "Please submit your 2011 Budget, including expenses and revenues.", :hint => "Must be a PDF and less than 4MB"
-              = f.input :reference_1_name, :as => :string, :required => true, :label => "#1 Reference Name"
+              = bl.input :number_people_affected, :as => :string, :required => true, :label => "How many people did you directly affect this year:"
+              = bl.input :explain_number,                         :required => true, :label => "Explain this number in a few sentences:"
+              = bl.input :three_standout_statistics,              :required => true, :label => "Please provide three statistics that eximplify your success:"
+
+          .form_section
+            %span.form_section_header Optional Questions
+            = f.inputs :class => "c_list v_lists" do
+              = bl.input :strong_midwest_connections_explained, :label => "Do you have a strong connection to the Midwest? If so, please explain. (Please note you do not need to have a Midwest connection in order to be eligible.) (50-100 words):"
+              = bl.input :additional_comments,                  :label => "Additional Comments:"
+
+          .form_section
+            %span.form_section_header Budget, Press Clippings &amp; References
+            = f.inputs :class => "c_list v_lists" do
+              = f.input :previous_budget,          :as => :file,   :required => true, :label => "Please submit your 2012 Budget, including expenses and revenues as well as your projected budget for 2013.", :hint => "Must be a PDF and less than 4MB"
+              = f.input :reference_1_name,         :as => :string, :required => true, :label => "#1 Reference Name"
               = f.input :reference_1_relationship, :as => :string, :required => true, :label => "#1 Reference Relationship to you"
-              = f.input :reference_1_phone, :as => :string, :required => true, :label => "#1 Reference Phone Number"
-              = f.input :reference_1_email, :as => :string, :required => true, :label => "#1 Reference Email"
-              = f.input :reference_2_name, :as => :string, :required => true, :label => "#2 Reference Name"
+              = f.input :reference_1_phone,        :as => :string, :required => true, :label => "#1 Reference Phone Number"
+              = f.input :reference_1_email,        :as => :string, :required => true, :label => "#1 Reference Email"
+              = f.input :reference_2_name,         :as => :string, :required => true, :label => "#2 Reference Name"
               = f.input :reference_2_relationship, :as => :string, :required => true, :label => "#2 Reference Relationship to you"
-              = f.input :reference_2_phone, :as => :string, :required => true, :label => "#2 Reference Phone"
-              = f.input :reference_2_email, :as => :string, :required => true, :label => "#2 Reference Email"
+              = f.input :reference_2_phone,        :as => :string, :required => true, :label => "#2 Reference Phone"
+              = f.input :reference_2_email,        :as => :string, :required => true, :label => "#2 Reference Email"
+              = f.input :press_clipping_1,         :as => :file,                      :label => "Press Clipping #1", :hint => "Must be a PDF and less than 4MB"
+              = f.input :press_clipping_2,         :as => :file,                      :label => "Press Clipping #2", :hint => "Must be a PDF and less than 4MB"
+              = f.input :press_clipping_3,         :as => :file,                      :label => "Press Clipping #3", :hint => "Must be a PDF and less than 4MB"
 
-              = f.input :press_clipping_1, :required => true, :as => :file, :label => "Press Clipping #1", :hint => "Must be a PDF and less than 4MB"
-              = f.input :press_clipping_2, :as => :file, :label => "Press Clipping #2", :hint => "Must be a PDF and less than 4MB"
-              = f.input :press_clipping_3, :as => :file, :label => "Press Clipping #3", :hint => "Must be a PDF and less than 4MB"
-            
           .form_section
-            %span.form_section_header Part 6: Agreement
+            %span.form_section_header Agreement
             = f.inputs :class => "c_list v_lists" do
               = f.input :agreement_accepeted, :required => true, :label => "By checking this box, I verify that all my responses outlined in this application are truthful and have been answered to the best of my ability."
 
-            
           = f.buttons do
             = f.submit :value => "Submit Application", :class => "btn submit", :id => "submit_application"
-        
+
   -# Include Sidebar Items
   #sidebar
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
-
-
 
 -# If the User is not signed in or registered, then we only preview the form, once
 -# they click they are redirected to the login/registration forms
@@ -138,10 +132,8 @@
       $('#flash_helper').append('<div class="redirect_notice">You need an account, redirecting to the registration page...</div>');
       document.location = "#{redirect_bhsi_applications_path}";
     });
-    
 
-
-:javascript  
+:javascript
   $('#submit_application').bind('click', function(e) {
     $(this).val('processing...');
   });
