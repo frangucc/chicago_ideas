@@ -34,6 +34,7 @@ describe "Checking out", js: true do
         fill_in("order_billing_address_attributes_city", with: "Springfield")
         select("Rhode Island", from: "order_billing_address_attributes_state")
         fill_in("order_billing_address_attributes_zip", with: "33123")
+        fill_in("order_billing_address_attributes_phone", with: "0303456")
       end
 
       within("#personal") do
@@ -44,6 +45,7 @@ describe "Checking out", js: true do
         fill_in("order_address_city", with: "Da City")
         select("California", from: "order_address_state")
         fill_in("order_address_zip", with: "44123")
+        fill_in("order_address_phone", with: "0303456")
       end
 
       click_on("Confirm Purchase")
