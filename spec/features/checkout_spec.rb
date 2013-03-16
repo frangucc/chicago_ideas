@@ -15,7 +15,7 @@ describe "Checking out", js: true do
   end
 
   describe "With correct data" do
-    it "should work", focus: true do
+    it "should work" do
       @member_oc  = Member.count
       @user_oc    = User.count
       @address_oc = Address.count
