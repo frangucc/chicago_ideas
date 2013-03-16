@@ -10,7 +10,9 @@ describe BhsiApplication do
      :birthdate, :title, :social_venture_name, :legal_structure, :url, :twitter_handle, :video_url,
      :applied_before, :reference_1_name, :reference_1_relationship, :reference_1_email,
      :reference_2_name, :reference_2_relationship, :reference_2_phone, :reference_2_email,
-     :user_id, :makes_social_innovation, :inspiration, :improvements].each do |attribute|
+     :user_id, :makes_social_innovation, :inspiration, :improvements, :org_founder,
+     :total_budget_current_year, :major_sources_income, :impact, :obstacles_needs,
+     :budget_previous_year, :budget_current_year].each do |attribute|
        it "requires #{attribute}" do
         assert_presence bhsi, attribute
        end
@@ -54,6 +56,30 @@ describe BhsiApplication do
 
       bhsi.distinguish_yourself << 'word'
       assert_max_words_count bhsi, :distinguish_yourself, BhsiApplication::MAX_DISTINGUISH_YOURSELF_WORDS
+    end
+
+    it 'requires valid major_sources_income words count' do
+      bhsi.major_sources_income = 'word ' * BhsiApplication::MAX_MAJOR_SOURCES_INCOME_WORDS
+      bhsi.errors[:major_sources_income].should be_empty
+
+      bhsi.major_sources_income << 'word'
+      assert_max_words_count bhsi, :major_sources_income, BhsiApplication::MAX_MAJOR_SOURCES_INCOME_WORDS
+    end
+
+    it 'requires valid impact words count' do
+      bhsi.impact = 'word ' * BhsiApplication::MAX_IMPACT_WORDS
+      bhsi.errors[:impact].should be_empty
+
+      bhsi.impact << 'word'
+      assert_max_words_count bhsi, :impact, BhsiApplication::MAX_IMPACT_WORDS
+    end
+
+    it 'requires valid obstacles_needs words count' do
+      bhsi.obstacles_needs = 'word ' * BhsiApplication::MAX_OBSTACLES_NEEDS_WORDS
+      bhsi.errors[:obstacles_needs].should be_empty
+
+      bhsi.obstacles_needs << 'word'
+      assert_max_words_count bhsi, :obstacles_needs, BhsiApplication::MAX_OBSTACLES_NEEDS_WORDS
     end
 
   end
