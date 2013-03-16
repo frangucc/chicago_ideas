@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :bhsi_application do
-    sequence(:id)                        { |n| n }
     first_name                           'Mark'
     last_name                            'Kabban'
     address1                             '3637 Saddle Dr'
