@@ -8,6 +8,9 @@ class BhsiApplication < ActiveRecord::Base
   MIN_IMPROVEMENTS_WORDS            = 100
   MAX_IMPROVEMENTS_WORDS            = 200
   MAX_DISTINGUISH_YOURSELF_WORDS    = 400
+  MAX_MAJOR_SOURCES_INCOME_WORDS    = 100
+  MAX_IMPACT_WORDS                  = 300
+  MAX_OBSTACLES_NEEDS_WORDS         = 400
 
   belongs_to :user
 
@@ -23,34 +26,38 @@ class BhsiApplication < ActiveRecord::Base
 
   accepts_nested_attributes_for :bhsi_longtext
 
-  validates :first_name,               :presence => true
-  validates :last_name,                :presence => true
-  validates :address1,                 :presence => true
-  validates :city,                     :presence => true
-  validates :state,                    :presence => true
-  validates :country,                  :presence => true
-  validates :phone_number,             :presence => true
-  validates :zipcode,                  :presence => true
-  validates :email,                    :presence => true
-  validates :gender,                   :presence => true
-  validates :birthdate,                :presence => true
-  validates :title,                    :presence => true
-  validates :social_venture_name,      :presence => true
-  validates :legal_structure,          :presence => true
-  validates :url,                      :presence => true
-  validates :twitter_handle,           :presence => true
-  validates :video_url,                :presence => true
-  validates :applied_before,           :presence => true
-  validates :reference_1_name,         :presence => true
-  validates :reference_1_relationship, :presence => true
-  validates :reference_1_phone,        :presence => true
-  validates :reference_1_email,        :presence => true
-  validates :reference_2_name,         :presence => true
-  validates :reference_2_relationship, :presence => true
-  validates :reference_2_phone,        :presence => true
-  validates :reference_2_email,        :presence => true
-  validates :agreement_accepeted,      :acceptance => {:accept => true}
-  validates :user_id,                  :presence => true
+  validates :first_name,                :presence => true
+  validates :last_name,                 :presence => true
+  validates :address1,                  :presence => true
+  validates :city,                      :presence => true
+  validates :state,                     :presence => true
+  validates :country,                   :presence => true
+  validates :phone_number,              :presence => true
+  validates :zipcode,                   :presence => true
+  validates :email,                     :presence => true
+  validates :gender,                    :presence => true
+  validates :birthdate,                 :presence => true
+  validates :title,                     :presence => true
+  validates :social_venture_name,       :presence => true
+  validates :legal_structure,           :presence => true
+  validates :url,                       :presence => true
+  validates :twitter_handle,            :presence => true
+  validates :video_url,                 :presence => true
+  validates :applied_before,            :presence => true
+  validates :reference_1_name,          :presence => true
+  validates :reference_1_relationship,  :presence => true
+  validates :reference_1_phone,         :presence => true
+  validates :reference_1_email,         :presence => true
+  validates :reference_2_name,          :presence => true
+  validates :reference_2_relationship,  :presence => true
+  validates :reference_2_phone,         :presence => true
+  validates :reference_2_email,         :presence => true
+  validates :agreement_accepeted,       :acceptance => {:accept => true}
+  validates :user_id,                   :presence => true
+  validates :org_founder,               :presence => true
+  validates :total_budget_current_year, :presence => true
+  validates :budget_previous_year,      :presence => true
+  validates :budget_current_year,       :presence => true
 
   validates_attachment_presence :previous_budget,  :presence => true
 
@@ -86,6 +93,21 @@ class BhsiApplication < ActiveRecord::Base
   }
   validates :distinguish_yourself, :length => {
     :maximum   => MAX_DISTINGUISH_YOURSELF_WORDS,
+    :tokenizer => lambda { |str| str.scan(/\w+/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :major_sources_income, :presence => true, :length => {
+    :maximum   => MAX_MAJOR_SOURCES_INCOME_WORDS,
+    :tokenizer => lambda { |str| str.scan(/\w+/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :impact, :presence => true, :length => {
+    :maximum   => MAX_IMPACT_WORDS,
+    :tokenizer => lambda { |str| str.scan(/\w+/) },
+    :too_long  => "must be less than %{count} words"
+  }
+  validates :obstacles_needs, :presence => true, :length => {
+    :maximum   => MAX_OBSTACLES_NEEDS_WORDS,
     :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"
   }
