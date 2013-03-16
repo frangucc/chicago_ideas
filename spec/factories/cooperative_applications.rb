@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :cooperative_application do
-    sequence(:id)      { |n| n }
     name               'John'
     last_name          'Doe'
     title              'Title'

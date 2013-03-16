@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :address do
-    sequence(:id) { |n| n }
     street_1      '1st Street'
     street_2      '2nd Street'
     city          'Dallas'
