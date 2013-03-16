@@ -9,7 +9,7 @@ FactoryGirl.define do
     country                              'US'
     zipcode                              '91977'
     phone_number                         '619-9208650'
-    email                                'unknown@user.com'
+    sequence(:email)                     { |n| "derp_#{n}@example.com" }
     gender                               'Male'
     birthdate                            '04/18/1987'
     applied_before                       'Yes'
