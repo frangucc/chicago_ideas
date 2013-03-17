@@ -84,4 +84,13 @@ describe BhsiApplication do
 
   end
 
+  describe "#generate_application_pdf" do
+    it "creates the pdf file" do
+      @ba = FactoryGirl.build(:bhsi_application)
+      @ba.generate_application_pdf.should be_true
+
+      @ba.pdf.should_not be_nil
+    end
+  end
+
 end

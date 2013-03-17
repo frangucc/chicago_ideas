@@ -1,6 +1,7 @@
 class BhsiApplication < ActiveRecord::Base
 
   include SearchSortPaginate
+  include PdfCreator
 
   MAX_MAKES_SOCIAL_INNOVATION_WORDS = 100
   MAX_INSPIRATION_WORDS             = 300
@@ -12,16 +13,15 @@ class BhsiApplication < ActiveRecord::Base
   MAX_IMPACT_WORDS                  = 300
   MAX_OBSTACLES_NEEDS_WORDS         = 400
 
-  belongs_to :user
-
   has_attached_file :pdf,              :path => "applications/bhsi/pdfs/:id/:filename"
   has_attached_file :previous_budget,  :path => "applications/bhsi/pdfs/:id/:filename"
   has_attached_file :press_clipping_1, :path => "applications/bhsi/pdfs/:id/:filename"
   has_attached_file :press_clipping_2, :path => "applications/bhsi/pdfs/:id/:filename"
   has_attached_file :press_clipping_3, :path => "applications/bhsi/pdfs/:id/:filename"
 
-  # we have a polymorphic relationship with notes
+  belongs_to :user
   has_one :bhsi_longtext, :dependent => :destroy
+  # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
 
   accepts_nested_attributes_for :bhsi_longtext
@@ -54,12 +54,13 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_email,         :presence => true
   validates :agreement_accepeted,       :acceptance => {:accept => true}
   validates :user_id,                   :presence => true
-  validates :org_founder,               :presence => true
+  # validates :org_founder,               :presence => true
   validates :total_budget_current_year, :presence => true
   validates :budget_previous_year,      :presence => true
   validates :budget_current_year,       :presence => true
 
   validates_attachment_presence :previous_budget,  :presence => true
+  validates_attachment_presence :pdf, :presence => true
 
   validates_format_of :previous_budget_file_name,  :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
   validates_format_of :press_clipping_1_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
@@ -112,6 +113,10 @@ class BhsiApplication < ActiveRecord::Base
     :too_long  => "must be less than %{count} words"
   }
 
+
+  before_create :generate_application_pdf
+  after_create :notify_staff, :notify_applicant
+
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
     case parent_model.class.name.underscore
@@ -122,6 +127,29 @@ class BhsiApplication < ActiveRecord::Base
         { :name => :created_at, :as => :datetimerange }
       ]
     end
+  end
+
+  def notify_applicant
+    BhsiApplicationsMailer.delay.thank_you_application(self)
+  end
+
+  def notify_staff
+    BhsiApplicationsMailer.delay.send_form(self)
+  end
+
+  def pdf_file_name
+    pdf_name = "Bhsi_#{self.social_venture_name}.pdf"
+    pdf_name.gsub!(' ', '')
+    pdf_name.gsub!('/', '_')
+    pdf_name
+  end
+
+  def generate_application_pdf
+    # html_file = render_to_string(.pdf.haml', :layout => false)
+    # kit = PDFKit.new(html_file, :page_size => 'Letter')
+    # @bhsi_application.pdf = kit.to_file("#{Rails.root}/tmp/#{generate_pdf_name(@bhsi_application)}")
+
+    self.pdf = create_pdf('bhsi_applications/_bhsi_application_pdf', nil, self.pdf_file_name)
   end
 
 end
