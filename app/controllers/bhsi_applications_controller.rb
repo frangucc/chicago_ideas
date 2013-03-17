@@ -33,17 +33,12 @@ class BhsiApplicationsController < ApplicationController
       @meta_data = {:page_title => "Bluhm/Helfand Social Innovation Fellowship", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Bluhm/Helfand Social Innovation Fellowship | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
       @bhsi_application = current_user.build_bhsi_application(params[:bhsi_application])
 
-      html_file = render_to_string('bhsi_applications/_bhsi_application_pdf.pdf.haml', :layout => false)
-      kit = PDFKit.new(html_file, :page_size => 'Letter')
-      @bhsi_application.pdf = kit.to_file("#{Rails.root}/tmp/#{generate_pdf_name(@bhsi_application)}")
-
       if @bhsi_application.save
-        BhsiApplicationsMailer.send_form(@bhsi_application, generate_pdf_name(@bhsi_application)).deliver
-        BhsiApplicationsMailer.thank_you_application(@bhsi_application).deliver
         render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying to the Bluhm/Helfand Social Innovation Fellowship. BHSI semi-finalists will be announced in mid-June.", :url => "http://bit.ly/wdTJfn", :share_text => "I applied to the #BHSI Fellowship at @chicagoideas! RT to all #innovative #socent! Applications close 5/21. Apply today: http://bit.ly/wdTJfn"}
 
       else
         flash[:notice] = 'Please fill in all required fields!'
+        @bhsi_appliction = @bhsi_application
         render :new
       end
 
@@ -52,15 +47,6 @@ class BhsiApplicationsController < ApplicationController
       redirect_to root_path
     end
 
-  end
-
-  private
-
-  def generate_pdf_name(bhsi_application)
-    pdf_name = "Bhsi_#{bhsi_application.social_venture_name}.pdf"
-    pdf_name.gsub!(' ', '')
-    pdf_name.gsub!('/', '_')
-    pdf_name
   end
 
 end
