@@ -124,7 +124,7 @@
               = f.input :agreement_accepeted, :required => true, :label => "By checking this box, I verify that all my responses outlined in this application are truthful and have been answered to the best of my ability."
 
           = f.buttons do
-            = f.submit :value => "Submit Application", :class => "btn submit", :id => "submit_application"
+            = f.submit :value => "Submit Application", :class => "btn submit", :id => "submit_application", :data => { "disable-with" => "Processing..."}
 
           %p
             If you have any technical difficulties with this application please email
@@ -144,8 +144,3 @@
       $('#flash_helper').append('<div class="redirect_notice">You need an account, redirecting to the registration page...</div>');
       document.location = "#{redirect_bhsi_applications_path}";
     });
-
-:javascript
-  $('#submit_application').bind('click', function(e) {
-    $(this).val('processing...');
-  });
