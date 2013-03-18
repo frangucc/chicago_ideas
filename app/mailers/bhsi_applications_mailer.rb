@@ -1,6 +1,6 @@
 class BhsiApplicationsMailer < ActionMailer::Base
 
-  default from:      "test@example.com"
+  default from:      ApplicationHelper::CIW_BHSI_SUBM_EMAIL
   default subject:   'BHSI Application Form Submission'
 
   def send_form(bhsi)
@@ -11,7 +11,7 @@ class BhsiApplicationsMailer < ActionMailer::Base
     attachments[bhsi.press_clipping_2_file_name] = open(bhsi.press_clipping_2.url).read if bhsi.press_clipping_2.present?
     attachments[bhsi.press_clipping_3_file_name] = open(bhsi.press_clipping_3.url).read if bhsi.press_clipping_3.present?
 
-    mail(to: 'leanucci@gmail.com')
+    mail(to: ApplicationHelper::BHSI_RECIPIENTS)
   end
 
   def thank_you_application(bhsi)
