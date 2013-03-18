@@ -52,10 +52,10 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_phone,         :presence => true
   validates :reference_2_email,         :presence => true
   validates :agreement_accepeted,       :acceptance => {:accept => true}
-  # validates :org_founder,               :presence => true
   validates :total_budget_current_year, :presence => true
   validates :budget_previous_year,      :presence => true
   validates :budget_current_year,       :presence => true
+  validates :org_founder,               :inclusion => { :in => [true, false] }, :allow_nil => false
 
   validates_attachment_presence :previous_budget,  :presence => true
 
