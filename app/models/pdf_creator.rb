@@ -14,7 +14,7 @@ module PdfCreator
     #               "#{Rails.root}/app/assets/stylesheets/"
     #             end
     # kit.stylesheets << css_path + css_name if css_name
-    file = kit.to_file("#{Rails.root}/tmp/pdf/#{file_name}.pdf")
+    file = kit.to_file("#{Rails.root}/tmp/pdf/#{file_name}")
     file
   end
 
