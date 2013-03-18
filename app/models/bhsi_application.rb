@@ -60,12 +60,11 @@ class BhsiApplication < ActiveRecord::Base
   validates :budget_current_year,       :presence => true
 
   validates_attachment_presence :previous_budget,  :presence => true
-  validates_attachment_presence :pdf, :presence => true
 
   validates_format_of :previous_budget_file_name,  :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
   validates_format_of :press_clipping_1_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_1.present? }
-  validates_format_of :press_clipping_2_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_1.present? }
-  validates_format_of :press_clipping_3_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_1.present? }
+  validates_format_of :press_clipping_2_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_2.present? }
+  validates_format_of :press_clipping_3_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_3.present? }
 
   validates_attachment_size :previous_budget,  :less_than => 4.megabytes
   validates_attachment_size :press_clipping_1, :less_than => 4.megabytes
@@ -114,8 +113,9 @@ class BhsiApplication < ActiveRecord::Base
   }
 
 
-  before_create :generate_application_pdf
-  after_create :notify_staff, :notify_applicant
+  after_create :generate_application_pdf
+  after_create :notify_applicant
+  after_create :notify_staff
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
@@ -138,7 +138,7 @@ class BhsiApplication < ActiveRecord::Base
   end
 
   def pdf_file_name
-    pdf_name = "Bhsi_#{self.social_venture_name}"
+    pdf_name = "Bhsi_#{self.social_venture_name}.pdf"
     pdf_name.gsub!(' ', '')
     pdf_name.gsub!('/', '_')
     pdf_name
@@ -146,6 +146,7 @@ class BhsiApplication < ActiveRecord::Base
 
   def generate_application_pdf
     self.pdf = create_pdf(self, 'bhsi_applications/_bhsi_application_pdf.pdf.haml', self.pdf_file_name)
+    save
   end
 
 end
