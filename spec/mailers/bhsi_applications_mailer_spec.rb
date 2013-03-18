@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BhsiApplicationsMailer, :focus do
+describe BhsiApplicationsMailer do
 
   let(:bhsi_app) { FactoryGirl.build(:bhsi_application) }
 
@@ -45,11 +45,6 @@ describe BhsiApplicationsMailer, :focus do
       @email.subject.should == 'BHSI Application Form Submission'
       @email.from[0].should == ApplicationHelper::CIW_BHSI_SUBM_EMAIL
       @email.to[0].should   == ApplicationHelper::BHSI_RECIPIENTS
-    end
-
-    it "attaches as many files as pdf's in the application" do
-      debugger
-      @email
     end
   end
 
