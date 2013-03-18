@@ -19,6 +19,7 @@ class BhsiApplicationsController < ApplicationController
     elsif current_user
       @bhsi_application = current_user.build_bhsi_application
       @bhsi_application.build_bhsi_longtext
+      @bhsi_application.email = current_user.email
     else
 
       @bhsi_application = BhsiApplication.new
