@@ -82,6 +82,27 @@ describe BhsiApplication do
       assert_max_words_count bhsi, :obstacles_needs, BhsiApplication::MAX_OBSTACLES_NEEDS_WORDS
     end
 
+    it 'requires valid email' do
+      ['invalid_email', 'invalid_email@', 'invalid@email', 'invalid@email.'].each do |invalid_email|
+        bhsi.email = invalid_email
+        assert_email bhsi, :email
+      end
+    end
+
+    it 'requires valid reference_1_email' do
+      ['invalid_email', 'invalid_email@', 'invalid@email', 'invalid@email.'].each do |invalid_email|
+        bhsi.reference_1_email = invalid_email
+        assert_email bhsi, :reference_1_email
+      end
+    end
+
+    it 'requires valid reference_1_email' do
+      ['invalid_email', 'invalid_email@', 'invalid@email', 'invalid@email.'].each do |invalid_email|
+        bhsi.reference_2_email = invalid_email
+        assert_email bhsi, :reference_2_email
+      end
+    end
+
   end
 
   describe "#generate_application_pdf" do
