@@ -103,6 +103,36 @@ describe BhsiApplication do
       end
     end
 
+    it 'requires valid phone_number' do
+      ['123', '123-', '123-456', '123-456-', '123-456-789', '1234-567-8901'].each do |invalid_phone|
+        bhsi.phone_number = invalid_phone
+        assert_phone_number bhsi, :phone_number
+      end
+      bhsi.phone_number = '123-456-7890'
+      bhsi.should be_invalid
+      bhsi.errors[:phone_number].should be_empty
+    end
+
+    it 'requires valid reference_1_phone' do
+      ['123', '123-', '123-456', '123-456-', '123-456-789', '1234-567-8901'].each do |invalid_phone|
+        bhsi.reference_1_phone = invalid_phone
+        assert_phone_number bhsi, :reference_1_phone
+      end
+      bhsi.reference_1_phone = '123-456-7890'
+      bhsi.should be_invalid
+      bhsi.errors[:reference_1_phone].should be_empty
+    end
+
+    it 'requires valid reference_2_phone' do
+      ['123', '123-', '123-456', '123-456-', '123-456-789', '1234-567-8901'].each do |invalid_phone|
+        bhsi.reference_2_phone = invalid_phone
+        assert_phone_number bhsi, :reference_2_phone
+      end
+      bhsi.reference_2_phone = '123-456-7890'
+      bhsi.should be_invalid
+      bhsi.errors[:reference_2_phone].should be_empty
+    end
+
   end
 
   describe "#generate_application_pdf" do

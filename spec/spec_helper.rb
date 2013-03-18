@@ -29,6 +29,11 @@ def assert_email(model, field)
   model.errors[field].join.should match(/is not an email/)
 end
 
+def assert_phone_number(model, field)
+  model.should be_invalid
+  model.errors[field].join.should match(/is not a valid phone number/)
+end
+
 def assert_min_words_count(model, field, min_words)
   model.should be_invalid
   model.errors[field].join.should match(/must be greater than #{min_words} words/)

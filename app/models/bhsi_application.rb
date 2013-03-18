@@ -31,7 +31,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :city,                      :presence => true
   validates :state,                     :presence => true
   validates :country,                   :presence => true
-  validates :phone_number,              :presence => true
+  validates :phone_number,              :presence => true, :phone => true
   validates :zipcode,                   :presence => true
   validates :email,                     :presence => true, :email => true
   validates :gender,                    :presence => true
@@ -45,11 +45,11 @@ class BhsiApplication < ActiveRecord::Base
   validates :applied_before,            :presence => true
   validates :reference_1_name,          :presence => true
   validates :reference_1_relationship,  :presence => true
-  validates :reference_1_phone,         :presence => true
+  validates :reference_1_phone,         :presence => true, :phone => true
   validates :reference_1_email,         :presence => true, :email => true
   validates :reference_2_name,          :presence => true
   validates :reference_2_relationship,  :presence => true
-  validates :reference_2_phone,         :presence => true
+  validates :reference_2_phone,         :presence => true, :phone => true
   validates :reference_2_email,         :presence => true, :email => true
   validates :agreement_accepeted,       :acceptance => {:accept => true}
   validates :total_budget_current_year, :presence => true
