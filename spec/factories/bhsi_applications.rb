@@ -40,6 +40,5 @@ FactoryGirl.define do
     budget_previous_year                 20000
     budget_current_year                  3000
     association                          :bhsi_longtext, factory: :bhsi_longtext
-    association                          :user, factory: :user
   end
 end
