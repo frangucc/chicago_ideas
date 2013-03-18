@@ -143,8 +143,8 @@ class BhsiApplication < ActiveRecord::Base
   end
 
   def generate_application_pdf
-    self.pdf = create_pdf(self, 'bhsi_applications/_bhsi_application_pdf.pdf.haml', self.pdf_file_name)
-    save
+    # self.pdf = create_pdf(self, 'bhsi_applications/_bhsi_application_pdf.pdf.haml', self.pdf_file_name)
+    # save
   end
 
 end
