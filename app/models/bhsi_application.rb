@@ -138,7 +138,7 @@ class BhsiApplication < ActiveRecord::Base
   end
 
   def pdf_file_name
-    pdf_name = "Bhsi_#{self.social_venture_name}.pdf"
+    pdf_name = "Bhsi_#{self.social_venture_name}"
     pdf_name.gsub!(' ', '')
     pdf_name.gsub!('/', '_')
     pdf_name
