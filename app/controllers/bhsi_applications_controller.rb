@@ -13,7 +13,7 @@ class BhsiApplicationsController < ApplicationController
   def new
     @meta_data = {:page_title => "Bluhm/Helfand Social Innovation Fellowship", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Bluhm/Helfand Social Innovation Fellowship | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
     #if current_user and current_user.bhsi_application.present?
-    if current_user and current_user.bhsi_application.present?
+    if current_user && current_user.bhsi_application.present?
       flash[:notice] = 'Thank you, your application has already been recieved.'
       redirect_to root_path
     elsif current_user
@@ -31,6 +31,7 @@ class BhsiApplicationsController < ApplicationController
     if current_user and current_user.bhsi_application.blank?
 
       @meta_data = {:page_title => "Bluhm/Helfand Social Innovation Fellowship", :og_image => "http://www.chicagoideas.com/assets/application/affilliate_events_banner.jpg", :og_title => "Bluhm/Helfand Social Innovation Fellowship | Chicago Ideas Week", :og_type => "website", :og_desc => "Chicago Ideas Week (CIW) is about the sharing of ideas, inspiring action and igniting change to positively impact our world. People who come to CIW are artists, engineers, technologists, inventors, scientists, musicians, economists, explorers-and, well...just innately passionate."}
+    if current_user && current_user.bhsi_application.blank?
       @bhsi_application = current_user.build_bhsi_application(params[:bhsi_application])
 
       if @bhsi_application.save
