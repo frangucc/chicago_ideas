@@ -60,7 +60,7 @@
               = f.input  :social_venture_name,        :as => :string, :required => true, :label => "Social Venture Name"
               = f.input  :title,                      :as => :string, :required => true, :label => "Your Title"
               = bl.input :venture_launched,           :as => :string, :required => true, :label => "Year the organization was founded:"
-              = f.input  :org_founder,                :as => :select, :required => true, :label => "Are you the founder of your organization?:", :collection => [["Yes", 1], ["No", 0]]
+              = f.input  :org_founder,                :as => :select, :required => true, :label => "Are you the founder of your organization?:", :collection => [["Yes", true], ["No", false]]
               = f.input  :org_join_point,             :as => :string,                    :label => "If not, at what point did you join?"
               = f.input  :total_budget_current_year,  :as => :string, :required => true, :label => "Total 2013 Budget in USD"
               = f.input  :legal_structure,            :as => :string, :required => true, :label => "Legal Structure (501c3, LLC, L3C, B Corp, Fiscally Sponsored, etc.)"
