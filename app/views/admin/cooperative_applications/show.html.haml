@@ -8,14 +8,14 @@
   = @cooperative_application.last_name
 
 #model_detail
+
+  %h2 Contanct Information
+
   %h4 Name
   %p= @cooperative_application.name
 
   %h4 Last Name
   %p= @cooperative_application.last_name
-
-  %h4 Email
-  %p= @cooperative_application.email
 
   %h4 Title
   %p= @cooperative_application.title
@@ -26,32 +26,17 @@
   %h4 Phone
   %p= @cooperative_application.phone
 
-  %h4 Organization Mission
+  %h4 Email
+  %p= @cooperative_application.email
+
+  %h4 Organization's Mission
   %p= @cooperative_application.org_mission
 
-  %h4 Organization Website
+  %h4 Organization's Website
   %p= @cooperative_application.org_website
 
-  %h4 Twitter Handle
+  %h4 Organization's Twitter Handle
   %p= @cooperative_application.org_twitter
-
-  %h3 Joining Purpose
-  %p= @cooperative_application.reason
-
-  %h3 Worked On Projects
-  %p= @cooperative_application.worked_on
-
-  %h3 Meaningful or magical part of 2012
-  %p= @cooperative_application.part_meaningful
-
-  %h3 Most Inspriring failure
-  %p= @cooperative_application.ins_failure
-
-  %h3 Neighborhood
-  %p= @cooperative_application.neighborhood
-
-  %h4 Assisted Area from Chicago Ideas Week
-  %p= @cooperative_application.assisted_area
 
   %h4 Passion 1
   %p= @cooperative_application.passion_1
@@ -62,5 +47,29 @@
   %h4 Passion 3
   %p= @cooperative_application.passion_3
 
-  %h4 Recommend
+
+  %h2 Chicago Ideas Week Cooperative Application Info
+
+  %h3 Why do you want to be a member of The Cooperative?
+  %p= @cooperative_application.reason
+
+  %h3 What social projects have you worked on (i.e. volunteerism, community projects, etc.)?
+  %p= @cooperative_application.worked_on
+
+  %h3 What was the most meaningful or magical part of 2012 for you?
+  %p= @cooperative_application.part_meaningful
+
+  %h3 What was your most inspiring failure?
+  %p= @cooperative_application.ins_failure
+
+  %h3 What Chicago neighborhood best represents who you are? Why?
+  %p= @cooperative_application.neighborhood
+
+
+  %h2 Additional Info
+
+  %h4 Briefly describe the areas in which the Chicago Ideas Week community can assist you or your organization
+  %p= @cooperative_application.assisted_area
+
+  %h4 Are there any other organization or individuals you would recommend to be a member of the Co-op? If so, why?
   %p= @cooperative_application.recommend
