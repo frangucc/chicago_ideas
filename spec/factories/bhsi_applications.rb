@@ -6,7 +6,7 @@ FactoryGirl.define do
     city                                 'Spring Valley'
     state                                'CA'
     country                              'US'
-    phone_number                         '619-9208650'
+    phone_number                         '619-920-8650'
     zipcode                              '91977'
     sequence(:email)                     { |n| "derp_#{n}@example.com" }
     gender                               'Male'

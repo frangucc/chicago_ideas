@@ -6,7 +6,7 @@ FactoryGirl.define do
     last_name          'Doe'
     title              'Title'
     organization       'Organization'
-    phone              '123-4567'
+    phone              '123-456-7890'
     org_mission        'Organization Mission'
     org_twitter        'johndoe'
     org_website        'www.organization.com'

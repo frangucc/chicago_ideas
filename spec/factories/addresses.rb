@@ -6,6 +6,6 @@ FactoryGirl.define do
     zip           '11400'
     country       'USA'
     state         'Texas'
-    phone         '123-456-789'
+    phone         '123-456-7890'
   end
 end
