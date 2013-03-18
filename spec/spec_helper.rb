@@ -3,16 +3,20 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require "paperclip/matchers"
+
 
 Capybara.javascript_driver = :webkit
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers, :type => :controller
   config.infer_base_class_for_anonymous_controllers = false
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run_including focus: true
   config.use_transactional_fixtures = true
+
+  config.include Paperclip::Shoulda::Matchers
+  config.include Devise::TestHelpers, :type => :controller
 end
 
 def assert_presence(model, field)

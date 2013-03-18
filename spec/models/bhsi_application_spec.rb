@@ -92,6 +92,8 @@ describe BhsiApplication do
       @ba.previous_budget = File.open("./spec/fixtures/blank.pdf")
       @ba.should_receive(:generate_application_pdf)
       @ba.save
+
+      @ba.pdf.should_not be_nil
     end
   end
 
