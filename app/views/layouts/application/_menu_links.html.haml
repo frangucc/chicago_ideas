@@ -21,9 +21,9 @@
   .dropdown
     %ul
       %li= link_to "Become a Sponsor",    support_path,                 :rel => "bookmark", :title => "Become a Sponsor"
-      %li= link_to "Become a Member",     "#",                          :rel => "bookmark", :title => "Become a Member"
+      %li= link_to "Become a Member",     membership_path,              :rel => "bookmark", :title => "Become a Member"
       %li= link_to "Become a Volunteer",  new_volunteer_path,           :rel => "bookmark", :title => "Become a Volunteer"
-      %li= link_to "Members",             "/years/2012/members/",       :rel => "bookmark", :title => "Members"
+      %li= link_to "Members",             year_members_path(2012),      :rel => "bookmark", :title => "Members"
       %li= link_to "Past Sponsors",       sponsors_path,                :rel => "bookmark", :title => "Past Sponsors"
       %li= link_to "Past Media Partners", sponsors_media_partners_path, :rel => "bookmark", :title => "Past Media Partners"
 
