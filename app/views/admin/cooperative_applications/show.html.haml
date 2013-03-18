@@ -1,6 +1,7 @@
 = render 'member_controls'
 - content_for :top_links do
   = destroy_model_link @cooperative_application, true
+  = link_to 'pdf', admin_cooperative_application_path(@cooperative_application, :format => :pdf)
 
 %h1
   = @cooperative_application.name
