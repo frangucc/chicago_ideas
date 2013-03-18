@@ -1,0 +1,95 @@
+!!! 5
+%html
+  %head
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+
+  %body
+    #model_detail
+      .section
+        %h1 Cooperative Application
+
+        .row
+          %h2 Contact Information
+        .row.no_margin
+          .column
+            %strong Name
+          .column_double= @cooperative_application.name
+        .row.no_margin
+          .column
+            %strong Last Name
+          .column_double= @cooperative_application.last_name
+        .row.no_margin
+          %strong Title
+          %p= @cooperative_application.title
+        .row.no_margin
+          .column
+            %strong Organization
+          .column_double= @cooperative_application.organization
+        .row.no_margin
+          .column
+            %strong Phone
+          .column_double= @cooperative_application.phone
+        .row.no_margin
+          .column
+            %strong Email
+          .column_double= @cooperative_application.email
+        .row.no_margin
+          .column
+            %strong Organization's Mission
+          .column_double= @cooperative_application.org_mission
+        .row.no_margin
+          .column
+            %strong Organization's Website
+          .column_double= @cooperative_application.org_website
+        .row.no_margin
+          .column
+            %strong Organization's Twitter handle
+          .column_double= @cooperative_application.org_twitter
+        .row.no_margin
+          .column
+            %strong Passion 1
+          .column_double= @cooperative_application.passion_1
+        .row.no_margin
+          .column
+            %strong Passion 2
+          .column_double= @cooperative_application.passion_2
+        .row.no_margin
+          .column
+            %strong Passion 3
+          .column_double= @cooperative_application.passion_3
+
+      .section
+        .row
+          %h2 Chicago Ideas Week Cooperative Application Info
+        .row
+          .column
+            %strong Why do you want to be a member of The Cooperative?
+          .column_double= @cooperative_application.reason
+        .row
+          .column
+            %strong What social projects have you worked on (i.e. volunteerism, community projects, etc.)?
+          .column_double= @cooperative_application.worked_on
+        .row
+          .column
+            %strong What was the most meaningful or magical part of 2012 for you?
+          .column_double= @cooperative_application.part_meaningful
+        .row
+          .column
+            %strong What was your most inspiring failure?
+          .column_double= @cooperative_application.ins_failure
+        .row
+          .column
+            %strong What Chicago neighborhood best represents who you are? Why?
+          .column_double= @cooperative_application.neighborhood
+
+      .section
+        .row
+          %h2 Additional Info
+        .row
+          .column
+            %strong Briefly describe the areas in which the Chicago Ideas Week community can assist you or your organization
+          .column_double= @cooperative_application.assisted_area
+        .row
+          .column
+            %strong Are there any other organization or individuals you would recommend to be a member of the Co-op? If so, why?
+          .column_double= @cooperative_application.recommend
