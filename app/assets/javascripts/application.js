@@ -33,8 +33,7 @@ $(document).ready(function(){
     }
 
     if( data.signed_in ) {
-      /* Commented out due to confusion with ticketing site - 9/5/12 */
-      //$('#nav_user').show();
+      $('#nav_user').show();
       /* *********************************************************** */
 
       // dont ask for email or name when prompting for newsletter
@@ -44,17 +43,15 @@ $(document).ready(function(){
 
 
     } else {
-      /* Commented out due to confusion with ticketing site - 9/5/12 */
-      //$('#gn_register').show();
-      //$('#gn_login').show();
-      /* *********************************************************** */
+      $('#gn_register').show();
+      $('#gn_login').show();
       $('#users_full_name').html(data.full_name);
     }
 
     if( data.connected_to_facebook ) {
       $('.facebook_connect').hide();
     }
-
+    console.log(data);
   }, 'JSON');
 
 });
