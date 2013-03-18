@@ -24,6 +24,7 @@ module ApplicationHelper
   DAVID_EMAIL          = 'david@davidburstein.com'
   TK_SHOPCLASS_EMAIL   = 'tk@shopclass.co'
   INFO_BLUHMHELF_EMAIL = 'info@bluhmhelfand.com'
+  BHSI_RECIPIENTS      = Rails.env.production? ? "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}" : `git config user.email`
 
   def conditional_html( lang = "en", &block )
     fb_meta = "xml:lang='en' xmlns:fb='http://www.facebook.com/2008/fbml' xmlns:og='http://opengraphprotocol.org/schema/' xmlns='http://www.w3.org/1999/xhtml'"
