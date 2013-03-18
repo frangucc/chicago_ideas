@@ -2,6 +2,138 @@
 %html
   %head
     %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+    :css
+      //  Chicago Ideas Week
+      //  Standard HTML5 Reset
+      //  Last updated on 01/12/2012
+
+
+      html,body,body div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section,time,mark,audio,video{border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0}
+      article,aside,figure,footer,header,hgroup,nav,section{display:block}
+      img,object,embed{max-width:100%}
+      html{overflow-y:scroll}
+      ul{list-style:none;margin:0;padding:0;}
+      blockquote,q{quotes:none}
+      blockquote:before,blockquote:after,q:before,q:after{content:none}
+      a{font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0}
+      del{text-decoration:line-through}
+      abbr[title],dfn[title]{border-bottom:1px dotted #000;cursor:help}
+      table{border-collapse:collapse;border-spacing:0;font-size:inherit;font:100%}
+      th{font-weight:700;vertical-align:bottom}
+      td{font-weight:400;vertical-align:top}
+      hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+      input,select{vertical-align:middle}
+      pre{white-space:pre-line;word-wrap:break-word}
+      input[type=checkbox]{vertical-align:baseline}
+      select,input,textarea{font:99% sans-serif}
+      a:hover,a:active{outline:none}
+      small{font-size:85%}
+      strong,th{font-weight:700}
+      td,td img{vertical-align:top}
+      sub,sup{font-size:75%;line-height:0;position:relative}
+      sup{top:-.5em}
+      sub{bottom:-.25em}
+      pre,code,kbd,samp{font-family:monospace, sans-serif}
+      .clickable,label,input[type=button],input[type=submit],button{cursor:pointer}
+      button,input,select,textarea{margin:0}
+      button{width:auto;overflow:visible}
+      .ie7 img{-ms-interpolation-mode:bicubic}
+      .ie6 html{filter:expression(document.execCommand("BackgroundImageCache",false,true))}
+      .clearfix:before,.clearfix:after{content:"\0020";display:block;height:0;overflow:hidden}
+      .clearfix:after{clear:both}
+      .clearfix{zoom:1}
+      input[type=radio],.ie6 input{vertical-align:text-bottom}
+
+      @page {
+        margin: 40px;
+      }
+      body.  {
+        background-color: #fff;
+        font-family: Arial;
+        font-size: 14px;
+        color: #333;
+        width: 750px;
+
+
+        #content_container {
+          width: 750px;
+
+          #content {
+            background-color: #fff;
+          }
+
+        }
+      }
+
+
+      h1 {
+        font-size: 23px;
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      .section {
+        display: block;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+
+        .row {
+          display: block;
+          width: 100%;
+          margin: 0 0 20px 0;
+
+          .column, .column_double {
+            display: inline;
+            float: left;
+            width: 200px;
+            font-size: 14px;
+            color: #555;
+            margin: 0 10px 0 0 !important;
+          }
+
+          .column_double {
+            width: 365px;
+            font-size: 14px;
+          }
+        }
+        .row:before, .row:after {
+          display: table;
+          content: "";
+          zoom: 1;
+        }
+        .row:after {
+          clear: both;
+        }
+
+      }
+
+      .section:last-child {
+        border: none;
+        margin: none;
+      }
+
+
+      strong {
+        display: block;
+        margin: 0 0 5px 0 !important;
+        padding: 0 !important;
+        font-weight: bold;
+        color: #222;
+      }
+
+      p {
+        display: block;
+        color: #555;
+        font-size: 14px !important;
+        line-height: 19px !important;
+      }
+
+      .no_margin {
+        margin: 0 0 2px 0 !important;
+        padding: 0 !important;
+      }
+
 
   %body
     #model_detail
@@ -12,61 +144,61 @@
         .row.no_margin
           .column
             %strong First Name
-          .column_double= @bhsi_application.first_name
+          .column_double= first_name
         .row.no_margin
           .column
             %strong Last Name
-          .column_double= @bhsi_application.last_name
+          .column_double= last_name
         .row.no_margin
           .column
             %strong Phone Number
-          .column_double= @bhsi_application.phone_number
+          .column_double= phone_number
         .row.no_margin
           .column
             %strong Street Address
-          .column_double= @bhsi_application.address1
+          .column_double= address1
         .row.no_margin
           .column
             %strong Address Line 2
-          .column_double= @bhsi_application.address2
+          .column_double= address2
         .row.no_margin
           .column
             %strong City
-          .column_double= @bhsi_application.city
+          .column_double= city
         .row.no_margin
           .column
             %strong State/Province
-          .column_double= @bhsi_application.state
+          .column_double= state
         .row.no_margin
           .column
             %strong Zip/Postal Code
-          .column_double= @bhsi_application.zipcode
+          .column_double= zipcode
         .row.no_margin
           .column
             %strong Country
-          .column_double= @bhsi_application.country
+          .column_double= country
         .row.no_margin
           .column
             %strong Email
-          .column_double= @bhsi_application.email
+          .column_double= email
         .row.no_margin
           .column
             %strong Gender
-          .column_double= @bhsi_application.gender
+          .column_double= gender
         .row.no_margin
           .column
             %strong Birthdate
-          .column_double= @bhsi_application.birthdate
+          .column_double= birthdate
         .row.no_margin
           .column_double
             %strong Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?
           .column_double
-            %p= @bhsi_application.applied_before
+            %p= applied_before
         .row.no_margin
           .column
             %strong Tell us your story. What inspired you to start your organization? (A strong response should include how and why you began your venture as well as your own personal background, including any previous leadership recognition or awards.) (Limit 100-200 words)
           .column
-            %p= @bhsi_application.bhsi_longtext.about_yourself
+            %p= bhsi_longtext.about_yourself
 
       .section
         %h2 Part 2: About Your Venture
@@ -74,72 +206,75 @@
         .row.no_margin
           .column
             %strong Social Venture Name
-          .column_double= @bhsi_application.social_venture_name
+          .column_double= social_venture_name
         .row.no_margin
           .column
             %strong Your Title
-          .column_double= @bhsi_application.title
+          .column_double= title
         .row.no_margin
           .column_double
             %strong Year the organization was founded
-          .column_double= @bhsi_application.bhsi_longtext.venture_launched
+          .column_double= bhsi_longtext.venture_launched
         .row.no_margin
           .column_double
             %strong Are you the founder of your organization?
-          .column_double= @bhsi_application.org_founder
+          .column_double= org_founder
         .row.no_margin
           .column_double
             %strong If not, at what point did you join?
-          .column_double= @bhsi_application.org_join_point
+          .column_double= org_join_point
         .row.no_margin
           .column_double
             %strong Total 2013 Budget in USD
-          .column_double= @bhsi_application.total_budget_current_year
+          .column_double= total_budget_current_year
         .row.no_margin
           .column_double
             %strong Legal Structure (501c3, LLC, L3C, B Corp, Fiscally Sponsored, etc.)
           .column_double
-            %p= @bhsi_application.legal_structure
+            %p= legal_structure
         .row.no_margin
           .column
             %strong URL
-          .column_double= link_to @bhsi_application.url, @bhsi_application.url
+          .column_double
+            %a{ href: url}= url
         .row.no_margin
           .column
             %strong Twitter Handle
-          .column_double= link_to @bhsi_application.twitter_handle, "http://www.twitter.com/#{@bhsi_application.twitter_handle}"
+          .column_double
+            %a{ href: "http://www.twitter.com/#{twitter_handle}"}= twitter_handle
         .row.no_margin
           .column
             %strong YouTube or Video URL
-          .column_double= link_to @bhsi_application.video_url, @bhsi_application.video_url
+          .column_double
+            %a{ href: "#{video_url}" }= video_url
         .row
           %strong Please provide a clear and concise description of your social venture. (Limit 50 words)
-          %p= @bhsi_application.bhsi_longtext.social_venture_description
+          %p= bhsi_longtext.social_venture_description
         .row
           %strong What is your venture's level of organizational development (e.g., growth stage, number of team members, etc.)?
-          %p= @bhsi_application.bhsi_longtext.organizational_development
+          %p= bhsi_longtext.organizational_development
         .row
           %strong What are your major sources of funding or income, and who are your largest funders? (Limit 100 words)
-          %p= @bhsi_application.major_sources_income
+          %p= major_sources_income
         .row
           %strong If you are a 501c3, are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words)
-          %p= @bhsi_application.sustainability_model
+          %p= sustainability_model
         .row
           %strong Describe you main programs and their impact. (Limit 300 words)
-          %p= @bhsi_application.inspiration
+          %p= inspiration
         .row
           %strong What is your long-term vision for the organization, and how will you know if you have achieved success? (Limit 100-200 words)
-          %p= @bhsi_application.improvements
+          %p= improvements
 
       .section
         %h2 Part 3: Innovation
 
         .row
           %strong What specifically makes your venture innovative? (Limit 100 words)
-          %p= @bhsi_application.makes_social_innovation
+          %p= makes_social_innovation
         .row
           %strong How do you distinguish yourself in your specific sector? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (Limit 400 words)
-          %p= @bhsi_application.distinguish_yourself
+          %p= distinguish_yourself
 
       .section
         %h2 Part 4: Impact &amp; Assessment
@@ -147,28 +282,28 @@
         .row.no_margin
           .column_double
             %strong How many people did you directly affect this year
-          .column_double= @bhsi_application.bhsi_longtext.number_people_affected
+          .column_double= bhsi_longtext.number_people_affected
         .row
           %strong Explain this number in a few sentences
-          %p= @bhsi_application.bhsi_longtext.explain_number
+          %p= bhsi_longtext.explain_number
         .row
           %strong Please provide three statistics that eximplify your success
-          %p= @bhsi_application.bhsi_longtext.three_standout_statistics
+          %p= bhsi_longtext.three_standout_statistics
         .row
           %strong What metrics do you use to track your impact? How has your impact grown over time? (A strong response will use data that show's your impact in discussing your approach). (Limit 300 words)
-          %p= @bhsi_application.impact
+          %p= impact
         .row
           %strong What are your venture's greatest obstacles and needs? What would you want to get out of your participation in this fellowship (A strong response should include specific skills-based or strategic needs the organization has that the Fellowship may be able to address, partners you are hoping to secure, communities you are hoping to be introduced to, specific expertise you are seeking, etc). (Limit 400 words)
-          %p= @bhsi_application.obstacles_needs
+          %p= obstacles_needs
       .section
         %h2 Additional Questions
 
         .row
           %strong Do you have a strong connection to the Midwest? If so, please explain. (Please note you do not need to have a Midwest connection in order to be eligible.) (50-100 words)
-          %p= @bhsi_application.bhsi_longtext.strong_midwest_connections_explained
+          %p= bhsi_longtext.strong_midwest_connections_explained
         .row
           %strong Additional Comments
-          %p= @bhsi_application.bhsi_longtext.additional_comments
+          %p= bhsi_longtext.additional_comments
 
       .section
         %h2 Budget, Press Clippings &amp; References
@@ -176,40 +311,40 @@
         .row.no_margin
           .column_double
             %strong #Reference 1 Name
-          .column_double= @bhsi_application.reference_1_name
+          .column_double= reference_1_name
         .row.no_margin
           .column_double
             %strong #Reference 1 Relationship to you
-          .column_double= @bhsi_application.reference_1_relationship
+          .column_double= reference_1_relationship
         .row.no_margin
           .column_double
             %strong #Reference 1 Phone Number
-          .column_double= @bhsi_application.reference_1_phone
+          .column_double= reference_1_phone
         .row.no_margin
           .column_double
             %strong #Reference 1 Email
-          .column_double= @bhsi_application.reference_1_email
+          .column_double= reference_1_email
         .row.no_margin
           .column_double
             %strong #Reference 2 Name
-          .column_double= @bhsi_application.reference_2_name
+          .column_double= reference_2_name
         .row.no_margin
           .column_double
             %strong #Reference 2 Relationship to you
-          .column_double= @bhsi_application.reference_2_relationship
+          .column_double= reference_2_relationship
         .row.no_margin
           .column_double
             %strong #Reference 2 Phone Number
-          .column_double= @bhsi_application.reference_2_phone
+          .column_double= reference_2_phone
         .row.no_margin
           .column_double
             %strong #Reference 2 Email
-          .column_double= @bhsi_application.reference_2_email
+          .column_double= reference_2_email
         .row.no_margin
           .column_double
             %strong 2012 Budget
-          .column_double= @bhsi_application.budget_previous_year
+          .column_double= budget_previous_year
         .row.no_margin
           .column_double
             %strong 2013 Budget
-          .column_double= @bhsi_application.budget_current_year
+          .column_double= budget_current_year
