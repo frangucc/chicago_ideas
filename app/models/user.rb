@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   has_one :simulate_user
   has_one :member, :autosave => true
   has_one :demographic_info
+  has_many :orders
 
   belongs_to :address, :autosave => true
 
