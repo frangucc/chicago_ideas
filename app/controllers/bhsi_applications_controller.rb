@@ -21,7 +21,6 @@ class BhsiApplicationsController < ApplicationController
       render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying to the Bluhm/Helfand Social Innovation Fellowship. BHSI semi-finalists will be announced in mid-June.", :url => "http://bit.ly/wdTJfn", :share_text => "I applied to the #BHSI Fellowship at @chicagoideas! RT to all #innovative #socent! Applications close 5/21. Apply today: http://bit.ly/wdTJfn"}
     else
       flash[:notice] = 'Please fill in all required fields!'
-      @bhsi_appliction = @bhsi_application
       render :new
     end
   end
