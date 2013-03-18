@@ -54,7 +54,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_email,         :presence => true
   validates :agreement_accepeted,       :acceptance => {:accept => true}
   validates :user_id,                   :presence => true
-  # validates :org_founder,               :presence => true
+  validates :org_founder,               :presence => true
   validates :total_budget_current_year, :presence => true
   validates :budget_previous_year,      :presence => true
   validates :budget_current_year,       :presence => true
@@ -145,11 +145,7 @@ class BhsiApplication < ActiveRecord::Base
   end
 
   def generate_application_pdf
-    # html_file = render_to_string(.pdf.haml', :layout => false)
-    # kit = PDFKit.new(html_file, :page_size => 'Letter')
-    # @bhsi_application.pdf = kit.to_file("#{Rails.root}/tmp/#{generate_pdf_name(@bhsi_application)}")
-
-    self.pdf = create_pdf('bhsi_applications/_bhsi_application_pdf', nil, self.pdf_file_name)
+    self.pdf = create_pdf(self, 'bhsi_applications/_bhsi_application_pdf.pdf.haml', self.pdf_file_name)
   end
 
 end
