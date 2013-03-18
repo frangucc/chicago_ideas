@@ -87,9 +87,11 @@ describe BhsiApplication do
   describe "#generate_application_pdf" do
     it "creates the pdf file" do
       @ba = FactoryGirl.build(:bhsi_application)
-      @ba.generate_application_pdf.should be_true
-
-      @ba.pdf.should_not be_nil
+      @ba.stub(:notify_staff)
+      @ba.stub(:notify_applicant)
+      @ba.previous_budget = File.open("./spec/fixtures/blank.pdf")
+      @ba.should_receive(:generate_application_pdf)
+      @ba.save
     end
   end
 
