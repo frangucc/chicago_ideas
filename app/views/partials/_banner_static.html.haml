@@ -20,6 +20,8 @@
         %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_follow_twitter.png"), "https://twitter.com/chicagoideas", :target => "_blank"
         %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_follow_blogger.png"), "http://blog.chicagoideas.com/", :target => "_blank"
         %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_follow_youtube.png"), " http://www.youtube.com/user/ChicagoIdeasWeek", :target => "_blank"
+    .banner_item{ :id => 'banner_6', :style => "background:url('/assets/application/banner_static/ciw_homepage_banner_membership.jpg') center center no-repeat; background-size: 1400px 100%;" }
+      = link_to '', membership_path, :style => 'display: block; height: 460px;'
     
     
     .container-fluid#banner_nav_wrapper
@@ -34,4 +36,6 @@
           %a{:class => "b_thumb thumb_4", :id => "thumb_4"}
         %li
           %a{:class => "b_thumb thumb_5", :id => "thumb_5"}
+        %li
+          %a{ :class => 'b_thumb thumb_6', :id => 'thumb_6' }
         
