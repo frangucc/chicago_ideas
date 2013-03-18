@@ -1,70 +1,90 @@
 #model_detail
+
   .section
     %h1 Cooperative Application
-    
+
     .row
-      %h2 Organization Info
-    
+      %h2 Contact Information
     .row.no_margin
       .column
         %strong Name
       .column_double= @resource.name
-
+    .row.no_margin
+      .column
+        %strong Last Name
+      .column_double= @resource.name
     .row.no_margin
       %strong Title
       %p= @resource.title
-
     .row.no_margin
       .column
-        %strong Address1
+        %strong Organization
       .column_double= @resource.organization
-
     .row.no_margin
       .column
         %strong Phone
       .column_double= @resource.phone
-
     .row.no_margin
       .column
-        %strong Organization Mission
+        %strong Email
+      .column_double= @resource.email
+    .row.no_margin
+      .column
+        %strong Organization's Mission
       .column_double= @resource.org_mission
-
+    .row.no_margin
+      .column
+        %strong Organization's Website
+      .column_double= @resource.org_website
     .row.no_margin
       .column
         %strong Organization's Twitter handle
       .column_double= @resource.org_twitter
-  
+    .row.no_margin
+      .column
+        %strong Passion 1
+      .column_double= @resource.passion_1
+    .row.no_margin
+      .column
+        %strong Passion 2
+      .column_double= @resource.passion_2
+    .row.no_margin
+      .column
+        %strong Passion 3
+      .column_double= @resource.passion_3
+
   .section
     .row
       %h2 Chicago Ideas Week Cooperative Application Info
     .row
       .column
-        %strong Why do you want to be a member of The Cooperative? 
+        %strong Why do you want to be a member of The Cooperative?
       .column_double= @resource.reason
     .row
       .column
-        %strong What social projects have you worked on ?
+        %strong What social projects have you worked on (i.e. volunteerism, community projects, etc.)?
       .column_double= @resource.worked_on
     .row
       .column
-        %strong What was the most meaningful or magical part of 2012 for you? 
+        %strong What was the most meaningful or magical part of 2012 for you?
       .column_double= @resource.part_meaningful
     .row
       .column
-        %strong What was your most inspiring failure ?
+        %strong What was your most inspiring failure?
       .column_double= @resource.ins_failure
     .row
-      .column 
-        %strong What Chicago neighborhood best represents who you are? Why? 
-      .column_doubl= @resource.neighborhood
+      .column
+        %strong What Chicago neighborhood best represents who you are? Why?
+      .column_double= @resource.neighborhood
+
   .section
     .row
       %h2 Additional Info
     .row
       .column
-        %strong Briefly describe the ereas in which the Chicago Ideas Week community can assist you or your organization 
+        %strong Briefly describe the areas in which the Chicago Ideas Week community can assist you or your organization
       .column_double= @resource.assisted_area
     .row
-      .column 
+      .column
         %strong Are there any other organization or individuals you would recommend to be a member of the Co-op? If so, why?
-      .column_doubl= @resource.recommend
+      .column_double= @resource.recommend
