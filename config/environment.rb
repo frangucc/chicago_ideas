@@ -24,3 +24,5 @@ AUTHNET_KEY   = @auth_net["key"]
 AUTHNET_ENV   = @auth_net["env"].to_sym
 
 BING_MAPS_API_KEY = "AuGgGandaCq-kaRoSzngT0VCwi8MWNk0BgOj5pxdiJvooLyZrGwoNnFpT3ZRBMTi"
+GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-27972061-1"
+BASE_DOMAIN_NAME = "chicagoideas.com"
