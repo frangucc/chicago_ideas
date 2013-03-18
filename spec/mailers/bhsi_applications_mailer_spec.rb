@@ -13,10 +13,10 @@ describe BhsiApplicationsMailer do
     bhsi_app.save
   end
 
-  describe '#thank_you_application' do
+  describe '#notify_applicant' do
 
     before do
-      BhsiApplicationsMailer.thank_you_application(bhsi_app).deliver
+      BhsiApplicationsMailer.notify_applicant(bhsi_app).deliver
       @email = ActionMailer::Base.deliveries.last
     end
 
@@ -35,16 +35,16 @@ describe BhsiApplicationsMailer do
 
   end
 
-  describe "#send_form" do
+  describe "#notify_staff" do
     before do
-      BhsiApplicationsMailer.send_form(bhsi_app).deliver
+      BhsiApplicationsMailer.notify_staff(bhsi_app).deliver
       @email = ActionMailer::Base.deliveries.last
     end
 
     it "sends proper headers" do
       @email.subject.should == 'BHSI Application Form Submission'
       @email.from[0].should == ApplicationHelper::CIW_BHSI_SUBM_EMAIL
-      @email.to[0].should   == ApplicationHelper::BHSI_RECIPIENTS
+      @email.to.join(", ").should   == ApplicationHelper::BHSI_RECIPIENTS
     end
   end
 

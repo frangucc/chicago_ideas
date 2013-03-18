@@ -128,11 +128,11 @@ class BhsiApplication < ActiveRecord::Base
   end
 
   def notify_applicant
-    BhsiApplicationsMailer.delay.thank_you_application(self)
+    BhsiApplicationsMailer.delay.notify_applicant(self)
   end
 
   def notify_staff
-    BhsiApplicationsMailer.delay.send_form(self)
+    BhsiApplicationsMailer.delay.notify_staff(self)
   end
 
   def pdf_file_name

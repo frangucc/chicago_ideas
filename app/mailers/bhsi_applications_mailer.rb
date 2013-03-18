@@ -3,7 +3,7 @@ class BhsiApplicationsMailer < ActionMailer::Base
   default from:      ApplicationHelper::CIW_BHSI_SUBM_EMAIL
   default subject:   'BHSI Application Form Submission'
 
-  def send_form(bhsi)
+  def notify_staff(bhsi)
     @bhsi = bhsi
     # attachments[bhsi.pdf_file_name]              = File.read("#{Rails.root}/tmp/pdf/#{bhsi.pdf_file_name}")
     # attachments[bhsi.previous_budget_file_name]  = open(bhsi.previous_budget.url).read
@@ -14,7 +14,7 @@ class BhsiApplicationsMailer < ActionMailer::Base
     mail(to: ApplicationHelper::BHSI_RECIPIENTS)
   end
 
-  def thank_you_application(bhsi)
+  def notify_applicant(bhsi)
     mail(to: bhsi.email)
   end
 
