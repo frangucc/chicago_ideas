@@ -35,7 +35,7 @@ FactoryGirl.define do
     reference_2_phone                    "6195883075"
     reference_2_email                    "anotherunknown2@user.com"
     agreement_accepeted                  true
-    org_founder                          true
+    org_founder                          "Yes"
     total_budget_current_year            1500000
     budget_previous_year                 20000
     budget_current_year                  3000
