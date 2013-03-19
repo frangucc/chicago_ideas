@@ -1,6 +1,5 @@
 class BhsiApplicationsIsOrgFounder < ActiveRecord::Migration
   def change
-    remove_column :bhsi_applications, :org_founder
-    add_column :bhsi_applications, :org_founder, :boolean
+    change_column :bhsi_applications, :org_founder, :boolean, default: nil, null: true
   end
 end
