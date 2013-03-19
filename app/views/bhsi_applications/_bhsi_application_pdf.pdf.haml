@@ -213,15 +213,15 @@
           .column_double= @bhsi_application.title
         .row.no_margin
           .column_double
-            %strong Year the organization was founded
+            %strong Year your venture was launched
           .column_double= @bhsi_application.bhsi_longtext.venture_launched
         .row.no_margin
           .column_double
-            %strong Are you the founder of your organization?
+            %strong Are you the founder of your venture?
           .column_double= @bhsi_application.org_founder
         .row.no_margin
           .column_double
-            %strong If not, at what point did you join?
+            %strong If no, at what point did you join?
           .column_double= @bhsi_application.org_join_point
         .row.no_margin
           .column_double
@@ -251,7 +251,7 @@
           %strong Please provide a clear and concise description of your social venture. (Limit 50 words)
           %p= @bhsi_application.bhsi_longtext.social_venture_description
         .row
-          %strong What is your venture's level of organizational development (e.g., growth stage, number of team members, etc.)?
+          %strong What is your venture's level of organizational development? (e.g., growth stage, number of team members, etc.)
           %p= @bhsi_application.bhsi_longtext.organizational_development
         .row
           %strong What are your major sources of funding or income, and who are your largest funders? (Limit 100 words)
@@ -273,7 +273,7 @@
           %strong What specifically makes your venture innovative? (Limit 100 words)
           %p= @bhsi_application.makes_social_innovation
         .row
-          %strong How do you distinguish yourself in your specific sector? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (Limit 400 words)
+          %strong How do you distinguish yourself in your specific sector? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (Limit 400 words):
           %p= @bhsi_application.distinguish_yourself
 
       .section
@@ -290,13 +290,14 @@
           %strong Please provide three statistics that eximplify your success
           %p= @bhsi_application.bhsi_longtext.three_standout_statistics
         .row
-          %strong What metrics do you use to track your impact? How has your impact grown over time? (A strong response will use data that show's your impact in discussing your approach). (Limit 300 words)
+          %strong What metrics do you use to track your impact? How has your impact grown over time? (A strong response will use data that show's your impact in discussing your approach.) (Limit 300 words)
           %p= @bhsi_application.impact
         .row
-          %strong What are your venture's greatest obstacles and needs? What would you want to get out of your participation in this fellowship (A strong response should include specific skills-based or strategic needs the organization has that the Fellowship may be able to address, partners you are hoping to secure, communities you are hoping to be introduced to, specific expertise you are seeking, etc). (Limit 400 words)
+          %strong What are your venture's greatest obstacles and needs? What would you want to get out of your participation in this fellowship (A strong response should include specific skills-based or strategic needs the organization has that the Fellowship may be able to address, partners you are hoping to secure, communities you are hoping to be introduced to, specific expertise you are seeking, etc.) (Limit 400 words)
           %p= @bhsi_application.obstacles_needs
+
       .section
-        %h2 Additional Questions
+        %h2 Optional Questions
 
         .row
           %strong Do you have a strong connection to the Midwest? If so, please explain. (Please note you do not need to have a Midwest connection in order to be eligible.) (50-100 words)
