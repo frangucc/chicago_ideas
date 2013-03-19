@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318194201) do
+ActiveRecord::Schema.define(:version => 20130318172728) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(:version => 20130318194201) do
     t.integer  "press_clipping_3_file_size"
     t.datetime "press_clipping_3_updated_at"
     t.string   "zipcode",                              :limit => 11,       :default => "",    :null => false
-    t.string   "org_founder",                                              :default => "",    :null => false
+    t.boolean  "org_founder",                                              :default => false, :null => false
     t.text     "org_join_point"
     t.text     "total_budget_current_year",                                                   :null => false
     t.text     "major_sources_income",                                                        :null => false
@@ -632,6 +632,19 @@ ActiveRecord::Schema.define(:version => 20130318194201) do
   add_index "sponsorships", ["sponsor_id"], :name => "index_sponsorships_on_sponsor_id"
   add_index "sponsorships", ["sponsorship_level_id"], :name => "index_sponsorships_on_sponsorship_level_id"
   add_index "sponsorships", ["year_id", "sponsor_id"], :name => "index_sponsorships_on_year_id_and_sponsor_id"
+
+  create_table "system_metrics", :force => true do |t|
+    t.string   "name",               :null => false
+    t.datetime "started_at",         :null => false
+    t.string   "transaction_id"
+    t.text     "payload"
+    t.float    "duration",           :null => false
+    t.float    "exclusive_duration", :null => false
+    t.integer  "request_id"
+    t.integer  "parent_id"
+    t.string   "action",             :null => false
+    t.string   "category",           :null => false
+  end
 
   create_table "talk_brands", :force => true do |t|
     t.string   "name"
