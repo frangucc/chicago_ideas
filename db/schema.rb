@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319013029) do
+ActiveRecord::Schema.define(:version => 20130319150744) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(:version => 20130319013029) do
     t.text     "inspiration",                          :limit => 16777215
     t.text     "sustainability_model",                 :limit => 16777215
     t.text     "improvements",                         :limit => 16777215
-    t.text     "distinguish_yourself",                 :limit => 16777215
+    t.text     "distinguish_yourself",                 :limit => 16777215,                    :null => false
     t.text     "strong_midwest_connections_explained", :limit => 16777215
     t.text     "additional_comments",                  :limit => 16777215
     t.string   "reference_1_name",                     :limit => 50,       :default => "",    :null => false
@@ -125,14 +125,20 @@ ActiveRecord::Schema.define(:version => 20130319013029) do
     t.integer  "press_clipping_3_file_size"
     t.datetime "press_clipping_3_updated_at"
     t.string   "zipcode",                              :limit => 11,       :default => "",    :null => false
+    t.boolean  "org_founder"
     t.text     "org_join_point"
     t.text     "total_budget_current_year",                                                   :null => false
     t.text     "major_sources_income",                                                        :null => false
     t.text     "impact",                                                                      :null => false
     t.text     "obstacles_needs",                                                             :null => false
-    t.text     "budget_previous_year",                                                        :null => false
-    t.text     "budget_current_year",                                                         :null => false
-    t.boolean  "org_founder"
+    t.string   "budget_previous_year_file_name"
+    t.string   "budget_previous_year_content_type"
+    t.integer  "budget_previous_year_file_size"
+    t.datetime "budget_previous_year_updated_at"
+    t.string   "budget_current_year_file_name"
+    t.string   "budget_current_year_content_type"
+    t.integer  "budget_current_year_file_size"
+    t.datetime "budget_current_year_updated_at"
   end
 
   create_table "bhsi_longtexts", :force => true do |t|
@@ -632,19 +638,6 @@ ActiveRecord::Schema.define(:version => 20130319013029) do
   add_index "sponsorships", ["sponsor_id"], :name => "index_sponsorships_on_sponsor_id"
   add_index "sponsorships", ["sponsorship_level_id"], :name => "index_sponsorships_on_sponsorship_level_id"
   add_index "sponsorships", ["year_id", "sponsor_id"], :name => "index_sponsorships_on_year_id_and_sponsor_id"
-
-  create_table "system_metrics", :force => true do |t|
-    t.string   "name",               :null => false
-    t.datetime "started_at",         :null => false
-    t.string   "transaction_id"
-    t.text     "payload"
-    t.float    "duration",           :null => false
-    t.float    "exclusive_duration", :null => false
-    t.integer  "request_id"
-    t.integer  "parent_id"
-    t.string   "action",             :null => false
-    t.string   "category",           :null => false
-  end
 
   create_table "talk_brands", :force => true do |t|
     t.string   "name"

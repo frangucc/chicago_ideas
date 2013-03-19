@@ -13,11 +13,13 @@ class BhsiApplication < ActiveRecord::Base
   MAX_IMPACT_WORDS                  = 300
   MAX_OBSTACLES_NEEDS_WORDS         = 400
 
-  has_attached_file :pdf,              :path => "applications/bhsi/pdfs/:id/:filename"
-  has_attached_file :previous_budget,  :path => "applications/bhsi/pdfs/:id/:filename"
-  has_attached_file :press_clipping_1, :path => "applications/bhsi/pdfs/:id/:filename"
-  has_attached_file :press_clipping_2, :path => "applications/bhsi/pdfs/:id/:filename"
-  has_attached_file :press_clipping_3, :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :pdf,                  :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :previous_budget,      :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :press_clipping_1,     :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :press_clipping_2,     :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :press_clipping_3,     :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :budget_previous_year, :path => "applications/bhsi/pdfs/:id/:filename"
+  has_attached_file :budget_current_year,  :path => "applications/bhsi/pdfs/:id/:filename"
 
   has_one :bhsi_longtext, :dependent => :destroy
   # we have a polymorphic relationship with notes
@@ -58,16 +60,22 @@ class BhsiApplication < ActiveRecord::Base
   validates :org_founder,               :inclusion => { :in => [true, false] }, :allow_nil => false
 
   validates_attachment_presence :previous_budget,  :presence => true
+  validates_attachment_presence :budget_previous_year
+  validates_attachment_presence :budget_current_year
 
-  validates_format_of :previous_budget_file_name,  :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
-  validates_format_of :press_clipping_1_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_1.present? }
-  validates_format_of :press_clipping_2_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_2.present? }
-  validates_format_of :press_clipping_3_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_3.present? }
+  validates_format_of :previous_budget_file_name,      :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
+  validates_format_of :press_clipping_1_file_name,     :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_1.present? }
+  validates_format_of :press_clipping_2_file_name,     :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_2.present? }
+  validates_format_of :press_clipping_3_file_name,     :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_3.present? }
+  validates_format_of :budget_previous_year_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
+  validates_format_of :budget_current_year_file_name,  :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
 
-  validates_attachment_size :previous_budget,  :less_than => 4.megabytes
-  validates_attachment_size :press_clipping_1, :less_than => 4.megabytes
-  validates_attachment_size :press_clipping_2, :less_than => 4.megabytes
-  validates_attachment_size :press_clipping_3, :less_than => 4.megabytes
+  validates_attachment_size :previous_budget,      :less_than => 4.megabytes
+  validates_attachment_size :press_clipping_1,     :less_than => 4.megabytes
+  validates_attachment_size :press_clipping_2,     :less_than => 4.megabytes
+  validates_attachment_size :press_clipping_3,     :less_than => 4.megabytes
+  validates_attachment_size :budget_previous_year, :less_than => 4.megabytes
+  validates_attachment_size :budget_current_year,  :less_than => 4.megabytes
 
   validates :makes_social_innovation, :presence => true, :length => {
     :maximum   => MAX_MAKES_SOCIAL_INNOVATION_WORDS,
@@ -89,7 +97,7 @@ class BhsiApplication < ActiveRecord::Base
     :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"
   }
-  validates :distinguish_yourself, :length => {
+  validates :distinguish_yourself, :presence => true, :length => {
     :maximum   => MAX_DISTINGUISH_YOURSELF_WORDS,
     :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"
