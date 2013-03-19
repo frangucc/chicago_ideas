@@ -56,6 +56,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :agreement_accepeted,       :acceptance => {:accept => true}
   validates :total_budget_current_year, :presence => true
   validates :org_founder,               :inclusion => { :in => [true, false] }, :allow_nil => false
+  validates :org_join_point,            :presence => true
 
   validates_attachment_presence :previous_budget
   validates_attachment_presence :current_budget

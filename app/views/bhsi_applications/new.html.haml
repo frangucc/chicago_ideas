@@ -61,7 +61,7 @@
               = f.input  :title,                      :as => :string, :required => true, :label => "Your Title"
               = bl.input :venture_launched,           :as => :string, :required => true, :label => "Year your venture was founded:"
               = f.input  :org_founder,                :as => :radio,  :required => true, :label => "Are you the founder of your venture?:", :collection => [[" Yes", 1], [" No", 0]]
-              = f.input  :org_join_point,             :as => :string,                    :label => "If no, at what point did you join?"
+              = f.input  :org_join_point,             :as => :string, :required => true, :label => "If no, at what point did you join?", :hint => "(If you answered Yes above, write NA in this box)"
               = f.input  :total_budget_current_year,  :as => :string, :required => true, :label => "Total 2013 Budget in USD"
               = f.input  :legal_structure,            :as => :string, :required => true, :label => "Legal Structure (501c3, LLC, L3C, B Corp, Fiscally Sponsored, etc.)"
               = f.input  :url,                        :as => :string, :required => true, :label => "URL",                  :hint => "ex. http://www.domain.com..."
