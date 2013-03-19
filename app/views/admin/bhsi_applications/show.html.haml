@@ -191,3 +191,7 @@
   %h4 Press Clipping #3
   - if @bhsi_application.press_clipping_3.present?
     = link_to @bhsi_application.press_clipping_3_file_name, @bhsi_application.press_clipping_3.url
+
+  %h4 Please upload your venture's standard marketing deck or one page overview.
+    - if @bhsi_application.venture_standard_deck.present?
+      = link_to @bhsi_application.venture_standard_deck_file_name, @bhsi_application.venture_standard_deck.url

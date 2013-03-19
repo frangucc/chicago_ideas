@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319221217) do
+ActiveRecord::Schema.define(:version => 20130319225308) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -137,6 +137,10 @@ ActiveRecord::Schema.define(:version => 20130319221217) do
     t.string   "current_budget_content_type"
     t.integer  "current_budget_file_size"
     t.datetime "current_budget_updated_at"
+    t.string   "venture_standard_deck_file_name"
+    t.string   "venture_standard_deck_content_type"
+    t.integer  "venture_standard_deck_file_size"
+    t.datetime "venture_standard_deck_updated_at"
   end
 
   create_table "bhsi_longtexts", :force => true do |t|
