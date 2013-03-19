@@ -155,19 +155,15 @@
               .column_double= @bhsi_application.last_name
             .row.no_margin
               .column
-                %strong Your Title
-              .column_double= @bhsi_application.title
+                %strong Phone Number
+              .column_double= @bhsi_application.phone_number
             .row.no_margin
               .column
-                %strong Social Venture Name
-              .column_double= @bhsi_application.social_venture_name
-            .row.no_margin
-              .column
-                %strong Address 1
+                %strong Street Address
               .column_double= @bhsi_application.address1
             .row.no_margin
               .column
-                %strong Address 2
+                %strong Address Line 2
               .column_double= @bhsi_application.address2
             .row.no_margin
               .column
@@ -175,11 +171,11 @@
               .column_double= @bhsi_application.city
             .row.no_margin
               .column
-                %strong State
+                %strong State/Province
               .column_double= @bhsi_application.state
             .row.no_margin
               .column
-                %strong Zipcode
+                %strong Zip/Postal Code
               .column_double= @bhsi_application.zipcode
             .row.no_margin
               .column
@@ -187,11 +183,7 @@
               .column_double= @bhsi_application.country
             .row.no_margin
               .column
-                %strong Phone Number
-              .column_double= @bhsi_application.phone_number
-            .row.no_margin
-              .column
-                %strong Email Address
+                %strong Email
               .column_double= @bhsi_application.email
             .row.no_margin
               .column
@@ -201,136 +193,153 @@
               .column
                 %strong Birthdate
               .column_double= @bhsi_application.birthdate
-
             .row
               .column_double
                 %strong Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?
               .column_double
                 %p= @bhsi_application.applied_before
-
             .row
               %strong Tell us a little bit about yourself. Make sure to include any previous leadership recognition or awards (100-200 words):
               %p= @bhsi_application.about_yourself
 
           .section
-
             %h2 Part 2: About Your Venture
 
             .row.no_margin
-              .column_double
-                %strong Legal Structure (501c3, LLC, Fiscally Sponsored, etc.)
-              .column_double
-                %p= @bhsi_application.legal_structure
-
+              .column
+                %strong Social Venture Name
+              .column_double= @bhsi_application.social_venture_name
             .row.no_margin
               .column
-                %strong URL
-              .column_double= link_to @bhsi_application.url, @bhsi_application.url
-            .row.no_margin
-              .column
-                %strong Twitter Handle
-              .column_double= link_to @bhsi_application.twitter_handle, "http://www.twitter.com/#{@bhsi_application.twitter_handle}"
-            .row.no_margin
-              .column
-                %strong Video URL
-              .column_double= link_to @bhsi_application.video_url, @bhsi_application.video_url
-
-            .row
-              %strong Capsule description of your social venture (50-100 words):
-              %p= @bhsi_application.social_venture_description
-
+                %strong Your Title
+              .column_double= @bhsi_application.title
             .row.no_margin
               .column_double
-                %strong Date your social venture was officially launched:
+                %strong Year your venture was launched
               .column_double= @bhsi_application.venture_launched
             .row.no_margin
               .column_double
-                %strong Number of people you affected this year:
-              .column_double= @bhsi_application.number_people_affected
-
+                %strong Are you the founder of your organization?
+              .column_double= @bhsi_application.org_founder
+            .row.no_margin
+              .column_double
+                %strong If not, at what point did you join?
+              .column_double= @bhsi_application.org_join_point
+            .row.no_margin
+              .column_double
+                %strong Total 2013 Budget in USD
+              .column_double= @bhsi_application.total_budget_current_year
+            .row.no_margin
+              .column_double
+                %strong Legal Structure (501c3, LLC, L3C, B Corp, Fiscally Sponsored, etc.)
+              .column_double
+                %p= @bhsi_application.legal_structure
+            .row.no_margin
+              .column
+                %strong URL
+              .column_double
+                %a{ href: @bhsi_application.url}= @bhsi_application.url
+            .row.no_margin
+              .column
+                %strong Twitter Handle
+              .column_double
+                %a{ href: "http://www.twitter.com/#{@bhsi_application.twitter_handle}"}= @bhsi_application.twitter_handle
+            .row.no_margin
+              .column
+                %strong YouTube or Video URL
+              .column_double
+                %a{ href: "#{@bhsi_application.video_url}" }= @bhsi_application.video_url
             .row
-              %strong Please explain this number in a few sentences:
-              %p= @bhsi_application.explain_number
-
+              %strong Please provide a clear and concise description of your social venture. (Limit 50 words)
+              %p= @bhsi_application.bhsi_longtext.social_venture_description
             .row
-              %strong= "Please provide three standout statistics marking your social venture's achievement:"
-              %p= @bhsi_application.three_standout_statistics
-
-
-          .section
-
-            %h2 Part 3: Structure, Strategy &amp; Goals
-
+              %strong What is your venture's level of organizational development (e.g., growth stage, number of team members, etc.)?
+              %p= @bhsi_application.bhsi_longtext.organizational_development
             .row
-              %strong= "Explain your venture's level of organizational development. Also, detail the sources of your funding and your most significant large funders (i.e., second round of VC funding, number of team members, annual budget/income, etc.) (75-200 words):"
-              %p= @bhsi_application.organizational_development
-
+              %strong What are your major sources of funding or income, and who are your largest funders? (Limit 100 words)
+              %p= @bhsi_application.major_sources_income
             .row
-              %strong Explain what makes your venture a social innovation (2-3 sentences):
-              %p= @bhsi_application.makes_social_innovation
-
-            .row
-              %strong Explain your inspiration for starting your social venture and describe your main programs and initiatives (300-600 words):
-              %p= @bhsi_application.inspiration
-
-            .row
-              %strong Explain your model for sustainability and share the results that prove your model is working. Also explain how you measure your social impact. (A strong response to this question should include ample data demonstrating your measurable impact.) (300-600 words)
+              %strong If you are a 501c3, are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words)
               %p= @bhsi_application.sustainability_model
-
             .row
-              %strong What can you improve? Where is your work headed in the next two years? Where would you like to be in the long term, 10 years from now and beyond? What is your plan to achieve those goals? (300-600 words)
+              %strong Describe you main programs and their impact. (Limit 300 words)
+              %p= @bhsi_application.inspiration
+            .row
+              %strong What is your long-term vision for the organization, and how will you know if you have achieved success? (Limit 100-200 words)
               %p= @bhsi_application.improvements
 
+          .section
+            %h2 Part 3: Innovation
+
             .row
-              %strong How do you distinguish yourself in your specific field? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (300-500 words)
+              %strong What specifically makes your venture innovative? (Limit 100 words)
+              %p= @bhsi_application.makes_social_innovation
+            .row
+              %strong How do you distinguish yourself in your specific sector? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (Limit 400 words)
               %p= @bhsi_application.distinguish_yourself
 
-
           .section
-
-            %h2 Part 4: Additional Questions
-            .row
-              %strong Do you have a strong connection to the Midwest? If so, please explain (50-100 words):
-              %p= @bhsi_application.strong_midwest_connections_explained
-            .row
-              %strong Additional Comments
-              %p= @bhsi_application.additional_comments
-
-
-          .section
-
-            %h2 Part 5: Budget, Press Clippings &amp; References
+            %h2 Part 4: Impact &amp; Assessment
 
             .row.no_margin
               .column_double
-                %strong Reference 1 Name
+                %strong How many people did you directly affect this year
+              .column_double= @bhsi_application.bhsi_longtext.number_people_affected
+            .row
+              %strong Explain this number in a few sentences
+              %p= @bhsi_application.bhsi_longtext.explain_number
+            .row
+              %strong Please provide three statistics that eximplify your success
+              %p= @bhsi_application.bhsi_longtext.three_standout_statistics
+            .row
+              %strong What metrics do you use to track your impact? How has your impact grown over time? (A strong response will use data that show's your impact in discussing your approach). (Limit 300 words)
+              %p= @bhsi_application.impact
+            .row
+              %strong What are your venture's greatest obstacles and needs? What would you want to get out of your participation in this fellowship (A strong response should include specific skills-based or strategic needs the organization has that the Fellowship may be able to address, partners you are hoping to secure, communities you are hoping to be introduced to, specific expertise you are seeking, etc). (Limit 400 words)
+              %p= @bhsi_application.obstacles_needs
+
+          .section
+            %h2 Optional Questions
+
+            .row
+              %strong Do you have a strong connection to the Midwest? If so, please explain. (Please note you do not need to have a Midwest connection in order to be eligible.) (50-100 words)
+              %p= @bhsi_application.bhsi_longtext.strong_midwest_connections_explained
+            .row
+              %strong Additional Comments
+              %p= @bhsi_application.bhsi_longtext.additional_comments
+
+          .section
+            %h2 Budget, Press Clippings &amp; References
+
+            .row.no_margin
+              .column_double
+                %strong #Reference 1 Name
               .column_double= @bhsi_application.reference_1_name
             .row.no_margin
               .column_double
-                %strong Reference 1 Relationship to you
+                %strong #Reference 1 Relationship to you
               .column_double= @bhsi_application.reference_1_relationship
             .row.no_margin
               .column_double
-                %strong Reference 1 Phone Number
+                %strong #Reference 1 Phone Number
               .column_double= @bhsi_application.reference_1_phone
             .row.no_margin
               .column_double
-                %strong Reference 1 Email
+                %strong #Reference 1 Email
               .column_double= @bhsi_application.reference_1_email
             .row.no_margin
               .column_double
-                %strong Reference 2 Name
+                %strong #Reference 2 Name
               .column_double= @bhsi_application.reference_2_name
             .row.no_margin
               .column_double
-                %strong Reference 2 Relationship to you
+                %strong #Reference 2 Relationship to you
               .column_double= @bhsi_application.reference_2_relationship
             .row.no_margin
               .column_double
-                %strong Reference 2 Phone Number
+                %strong #Reference 2 Phone Number
               .column_double= @bhsi_application.reference_2_phone
             .row.no_margin
               .column_double
-                %strong Reference 2 Email
+                %strong #Reference 2 Email
               .column_double= @bhsi_application.reference_2_email
-
