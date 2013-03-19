@@ -6,7 +6,7 @@ describe BhsiLongtext do
 
   describe 'Validations' do
 
-    [:about_yourself, :social_venture_description, :strong_midwest_connections_explained,
+    [:about_yourself, :social_venture_description,
      :venture_launched, :number_people_affected, :explain_number, :organizational_development,
      :three_standout_statistics].each do |attribute|
       it "requires #{attribute}" do

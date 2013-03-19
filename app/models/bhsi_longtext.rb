@@ -28,7 +28,8 @@ class BhsiLongtext < ActiveRecord::Base
     :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_short => "must be greater than %{count} words",
     :too_long  => "must be less than %{count} words"
-  }
+  }, :if => Proc.new { |bhsi| bhsi.strong_midwest_connections_explained.present? }
+
   validates :venture_launched,           :presence => true
   validates :number_people_affected,     :presence => true
   validates :explain_number,             :presence => true

@@ -91,7 +91,7 @@ class BhsiApplication < ActiveRecord::Base
     :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"
   }
-  validates :distinguish_yourself, :length => {
+  validates :distinguish_yourself, :presence => true, :length => {
     :maximum   => MAX_DISTINGUISH_YOURSELF_WORDS,
     :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"

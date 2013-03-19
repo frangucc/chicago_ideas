@@ -10,7 +10,7 @@ describe BhsiApplication do
      :birthdate, :title, :social_venture_name, :legal_structure, :url, :twitter_handle, :video_url,
      :applied_before, :reference_1_name, :reference_1_relationship, :reference_1_email,
      :reference_2_name, :reference_2_relationship, :reference_2_phone, :reference_2_email,
-     :makes_social_innovation, :inspiration, :improvements,
+     :makes_social_innovation, :inspiration, :improvements, :distinguish_yourself,
      :total_budget_current_year, :major_sources_income, :impact, :obstacles_needs,
      :previous_budget, :current_budget].each do |attribute|
        it "requires #{attribute}" do
