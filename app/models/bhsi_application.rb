@@ -111,9 +111,11 @@ class BhsiApplication < ActiveRecord::Base
   }
 
 
-  after_create :generate_application_pdf
-  after_create :notify_applicant
-  after_create :notify_staff
+  attr_accessor :html2pdf
+
+  before_create :generate_application_pdf
+  after_create  :notify_applicant
+  after_create  :notify_staff
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
@@ -135,16 +137,17 @@ class BhsiApplication < ActiveRecord::Base
     BhsiApplicationsMailer.delay.notify_staff(self)
   end
 
-  def pdf_file_name
-    pdf_name = "Bhsi_#{self.social_venture_name}.pdf"
-    pdf_name.gsub!(' ', '')
-    pdf_name.gsub!('/', '_')
-    pdf_name
-  end
-
   def generate_application_pdf
-    # self.pdf = create_pdf(self, 'bhsi_applications/_bhsi_application_pdf.pdf.haml', self.pdf_file_name)
-    # save
+    options = { name:           "bhsi_applications",
+                document_type:  :pdf,
+                test:           Rails.env.production?,
+                document_content: self.html2pdf }
+
+    pdf = DocRaptor.create(options)
+
+    friendlyName = "BHSI_APP_#{ self.social_venture_name}.pdf"
+    File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') { |f| f.write(pdf) }
+    self.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}")
   end
 
 end
