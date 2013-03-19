@@ -188,7 +188,9 @@
     = link_to @bhsi_application.press_clipping_3_file_name, @bhsi_application.press_clipping_3.url
 
   %h4 2012 Budget:
-  %p= @bhsi_application.budget_previous_year
+  - if @bhsi_application.budget_previous_year.present?
+    = link_to @bhsi_application.budget_previous_year_file_name, @bhsi_application.budget_previous_year.url
 
   %h4 2013 Budget:
-  %p= @bhsi_application.budget_current_year
+  - if @bhsi_application.budget_current_year.present?
+    = link_to @bhsi_application.budget_current_year_file_name, @bhsi_application.budget_current_year.url
