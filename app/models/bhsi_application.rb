@@ -140,14 +140,14 @@ class BhsiApplication < ActiveRecord::Base
   def generate_application_pdf
     options = { name:           "bhsi_applications",
                 document_type:  :pdf,
-                test:           Rails.env.production?,
+                test:           !Rails.env.production?,
                 document_content: self.html2pdf }
 
     pdf = DocRaptor.create(options)
 
     friendlyName = "BHSI_APP_#{ self.social_venture_name}.pdf"
-    File.open("#{Rails.root}/tmp/#{friendlyName}", 'w+b') { |f| f.write(pdf) }
-    self.pdf = File.open("#{Rails.root}/tmp/#{friendlyName}")
+    File.open("/tmp/#{friendlyName}", 'w+b') { |f| f.write(pdf) }
+    self.pdf = File.open("/tmp/#{friendlyName}")
   end
 
 end

@@ -18,7 +18,7 @@ class BhsiApplicationsController < ApplicationController
 
     @bhsi_application = BhsiApplication.new(params[:bhsi_application])
     @bhsi_application.html2pdf = render_to_string(template: "bhsi_applications/bhsi_pdf.html.haml", layout: false)
-    if @bhsi_application.save!
+    if @bhsi_application.save
       render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying to the Bluhm/Helfand Social Innovation Fellowship. BHSI semi-finalists will be announced in mid-June.", :url => "http://bit.ly/wdTJfn", :share_text => "I applied to the #BHSI Fellowship at @chicagoideas! RT to all #innovative #socent! Applications close 5/21. Apply today: http://bit.ly/wdTJfn"}
     else
       flash[:notice] = 'Please fill in all required fields!'
