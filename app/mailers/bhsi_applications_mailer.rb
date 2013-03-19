@@ -11,7 +11,9 @@ class BhsiApplicationsMailer < ActionMailer::Base
     # attachments[bhsi.press_clipping_2_file_name] = open(bhsi.press_clipping_2.url).read if bhsi.press_clipping_2.present?
     # attachments[bhsi.press_clipping_3_file_name] = open(bhsi.press_clipping_3.url).read if bhsi.press_clipping_3.present?
 
-    mail(to: ApplicationHelper::BHSI_RECIPIENTS)
+    mail(to: ApplicationHelper::BHSI_RECIPIENTS) do |format|
+      format.text { render 'notify_staff'}
+    end
   end
 
   def notify_applicant(bhsi)
