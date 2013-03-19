@@ -148,8 +148,13 @@
 
   %h1 Budget, Press Clippings &amp; References
 
-  %h4 Please submit your 2012 Budget, including expenses and revenues as well as your projected budget for 2013.
-  %p= @bhsi_application.previous_budget.present? ? @bhsi_application.previous_budget : ''
+  %h4 2012 Budget
+  - if @bhsi_application.previous_budget.present?
+    = link_to @bhsi_application.previous_budget_file_name, @bhsi_application.previous_budget.url
+
+  %h4 2013 Budget:
+  - if @bhsi_application.current_budget.present?
+    = link_to @bhsi_application.current_budget_file_name, @bhsi_application.current_budget.url
 
   %h4 #1 Reference Name
   %p= @bhsi_application.reference_1_name
@@ -186,9 +191,3 @@
   %h4 Press Clipping #3
   - if @bhsi_application.press_clipping_3.present?
     = link_to @bhsi_application.press_clipping_3_file_name, @bhsi_application.press_clipping_3.url
-
-  %h4 2012 Budget:
-  %p= @bhsi_application.budget_previous_year
-
-  %h4 2013 Budget:
-  %p= @bhsi_application.budget_current_year
