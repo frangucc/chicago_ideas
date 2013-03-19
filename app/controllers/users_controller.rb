@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate_user!, :only => [:index, :dashboard, :disconnect_facebook, :disconnect_twitter]
+  before_filter :authenticate_user!, :only => [:index, :dashboard, :disconnect_twitter] #, :disconnect_facebook
 
   # cache rendered versions of these pages
   before_filter :cache_rendered_page, :only => [:list_speakers, :speaker, :list_team_members, :team_member]
@@ -39,12 +39,12 @@ class UsersController < ApplicationController
   end
 
   # remove the current users stored facebook credentials and redirect back to the page they came from
-  def disconnect_facebook
-    current_user.fb_uid = nil
-    current_user.fb_access_token = nil
-    current_user.save!
-    redirect_to request.referer, notice: 'Disconnected from Facebook'
-  end
+  # def disconnect_facebook
+  #   current_user.fb_uid = nil
+  #   current_user.fb_access_token = nil
+  #   current_user.save!
+  #   redirect_to request.referer, notice: 'Disconnected from Facebook'
+  # end
 
   # remove the current users stored twitter credentials and redirect back to the page they came from
   def disconnect_twitter

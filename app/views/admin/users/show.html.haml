@@ -16,9 +16,6 @@
 
 #connectivity
   %p
-    Connected to Facebook:
-    = @user.connected_to_facebook? ? 'yes' : 'no'
-  %p
     Connected to Twitter:
     = @user.connected_to_twitter? ? 'yes' : 'no'
 
@@ -44,10 +41,10 @@
 
   %h4 Title
   %p= @user.title
-  
+
   %h Email Address
   %p= @user.email
-  
+
   %h4 Bio
   %p= @user.bio_html
 

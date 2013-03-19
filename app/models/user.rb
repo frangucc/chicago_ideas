@@ -224,15 +224,15 @@ class User < ActiveRecord::Base
     name.split(' ').last
   end
 
-  # has this user connected to facebook
-  def connected_to_facebook?
-    fb_uid && fb_access_token
-  end
+  # # has this user connected to facebook
+  # def connected_to_facebook?
+  #   fb_uid && fb_access_token
+  # end
 
   # facebook profile picture
-  def facebook_profile_pic_src
-    connected_to_facebook? ? "https://graph.facebook.com/#{fb_uid}/picture" : nil
-  end
+  # def facebook_profile_pic_src
+  #   connected_to_facebook? ? "https://graph.facebook.com/#{fb_uid}/picture" : nil
+  # end
 
   # has this user connected to twitter
   def connected_to_twitter?

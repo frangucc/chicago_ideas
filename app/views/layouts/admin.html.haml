@@ -25,12 +25,7 @@
           = link_to 'news', admin_press_clippings_path, :class => active_for_controller('admin/press_clippings')
 
         #account_links.admin
-          - if current_user.connected_to_facebook?
-            %a.facebook_connected_account{:href => admin_user_path(current_user)}
-              = image_tag current_user.facebook_profile_pic_src
-              my account
-          - else
-            = icon_link_to 'my account', admin_user_path(current_user), 'person', :icon_set => 'light'
+          = icon_link_to 'my account', admin_user_path(current_user), 'person', :icon_set => 'light'
           = icon_link_to 'sign out', destroy_user_session_path, 'extlink', :icon_set => 'light'
 
     #content_container
