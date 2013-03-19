@@ -37,8 +37,6 @@ FactoryGirl.define do
     agreement_accepeted                  true
     org_founder                          true
     total_budget_current_year            1500000
-    budget_previous_year                 20000
-    budget_current_year                  3000
     association                          :bhsi_longtext, factory: :bhsi_longtext
   end
 end
