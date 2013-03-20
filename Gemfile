@@ -56,7 +56,7 @@ gem 'hot_body', '0.1.1'
 gem 'json_output_helper', '0.1.0'
 gem 'dynamic_models'
 gem 'capistrano'
-gem 'rvm-capistrano'
+gem 'capistrano-ext'
 gem 'unicorn'
 
 # Authorize.net
