@@ -321,6 +321,10 @@ CraigsAdmin::Application.routes.draw do
         # pages
         get :notes
       end
+
+      collection do
+        get '/year/:year', action: :index
+      end
       resources :notes, :only => [:new, :create]
     end
 

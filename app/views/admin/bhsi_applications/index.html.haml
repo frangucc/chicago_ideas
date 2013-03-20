@@ -6,8 +6,8 @@
 = ssp_search_form BhsiApplication
 
 .table_section
-  %h3 
-    BHSI Applications
+  %h3
+    #{ params[:year].present? ? params[:year] : "2013" } BHSI Applications
     = new_model_link BhsiApplication
   .table_wrapper
     = render 'admin/bhsi_applications/table.html.haml', :bhsi_applications => @bhsi_applications
