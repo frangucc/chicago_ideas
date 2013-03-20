@@ -24,12 +24,7 @@ class Admin::BhsiApplicationsController < Admin::AdminController
     @bhsi_application = BhsiApplication.find(params[:id])
 
     respond_to do |format|
-      format.pdf do
-        html_file = render_to_string(:partial => 'bhsi_applications/bhsi_application_pdf', :layout => false)
-        kit = PDFKit.new(html_file, :page_size => 'Letter')
-        send_data kit.to_pdf, :filename => generate_pdf_name(@bhsi_application), :type => 'application/pdf'
-      end
-      format.html {}
+      format.html
     end
 
   end

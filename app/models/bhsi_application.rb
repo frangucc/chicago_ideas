@@ -150,9 +150,9 @@ class BhsiApplication < ActiveRecord::Base
   end
 
   def generate_application_pdf
-    options = { name:           "bhsi_applications",
-                document_type:  :pdf,
-                test:           !Rails.env.production?,
+    options = { name:             "bhsi_applications",
+                document_type:    :pdf,
+                test:             !Rails.env.production?,
                 document_content: self.html2pdf }
 
     pdf = DocRaptor.create(options)
