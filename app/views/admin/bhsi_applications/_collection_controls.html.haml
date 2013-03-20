@@ -1,9 +1,13 @@
 - content_for :breadcrumbs do
-  .crumb.end BHSI Applications
+  .crumb.end #{ params[:year].present? ? params[:year] : "2013" } BHSI Applications
 
 - @active_tab = 'bhsi_applications'
 
 - content_for :content_navigation do
   %h2 BHSI Applications
   %ul
-    %li{:class => active_for('index')}= icon_link_to "Search", admin_bhsi_applications_path, 'search'
+    %li= icon_link_to("Search", admin_bhsi_applications_path, 'search')
+    %li{ class: "#{ current_page?('/admin/bhsi_applications/year/2012') ? 'active' : '' }" }
+      = icon_link_to("2012", "/admin/bhsi_applications/year/2012", 'lightbulb')
+    %li{ class: "#{ current_page?('/admin/bhsi_applications/year/2013') ? 'active' : '' }" }
+      = icon_link_to("2013", "/admin/bhsi_applications/year/2013", 'lightbulb')

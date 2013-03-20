@@ -3,8 +3,11 @@ class Admin::BhsiApplicationsController < Admin::AdminController
   # COLLECTION ACTIONS
   # ---------------------------------------------------------------------------------------------------------
   def index
+    year = params[:year] || "2013"
+    lower_limit = Time.new(year)
+    upper_limit = lower_limit.end_of_year
     respond_to do |format|
-      format.html { @bhsi_applications = BhsiApplication.search_sort_paginate(params) }
+      format.html { @bhsi_applications = BhsiApplication.search_sort_paginate(params).where("created_at > '#{ lower_limit }' AND created_at < '#{ upper_limit }'") }
       format.xls  { @bhsi_applications = BhsiApplication.all }
     end
   end
