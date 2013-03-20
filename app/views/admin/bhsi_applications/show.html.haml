@@ -2,7 +2,7 @@
 - content_for :top_links do
   = edit_model_link @bhsi_application, true
   = destroy_model_link @bhsi_application, true
-  = link_to "pdf", admin_bhsi_application_path(@bhsi_application, :format => :pdf)
+  = link_to "pdf", @bhsi_application.pdf.url
 %h1
 
   = icon_link_to 'notes', notes_admin_bhsi_application_path(@bhsi_application), 'script'
