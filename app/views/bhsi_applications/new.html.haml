@@ -70,7 +70,8 @@
               = bl.input :social_venture_description,                 :required => true, :label => "Please provide a clear and concise description of your social venture. (Limit 50 words):"
               = bl.input :organizational_development,                 :required => true, :label => "What is your venture's level of organizational development? (e.g., growth stage, number of team members, etc.):"
               = f.input  :major_sources_income,                       :required => true, :label => "What are your major sources of funding or income, and who are your largest funders? (Limit 100 words):"
-              = f.input  :sustainability_model,                                          :label => "If you are a 501c3, are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words):"
+              = f.input  :is_venture_not_for_profit,  :as => :radio,  :required => true, :label => "Is your venture a not-for-profit?", :collection => [[" Yes", 1], [" No", 0]]
+              = f.input  :sustainability_model,                       :required => true, :label => "Are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words):", :hint => "(If you answered No above, write NA in this box)"
               = f.input  :inspiration,                                :required => true, :label => "Describe you main programs and their impact. (Limit 300 words):"
               = f.input  :improvements,                               :required => true, :label => "What is your long-term vision for the organization, and how will you know if you have achieved success? (Limit 100-200 words):"
 
