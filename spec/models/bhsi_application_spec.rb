@@ -133,6 +133,16 @@ describe BhsiApplication do
       bhsi.errors[:reference_2_phone].should be_empty
     end
 
+    it 'requires valid birthdate' do
+      ['10/12/1978', '40/12/1978', '40-12-1978', Date.current.strftime('%m/%d/%Y'), 'invalid'].each do |invalid_date|
+        bhsi.birthdate = invalid_date
+        assert_birthdate bhsi, :birthdate
+      end
+      bhsi.birthdate = '10/14/1978'
+      bhsi.should be_invalid
+      bhsi.errors[:birthdate].should be_empty
+    end
+
   end
 
   describe "#generate_application_pdf" do
