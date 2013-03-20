@@ -54,6 +54,11 @@ def assert_numerical_range(model, field, length)
   model.errors[field].join.should match(/is the wrong length \(should be #{length} characters\)/)
 end
 
+def assert_birthdate(model, field)
+  model.should be_invalid
+  model.errors[field].join.should match(/Must be greater than #{BhsiApplication::BIRTHDATE_LIMIT}|Invalid birthdate format, should be mm\/dd\/yyyy/)
+end
+
 class ActiveRecord::Base
   mattr_accessor :shared_connection
   @@shared_connection = nil

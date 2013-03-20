@@ -96,7 +96,10 @@
   %h4 What are your major sources of funding or income, and who are your largest funders? (Limit 100 words)
   %p= @bhsi_application.major_sources_income
 
-  %h4 If you are a 501c3, are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words):
+  %h4 Is your venture a not-for-profit?
+  %p= @bhsi_application.is_venture_not_for_profit
+
+  %h4 Are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words):
   %p= @bhsi_application.sustainability_model
 
   %h4 Describe you main programs and their impact. (Limit 300 words)
@@ -193,5 +196,5 @@
     = link_to @bhsi_application.press_clipping_3_file_name, @bhsi_application.press_clipping_3.url
 
   %h4 Please upload your venture's standard marketing deck or one page overview.
-    - if @bhsi_application.venture_standard_deck.present?
-      = link_to @bhsi_application.venture_standard_deck_file_name, @bhsi_application.venture_standard_deck.url
+  - if @bhsi_application.venture_standard_deck.present?
+    = link_to @bhsi_application.venture_standard_deck_file_name, @bhsi_application.venture_standard_deck.url

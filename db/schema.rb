@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319225308) do
+ActiveRecord::Schema.define(:version => 20130320155408) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -130,8 +130,6 @@ ActiveRecord::Schema.define(:version => 20130319225308) do
     t.text     "major_sources_income",                                                        :null => false
     t.text     "impact",                                                                      :null => false
     t.text     "obstacles_needs",                                                             :null => false
-    t.text     "budget_previous_year",                                                        :null => false
-    t.text     "budget_current_year",                                                         :null => false
     t.boolean  "org_founder"
     t.string   "current_budget_file_name"
     t.string   "current_budget_content_type"
@@ -141,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20130319225308) do
     t.string   "venture_standard_deck_content_type"
     t.integer  "venture_standard_deck_file_size"
     t.datetime "venture_standard_deck_updated_at"
+    t.boolean  "is_venture_not_for_profit"
   end
 
   create_table "bhsi_longtexts", :force => true do |t|
