@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320155408) do
+ActiveRecord::Schema.define(:version => 20130320200305) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -94,11 +94,11 @@ ActiveRecord::Schema.define(:version => 20130320155408) do
     t.text     "additional_comments",                  :limit => 16777215
     t.string   "reference_1_name",                     :limit => 50,       :default => "",    :null => false
     t.string   "reference_1_relationship",             :limit => 100,      :default => "",    :null => false
-    t.string   "reference_1_phone",                    :limit => 15,       :default => "",    :null => false
+    t.string   "reference_1_phone",                                        :default => "",    :null => false
     t.string   "reference_1_email",                    :limit => 50,       :default => "",    :null => false
     t.string   "reference_2_name",                     :limit => 50,       :default => "",    :null => false
     t.string   "reference_2_relationship",             :limit => 100,      :default => "",    :null => false
-    t.string   "reference_2_phone",                    :limit => 15,       :default => "",    :null => false
+    t.string   "reference_2_phone",                                        :default => "",    :null => false
     t.string   "reference_2_email",                    :limit => 50,       :default => "",    :null => false
     t.integer  "user_id"
     t.text     "three_standout_statistics",            :limit => 16777215
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(:version => 20130320155408) do
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
-    t.string   "phone_number",                         :limit => 11,       :default => "",    :null => false
+    t.string   "phone_number",                                             :default => "",    :null => false
     t.string   "previous_budget_file_name"
     t.string   "previous_budget_content_type"
     t.integer  "previous_budget_file_size"
