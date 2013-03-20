@@ -14,6 +14,7 @@ class BhsiApplication < ActiveRecord::Base
   MAX_OBSTACLES_NEEDS_WORDS         = 400
   BIRTHDATE_LIMIT                   = "10/13/1978"
   BIRTHDATE_FORMAT                  = "%m/%d/%Y"
+  MAX_PDF_FILE_SIZE                 = 20
 
   has_attached_file :pdf,                   :path => "applications/bhsi/pdfs/:id/:filename"
   has_attached_file :previous_budget,       :path => "applications/bhsi/pdfs/:id/:filename"
@@ -74,12 +75,12 @@ class BhsiApplication < ActiveRecord::Base
   validates_format_of :press_clipping_3_file_name,      :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_3.present? }
   validates_format_of :venture_standard_deck_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
 
-  validates_attachment_size :previous_budget,       :less_than => 4.megabytes
-  validates_attachment_size :current_budget,        :less_than => 4.megabytes
-  validates_attachment_size :press_clipping_1,      :less_than => 4.megabytes
-  validates_attachment_size :press_clipping_2,      :less_than => 4.megabytes
-  validates_attachment_size :press_clipping_3,      :less_than => 4.megabytes
-  validates_attachment_size :venture_standard_deck, :less_than => 4.megabytes
+  validates_attachment_size :previous_budget,       :less_than => MAX_PDF_FILE_SIZE.megabytes
+  validates_attachment_size :current_budget,        :less_than => MAX_PDF_FILE_SIZE.megabytes
+  validates_attachment_size :press_clipping_1,      :less_than => MAX_PDF_FILE_SIZE.megabytes
+  validates_attachment_size :press_clipping_2,      :less_than => MAX_PDF_FILE_SIZE.megabytes
+  validates_attachment_size :press_clipping_3,      :less_than => MAX_PDF_FILE_SIZE.megabytes
+  validates_attachment_size :venture_standard_deck, :less_than => MAX_PDF_FILE_SIZE.megabytes
 
   validates :makes_social_innovation, :presence => true, :length => {
     :maximum   => MAX_MAKES_SOCIAL_INNOVATION_WORDS,
