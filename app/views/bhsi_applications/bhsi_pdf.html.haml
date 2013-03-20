@@ -258,8 +258,12 @@
             .row
               %strong What are your major sources of funding or income, and who are your largest funders? (Limit 100 words)
               %p= @bhsi_application.major_sources_income
+            .row.no_margin
+              .column_double
+                %strong Is your venture a not-for-profit?
+              .column_double= @bhsi_application.is_venture_not_for_profit
             .row
-              %strong If you are a 501c3, are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words)
+              %strong Are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. (Limit 400 words)
               %p= @bhsi_application.sustainability_model
             .row
               %strong Describe you main programs and their impact. (Limit 300 words)

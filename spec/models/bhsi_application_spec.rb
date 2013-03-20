@@ -12,7 +12,8 @@ describe BhsiApplication do
      :reference_2_name, :reference_2_relationship, :reference_2_phone, :reference_2_email,
      :makes_social_innovation, :inspiration, :improvements, :distinguish_yourself,
      :total_budget_current_year, :major_sources_income, :impact, :obstacles_needs,
-     :previous_budget, :current_budget, :venture_standard_deck, :org_join_point].each do |attribute|
+     :previous_budget, :current_budget, :venture_standard_deck, :org_join_point,
+     :sustainability_model].each do |attribute|
        it "requires #{attribute}" do
         assert_presence bhsi, attribute
        end
@@ -131,6 +132,16 @@ describe BhsiApplication do
       bhsi.reference_2_phone = '123-456-7890'
       bhsi.should be_invalid
       bhsi.errors[:reference_2_phone].should be_empty
+    end
+
+    it 'requires valid birthdate' do
+      ['10/12/1978', '40/12/1978', '40-12-1978', Date.current.strftime('%m/%d/%Y'), 'invalid'].each do |invalid_date|
+        bhsi.birthdate = invalid_date
+        assert_birthdate bhsi, :birthdate
+      end
+      bhsi.birthdate = '10/14/1978'
+      bhsi.should be_invalid
+      bhsi.errors[:birthdate].should be_empty
     end
 
   end
