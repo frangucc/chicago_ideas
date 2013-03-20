@@ -59,7 +59,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :agreement_accepeted,       :acceptance => {:accept => true}
   validates :total_budget_current_year, :presence => true
   validates :org_founder,               :inclusion => { :in => [true, false] }, :allow_nil => false
-  validates :org_join_point,            :presence => true
+  validates :org_join_point,            :presence => true, :if => Proc.new { |ba| !ba.org_founder }
   validates :sustainability_model,      :presence => true
 
   validate :limit_birthdate, :if => Proc.new { |b| b.birthdate.present? }
@@ -68,12 +68,12 @@ class BhsiApplication < ActiveRecord::Base
   validates_attachment_presence :current_budget
   validates_attachment_presence :venture_standard_deck
 
-  validates_format_of :previous_budget_file_name,       :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
-  validates_format_of :current_budget_file_name,        :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
+  validates_format_of :previous_budget_file_name,       :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.previous_budget.present? }
+  validates_format_of :current_budget_file_name,        :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.current_budget.present? }
+  validates_format_of :venture_standard_deck_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.venture_standard_deck.present? }
   validates_format_of :press_clipping_1_file_name,      :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_1.present? }
   validates_format_of :press_clipping_2_file_name,      :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_2.present? }
   validates_format_of :press_clipping_3_file_name,      :with => %r{\.pdf$}i, :message => "file must be in .pdf format", :if => Proc.new { |u| u.press_clipping_3.present? }
-  validates_format_of :venture_standard_deck_file_name, :with => %r{\.pdf$}i, :message => "file must be in .pdf format"
 
   validates_attachment_size :previous_budget,       :less_than => MAX_PDF_FILE_SIZE.megabytes
   validates_attachment_size :current_budget,        :less_than => MAX_PDF_FILE_SIZE.megabytes
@@ -128,7 +128,7 @@ class BhsiApplication < ActiveRecord::Base
 
   before_create :generate_application_pdf
   after_create  :notify_applicant
-  after_create  :notify_staff
+  after_create  :save_attachments, :notify_staff
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
@@ -161,6 +161,15 @@ class BhsiApplication < ActiveRecord::Base
     friendlyName = "BHSI_APP_#{ self.social_venture_name}.pdf"
     File.open("/tmp/#{friendlyName}", 'w+b') { |f| f.write(pdf) }
     self.pdf = File.open("/tmp/#{friendlyName}")
+  end
+
+  def save_attachments
+    self.previous_budget.save       if previous_budget.present?
+    self.current_budget.save        if current_budget.present?
+    self.venture_standard_deck.save if venture_standard_deck.present?
+    self.press_clipping_1.save      if press_clipping_1.present?
+    self.press_clipping_2.save      if press_clipping_2.present?
+    self.press_clipping_3.save      if press_clipping_3.present?
   end
 
   private
