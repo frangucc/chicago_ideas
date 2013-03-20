@@ -7,8 +7,9 @@ class Admin::BhsiApplicationsController < Admin::AdminController
     lower_limit = Time.new(year)
     upper_limit = lower_limit.end_of_year
     respond_to do |format|
-      format.html { @bhsi_applications = BhsiApplication.search_sort_paginate(params).where("created_at > '#{ lower_limit }' AND created_at < '#{ upper_limit }'") }
-      format.xls  { @bhsi_applications = BhsiApplication.all }
+      @bhsi_applications = BhsiApplication.search_sort_paginate(params).where("created_at > '#{ lower_limit }' AND created_at < '#{ upper_limit }'")
+      format.html {}
+      format.xls  { @bhsi_applications = BhsiApplication.where("created_at > '#{ lower_limit }' AND created_at < '#{ upper_limit }'") }
     end
   end
 
