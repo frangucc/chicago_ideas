@@ -12,6 +12,8 @@ class BhsiApplication < ActiveRecord::Base
   MAX_MAJOR_SOURCES_INCOME_WORDS    = 100
   MAX_IMPACT_WORDS                  = 300
   MAX_OBSTACLES_NEEDS_WORDS         = 400
+  BIRTHDATE_LIMIT                   = "10/13/1978"
+  BIRTHDATE_FORMAT                  = "%m/%d/%Y"
 
   has_attached_file :pdf,                   :path => "applications/bhsi/pdfs/:id/:filename"
   has_attached_file :previous_budget,       :path => "applications/bhsi/pdfs/:id/:filename"
@@ -57,6 +59,8 @@ class BhsiApplication < ActiveRecord::Base
   validates :total_budget_current_year, :presence => true
   validates :org_founder,               :inclusion => { :in => [true, false] }, :allow_nil => false
   validates :org_join_point,            :presence => true
+
+  validate :limit_birthdate, :if => Proc.new { |b| b.birthdate.present? }
 
   validates_attachment_presence :previous_budget
   validates_attachment_presence :current_budget
@@ -155,6 +159,19 @@ class BhsiApplication < ActiveRecord::Base
     friendlyName = "BHSI_APP_#{ self.social_venture_name}.pdf"
     File.open("/tmp/#{friendlyName}", 'w+b') { |f| f.write(pdf) }
     self.pdf = File.open("/tmp/#{friendlyName}")
+  end
+
+  private
+
+  def limit_birthdate
+    begin
+      birth_date = Date.strptime(birthdate, BIRTHDATE_FORMAT)
+      if  birth_date <= Date.strptime(BIRTHDATE_LIMIT, BIRTHDATE_FORMAT) || birth_date >= Date.current
+        errors.add(:birthdate, "Must be greater than #{BIRTHDATE_LIMIT}.")
+      end
+    rescue
+      errors.add(:birthdate, "Invalid birthdate format, should be mm/dd/yyyy.")
+    end
   end
 
 end
