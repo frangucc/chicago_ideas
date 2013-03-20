@@ -5,7 +5,7 @@ class BhsiApplicationsMailer < ActionMailer::Base
 
   def notify_staff(bhsi)
     @bhsi = bhsi
-    attachments[bhsi.pdf_file_name]              = File.read("#{Rails.root}/tmp/#{ @bhsi.pdf_file_name }")
+    attachments[bhsi.pdf_file_name]              = File.read("/tmp/#{ @bhsi.pdf_file_name }")
     # attachments[bhsi.previous_budget_file_name]  = open(bhsi.previous_budget.url).read
     # attachments[bhsi.press_clipping_1_file_name] = open(bhsi.press_clipping_1.url).read if bhsi.press_clipping_1.present?
     # attachments[bhsi.press_clipping_2_file_name] = open(bhsi.press_clipping_2.url).read if bhsi.press_clipping_2.present?
