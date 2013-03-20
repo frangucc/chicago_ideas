@@ -48,9 +48,9 @@ $(document).ready(function(){
       $('#users_full_name').html(data.full_name);
     }
 
-    if( data.connected_to_facebook ) {
-      $('.facebook_connect').hide();
-    }
+    // if( data.connected_to_facebook ) {
+    //   $('.facebook_connect').hide();
+    // }
     console.log(data);
   }, 'JSON');
 

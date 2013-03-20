@@ -81,6 +81,6 @@ CraigsAdmin::Application.configure do
 end
 
 CraigsAdmin::Application.config.middleware.use ExceptionNotifier,
-  :email_prefix => "[CIW] ",
+  :email_prefix => "[CIW-PRODUCT] ",
   :sender_address => %{"Error" <err@example.com>},
   :exception_recipients => %w{leandro@meetmantra.com martin@meetmantra.com}

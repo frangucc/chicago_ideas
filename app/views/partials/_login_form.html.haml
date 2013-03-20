@@ -1,7 +1,7 @@
 %ul
   = form_tag user_session_path do
     %li
-      = label_tag 'user[email]', 'Email address' 
+      = label_tag 'user[email]', 'Email address'
       = text_field_tag 'user[email]', "", {:placeholder => "Email address", :tabindex => 1}
     %li
       = label_tag 'user[password]', 'Password'
@@ -10,8 +10,6 @@
       = check_box_tag 'user[remember_me]'
       = label_tag 'user[remember_me]', 'Remember me'
       %button.btn.blue_btn.right Sign in
-    %li#connect_to_facebook
-      = link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), :class => 'fb_connect_btn'
     %li#dd_register
       = link_to "Register", new_user_registration_path, :title => "Register"
     %li#dd_forgot_pw
