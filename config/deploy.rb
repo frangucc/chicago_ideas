@@ -3,32 +3,24 @@ default_run_options[:pty] = true
 load 'deploy/assets'
 require 'bundler/capistrano'
 require 'thinking_sphinx/deploy/capistrano'
-require "delayed/recipes"
+require 'delayed/recipes'
+require 'capistrano/ext/multistage'
 
-set :application,             'chicago_ideas'
-set :rails_env,               'production'
-# set :user,                    'ciw_deploy'       # 'deployer' is a far too common name
-set :domain,                  'chicagoideas.com'
+set :stages,                  %w(production staging)
+set :default_stage,           'staging'
 set :user,                    'ubuntu'
-# set :domain,                  '54.225.238.30'
-set :rvm_ruby_string,         '1.9.3-p385'
+set :application,             'chicago_ideas'
 set :use_sudo,                false
 set :scm,                     :git
 set :repository,              'git@github.com:frangucc/chicago_ideas.git'
-set :branch,                  'master'
+set :deploy_to,               "/home/#{user}/rails_apps/#{application}"
 set :keep_releases,           3 # we need the space
-
 set :deploy_via,              :remote_cache
-# set :deploy_to,               "/home/#{user}/#{application}"
 set :deploy_to,               "/home/#{user}/rails_apps/#{application}"
 set :repository_cache,        'cached_copy'
-
 set :unicorn_config,          "#{current_path}/config/unicorn.rb"
 set :unicorn_pid,             "#{current_path}/tmp/pids/unicorn.pid"
-# set :unicorn_binary,          "bash -c 'source /etc/profile.d/rvm.sh && bundle exec unicorn_rails -c #{unicorn_config} -E #{rails_env} -D'"
 set :unicorn_binary,          "bundle exec unicorn_rails -w -c #{unicorn_config} -E #{rails_env}"
-
-server domain, :app, :web, :db, :primary => true
 
 namespace :deploy do
   desc "Copies shared config files"
