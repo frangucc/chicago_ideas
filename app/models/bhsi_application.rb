@@ -59,8 +59,8 @@ class BhsiApplication < ActiveRecord::Base
   validates :agreement_accepeted,       :acceptance => {:accept => true}
   validates :total_budget_current_year, :presence => true
   validates :org_founder,               :inclusion => { :in => [true, false] }, :allow_nil => false
-  validates :is_venture_not_for_profit, :inclusion => { :in => [true, false] }, :allow_nil => false
   validates :org_join_point,            :presence => true
+  validates :sustainability_model,      :presence => true
 
   validate :limit_birthdate, :if => Proc.new { |b| b.birthdate.present? }
 
