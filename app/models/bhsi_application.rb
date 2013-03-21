@@ -6,7 +6,6 @@ class BhsiApplication < ActiveRecord::Base
   MAX_MAKES_SOCIAL_INNOVATION_WORDS = 300
   MAX_INSPIRATION_WORDS             = 500
   MAX_SUSTAINABITILITY_MODEL_WORDS  = 600
-  MIN_IMPROVEMENTS_WORDS            = 100
   MAX_IMPROVEMENTS_WORDS            = 400
   MAX_DISTINGUISH_YOURSELF_WORDS    = 600
   MAX_MAJOR_SOURCES_INCOME_WORDS    = 300
@@ -36,7 +35,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :city,                      :presence => true
   validates :state,                     :presence => true
   validates :country,                   :presence => true
-  validates :phone_number,              :presence => true
+  validates :phone_number,              :presence => true, :length => { :minimum => 8 }
   validates :zipcode,                   :presence => true
   validates :email,                     :presence => true, :email => true
   validates :gender,                    :presence => true
@@ -56,7 +55,7 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_relationship,  :presence => true
   validates :reference_2_phone,         :presence => true, :length => { :minimum => 8 }
   validates :reference_2_email,         :presence => true, :email => true
-  validates :agreement_accepeted,       :acceptance => {:accept => true}
+  validates :agreement_accepeted,       :acceptance => { :accept => true }
   validates :total_budget_current_year, :presence => true
   validates :org_founder,               :inclusion => { :in => [true, false] }, :allow_nil => false
   validates :org_join_point,            :presence => true, :if => Proc.new { |ba| !ba.org_founder }
