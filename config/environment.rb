@@ -10,7 +10,7 @@ require 'pp'
 # Initialize the rails application
 CraigsAdmin::Application.initialize!
 
-DocRaptor.api_key 'tl8fHT64wxhkLUTW0Y6V'
+DocRaptor.api_key 'D0m6bORzGV62RKxT5Hfb'
 
 
 if File.exists?(Rails.root + 'config/authorize_net.yml')
