@@ -127,8 +127,6 @@ class BhsiApplication < ActiveRecord::Base
   attr_accessor :html2pdf
 
   before_create :generate_application_pdf
-  after_create  :notify_applicant
-  after_create  :save_attachments, :notify_staff
 
   # a DRY approach to searching lists of these models
   def self.search_fields parent_model=nil
@@ -140,14 +138,6 @@ class BhsiApplication < ActiveRecord::Base
         { :name => :created_at, :as => :datetimerange }
       ]
     end
-  end
-
-  def notify_applicant
-    BhsiApplicationsMailer.delay.notify_applicant(self)
-  end
-
-  def notify_staff
-    BhsiApplicationsMailer.delay.notify_staff(self)
   end
 
   def generate_application_pdf
@@ -162,15 +152,6 @@ class BhsiApplication < ActiveRecord::Base
 
     File.open("/tmp/#{friendlyName}", 'w+b') { |f| f.write(pdf) }
     self.pdf = File.open("/tmp/#{friendlyName}")
-  end
-
-  def save_attachments
-    self.previous_budget.save       if previous_budget.present?
-    self.current_budget.save        if current_budget.present?
-    self.venture_standard_deck.save if venture_standard_deck.present?
-    self.press_clipping_1.save      if press_clipping_1.present?
-    self.press_clipping_2.save      if press_clipping_2.present?
-    self.press_clipping_3.save      if press_clipping_3.present?
   end
 
   private
