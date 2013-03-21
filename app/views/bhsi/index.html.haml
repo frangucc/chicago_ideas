@@ -110,8 +110,8 @@
   #sidebar
     .box.right#edison_talks_callout
       .column_row
-        = link_to 'NOMINATE A BHSI FELLOW', ApplicationHelper::NOMINATE_FELLOW_URL, :id => 'nominate_fellow'
         = link_to 'APPLY HERE', new_bhsi_application_path, :class => 'blue_btn', :id => 'apply_here'
+        = link_to 'NOMINATE A BHSI FELLOW', ApplicationHelper::NOMINATE_FELLOW_URL, :id => 'nominate_fellow'
     = render "partials/sponsors"
     = render "partials/social"
     = render "partials/newsletter_form"
