@@ -15,6 +15,7 @@
   %p.secure_transaction
     = image_tag 'application/orders/lock.png'
     This is a secure transaction
+    = image_tag 'application/orders/veri_sign_logo.png', :id => 'veri_sign_logo'
   #membership_purchase.box.double.left
     #membership_form_section.column_row
       = semantic_form_for(@order, url: '/payment', method: :post, :remote => true) do |f|
