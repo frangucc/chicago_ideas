@@ -52,7 +52,7 @@
               = f.input  :gender,          :as => :select, :required => true, :label => "Gender", :collection => ["Male", "Female"]
               = f.input  :birthdate,       :as => :string, :required => true, :label => "Birthdate (you must have been born on or after 10/13/1978)", :hint => "mm/dd/yyyy"
               = f.input  :applied_before,  :as => :select, :required => true, :label => "Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?", :collection => ["Yes", "No"]
-              = bl.input :about_yourself,                  :required => true, :label => "Tell us your story. What inspired you to start your organization? (A strong response should include how and why you began your venture as well as your own personal background, including any previous leadership recognition or awards.) (Limit 100-200 words):"
+              = bl.input :about_yourself,                  :required => true, :label => "Tell us your story. What inspired you to start your organization? (A strong response should include how and why you began your venture as well as your own personal background, including any previous leadership recognition or awards.) (Limit 200 words):"
               = word_count_container('about_yourself_count')
 
           .form_section
@@ -77,7 +77,7 @@
               = word_count_container('sustainability_model_count')
               = f.input  :inspiration,                                :required => true, :label => "Describe you main programs and their impact. (Limit 300 words):"
               = word_count_container('inspiration_count')
-              = f.input  :improvements,                               :required => true, :label => "What is your long-term vision for the organization, and how will you know if you have achieved success? (Limit 100-200 words):"
+              = f.input  :improvements,                               :required => true, :label => "What is your long-term vision for the organization, and how will you know if you have achieved success? (Limit 200 words):"
               = word_count_container('improvements_count')
 
           .form_section
