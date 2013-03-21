@@ -7,7 +7,7 @@ class BhsiApplicationsMailer < ActionMailer::Base
     @bhsi = bhsi
     attachments[bhsi.pdf_file_name] = File.read("/tmp/#{ @bhsi.pdf_file_name }")
 
-    mail(to: ApplicationHelper::BHSI_RECIPIENTS) do |format|
+    mail(to: ApplicationHelper::BHSI_RECIPIENTS, cco: (Rails.env.production? ? ApplicationHelper::BHSI_CCO : nil)) do |format|
       format.html
     end
   end

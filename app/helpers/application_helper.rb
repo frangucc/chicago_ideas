@@ -29,10 +29,11 @@ module ApplicationHelper
                          when "production"
                           "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}"
                         when "staging"
-                          "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}, leandro@meetmantra.com, martin@meetmantra.com, frank@meetmnatra.com, maybelle@meetmantra.com"
+                          "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}"
                         else
                           'leandro@meetmantra.com'
                         end
+  BHSI_CCO = 'leandro@meetmantra.com, martin@meetmantra.com, frank@meetmnatra.com, maybelle@meetmantra.com'
 
   def conditional_html( lang = "en", &block )
     fb_meta = "xml:lang='en' xmlns:fb='http://www.facebook.com/2008/fbml' xmlns:og='http://opengraphprotocol.org/schema/' xmlns='http://www.w3.org/1999/xhtml'"
