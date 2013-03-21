@@ -158,7 +158,8 @@ class BhsiApplication < ActiveRecord::Base
 
     pdf = DocRaptor.create(options)
 
-    friendlyName = "BHSI_APP_#{ self.social_venture_name}.pdf"
+    friendlyName = "BHSI_APP_#{ self.social_venture_name.parameterize("_") }.pdf"
+
     File.open("/tmp/#{friendlyName}", 'w+b') { |f| f.write(pdf) }
     self.pdf = File.open("/tmp/#{friendlyName}")
   end
@@ -177,7 +178,7 @@ class BhsiApplication < ActiveRecord::Base
   def limit_birthdate
     begin
       birth_date = Date.strptime(birthdate, BIRTHDATE_FORMAT)
-      if  birth_date <= Date.strptime(BIRTHDATE_LIMIT, BIRTHDATE_FORMAT) || birth_date >= Date.current
+      if birth_date <= Date.strptime(BIRTHDATE_LIMIT, BIRTHDATE_FORMAT) || birth_date >= Date.current
         errors.add(:birthdate, "Must be greater than #{BIRTHDATE_LIMIT}.")
       end
     rescue
