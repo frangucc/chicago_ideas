@@ -72,5 +72,4 @@ end
 
 after 'deploy:update_code', 'deploy:copy_shared_files'
 
-after "deploy:stop",    "delayed_job:stop"
-after "deploy:start",   "delayed_job:start", "thinking_sphinx:rebuild"
+after "deploy:restart", "delayed_job:stop", "delayed_job:start", "thinking_sphinx:rebuild"
