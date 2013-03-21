@@ -7,6 +7,7 @@ module ApplicationHelper
   CIW_GPLUS_URL        = 'https://plus.google.com/113007296557109921813/posts'
   CIW_BLOG_URL         = 'http://blog.chicagoideas.com/'
   CIW_YOUTUBE_URL      = 'http://www.youtube.com/user/ChicagoIdeasWeek'
+  SUPPORT_YOUTUBE_URL  = 'http://www.youtube.com/embed/Ctd7kAZrW6I'
 
   # GOOGLE DOCS
   LABS_DOC_URL         = 'https://docs.google.com/spreadsheet/viewform?formkey=dG5EZTFJTV81Y1VUdFFHeGp6V3hsdUE6MQ'
