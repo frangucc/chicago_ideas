@@ -41,7 +41,7 @@
             = f.inputs :class => "c_list v_lists" do
               = f.input  :first_name,      :as => :string, :required => true, :label => "First Name"
               = f.input  :last_name,       :as => :string, :required => true, :label => "Last Name"
-              = f.input  :phone_number,    :as => :string,  :required => true, :label => "Phone Number", :hint => "xxx-xxx-xxxx"
+              = f.input  :phone_number,    :as => :string, :required => true, :label => "Phone Number", :hint => "xxx-xxx-xxxx"
               = f.input  :address1,        :as => :string, :required => true, :label => "Street Address"
               = f.input  :address2,        :as => :string,                    :label => "Address Line 2"
               = f.input  :city,            :as => :string, :required => true, :label => "City"
@@ -53,6 +53,7 @@
               = f.input  :birthdate,       :as => :string, :required => true, :label => "Birthdate (you must have been born on or after 10/13/1978)", :hint => "mm/dd/yyyy"
               = f.input  :applied_before,  :as => :select, :required => true, :label => "Have you applied to the Bluhm/Helfand Social Innovation Fellowship before?", :collection => ["Yes", "No"]
               = bl.input :about_yourself,                  :required => true, :label => "Tell us your story. What inspired you to start your organization? (A strong response should include how and why you began your venture as well as your own personal background, including any previous leadership recognition or awards.) (Limit 100-200 words):"
+              = word_count_container('about_yourself_count')
 
           .form_section
             %span.form_section_header Part 2: About Your Venture
@@ -68,17 +69,24 @@
               = f.input  :twitter_handle,             :as => :string, :required => true, :label => "Twitter Handle",       :hint => "ex. chicagoideas (no @ required)"
               = f.input  :video_url,                  :as => :string, :required => true, :label => "YouTube or Video URL", :hint => "ex. http://www.youtube.com/..."
               = bl.input :social_venture_description,                 :required => true, :label => "Please provide a clear and concise description of your social venture. (Limit 50 words):"
+              = word_count_container('social_venture_description_count')
               = bl.input :organizational_development,                 :required => true, :label => "What is your venture's level of organizational development? (e.g., growth stage, number of team members, etc.):"
               = f.input  :major_sources_income,                       :required => true, :label => "What are your major sources of funding or income, and who are your largest funders? (Limit 100 words):"
+              = word_count_container('major_sources_income_count')
               = f.input  :sustainability_model,                       :required => true, :label => " If you are a not-for-profit, are you fiscally sustainable? If yes, please explain your model and provide data that proves it is working. Otherwise, write 'N/A'. (Limit 400 words):"
+              = word_count_container('sustainability_model_count')
               = f.input  :inspiration,                                :required => true, :label => "Describe you main programs and their impact. (Limit 300 words):"
+              = word_count_container('inspiration_count')
               = f.input  :improvements,                               :required => true, :label => "What is your long-term vision for the organization, and how will you know if you have achieved success? (Limit 100-200 words):"
+              = word_count_container('improvements_count')
 
           .form_section
             %span.form_section_header Part 3: Innovation
             = f.inputs :class => "c_list v_lists" do
               = f.input :makes_social_innovation, :required => true, :label => "What specifically makes your venture innovative? (Limit 100 words):"
+              = word_count_container('makes_social_innovation_count')
               = f.input :distinguish_yourself,                       :label => "How do you distinguish yourself in your specific sector? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (Limit 400 words):"
+              = word_count_container('distinguish_yourself_count')
 
           .form_section
             %span.form_section_header Part 4: Impact &amp; Assessment
@@ -87,12 +95,15 @@
               = bl.input :explain_number,                            :required => true, :label => "Explain this number in a few sentences:"
               = bl.input :three_standout_statistics,                 :required => true, :label => "Please provide three statistics that eximplify your success:"
               = f.input  :impact,                                    :required => true, :label => "What metrics do you use to track your impact? How has your impact grown over time? (A strong response will use data that show's your impact in discussing your approach.) (Limit 300 words):"
+              = word_count_container('impact_count')
               = f.input  :obstacles_needs,                           :required => true, :label => "What are your venture's greatest obstacles and needs? What would you want to get out of your participation in this fellowship (A strong response should include specific skills-based or strategic needs the organization has that the Fellowship may be able to address, partners you are hoping to secure, communities you are hoping to be introduced to, specific expertise you are seeking, etc.) (Limit 400 words):"
+              = word_count_container('obstacles_needs_count')
 
           .form_section
             %span.form_section_header Optional Questions
             = f.inputs :class => "c_list v_lists" do
               = bl.input :strong_midwest_connections_explained, :label => "Do you have a strong connection to the Midwest? If so, please explain. (Please note you do not need to have a Midwest connection in order to be eligible.) (Limit 50-100 words):"
+              = word_count_container('strong_midwest_count')
               = bl.input :additional_comments,                  :label => "Additional Comments:"
 
           .form_section

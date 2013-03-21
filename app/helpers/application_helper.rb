@@ -154,4 +154,16 @@ module ApplicationHelper
     end
     hash
   end
+
+  def word_count_container(id)
+    content_tag :p, :class => 'word_count_container' do
+      content_tag :span do
+        raw(
+          'Total word count: ' +
+          content_tag(:span, 0, :id => id)
+        )
+      end
+    end
+  end
+
 end
