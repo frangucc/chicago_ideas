@@ -44,11 +44,7 @@
               = f.input :cvc,           :as => :string, :required => true, :label => "CVC"
             = f.inputs :class => 'form_state_cards' do
               %li.form_cards
-                %ul
-                  %li= image_tag 'application/orders/billing_card1.png'
-                  %li= image_tag 'application/orders/billing_card2.png'
-                  %li= image_tag 'application/orders/billing_card3.png'
-                  %li= image_tag 'application/orders/billing_card4.png'
+                = image_tag 'application/orders/credit_cards.png'
 
             %ol
               = f.semantic_fields_for :billing_address do |billing_address|
