@@ -90,7 +90,7 @@
 
         %h2 Important Dates
         %ul
-          %li March 19: Applications Open
+          %li March 21: Applications Open
           %li June 6: Deadline to Apply
           %li July 22: Semi-finalists notified
           %li August 3-4: Semi-finalist Interviews
@@ -111,6 +111,7 @@
     .box.right#edison_talks_callout
       .column_row
         = link_to 'APPLY HERE', new_bhsi_application_path, :class => 'blue_btn', :id => 'apply_here'
+        = link_to 'Download Application', "/files/FINAL_BHSI_App_2013.pdf", :target => "_blank", :style => "margin: 10px;"
         = link_to 'NOMINATE A BHSI FELLOW', ApplicationHelper::NOMINATE_FELLOW_URL, :id => 'nominate_fellow'
     = render "partials/sponsors"
     = render "partials/social"
