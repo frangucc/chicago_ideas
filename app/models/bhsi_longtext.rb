@@ -22,7 +22,7 @@ class BhsiLongtext < ActiveRecord::Base
     :tokenizer => lambda { |str| str.scan(/\w+/) },
     :too_long  => "must be less than %{count} words"
   }
-  validates :strong_midwest_connections_explained, :presence => true, :length => {
+  validates :strong_midwest_connections_explained, :length => {
     :minimum   => MIN_STRONG_MIDWEST_WORDS,
     :maximum   => MAX_STRONG_MIDWEST_WORDS,
     :tokenizer => lambda { |str| str.scan(/\w+/) },
