@@ -28,9 +28,9 @@ module ApplicationHelper
                          when "production"
                           "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}"
                         when "staging"
-                          "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}, leandro@meetmantra.com, martin@meetmantra.com"
+                          "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}, leandro@meetmantra.com, martin@meetmantra.com, frank@meetmnatra.com, maybelle@meetmantra.com"
                         else
-                          "leandro@meetmantra.com, martin@meetmantra.com"
+                          'leandro@meetmantra.com'
                         end
 
   def conditional_html( lang = "en", &block )

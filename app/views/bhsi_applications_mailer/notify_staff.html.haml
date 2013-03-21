@@ -1,0 +1,145 @@
+!!! 5
+
+%html
+  %head
+    %title
+
+  %body
+    %div
+      First Name: #{ @bhsi.first_name }
+    %div
+      Last Name: #{ @bhsi.last_name }
+    %div
+      Your Title: #{ @bhsi.title }
+    %div
+      Social Venture Name: #{ @bhsi.social_venture_name }
+    %div
+      Founder: #{ @bhsi.org_founder ? "Yes" : "No" }
+    %div
+      - unless @bhsi.org_founder
+        %div
+          Joined on: #{ @bhsi.org_join_point }
+    %br
+    %div
+      Address 1: #{ @bhsi.address1 }
+    %div
+      Address 2: #{ @bhsi.address2 }
+    %div
+      City: #{ @bhsi.city }
+    %div
+      State: #{ @bhsi.state }
+    %div
+      Zip: #{ @bhsi.zipcode }
+    %div
+      Country: #{ @bhsi.country }
+    %div
+      Phone Number: #{ @bhsi.phone_number }
+    %div
+      Email Address: #{ @bhsi.email }
+    %div
+      Gender: #{ @bhsi.gender }
+    %div
+      Birthdate: #{ @bhsi.birthdate }
+    %br
+    %div
+      Have you applied to the Bluhm/Helfand Social Innovation Fellowship before? #{ @bhsi.applied_before }
+    %div
+      Tell us a little bit about yourself. Make sure to include any previous leadership recognition or awards (100-200 words): #{ @bhsi.bhsi_longtext.about_yourself }
+    %br
+    %div
+      Legal Structure (501c3, LLC, fiscally sponsored, etc.): #{ @bhsi.legal_structure }
+    %div
+      URL: #{ @bhsi.url }
+    %div
+      Twitter Handle: #{ @bhsi.twitter_handle }
+    %div
+      YouTube or Video URL: #{ @bhsi.video_url }
+    %br
+    %div
+      Capsule description of your social venture(50-100 words): #{ @bhsi.bhsi_longtext.social_venture_description }
+    %br
+    %div
+      Date your social venture was officially launched: #{ @bhsi.bhsi_longtext.venture_launched }
+    %br
+    %div
+      Number of people you affected this year: #{ @bhsi.bhsi_longtext.number_people_affected }
+    %br
+    %div
+      Please explain this number in a few sentences: #{ @bhsi.bhsi_longtext.explain_number }
+    %br
+    %div
+      Please provide three standout statistics marking your social venture’s achievement: #{ @bhsi.bhsi_longtext.three_standout_statistics }
+    %br
+    %div
+      Explain your venture’s level of organizational development. Also, detail the sources of your funding and your most significant large funders (i.e., second round of VC funding, number of team members, annual budget/income, etc.) (75-200 words): #{ @bhsi.bhsi_longtext.organizational_development }
+    %br
+    %div
+      Explain what makes your venture a social innovation (2-3 sentences): #{ @bhsi.makes_social_innovation }
+    %br
+    %div
+      Explain your inspiration for starting your social venture and describe your main programs and initiatives (300-600 words): #{ @bhsi.inspiration }
+    %br
+    %div
+      Explain your model for sustainability and share the results that prove your model is working. Also explain how you measure your social impact. (A strong response to this question should include ample data demonstrating your measurable impact.) (300-600 words):
+    %br
+    %div
+      #{ @bhsi.sustainability_model }
+    %br
+    %div
+      #{ @bhsi.impact }
+    %br
+    %div
+      What can you improve? Where is your work headed in the next two years? Where would you like to be in the long term, 10 years from now and beyond? What is your plan to achieve those goals? (300-600 words): #{ @bhsi.improvements }
+    %br
+    %div
+      How do you distinguish yourself in your specific field? What are you doing that no one else is doing? (A strong response should include a discussion of at least two other ventures working in this space and how you are specifically different from them.) (300-500 words): #{ @bhsi.distinguish_yourself }
+    %br
+    %div
+      Do you have a strong connection to the Midwest? If so, please explain (50-100 words): #{ @bhsi.bhsi_longtext.strong_midwest_connections_explained }
+    %br
+    %div
+      Additional Comments: #{ @bhsi.bhsi_longtext.additional_comments }
+    %br
+    %div
+      \#1 Reference Name: #{ @bhsi.reference_1_name }
+    %div
+      \#1 Reference Relationship to you: #{ @bhsi.reference_1_relationship }
+    %div
+      \#1 Reference Phone: #{ @bhsi.reference_1_phone }
+    %div
+      \#1 Reference Email: #{ @bhsi.reference_1_email }
+    %div
+      \#2 Reference Name: #{ @bhsi.reference_2_name }
+    %div
+      \#2 Reference Relationship to you: #{ @bhsi.reference_2_relationship }
+    %div
+      \#2 Reference Phone: #{ @bhsi.reference_2_phone }
+    %div
+      \#2 Reference Email: #{ @bhsi.reference_2_email }
+    %br
+    %div
+      Files:
+    %br
+    - if @bhsi.previous_budget.present?
+      %div
+        Previous budget: #{ link_to(@bhsi.previous_budget_file_name, @bhsi.previous_budget.url) }
+
+    - if @bhsi.current_budget.present?
+      %div
+        Current Budget: #{ link_to(@bhsi.current_budget_file_name, @bhsi.current_budget.url) }
+
+    - if @bhsi.venture_standard_deck.present?
+      %div
+        Venture Standard Deck: #{ link_to(@bhsi.venture_standard_deck_file_name, @bhsi.venture_standard_deck.url) }
+
+    - if @bhsi.press_clipping_1.present?
+      %div
+        Press Clipping #1 #{ link_to(@bhsi.press_clipping_1_file_name, @bhsi.press_clipping_1.url) }
+
+    - if @bhsi.press_clipping_2.present?
+      %div
+        Press Clipping #2 #{ link_to(@bhsi.press_clipping_2_file_name, @bhsi.press_clipping_2.url) }
+
+    - if @bhsi.press_clipping_3.present?
+      %div
+        Press Clipping #3 #{ link_to(@bhsi.press_clipping_3_file_name, @bhsi.press_clipping_3.url) }

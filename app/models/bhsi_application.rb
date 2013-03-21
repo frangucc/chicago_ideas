@@ -13,7 +13,7 @@ class BhsiApplication < ActiveRecord::Base
   MAX_OBSTACLES_NEEDS_WORDS         = 600
   BIRTHDATE_LIMIT                   = "10/12/1978"
   BIRTHDATE_FORMAT                  = "%m/%d/%Y"
-  MAX_PDF_FILE_SIZE                 = 20
+  MAX_PDF_FILE_SIZE                 = 5
 
   has_attached_file :pdf,                   :path => "applications/bhsi/pdfs/:id/:filename"
   has_attached_file :previous_budget,       :path => "applications/bhsi/pdfs/:id/:filename"
