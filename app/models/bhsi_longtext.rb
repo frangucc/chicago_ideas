@@ -3,10 +3,10 @@ class BhsiLongtext < ActiveRecord::Base
   include SearchSortPaginate
 
   MIN_ABOUT_YOURSELF_WORDS      = 100
-  MAX_ABOUT_YOURSELF_WORDS      = 200
-  MAX_SOCIAL_VENTURE_DESC_WORDS = 50
+  MAX_ABOUT_YOURSELF_WORDS      = 400
+  MAX_SOCIAL_VENTURE_DESC_WORDS = 250
   MIN_STRONG_MIDWEST_WORDS      = 50
-  MAX_STRONG_MIDWEST_WORDS      = 100
+  MAX_STRONG_MIDWEST_WORDS      = 300
 
   belongs_to :BhsiApplication
 

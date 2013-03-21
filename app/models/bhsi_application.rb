@@ -3,16 +3,16 @@ class BhsiApplication < ActiveRecord::Base
   include SearchSortPaginate
   include PdfCreator
 
-  MAX_MAKES_SOCIAL_INNOVATION_WORDS = 100
-  MAX_INSPIRATION_WORDS             = 300
-  MAX_SUSTAINABITILITY_MODEL_WORDS  = 400
+  MAX_MAKES_SOCIAL_INNOVATION_WORDS = 300
+  MAX_INSPIRATION_WORDS             = 500
+  MAX_SUSTAINABITILITY_MODEL_WORDS  = 600
   MIN_IMPROVEMENTS_WORDS            = 100
-  MAX_IMPROVEMENTS_WORDS            = 200
-  MAX_DISTINGUISH_YOURSELF_WORDS    = 400
-  MAX_MAJOR_SOURCES_INCOME_WORDS    = 100
-  MAX_IMPACT_WORDS                  = 300
-  MAX_OBSTACLES_NEEDS_WORDS         = 400
-  BIRTHDATE_LIMIT                   = "10/13/1978"
+  MAX_IMPROVEMENTS_WORDS            = 400
+  MAX_DISTINGUISH_YOURSELF_WORDS    = 600
+  MAX_MAJOR_SOURCES_INCOME_WORDS    = 300
+  MAX_IMPACT_WORDS                  = 500
+  MAX_OBSTACLES_NEEDS_WORDS         = 600
+  BIRTHDATE_LIMIT                   = "10/12/1978"
   BIRTHDATE_FORMAT                  = "%m/%d/%Y"
   MAX_PDF_FILE_SIZE                 = 20
 
@@ -50,11 +50,11 @@ class BhsiApplication < ActiveRecord::Base
   validates :applied_before,            :presence => true
   validates :reference_1_name,          :presence => true
   validates :reference_1_relationship,  :presence => true
-  validates :reference_1_phone,         :presence => true
+  validates :reference_1_phone,         :presence => true, :length => { :minimum => 8 }
   validates :reference_1_email,         :presence => true, :email => true
   validates :reference_2_name,          :presence => true
   validates :reference_2_relationship,  :presence => true
-  validates :reference_2_phone,         :presence => true
+  validates :reference_2_phone,         :presence => true, :length => { :minimum => 8 }
   validates :reference_2_email,         :presence => true, :email => true
   validates :agreement_accepeted,       :acceptance => {:accept => true}
   validates :total_budget_current_year, :presence => true
