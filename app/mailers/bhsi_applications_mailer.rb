@@ -20,6 +20,7 @@ class BhsiApplicationsMailer < ActionMailer::Base
   end
 
   def notify_applicant(bhsi)
+    attachments[bhsi.pdf_file_name] = File.read("/tmp/#{ bhsi.pdf_file_name }")
     mail(to: bhsi.email)
   end
 
