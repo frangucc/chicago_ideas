@@ -2,7 +2,165 @@
 %html
   %head
     %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
-    = stylesheet_link_tag 'invoice'
+    :css
+      body {
+        width: 744px;
+        font-family: "arial";
+        color: #666;
+        font-size: 14px;
+      }
+
+      .header{
+        width: 744px;
+        height: 200px;
+      }
+      .header hr {
+        color: #297CB9;
+        background-color: #297CB9;
+        height: 2px;
+        margin: 0;
+       }
+      .header .ciw_header {
+        width: 372px;
+        float: left;
+      }
+      .header .ciw_header p {
+        float: left;
+        margin-top: 45px;
+        margin-left: 35px;
+        line-height: 20px;
+      }
+      .with_border {
+        margin-left: 0px;
+        padding-left: 65px;
+        border-left: 1px silver solid;
+      }
+      .header .ciw_header .img_container {
+        float: left;
+        margin-left: 55px;
+        margin-top: 25px;
+      }
+
+      .clear { clear: both; }
+
+      .order_details {
+        background-color: #297CB9;
+        width: calc(100%-15px);
+        line-height: 40px;
+        color: white;
+        padding-left: 15px;
+        font-size: 16px;
+      }
+
+      .details_container {
+        margin-top: 30px;
+        margin-left: 20px;
+        width: 270px;
+        float: left;
+      }
+
+      .details_container h1 {
+        font-weight: normal;
+        color: #297CB9;
+
+      }
+      .details_container .payment {
+        line-height: 35px;
+        font-size: 1.1em;
+      }
+
+      .details_container h3 {
+        display: inline;
+      }
+
+      .address_container {
+        margin-top: 30px;
+        margin-left: 20px;
+        float: right;
+        width: 350px;
+        padding-top: 10px;
+      }
+
+      h1.indented { margin-left: 20px; }
+
+      table {
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+      th.invoice {
+        background-color: #DFDFDF;
+        line-height: 40px;
+        padding-left: 15px;
+        text-align: left;
+      }
+      th.product {
+        width: 450px;
+      }
+
+      th .price_range {
+        color: #297CB9;
+      }
+
+      td.invoice {
+        background-color: #ECECEC;
+        line-height: 30px;
+        padding-left: 15px;
+        text-align: left;
+      }
+
+      th.address {
+        background-color: #ECECEC;
+        line-height: 2.5em;
+        font-size: 1.5em;
+        padding-left: 18px;
+        text-align: left;
+      }
+
+      td.address {
+        padding: 5px 15px;
+        line-height: 32px;
+        font-size: 16px;
+      }
+
+      td.tax_disclaimer {
+        background-color: #ECECEC;
+        font-size: 12px;
+        padding: 20px;
+      }
+
+      td.total_label {
+        background-color: #DFDFDF;
+        line-height: 25px;
+        padding-left: 15px;
+      }
+
+      td.total_paid {
+        background-color: #297CB9;
+        line-height: 40px;
+        padding-left: 15px;
+        color: white
+      }
+
+      .footer {
+        background-color: #297CB9;
+        width: 100%;
+        line-height: 40px;
+        color: white;
+        text-align: center;
+      }
+
+      .footer_info {
+        text-align: center;
+      }
+
+      .pdf_end {
+        color: #297CB9;
+        background-color: #297CB9;
+        height: 2px;
+        margin: 0;
+      }
+
 
   %body
     .header
