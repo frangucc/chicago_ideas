@@ -16,7 +16,7 @@ class Order < ActiveRecord::Base
   validates_presence_of :amount
 
   validates :expiry_date, :presence => true, :length => { :is => 4 }, :numericality => true
-  validates :cvc, :presence => true, :length => { :is => 3 }, :numericality => true
+  validates :cvc, :presence => true, :length => { :minimum => 3, :maximum => 4 }, :numericality => true
   validates :member_type_id, :presence => true
 
   before_validation :assign_total_in_cents
