@@ -14,15 +14,6 @@ describe BhsiLongtext do
       end
     end
 
-    it 'requires valid about_yourself min words count' do
-      bl.about_yourself = 'word '
-      assert_min_words_count bl, :about_yourself, BhsiLongtext::MIN_ABOUT_YOURSELF_WORDS
-
-      bl.about_yourself << 'word ' * BhsiLongtext::MIN_ABOUT_YOURSELF_WORDS
-      bl.should be_invalid
-      bl.errors[:about_yourself].should be_empty
-    end
-
     it 'requires valid about_yourself max words count' do
       bl.about_yourself = 'word ' * BhsiLongtext::MAX_ABOUT_YOURSELF_WORDS
       bl.errors[:about_yourself].should be_empty
@@ -37,15 +28,6 @@ describe BhsiLongtext do
 
       bl.social_venture_description << 'word'
       assert_max_words_count bl, :social_venture_description, BhsiLongtext::MAX_SOCIAL_VENTURE_DESC_WORDS
-    end
-
-    it 'requires valid strong_midwest_connections_explained min words count' do
-      bl.strong_midwest_connections_explained = 'word '
-      assert_min_words_count bl, :strong_midwest_connections_explained, BhsiLongtext::MIN_STRONG_MIDWEST_WORDS
-
-      bl.strong_midwest_connections_explained << 'word ' * BhsiLongtext::MIN_STRONG_MIDWEST_WORDS
-      bl.should be_invalid
-      bl.errors[:strong_midwest_connections_explained].should be_empty
     end
 
     it 'requires valid strong_midwest_connections_explained max words count' do

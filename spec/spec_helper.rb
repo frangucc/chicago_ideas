@@ -51,7 +51,7 @@ end
 
 def assert_numerical_range(model, field, length)
   model.should be_invalid
-  model.errors[field].join.should match(/is the wrong length \(should be #{length} characters\)/)
+  model.errors[field].join.should match(/is the wrong length \(should be #{length} characters\)|is too short \(minimum is #{length} characters\)/)
 end
 
 def assert_birthdate(model, field)
