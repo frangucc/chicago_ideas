@@ -1,7 +1,7 @@
 = render 'collection_controls'
 
 - content_for :top_links do
-  = link_to 'Download Excel', admin_bhsi_applications_path(:format => 'xls')
+  = link_to 'Download Excel', admin_bhsi_applications_path(:format => 'xls', :year => params[:year])
 
 = ssp_search_form BhsiApplication
 
