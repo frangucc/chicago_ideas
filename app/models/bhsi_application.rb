@@ -57,8 +57,8 @@ class BhsiApplication < ActiveRecord::Base
   validates :reference_2_email,         :presence => true, :email => true
   validates :agreement_accepeted,       :acceptance => { :accept => true }
   validates :total_budget_current_year, :presence => true
-  validates :org_founder,               :inclusion => { :in => [true, false] }, :allow_nil => false
-  validates :org_join_point,            :presence => true, :if => Proc.new { |ba| !ba.org_founder }
+  validates :org_founder,               :inclusion => { :in => ["yes", "no"] }, :allow_nil => false
+  validates :org_join_point,            :presence => true, :if => Proc.new { |ba| ba.org_founder == "no" }
   validates :sustainability_model,      :presence => true
 
   validate :limit_birthdate, :if => Proc.new { |b| b.birthdate.present? }
