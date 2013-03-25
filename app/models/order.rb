@@ -21,7 +21,8 @@ class Order < ActiveRecord::Base
 
   before_validation :assign_total_in_cents
   after_validation :amount_should_match_member_types
-  before_save :code_and_member, on: :create
+
+  after_initialize :set_code
 
   def assign_total_in_cents
     self.total_in_cents = (amount.to_f * 100).to_i
@@ -63,7 +64,9 @@ class Order < ActiveRecord::Base
   end
 
   protected
-  def code_and_member
-    while Order.find_by_code(self.code = SecureRandom.hex(4).upcase).present?; end
+  def set_code
+    if new_record?
+      while Order.find_by_code(self.code = SecureRandom.hex(4).upcase).present?; end
+    end
   end
 end
