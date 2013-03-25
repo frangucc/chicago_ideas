@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320200305) do
+ActiveRecord::Schema.define(:version => 20130325043625) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -473,10 +473,14 @@ ActiveRecord::Schema.define(:version => 20130320200305) do
     t.integer  "member_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "authnet_response"
     t.integer  "address_id"
     t.string   "code"
     t.string   "name_on_card"
+    t.string   "an_response_reason_text"
+    t.string   "an_authorization_code"
+    t.string   "an_invoice_number"
+    t.string   "an_account_number"
+    t.string   "an_card_type"
   end
 
   create_table "partners", :force => true do |t|
