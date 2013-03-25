@@ -203,8 +203,8 @@
         = @order.created_at.to_date.strftime("%B %d, %Y")
 
         %br/
-        %h3= @order.authnet_response.fields[:card_type]
-        = @order.authnet_response.fields[:account_number]
+        %h3= @order.an_card_type
+        = @order.an_account_number
 
         %br/
         %h3 Transaction Type:
