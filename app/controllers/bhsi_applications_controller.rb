@@ -21,7 +21,7 @@ class BhsiApplicationsController < ApplicationController
     if @bhsi_application.save
       BhsiApplicationsMailer.delay.notify_applicant(@bhsi_application)
       BhsiApplicationsMailer.delay.notify_staff(@bhsi_application)
-      render 'application/confirmation', :locals => {:title => "BHSI Application Confirmation", :body => "Thank you for applying to the Bluhm/Helfand Social Innovation Fellowship. BHSI semi-finalists will be announced in mid-June.", :url => "http://bit.ly/wdTJfn", :share_text => "I applied to the #BHSI Fellowship at @chicagoideas! RT to all #innovative #socent! Applications close 5/21. Apply today: http://bit.ly/wdTJfn"}
+      render 'application/confirmation', :locals => { :title => "BHSI Application Confirmation", :body => "Thank you for applying to the Bluhm/Helfand Social Innovation Fellowship. You will get an e-mail confirmation soon, along with a copy of your application.", :url => "http://bit.ly/wdTJfn", :share_text => "I applied to the #BHSI Fellowship at @chicagoideas! RT to all #innovative #socent!. Apply today: http://bit.ly/wdTJfn" }
     else
       flash[:notice] = 'Please fill in all required fields!'
       render :new
