@@ -42,17 +42,25 @@ class Order < ActiveRecord::Base
 
   def process_transaction
     if self.valid?
-      transaction = AuthorizeNet::AIM::Transaction.new(AUTHNET_LOGIN,
-                                                       AUTHNET_KEY,
-                                                       :gateway => AUTHNET_ENV)
+      transaction = AuthorizeNet::AIM::Transaction.new(AUTHNET_LOGIN, AUTHNET_KEY, :gateway => AUTHNET_ENV)
+      @address    = build_authnet_address
+      @customer   = build_authnet_customer
+      @order      = build_authnet_order
+
+      transaction.set_address(@address)
+      transaction.set_customer(@customer)
+      transaction.set_fields(:phone => user.phone, :invoice_num => self.code )
+
       credit_card = AuthorizeNet::CreditCard.new(card_number, expiry_date)
 
       response = transaction.purchase(amount, credit_card)
 
       if response.success?
-
-        # TODO: Serialize
-        self.authnet_response = response
+        self.an_response_reason_text  = response.fields[:response_reason_text]
+        self.an_authorization_code    = response.fields[:authorization_code]
+        self.an_invoice_number        = response.fields[:invoice_number]
+        self.an_account_number        = response.fields[:account_number]
+        self.an_card_type             = response.fields[:card_type]
         save
         return true
       else
@@ -68,5 +76,26 @@ class Order < ActiveRecord::Base
     if new_record?
       while Order.find_by_code(self.code = SecureRandom.hex(4).upcase).present?; end
     end
+  end
+
+  def build_authnet_address
+    AuthorizeNet::Address.new(:first_name  => user.first_name,
+                              :last_name   => user.last_name,
+                              :street_address => "#{ user.address.street_1 } #{ user.address.street_2 }",
+                              :city        => user.address.city,
+                              :state       => user.address.state,
+                              :zip         => user.address.zip,
+                              :phone       => user.phone)
+  end
+
+  def build_authnet_customer
+    AuthorizeNet::Customer.new( :phone => user.phone,
+                                :email => user.email,
+                                :description => "#{ member_type.title } membership",
+                                :address => @address)
+  end
+
+  def build_authnet_order
+    AuthorizeNet::Order.new(:invoice_num => self.code, :description => "Order")
   end
 end
