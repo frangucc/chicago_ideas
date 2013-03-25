@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325043625) do
+ActiveRecord::Schema.define(:version => 20130325161435) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20130325043625) do
     t.string   "state",                                :limit => 15,       :default => "",    :null => false
     t.string   "country",                                                  :default => "US",  :null => false
     t.string   "email",                                :limit => 50,       :default => "",    :null => false
-    t.text     "gender",                               :limit => 16777215,                    :null => false
+    t.string   "gender",                               :limit => 10,       :default => "",    :null => false
     t.text     "birthdate",                            :limit => 16777215,                    :null => false
     t.string   "title",                                :limit => 50,       :default => "",    :null => false
     t.text     "social_venture_name",                  :limit => 16777215,                    :null => false
@@ -130,7 +130,6 @@ ActiveRecord::Schema.define(:version => 20130325043625) do
     t.text     "major_sources_income",                                                        :null => false
     t.text     "impact",                                                                      :null => false
     t.text     "obstacles_needs",                                                             :null => false
-    t.boolean  "org_founder"
     t.string   "current_budget_file_name"
     t.string   "current_budget_content_type"
     t.integer  "current_budget_file_size"
@@ -140,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20130325043625) do
     t.integer  "venture_standard_deck_file_size"
     t.datetime "venture_standard_deck_updated_at"
     t.boolean  "is_venture_not_for_profit"
+    t.string   "org_founder",                          :limit => 10
   end
 
   create_table "bhsi_longtexts", :force => true do |t|
