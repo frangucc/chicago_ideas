@@ -33,10 +33,11 @@ describe Order do
     end
 
     it 'requires cvc to have proper length' do
-      [1, 12].each do |cvc|
-        new_order.cvc = cvc
-        assert_numerical_range new_order, :cvc, 3
-      end
+      new_order.cvc = 2
+      assert_numerical_range new_order, :cvc, 3
+
+      new_order.cvc = 5
+      assert_numerical_range new_order, :cvc, 3
     end
   end
 
