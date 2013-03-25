@@ -53,7 +53,6 @@ $(document).ready(function(){
     // if( data.connected_to_facebook ) {
     //   $('.facebook_connect').hide();
     // }
-    console.log(data);
   }, 'JSON');
 
 });
