@@ -263,3 +263,17 @@
 .active_member_type {
   display: block !important;
 }
+
+#become_a_member_box {
+  a {
+    text-decoration: none;
+  }
+  .bg-yellow {
+    background-color: #FEF255;
+    padding: 20px;
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 29px;
+  }
+}
