@@ -10,6 +10,9 @@ class Member < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
 
+  delegate :email, :street_1, :city, :state, :zip, :phone, :to => :user
+  delegate :title, :to => :member_type
+
   # the hash representing this model that is returned by the api
   def api_attributes
     {
@@ -61,6 +64,13 @@ class Member < ActiveRecord::Base
     "#{ first_name } #{ last_name }"
   end
 
-
+  def self.generate_current_year_members_excel
+    CSV.open("/tmp/Member_list_#{Time.current.year}.csv", "wb", :col_sep => "\t") do |csv|
+      csv << ["First Name", "Last Name", "Member Level", "Organization", "Contact Email", "Address", "City", "State", "Zip", "Phone"]
+      Year.current_year_members.each do |member|
+        csv << [member.first_name, member.last_name, member.title, member.email, member.street_1, member.city, member.state, member.zip, member.phone]
+      end
+    end
+  end
 
 end

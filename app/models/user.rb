@@ -39,6 +39,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :quotes, :allow_destroy => true
   accepts_nested_attributes_for :sponsor_user, :allow_destroy => true
 
+  delegate :street_1, :city, :state, :zip, :phone, :to => :address, :allow_nil => true
+
   # useful scopes
   scope :admin,     conditions: { admin:        true }
   scope :speaker,   conditions: { is_speaker:   true }

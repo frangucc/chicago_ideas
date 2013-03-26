@@ -4,6 +4,7 @@ class Year < ActiveRecord::Base
   has_many :speakers, :dependent => :destroy
   has_many :users, :through => :speakers
   has_many :member_types
+  has_many :members
 
   # Get all years that are not this year - for archived talks
   scope :not_this_year, where("id != #{Time.now.year}")
@@ -22,6 +23,10 @@ class Year < ActiveRecord::Base
 
   def self.current_year_member_types
     current_year.member_types
+  end
+
+  def self.current_year_members
+    current_year.members
   end
 
   def self.total_orders_by_member_type_in_current_year
