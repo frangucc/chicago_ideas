@@ -1,5 +1,7 @@
 class DailyMembershipReportMailer < ActionMailer::Base
 
+  helper :application
+
   default :from    => ApplicationHelper::CIW_MEMBERSHIP_EMAIL
   default :subject => "Daily Membership Report"
 
