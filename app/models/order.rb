@@ -76,6 +76,10 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def self.last_order_created_today
+    self.where(:created_at => Date.today..Date.tomorrow).last
+  end
+
   protected
   def code_and_member
     while Order.find_by_code(self.code = SecureRandom.hex(4).upcase).present?; end
