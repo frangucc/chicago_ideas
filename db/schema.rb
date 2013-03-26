@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325161435) do
+ActiveRecord::Schema.define(:version => 20130326232121) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -644,19 +644,6 @@ ActiveRecord::Schema.define(:version => 20130325161435) do
   add_index "sponsorships", ["sponsorship_level_id"], :name => "index_sponsorships_on_sponsorship_level_id"
   add_index "sponsorships", ["year_id", "sponsor_id"], :name => "index_sponsorships_on_year_id_and_sponsor_id"
 
-  create_table "system_metrics", :force => true do |t|
-    t.string   "name",               :null => false
-    t.datetime "started_at",         :null => false
-    t.string   "transaction_id"
-    t.text     "payload"
-    t.float    "duration",           :null => false
-    t.float    "exclusive_duration", :null => false
-    t.integer  "request_id"
-    t.integer  "parent_id"
-    t.string   "action",             :null => false
-    t.string   "category",           :null => false
-  end
-
   create_table "talk_brands", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -905,52 +892,5 @@ ActiveRecord::Schema.define(:version => 20130325161435) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_foreign_key "affiliate_event_applications", "users", :name => "affiliate_event_applilcations_user_id_fk"
-
-  add_foreign_key "chapter_photos", "chapters", :name => "chapter_photos_chapter_id_fk"
-
-  add_foreign_key "chapters", "talks", :name => "chapters_talk_id_fk"
-
-  add_foreign_key "community_partner_applications", "users", :name => "community_partner_applications_user_id_fk"
-
-  add_foreign_key "days", "years", :name => "days_year_id_fk"
-
-  add_foreign_key "event_photos", "events", :name => "event_photos_event_id_fk"
-
-  add_foreign_key "event_speakers", "events", :name => "event_speakers_event_id_fk"
-  add_foreign_key "event_speakers", "users", :name => "event_speakers_speaker_id_fk", :column => "speaker_id"
-
-  add_foreign_key "events", "days", :name => "events_day_id_fk"
-  add_foreign_key "events", "event_brands", :name => "events_event_brand_id_fk"
-  add_foreign_key "events", "partners", :name => "events_partner_id_fk"
-  add_foreign_key "events", "venues", :name => "events_venue_id_fk"
-
-  add_foreign_key "members", "member_types", :name => "members_member_type_id_fk"
-  add_foreign_key "members", "users", :name => "members_user_id_fk"
-  add_foreign_key "members", "years", :name => "members_year_id_fk"
-
-  add_foreign_key "notes", "users", :name => "notes_author_id_fk", :column => "author_id"
-
-  add_foreign_key "performances", "chapters", :name => "performances_chapter_id_fk"
-  add_foreign_key "performances", "users", :name => "performances_speaker_id_fk", :column => "speaker_id"
-
-  add_foreign_key "quotes", "users", :name => "quotes_user_id_fk"
-
-  add_foreign_key "sponsors", "sponsorship_levels", :name => "sponsors_sponsorship_level_id_fk"
-
-  add_foreign_key "sponsorships", "sponsors", :name => "sponsorships_sponsor_id_fk"
-  add_foreign_key "sponsorships", "sponsorship_levels", :name => "sponsorships_sponsorship_level_id_fk"
-  add_foreign_key "sponsorships", "years", :name => "sponsorships_year_id_fk"
-
-  add_foreign_key "talk_photos", "talks", :name => "talk_photos_talk_id_fk"
-
-  add_foreign_key "talks", "days", :name => "talks_day_id_fk"
-  add_foreign_key "talks", "sponsors", :name => "talks_sponsor_id_fk"
-  add_foreign_key "talks", "talk_brands", :name => "talks_talk_brand_id_fk"
-  add_foreign_key "talks", "tracks", :name => "talks_track_id_fk"
-  add_foreign_key "talks", "venues", :name => "talks_venue_id_fk"
-
-  add_foreign_key "volunteers", "users", :name => "volunteers_user_id_fk"
 
 end
