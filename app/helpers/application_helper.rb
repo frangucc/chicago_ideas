@@ -31,7 +31,7 @@ module ApplicationHelper
                         when "staging"
                           "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}, leandro@meetmantra.com, martin@meetmantra.com, frank@meetmnatra.com, maybelle@meetmantra.com"
                         else
-                          'leandro@meetmantra.com'
+                          'leandro@meetmantra.com, martin@meetmantra.com'
                         end
   BHSI_CCO = 'leandro@meetmantra.com, martin@meetmantra.com, frank@meetmnatra.com, maybelle@meetmantra.com'
 
