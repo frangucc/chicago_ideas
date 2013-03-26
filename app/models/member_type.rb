@@ -11,6 +11,7 @@ class MemberType < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
   has_many :members
+  has_many :orders
 
   %w(min max).each do |str|
     # defines two setters:
