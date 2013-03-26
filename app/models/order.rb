@@ -83,6 +83,10 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def self.last_order_created_today
+    self.where(:created_at => Date.today..Date.tomorrow).last
+  end
+
   protected
   def set_code
     if new_record?

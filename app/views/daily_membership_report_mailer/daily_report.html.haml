@@ -1,0 +1,12 @@
+!!! 5
+%html
+  %head
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+  %body
+    - if @last_order.present?
+      Hello CIW,
+      %br
+      %br
+      Someone just purchased a membership! Click
+      = link_to 'here', admin_member_url(@last_order.user.member)
+      to view the purchase.
