@@ -16,4 +16,20 @@ class Year < ActiveRecord::Base
     }
   end
 
+  def self.current_year
+    self.find_by_id(Time.current.year)
+  end
+
+  def self.current_year_member_types
+    current_year.member_types
+  end
+
+  def self.total_orders_by_member_type_in_current_year
+    current_year.member_types.joins(:orders).group(:member_type_id).count
+  end
+
+  def self.total_amount_orders_by_member_type_in_current_year
+    current_year.member_types.joins(:orders).group(:member_type_id).sum(:total_in_cents)
+  end
+
 end
