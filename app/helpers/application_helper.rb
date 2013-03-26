@@ -22,18 +22,32 @@ module ApplicationHelper
   CIW_LEAH_EMAIL       = 'leah@chicagoideas.com'
   CIW_JESSICA_EMAIL    = 'jessica@chicagoideas.com'
   CIW_COREY_EMAIL      = 'corey@chicagoideas.com'
+  CIW_BECKY_EMAIL      = 'becky@chicagoideas.com'
   DAVID_EMAIL          = 'david@davidburstein.com'
+  LEANDRO_EMAIL        = 'leandro@meetmantra.com'
+  MARTIN_EMAIL         = 'martin@meetmantra.com'
+  FRANK_EMAIL          = 'frank@meetmantra.com'
+  MAYBELLE_EMAIL       = 'maybelle@meetmantra.com'
   TK_SHOPCLASS_EMAIL   = 'tk@shopclass.co'
   INFO_BLUHMHELF_EMAIL = 'info@bluhmhelfand.com'
+
   BHSI_RECIPIENTS      = case Rails.env
                          when "production"
                           "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}"
                         when "staging"
-                          "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}, leandro@meetmantra.com, martin@meetmantra.com, frank@meetmnatra.com, maybelle@meetmantra.com"
+                          "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}, #{LEANDRO_EMAIL}, #{MARTIN_EMAIL}, #{FRANK_EMAIL}, #{MAYBELLE_EMAIL}"
                         else
-                          'leandro@meetmantra.com, martin@meetmantra.com'
+                          "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
                         end
-  BHSI_CCO = 'leandro@meetmantra.com, martin@meetmantra.com, frank@meetmnatra.com, maybelle@meetmantra.com'
+  BHSI_CCO = "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}, #{FRANK_EMAIL}, #{MAYBELLE_EMAIL}"
+  DAILY_REPORT_RECIPIENTS = case Rails.env
+                            when "production"
+                              CIW_BECKY_EMAIL
+                            when "staging"
+                              "#{CIW_BECKY_EMAIL}, #{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
+                            else
+                              "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
+                            end
 
   def conditional_html( lang = "en", &block )
     fb_meta = "xml:lang='en' xmlns:fb='http://www.facebook.com/2008/fbml' xmlns:og='http://opengraphprotocol.org/schema/' xmlns='http://www.w3.org/1999/xhtml'"

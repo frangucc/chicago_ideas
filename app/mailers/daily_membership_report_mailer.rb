@@ -15,7 +15,7 @@ class DailyMembershipReportMailer < ActionMailer::Base
     attachments[members_list_file_name]  = File.read("/tmp/#{members_list_file_name}")
     attachments[members_stats_file_name] = File.read("/tmp/#{members_stats_file_name}")
 
-    mail(:to => ApplicationHelper::BHSI_RECIPIENTS)
+    mail(:to => ApplicationHelper::DAILY_REPORT_RECIPIENTS)
   end
 
 end
