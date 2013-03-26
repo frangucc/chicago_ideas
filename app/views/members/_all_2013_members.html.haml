@@ -1,0 +1,32 @@
+- if members.length > 0
+  .column_row.divided_row
+    .column.column_double
+    %p Thank you to our CIW 2013 Members for supporting the production and programming of Chicago Ideas Week.
+
+- if collaborator.length > 0
+  .column_row.divided_row
+    .column.column_double
+      %h2.member_label Collaborators
+      -# Members: Pillars Loop
+      = render "partials/members_loop", :members => collaborator
+
+- if producer.length > 0
+  .column_row.divided_row
+    .column.column_double
+      %h2.member_label Producers
+      -# Members: Benefactors Loop
+      = render "partials/members_loop", :members => producer
+
+- if menlo.length > 0
+  .column_row.divided_row
+    .column.column_double
+      %h2.member_label Menlo
+      -# Members: Patrons Loop
+      = render "partials/members_loop", :members => menlo
+
+- if edison.length > 0
+  .column_row.divided_row
+    .column.column_double
+      %h2.member_label Edison
+      -# Members: Patrons Loop
+      = render "partials/members_loop", :members => edison
