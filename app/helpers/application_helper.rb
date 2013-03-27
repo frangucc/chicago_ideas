@@ -44,7 +44,7 @@ module ApplicationHelper
                             when "production"
                               CIW_BECKY_EMAIL
                             when "staging"
-                              "#{CIW_BECKY_EMAIL}, #{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
+                              "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
                             else
                               "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
                             end
