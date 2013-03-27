@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 
   def create
     address_params = params[:order].delete "address"
+    address_params = params[:order][:billing_address_attributes] if params[:same_info] == "Yes"
     member_params  = params[:order].delete "member"
 
     @order    = Order.new(params[:order])
