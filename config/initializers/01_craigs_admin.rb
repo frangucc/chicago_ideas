@@ -5,9 +5,6 @@
 # The name of this business, to be used throughout the application
 BUSINESS_NAME = ENV['BUSINESS_NAME'].freeze
 
-# used for facebook, google analytics, emails and other places where a master domain name is used to represent the business
-BASE_DOMAIN_NAME = ENV['BASE_DOMAIN_NAME'].freeze
-
 # the from address used when sending email to customers, and also the email address used when delivering email to the admin (e.g. from the conact form)
 BUSINESS_EMAIL = ENV['BUSINESS_EMAIL'].freeze
 
@@ -16,9 +13,6 @@ DEVELOPER_EMAIL = ENV['DEVELOPER_EMAIL'].freeze
 
 # bing maps api key for static maps
 # BING_MAPS_API_KEY = ENV['BING_MAPS_API_KEY'].freeze
-
-# urchin code for google analytics
-GOOGLE_ANALYTICS_ACCOUNT_ID = ENV['GOOGLE_ANALYTICS_ACCOUNT_ID'].freeze
 
 # we use AWS as a backend for fog and paperclip
 AWS_ACCESS_KEY_ID = ENV['AWS_ACCESS_KEY_ID'].freeze
