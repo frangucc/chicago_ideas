@@ -71,7 +71,7 @@ class Order < ActiveRecord::Base
       Year.current_year_member_types.each do |member_type|
         orders_count = total_orders[member_type.id] || 0
         orders_amount = total_amounts[member_type.id] || 0
-        csv << [member_type.title, orders_count, orders_amount]
+        csv << [member_type.title, orders_count, orders_amount/100]
       end
     end
   end
