@@ -8,20 +8,20 @@
 
   #banner_container
     .banner_item#banner_1
-      = link_to '', videos_path
+      = link_to '', membership_path
     .banner_item#banner_2
+      = link_to '', videos_path
     .banner_item#banner_3
-      = link_to '', impact_path
     .banner_item#banner_4
-      = link_to '', mission_path
+      = link_to '', impact_path
     .banner_item#banner_5
+      = link_to '', mission_path
+    .banner_item#banner_6
       %ul#banner_follow
         %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_follow_facebook.png"), ApplicationHelper::CIW_FACEBOOK_URL, :target => "_blank"
         %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_follow_twitter.png"),  ApplicationHelper::CIW_TWITTER_URL,  :target => "_blank"
         %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_follow_blogger.png"),  ApplicationHelper::CIW_BLOG_URL,     :target => "_blank"
         %li= link_to image_tag("/assets/application/banner_static/ciw_homepage_banner_follow_youtube.png"),  ApplicationHelper::CIW_YOUTUBE_URL,  :target => "_blank"
-    .banner_item#banner_6
-      = link_to '', membership_path
 
     .container-fluid#banner_nav_wrapper
       %ul#banner_nav
