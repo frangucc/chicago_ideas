@@ -166,4 +166,32 @@ module ApplicationHelper
     end
   end
 
+  def same_billing_info_radios
+    content_tag :li, :class => 'radio input required', :id => 'same_billing_info' do
+      content_tag :fieldset, :class => 'choices' do
+        content = content_tag :legend, :class => 'label' do
+          content_tag :label, 'Personal info same as billing'
+        end
+        content += content_tag :ol, :class => 'choices' do
+          li_items = content_tag :li, :class => 'choice' do
+            label_tag :same_info_Yes do
+              raw(
+                'Yes' +
+                radio_button_tag(:same_info, 'Yes')
+              )
+            end
+          end
+          li_items += content_tag :li, :class => 'choice' do
+            label_tag :same_info_No do
+              raw(
+                'No' +
+                radio_button_tag(:same_info, 'No', true)
+              )
+            end
+          end
+        end
+      end
+    end
+  end
+
 end
