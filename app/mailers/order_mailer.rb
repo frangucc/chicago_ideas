@@ -1,7 +1,7 @@
 class OrderMailer < ActionMailer::Base
   include PdfCreator
 
-  default :from    => "'CIW Receipt of Purchase' <leanucci@gmail.com>"
+  default :from    => "'CIW Receipt of Purchase' <#{ApplicationHelper::CIW_FORMS_EMAIL}>"
   default :subject => "Thank you for joining CIW's Member Program"
 
   def thank_you_membership(order)
