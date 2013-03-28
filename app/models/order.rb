@@ -75,7 +75,7 @@ class Order < ActiveRecord::Base
     current_time = Time.current
 
     CSV.open("/tmp/Member_stats_#{current_time.year}_#{current_time.strftime("%m-%d-%Y")}.csv", "wb", :col_sep => ",") do |csv|
-      csv << ["Membership Level", "Total Members", "Total Amount in cents"]
+      csv << ["Membership Level", "Total Members", "Total Amount"]
       Year.current_year_member_types.each do |member_type|
         orders_count = total_orders[member_type.id] || 0
         orders_amount = total_amounts[member_type.id] || 0
