@@ -6,8 +6,6 @@ class DailyMembershipReportMailer < ActionMailer::Base
   default :subject => "Daily Membership Report"
 
   def daily_report
-    @last_order = Order.last_order_created_today
-
     Order.generate_members_stats_excel
     Member.generate_current_year_members_excel
 
