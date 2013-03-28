@@ -48,6 +48,14 @@ module ApplicationHelper
                             else
                               "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
                             end
+  MEMBER_PURCHASE_RECIPIENTS = case Rails.env
+                               when "production"
+                                 CIW_MEMBERSHIP_EMAIL
+                               when "staging"
+                                 "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
+                               else
+                                 "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
+                               end
 
   def conditional_html( lang = "en", &block )
     fb_meta = "xml:lang='en' xmlns:fb='http://www.facebook.com/2008/fbml' xmlns:og='http://opengraphprotocol.org/schema/' xmlns='http://www.w3.org/1999/xhtml'"
