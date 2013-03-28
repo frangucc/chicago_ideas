@@ -72,8 +72,9 @@ class Order < ActiveRecord::Base
   def self.generate_members_stats_excel
     total_orders  = Year.total_orders_by_member_type_in_current_year
     total_amounts = Year.total_amount_orders_by_member_type_in_current_year
+    current_time = Time.current
 
-    CSV.open("/tmp/Member_stats_#{Time.current.year}.csv", "wb", :col_sep => ",") do |csv|
+    CSV.open("/tmp/Member_stats_#{current_time.year}_#{current_time.strftime("%m-%d-%Y")}.csv", "wb", :col_sep => ",") do |csv|
       csv << ["Membership Level", "Total Members", "Total Amount in cents"]
       Year.current_year_member_types.each do |member_type|
         orders_count = total_orders[member_type.id] || 0
