@@ -65,7 +65,7 @@ class Member < ActiveRecord::Base
   end
 
   def self.generate_current_year_members_excel
-    CSV.open("/tmp/Member_list_#{Time.current.year}.csv", "wb", :col_sep => "\t") do |csv|
+    CSV.open("/tmp/Member_list_#{Time.current.year}.csv", "wb", :col_sep => ",") do |csv|
       csv << ["First Name", "Last Name", "Member Level", "Organization", "Contact Email", "Address", "City", "State", "Zip", "Phone"]
       Year.current_year_members.each do |member|
         csv << [member.first_name, member.last_name, member.title, member.email, member.street_1, member.city, member.state, member.zip, member.phone]
