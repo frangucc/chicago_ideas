@@ -49,12 +49,19 @@ class Admin::UsersController < Admin::AdminController
     @parent = parent_model
     @model = new_model(params[model_name])
     @model = pre_create(@model)
-    if @model.save
+
+    if @model.is_sponsor
+      User.invite!(:name  => @model.name, :email => @model.email, :staff => @model.staff, :is_sponsor => true,
+                   :sponsor_user_attributes => params[model_name][:sponsor_user_attributes], :year_ids => @model.year_ids,
+                   :tite => @model.title, :bio => @model.bio, :twitter_screen_name => @model.twitter_screen_name,
+                   :portrait => params[model_name][:portrait], :portrait2 => params[model_name][:portrait2],
+                   :is_admin_created => true, :is_sponsor => true)
+      redirect_to admin_users_path, notice: "#{@model.class.name.titlecase} was successfully created."
+    elsif @model.save
       redirect_to admin_users_path, notice: "#{@model.class.name.titlecase} was successfully created."
     else
       render :new
     end
-
   end
 
   def simulate
