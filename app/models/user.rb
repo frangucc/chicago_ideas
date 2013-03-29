@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :title,
                   :bio, :twitter_screen_name, :newsletter, :portrait, :portrait2,
-                  :quotes_attributes, :year_ids, :role, :sponsor_user_attributes, :staff
+                  :quotes_attributes, :year_ids, :role, :sponsor_user_attributes, :staff, :is_sponsor
   HINT={admin: "Super Admins access full admin and can simulate other admin users.",
         sponsor: "Sponsor Admins can access their respective sponsor portals.",
         speaker: "Speakers can access Speaker portal and be associated with talks.",
