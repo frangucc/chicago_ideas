@@ -573,10 +573,8 @@ CraigsAdmin::Application.routes.draw do
 
   namespace :sponsor do
     root :to => "start_here#index"
-    resources :send_tickets, only: [:index]
     resources :events_calendar, only: [:index]
     resources :materials, only: [:index]
-    resources :send_tickets, only: [:index]
     resources :start_here, only: [:index] do
       collection do
         post :send_request
