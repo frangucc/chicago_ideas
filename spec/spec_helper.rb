@@ -59,12 +59,12 @@ def assert_birthdate(model, field)
   model.errors[field].join.should match(/Must be greater than #{BhsiApplication::BIRTHDATE_LIMIT}|Invalid birthdate format, should be mm\/dd\/yyyy/)
 end
 
-class ActiveRecord::Base
-  mattr_accessor :shared_connection
-  @@shared_connection = nil
-
-  def self.connection
-    @@shared_connection || retrieve_connection
-  end
-end
-ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+# class ActiveRecord::Base
+#   mattr_accessor :shared_connection
+#   @@shared_connection = nil
+#
+#   def self.connection
+#     @@shared_connection || retrieve_connection
+#   end
+# end
+# ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
