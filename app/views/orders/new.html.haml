@@ -38,15 +38,23 @@
             = f.input :member_type_id,  :as => :hidden, :value => @order.member_type.id
             = f.input :name_on_card,    :as => :string, :required => true, :placeholder => 'Doe Jane'
             - opts = { :as => :string, :required => true }
-            - opts.merge!({ :input_html => { :value => "370000000000002" } }) if Rails.env == 'development'
+            - opts.merge!({ :input_html => { :value => "370000000000002" } }) unless Rails.env.production?
             = f.input :card_number, opts
             = f.inputs :class => 'form_expdate_cvc' do
-              = f.input :expiry_date,   :as => :string, :required => true, :label => 'Exp Date', :placeholder => 'MMYY'
-              = f.input :cvc,           :as => :string, :required => true, :label => "CVC"
-            = f.inputs :class => 'form_state_cards' do
-              %li.form_cards
-                = image_tag 'application/orders/credit_cards.png'
-
+              %li
+                = f.label :expiry_date_month, :style => "margin-top: 0px" do
+                  Expires on
+                  %abbr{ :title => "required" }*
+                %span.expiry_date
+                  = f.select :expiry_date_month, Order::EXPIRY_DATE_MONTH_ARY, :prompt => 'Month'
+                  \/
+                  = f.select :expiry_date_year, Order::EXPIRY_DATE_YEAR_ARY, :prompt => 'Year'
+              %li
+                = f.label :cvc do
+                  CVC
+                  %abbr{ :title => "required" }*
+                = f.text_field :cvc
+                = image_tag 'application/orders/credit_cards.png', :class => "form_state_cards"
             %ol
               = f.semantic_fields_for :billing_address do |billing_address|
                 = billing_address.input :street_1, :as => :string, :required => true

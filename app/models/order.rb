@@ -1,5 +1,9 @@
 require 'authorize_net'
 class Order < ActiveRecord::Base
+
+  EXPIRY_DATE_MONTH_ARY =   (1..12).to_a.map { |m| m.to_s.rjust(2, "0") }
+  EXPIRY_DATE_YEAR_ARY  =   (13..19).to_a.map { |m| m.to_s }
+
   belongs_to :user, :autosave => true
   belongs_to :member_type
   belongs_to :billing_address, foreign_key: :address_id, class_name: "Address", :autosave => true
@@ -7,15 +11,17 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :billing_address
   accepts_nested_attributes_for :user
 
-  attr_accessor :card_number, :expiry_date, :cvc, :amount
+  attr_accessor :card_number, :expiry_date_month, :expiry_date_year, :cvc, :amount
 
   validates_presence_of :name_on_card
   validates_presence_of :card_number
-  validates_presence_of :amount
+  validates_numericality_of :amount, :message => "please use only numbers and the dot (.) symbol"
 
-  validates :expiry_date, :presence => true, :length => { :is => 4 }, :numericality => true
   validates :cvc, :presence => true, :length => { :minimum => 3, :maximum => 4 }, :numericality => true
   validates :member_type_id, :presence => true
+
+  validates_inclusion_of :expiry_date_month, :in => Order::EXPIRY_DATE_MONTH_ARY, :allow_nil => false
+  validates_inclusion_of :expiry_date_year,  :in => Order::EXPIRY_DATE_YEAR_ARY,  :allow_nil => false
 
   before_validation :assign_total_in_cents
   after_validation :amount_should_match_member_types
@@ -49,7 +55,7 @@ class Order < ActiveRecord::Base
       transaction.set_customer(@customer)
       transaction.set_fields(:phone => user.phone, :invoice_num => self.code )
 
-      credit_card = AuthorizeNet::CreditCard.new(card_number, expiry_date)
+      credit_card = AuthorizeNet::CreditCard.new(card_number, "#{ expiry_date_month }#{ expiry_date_year }")
 
       response = transaction.purchase(amount, credit_card)
 
@@ -59,7 +65,7 @@ class Order < ActiveRecord::Base
         self.an_invoice_number        = response.fields[:invoice_number]
         self.an_account_number        = response.fields[:account_number]
         self.an_card_type             = response.fields[:card_type]
-        save
+        save!
         return true
       else
         errors.add(:base, "There was a problem processing your credit card.")
