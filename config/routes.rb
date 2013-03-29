@@ -571,7 +571,6 @@ CraigsAdmin::Application.routes.draw do
 
   namespace :sponsor do
     root :to => "start_here#index"
-    resources :events_calendar, only: [:index]
     resources :materials, only: [:index]
     resources :start_here, only: [:index] do
       collection do
