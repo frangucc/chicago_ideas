@@ -18,8 +18,11 @@ class OrdersController < ApplicationController
     @address  = Address.new(address_params)
     @member   = Member.new(member_params)
 
+    user = User.find_by_email(params[:order][:user_attributes][:email])
+
+    @order.user = user.present? ? user : User.new(params[:order][:user_attributes])
+
     @order.user.address   = @address
-    @order.user.member    = @member
     @order.user.is_member = true
     @order.user.password  = SecureRandom.hex(5).upcase
     @order.user.name      = "#{@member.first_name} #{@member.last_name}"
@@ -27,6 +30,7 @@ class OrdersController < ApplicationController
     @member.year = Year.last
 
     @order.member_type = @member.member_type = MemberType.find(params[:order][:member_type_id])
+    @order.user.member    = @member
     @demographic_info = DemographicInfo.new
 
     if @order.process_transaction

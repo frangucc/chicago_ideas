@@ -27,6 +27,19 @@
               - @order.errors[:base].each do |error|
                 %li.form_error
                   = error
+              - if @order.errors[:expiry_date_month].any?
+                %li.form_error
+                  Expiry month
+                  = @order.errors[:expiry_date_month].join(", ")
+              - if @order.errors[:cvc].any?
+                %li.form_error
+                  CVC
+                  = @order.errors[:cvc].join(", ")
+              - if @order.errors[:expiry_date_year].any?
+                %li.form_error
+                  Expiry year
+                  = @order.errors[:expiry_date_year].join(", ")
+
 
           = f.inputs :class => "v_lists c_list" do
             = f.input :amount, opts_for_amount(@order)
