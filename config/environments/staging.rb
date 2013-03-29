@@ -12,9 +12,9 @@ CraigsAdmin::Application.configure do
 
 
   ActionMailer::Base.smtp_settings = {
-    user_name:            "chicago_ideas",
-    password:             "ciwmantramailer",
-    domain:               "chicagoideas.com",
+    user_name:            "ciwstaging",
+    password:             "ciwstaging",
+    domain:               "54.225.238.30",
     address:              "smtp.sendgrid.net",
     port:                 587,
     authentication:       :plain,
