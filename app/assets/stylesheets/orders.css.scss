@@ -199,6 +199,33 @@
     ol li label {
       font-weight: inherit;
     }
+    #same_billing_info {
+      fieldset {
+        width: 100%;
+        legend {
+          float: right;
+          width: 120px;
+          label {
+            width: 100%;
+            padding-right: 0;
+            text-align: left;
+          }
+        }
+        .choices {
+          width: 80px;
+          margin-left: 135px !important;
+          float: left;
+          .choice {
+            label {
+              width: 50px;
+              input {
+                width: 33%;
+              }
+            }
+          }
+        }
+      }
+    }
   }
   #confirm_purchase {
     padding: 6px 42px;

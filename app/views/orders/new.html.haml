@@ -71,6 +71,7 @@
                   = m.input :company_name, :as => :string
 
                 = f.semantic_fields_for @address do |ad|
+                  = same_billing_info_radios
                   = ad.input :street_1, :as => :string, :required => true
                   = ad.input :street_2, :as => :string
                   = ad.input :city,     :as => :string, :required => true

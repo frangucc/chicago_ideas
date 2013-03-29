@@ -56,3 +56,13 @@ $(document).ready ->
   ).live('ajax:complete', (xhr, data, status) ->
     $.fancybox.hideActivity()
   )
+
+  address_ids = ['#order_address_street_1', '#order_address_street_2', '#order_address_city', '#order_address_state', '#order_address_zip', '#order_address_phone']
+
+  $('#same_info_Yes').live 'click', (event) ->
+    for address_id in address_ids
+      $(address_id).attr 'disabled', 'disabled'
+
+  $('#same_info_No').live 'click', (event) ->
+    for address_id in address_ids
+      $(address_id).removeAttr 'disabled'
