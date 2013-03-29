@@ -15,11 +15,4 @@ class AdminMailer < ActionMailer::Base
     mail(:to => BUSINESS_EMAIL, :subject => contact_params[:subject])
   end
 
-  def sponsor_admin_notification(user, password)
-    @user = user
-    @password = password
-
-    mail(:from => "no_reply@chicagoideas.com", :to => user.email, :subject => "Your account at chicagoideas.com")
-  end
-
 end

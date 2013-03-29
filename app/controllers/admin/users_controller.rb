@@ -49,9 +49,7 @@ class Admin::UsersController < Admin::AdminController
     @parent = parent_model
     @model = new_model(params[model_name])
     @model = pre_create(@model)
-    password = @model.temporary_password
     if @model.save
-      AdminMailer.sponsor_admin_notification(@model, password).deliver if @model.is_sponsor
       redirect_to admin_users_path, notice: "#{@model.class.name.titlecase} was successfully created."
     else
       render :new
