@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
   end
 
   def create
+    params[:order][:user_attributes].delete :id
+
     address_params = params[:order].delete "address"
     address_params = params[:order][:billing_address_attributes] if params[:same_info] == "Yes"
     member_params  = params[:order].delete "member"
