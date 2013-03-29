@@ -3,21 +3,6 @@ class Sponsor::StartHereController < Sponsor::BaseController
     @sponsor = current_user.sponsor
   end
 
-  def send_request
-    validate_params "name", "email"
-    unless User.where(email: params[:email]).blank?
-      @errors << "Already a user of CIW"
-    end
-    if @errors.blank?
-      user = User.invite!(name: params[:name], email: params[:email], is_admin_created: true)
-      #user = User.find_by_email params[:email]
-      user.update_attribute(:is_sponsor, true)
-      current_user.sponsor.sponsor_users.create(user_id: user.id)
-    end
-
-    respond_to :js
-  end
-
   def update_sponsor
     @sponsor = current_user.sponsor
     do_unlock = false
