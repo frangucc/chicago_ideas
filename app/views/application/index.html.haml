@@ -8,6 +8,10 @@
 
 %section.container#main_content
   -# Left column, main content: Videos, speakers, etc.
+
+  .box.full#homepage_video
+    %iframe{ :width => '640', :height => '360', :src => ApplicationHelper::HOMEPAGE_YOUTUBE_URL, :frameborder => '0', :allowfullscreen => true }
+
   .box.full.left#intro
 
     .column_row.divided_row
