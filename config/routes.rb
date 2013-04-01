@@ -70,13 +70,15 @@ CraigsAdmin::Application.routes.draw do
   # sponsors and partners
   # ----------------------------------------------------------------
   resources :sponsors, :only => [:index]
-  resources :cooperative, :only => [:index] do
-    collection do
-      get :application
-      get :thankyou
-      post :create
-    end
-  end
+
+  resources :cooperative, :only => [:index]
+  #resources :cooperative, :only => [:index] do
+    #collection do
+      #get :application
+      #get :thankyou
+      #post :create
+    #end
+  #end
   match 'sponsors/media_partners', :to => 'sponsors#media_partners'
 
   # users
