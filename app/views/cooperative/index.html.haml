@@ -70,14 +70,14 @@
                 %li Proven dedication to community and social impact through professional collaboration
                 %li Interest in lasting relationship with CIW and Co-op members, demonstrated through high event attendance and enthusiasm, week-of visibility and community interaction
                 %li Willingness to become an ambassador for the CIW brand, pushing CIW message out to organization’s community through social media and listserv
-        .join-foot
-          %p
-            %strong Join the Co-op
-            %br
-            At a glance, the Co-op is a diverse collection of local leaders, artists, business pros, innovators and social pioneers, handpicked by the CIW team to catalyze action in this booming start-up scene.  And we’re going to be selective. So tell us, <strong>show us</strong> why you should be involved in this tight-knit community of pragmatic idealists.
+        -#.join-foot
+          -#%p
+            -#%strong Join the Co-op
+            -#%br
+            -#At a glance, the Co-op is a diverse collection of local leaders, artists, business pros, innovators and social pioneers, handpicked by the CIW team to catalyze action in this booming start-up scene.  And we’re going to be selective. So tell us, <strong>show us</strong> why you should be involved in this tight-knit community of pragmatic idealists.
         .row-wrap
           -#=link_to "Apply Here", application_cooperative_index_path, class: "blue_btn big-btn"
-          .over-hid
+          .over-hid#more_info_coop
             For more information about the Co-op, please contact Kelly Hagler:
             = mail_to ApplicationHelper::CIW_KELLY_EMAIL
 
