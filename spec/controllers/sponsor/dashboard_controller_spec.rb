@@ -6,7 +6,7 @@ describe Sponsor::DashboardController do
     Year.create(:id => 2013)
     Year.stub(:find).and_return(double(:year))
     TalkBrand.stub_chain(:find, :talks, :current, :order, :limit).and_return([])
-    @user = FactoryGirl.create(:user, :is_sponsor =>true)
+    @user = FactoryGirl.create(:user, :is_sponsor => true)
     sign_in @user
   end
 

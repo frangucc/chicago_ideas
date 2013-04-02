@@ -12,3 +12,8 @@
 // =require admin/content_navigation
 // =require admin/forms
 // =require jquery.uniform.min
+// =require buttons.js
+
+stLight.options({
+  publisher: 'defcc141-a8b2-4734-8cde-5662ed8a4501'
+});
