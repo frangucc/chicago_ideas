@@ -283,6 +283,10 @@ class User < ActiveRecord::Base
     SimulateUser.create! email: self.email, user_id: self.id
   end
 
+  def invitation_accepted?
+    invitation_accepted_at.present?
+  end
+
   after_save :create_role_association
   private
 
