@@ -95,6 +95,10 @@ class Sponsor < ActiveRecord::Base
     return su ? su.user : nil
   end
 
+  def active?
+    eps_logo_file_name.present? && logo_file_name.present? && sponsor_agreement_file_name.present?
+  end
+
   private
 
     # i know its strict, but otherwise people will upload images without appreciation for aspect ratio
