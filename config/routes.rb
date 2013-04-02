@@ -570,16 +570,9 @@ CraigsAdmin::Application.routes.draw do
   end
 
   namespace :sponsor do
-    root :to => "start_here#index"
+    root :to => "dashboard#index"
     resources :dashboard, :only => [:index]
     resources :materials, only: [:index]
-    resources :start_here, only: [:index] do
-      collection do
-        post :send_request
-        put :update_sponsor
-        delete :delete_user
-      end
-    end
   end
 
 end

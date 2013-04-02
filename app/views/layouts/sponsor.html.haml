@@ -84,7 +84,7 @@
       .w100-fix
         .welcome Welcome #{current_user.name}
         %ul.unstyle
-          %li{class: "#{'active' if controller_name=='start_here'}"}= link_to "start here", sponsor_root_path
+          %li{class: "#{'active' if controller_name=='dashboard'}"}= link_to "dashboard", sponsor_root_path
           %li{class: "#{'active' if controller_name=='materials'}"}= link_to 'materials', sponsor_materials_path
             
     #content_container
