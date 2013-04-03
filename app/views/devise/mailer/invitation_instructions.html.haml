@@ -3,83 +3,65 @@
   %head
     %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
   %body
-    .invitation_email{ :style => "width: 850px; padding: 40px; background-image: url('#{root_url}/assets/application/sponsor/email_background.png'); background-size: 100%;" }
-      .invitation{ :style => 'border: 2px solid #E3E3E3; border-bottom: 2px solid rgb(100, 100, 100); background: #FFF; color: #2D2B2C;' }
-        .invitation_headline
-          = link_to (image_tag 'application/sponsor/ciw_logo.png'), root_url, :style => 'float: left;'
-          .header{ :style => 'float: left; width: 600px; padding: 20px 60px;' }
-            %h1{ :style => 'font-size: 50px;' }
-              Welcome to
-              %span{ :style => 'background: #FFF100;' }
-                CHICAGO IDEAS WEEK!
-            %p{ :style => 'font-size: 20px;' }
-              A
-              %span{ :style => 'color: #1DAFEF;' } Sponsor Admin
-              account has been created for you.
-          .clear{ :style => 'clear: both;' }
-        .invitation_body
-          .body_image{ :style => 'width: 720px; margin: auto; padding: 10px; text-align: center; border: 1px solid #E3E3E3;' }
-            = image_tag 'application/sponsor/email_header_image.png', :style => 'width: 720px;'
-          .body_content{ :style => 'width: 740px; margin: 60px auto; font-size: 17px;' }
-            %p{ :style => 'margin: 22px 0;' }
-              Dear #{@resource.name},
+    .invitation_email{ :style => 'width: 850px; color: #666;' }
+      .invitation_headline{ :style => 'padding: 40px 0; border-top: 2px solid rgb(43, 108, 171); border-bottom: 1px solid #000;' }
+        = link_to (image_tag 'application/sponsor/ciwlogo.png'), root_url, :style => 'float: left; margin-left: 70px; margin-top: 40px;'
+        .header{ :style => 'float: left; width: 600px; margin-left: 80px;' }
+          %h1{ :style => 'font-size: 50px;' }
+            Welcome to Chicago Ideas Week!
+          %p{ :style => 'font-size: 22px;' }
+            A
+            %span{ :style => 'color: #1DAFEF;' } Sponsor Admin
+            account has been created for you.
+        .clear{ :style => 'clear: both;' }
+      .invitation_body
+        .body_content{ :style => 'width: 740px; margin: 60px auto; font-size: 17px;' }
+          %p{ :style => 'margin: 22px 0;' }
+            Dear #{@resource.name},
 
-            %p{ :style => 'margin: 22px 0;' }
-              Thank you for becoming a CIW #{@resource.sponsor.name} Sponsor! Your support is greatly appreciated.
-              To enhance your CIW experience, please login
-              = link_to 'here', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), :style => 'color: #1DAFEF; text-decoration: none;'
-              using the username provided below:
+          %p{ :style => 'margin: 22px 0;' }
+            Thank you for becoming a CIW #{@resource.sponsor.name} Sponsor! Your support is greatly appreciated.
+            To enhance your CIW experience, please login
+            = link_to 'here', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), :style => 'color: #1DAFEF; text-decoration: none;'
+            using the username below and reset your password:
 
-            %p{ :style => 'margin: 22px 0;' }
-              Your username:
-              = mail_to @resource.email, nil, :style => 'color: #1DAFEF; text-decoration: none;'
+          %p{ :style => 'margin: 22px 0;' }
+            Your username:
+            = mail_to @resource.email, nil, :style => 'color: #1DAFEF; text-decoration: none;'
 
-            %p{ :style => 'margin: 22px 0;' }
-              Upon your first time logging in, you will be prompted to set your own unique password.
-              Thanks again for all your support!
+          %p{ :style => 'margin: 22px 0;' }
+            Upon your first time logging in, you will be prompted to set your own unique password.
+            Thanks again for all your support!
 
-            %p{ :style => 'margin: 22px 0;' }
-              Best,
-              %br Leah Marshall
-              %br Director of Development
-              %br p: 312.999.3935
-              %br e:
-              = mail_to 'leah@chicagoideas.com', nil, :style => 'font-weight: bold; color: #2D2B2C; text-decoration: none;'
-        .invitation_footer
-          .activate_sponsor{ :style => 'background: #2D2B2C;' }
-            %p{ :style => 'color: #FFF; font-size: 30px; padding: 10px 0 10px 50px;' }
-              Activate your sponsorship
-          .steps{ :style => 'width: 740px; margin: auto auto 20px auto;' }
-            .login_step{ :style => 'border-bottom: 1px solid #E3E3E3; padding: 20px 0;' }
-              %p{ :style => 'float: left; font-size: 100px; margin: 0; color: #1DAFEF;' }
-                1
-              .login_exp{ :style => 'float: left; margin-left: 30px; width: 500px;' }
-                %p{ :style => 'margin-top: 14px; margin-bottom: 0; font-size: 30px; font-weight: bold; color: #1DAFEF;' }
-                  Login
-                %p{ :style => 'margin-top: 13px; margin-bottom: 0; font-size: 30px;' }
-                  Enter the sponsor portal
-              = image_tag 'application/sponsor/key.png', :style => 'float: right; margin-top: 30px; margin-right: 15px;'
-              .clear{ :style => 'clear: both;' }
-            .submit_step{ :style => 'border-bottom: 1px solid #E3E3E3; padding: 20px 0;' }
-              %p{ :style => 'float: left; font-size: 100px; margin: 0; color: #1DAFEF;' }
-                2
-              .submit_exp{ :style => 'float: left; margin-left: 30px; width: 500px;' }
-                %p{ :style => 'margin-top: 14px; margin-bottom: 0; font-size: 30px; font-weight: bold; color: #1DAFEF;' }
-                  Submit your signed agreement
-                %p{ :style => 'margin-top: 13px; margin-bottom: 0; font-size: 30px;' }
-                  For use on the CIW website and marketing materials.
-              = image_tag 'application/sponsor/note.png', :style => 'float: right; margin-top: 40px; margin-right: 15px;'
-              .clear{ :style => 'clear: both;' }
-            .upload_step{ :style => 'padding: 20px 0;' }
-              %p{ :style => 'float: left; font-size: 100px; margin: 0; color: #1DAFEF;' }
-                3
-              .upload_exp{ :style => 'float: left; margin-left: 30px; width: 500px;' }
-                %p{ :style => 'margin-top: 14px; margin-bottom: 0; font-size: 30px; font-weight: bold; color: #1DAFEF;' }
-                  Upload your logo
-                %p{ :style => 'margin-top: 13px; margin-bottom: 0; font-size: 30px;' }
-                  For use on the CIW website and marketing materials.
-              = image_tag 'application/sponsor/arrow.png', :style => 'float: right; margin-top: 40px; margin-right: 15px;'
-              .clear{ :style => 'clear: both;' }
-      .invitation_copyright
-        %p{ :style => 'font-size: 12px; color: rgb(157, 157, 157);' }
-          Copyright @#{Time.current.year} Chicago Ideas Week, All rights reserved.
+          %p{ :style => 'margin: 22px 0;' }
+            Best,
+            %br Leah Marshall
+            %br Director of Development
+            %br p: 312.999.3935
+            %br e:
+            = mail_to 'leah@chicagoideas.com', nil, :style => 'font-weight: bold; color: #2D2B2C; text-decoration: none;'
+        .activate_sponsor{ :style => 'background: #2D2B2C;' }
+          %p{ :style => 'color: #FFF; font-size: 30px; padding: 10px 0 10px 50px;' }
+            Activate your sponsorship
+        .steps{ :style => 'width: 740px; margin: auto auto 20px auto;' }
+          .login_step{ :style => 'border-bottom: 1px solid #E3E3E3; padding: 20px 0;' }
+            %p{ :style => 'float: left; font-size: 100px; margin: 0; color: #1DAFEF;' }
+              1
+            .login_exp{ :style => 'float: left; margin-left: 30px; width: 500px;' }
+              %p{ :style => 'margin-top: 14px; margin-bottom: 0; font-size: 30px; font-weight: bold; color: #1DAFEF;' }
+                Login
+              %p{ :style => 'margin-top: 13px; margin-bottom: 0; font-size: 30px;' }
+                Enter the sponsor portal
+            = image_tag 'application/sponsor/key.png', :style => 'float: right; margin-top: 30px; margin-right: 15px;'
+            .clear{ :style => 'clear: both;' }
+          .upload_step{ :style => 'padding: 20px 0;' }
+            %p{ :style => 'float: left; font-size: 100px; margin: 0; color: #1DAFEF;' }
+              2
+            .upload_exp{ :style => 'float: left; margin-left: 30px; width: 500px;' }
+              %p{ :style => 'margin-top: 14px; margin-bottom: 0; font-size: 30px; font-weight: bold; color: #1DAFEF;' }
+                Upload your logo
+              %p{ :style => 'margin-top: 13px; margin-bottom: 0; font-size: 30px;' }
+                For use on the CIW website and marketing materials.
+            = image_tag 'application/sponsor/arrow.png', :style => 'float: right; margin-top: 40px; margin-right: 15px;'
+            .clear{ :style => 'clear: both;' }
+      .invitation_footer
