@@ -1,0 +1,30 @@
+.personal_info_modal_hidden
+  #personal_info_modal
+    .inner
+      .personal_titles
+        %p.activation_title
+          Activation
+        %p.upload_logo_title
+          Upload Logo
+      .row.box-upload-file
+        .lock-title Before you can activate, WE NEED YOUR LOGO in 2 formats
+        .row
+          %ul.span
+            %li#sponsor_eps_logo_input.file.input.optional
+              %small.numb-step 1
+              %label.label{ :for => 'sponsor_eps_logo' } EPS logo*
+              .span
+                = file_field_tag :eps_logo
+                .uploaded_file
+                  = @sponsor.eps_logo_file_name
+              %p.inline-hints Please provide an EPS version of your logo in high resolution.
+            %li#sponsor_logo_input.file.input.optional
+              %small.numb-step 2
+              %label.label{ :for => 'sponsor_logo' } JPG logo*
+              .span
+                = file_field_tag :logo, :size => 24, :style => 'opacity: 0;'
+                .uploaded_file
+                  = @sponsor.logo_file_name
+              %p.inline-hints Please provide a JPG version of your logo in 260x260.
+      .row#submit_personal_info
+        = submit_tag 'Activate Account', :disabled => true, :class => 'form-submit disabled'
