@@ -104,3 +104,35 @@
     }
   }
 }
+
+.personal_info_modal_hidden {
+  display: none;
+}
+
+#personal_info_modal {
+  width: 700px;
+  .inner {
+    .personal_titles {
+      padding: 40px 40px;
+      .activation_title {
+        margin: 0;
+        font-size: 20px;
+      }
+      .upload_logo_title {
+        font-size: 60px;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+    }
+    ul.span {
+      padding-ft: 0;
+      list-style: none;
+    }
+    #submit_personal_info {
+      text-align: center;
+      .form-submit {
+        margin: 30px auto;
+      }
+    }
+  }
+}

@@ -12,6 +12,7 @@
 // =require admin/content_navigation
 // =require admin/forms
 // =require jquery.uniform.min
+// =require application/fancybox/jquery.fancybox-1.3.4.pack.js
 // =require buttons.js
 // =require sponsor/dashboard.js
 
