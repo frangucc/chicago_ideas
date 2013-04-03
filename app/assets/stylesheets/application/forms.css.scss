@@ -103,7 +103,30 @@ abbr {
 
 }
 
-
+#invitation_form {
+  ol {
+    diplay: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      display: block;
+      margin: 0 0 20px 0;
+      padding: 0;
+    }
+  }
+  abbr {
+    color: red;
+    text-decoration: none;
+    margin-right: 3px;
+  }
+  input {
+    width: 300px;
+  }
+  #devise_links a {
+    margin-right: 10px;
+  }
+}
 
 
 /******************************************************
