@@ -1,0 +1,14 @@
+%section.container.form_container#main_content
+
+  .box.double.left
+    .column_row#invitation_form
+      %span.column_header Set Your Password
+
+      = semantic_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put, :style => 'margin: 0 !important;' } do |f|
+        = f.inputs do
+          = f.input :invitation_token, :as => :hidden
+          = f.input :password,              :required => true
+          = f.input :password_confirmation, :required => true
+
+        = f.actions do
+          = f.action :submit, :label => 'Set my password', :button_html => { :class => 'create' }
