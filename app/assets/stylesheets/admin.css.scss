@@ -1,5 +1,16 @@
 @import "header";
 
+.group:before, .group:after {
+  content: '';
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  zoom: 1; /* IE6&7 */
+}
+
 // the basic page layout of the admin tool
 body.admin {
   background-color: #DDDDDD;

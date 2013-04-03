@@ -56,3 +56,31 @@
     margin-top: 10px;
   }
 }
+
+#ciw_contacts {
+  color: #666;
+  padding-top: 30px;
+  padding-top: 30px;
+  .ciw_contacts_title {
+    margin-bottom: 30px;
+  }
+  .ciw_contact {
+    float: left;
+    img {
+      float: left;
+    }
+    .ciw_contact_info {
+      margin-left: 30px;
+      .title {
+        margin-bottom: 10px;
+        strong {
+          color: #666;
+        }
+      }
+      float: left;
+    }
+  }
+  .ciw_contact:nth-child(3) {
+    margin-left: 30px;
+  }
+}
