@@ -15,6 +15,7 @@
 // =require application/fancybox/jquery.fancybox-1.3.4.pack.js
 // =require buttons.js
 // =require sponsor/dashboard.js
+// =require sponsor/key_sponsorship_dates.js
 
 stLight.options({
   publisher: 'defcc141-a8b2-4734-8cde-5662ed8a4501'
