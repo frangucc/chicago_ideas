@@ -64,4 +64,19 @@
                 For use on the CIW website and marketing materials.
             = image_tag 'application/sponsor/arrow.png', :style => 'float: right; margin-top: 40px; margin-right: 15px;'
             .clear{ :style => 'clear: both;' }
-      .invitation_footer
+      .invitation_footer{ :style => 'clear: both; width: 800px; display: inline-block; margin-top: 30px; padding: 20px 0 20px 50px; background: rgb(246, 246, 246); border: 1px solid rgb(217, 217, 217); border-bottom: 2px solid rgb(43, 108, 171);' }
+        %p{ :style => 'float: left; width: 350px; font-size: 17px; color: #666; line-height: 30px;' }
+          %strong Let's make an impact together
+          %br
+          Help us spread the word about CIW through
+          %strong Twitter
+          and
+          %strong Facebook
+          and don't forget to check out our
+          %strong Blog
+          for CIW updates!
+        .membership_contacts{ :style => 'float: left; margin-left: 60px; margin-top: 50px;' }
+          = link_to (image_tag 'email/facebook.png'),    ApplicationHelper::CIW_FACEBOOK_URL
+          = link_to (image_tag 'email/twitter.png'),     ApplicationHelper::CIW_TWITTER_URL,  :style => 'margin-left: 20px;'
+          = link_to (image_tag 'email/linkedin.png'),    ApplicationHelper::CIW_LINKEDIN_URL, :style => 'margin-left: 20px;'
+          = link_to (image_tag 'email/google_plus.png'), ApplicationHelper::CIW_GPLUS_URL,    :style => 'margin-left: 20px;'
