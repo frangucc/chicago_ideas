@@ -573,8 +573,9 @@ CraigsAdmin::Application.routes.draw do
 
   namespace :sponsor do
     root :to => "dashboard#index"
-    resources :dashboard, :only => [:index]
-    resources :materials, only: [:index]
+    resources :dashboard,             :only => [:index]
+    resources :key_sponsorship_dates, :only => [:index]
+    resources :materials,             :only => [:index]
   end
 
 end
