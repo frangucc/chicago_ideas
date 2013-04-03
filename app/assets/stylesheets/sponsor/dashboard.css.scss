@@ -84,3 +84,23 @@
     margin-left: 30px;
   }
 }
+
+#interest_volunteer {
+  width: 280px;
+  padding-left: 0;
+  padding-right: 0;
+  color: #666;
+  line-height: 25px;
+  background: transparent;
+  border: none;
+  .row {
+    font-size: 15px;
+    .title strong {
+      color: #666;
+      font-size: 15px;
+    }
+    p {
+      margin-top: 30px;
+    }
+  }
+}

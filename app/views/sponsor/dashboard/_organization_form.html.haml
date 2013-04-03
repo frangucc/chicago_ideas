@@ -25,3 +25,12 @@
   #loading_image.hidden
     = image_tag 'admin/loader.gif'
   .message.hint
+
+.right-inner#interest_volunteer
+  .row
+    .title
+      %strong Interested in Volunteering?
+    %p
+      If anyone at your organization is interested in volunteering at CIW, please contact
+      %br
+      = mail_to ApplicationHelper::CIW_INFO_EMAIL
