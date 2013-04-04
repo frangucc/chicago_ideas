@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = new_model_link Material
+
+= ssp_search_form Material
+
+.table_section
+  %h3
+    Materials
+    = new_model_link Material
+  .table_wrapper
+    = render 'admin/materials/table.html.haml', :materials => @materials
+  = paginate @materials

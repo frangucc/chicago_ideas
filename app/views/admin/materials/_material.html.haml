@@ -1,0 +1,5 @@
+%tr{ :material => material.id }
+  %td.name= link_to material.name, admin_material_path(material)
+  %td.options
+    = edit_model_link material
+    = destroy_model_link material
