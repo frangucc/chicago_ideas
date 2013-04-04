@@ -4,5 +4,48 @@
   }
   hr {
     margin: 35px auto 55px auto;
+    color: #E3E3E3;
+  }
+
+  .key_date_container {
+    margin: 30px 0;
+    border: 1px solid #E3E3E3;
+    .key_date {
+      float: left;
+      width: 120px;
+      .month {
+        margin: 0;
+        padding: 6px 0;
+        background: #000;
+        color: #FFF;
+        text-align: center;
+        font-size: 17px;
+      }
+      .day {
+        margin: 16px 0;
+        color: #1DAFEF;
+        text-align: center;
+        font-size: 55px;
+        font-weight: bold;
+      }
+      .small_day {
+        margin: 25px 0;
+        font-size: 35px;
+      }
+    }
+    .key_info {
+      float: left;
+      min-height: 66px;
+      width: 530px;
+      padding: 30px;
+      border-left: 1px solid #E3E3E3;
+      .key_title {
+        margin: 0;
+        font-size: 28px;
+      }
+      .key_description {
+        font-size: 20px;
+      }
+    }
   }
 }
