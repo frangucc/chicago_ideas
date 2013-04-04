@@ -1,3 +1,23 @@
+#important_dates {
+  .title {
+    margin-bottom: 10px;
+    strong {
+      color: #666;
+    }
+  }
+  .key_date_container {
+    width: 611px;
+    background: #FFF;
+    margin: 15px !important;
+    .key_info {
+      width: 428px !important;
+      .key_title {
+        font-size: 25px !important;
+      }
+    }
+  }
+}
+
 #share_sponsor {
   padding: 45px 35px;
   .share_description {
