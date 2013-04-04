@@ -8,62 +8,12 @@
 .row.ciw_video
   %iframe{ :width => '800', :height => '420', :src => ApplicationHelper::SPONSOR_YOUTUBE_URL, :frameborder => '0', :allowfullscreen => true }
 
--##marketing
-  -#%ul
-    -#%li
-      -#%div
-        -#= link_to image_tag( 'admin/materials.jpg'),"#"
-      -#%h3
-        -#= link_to 'Marketing Exposure',"#"
-      -#%p
-        -#= link_to 'preview',"#"
-        -#|
-        -#= link_to 'download',"#"
-    -#%li
-      -#%div
-        -#= link_to image_tag( 'admin/materials.jpg'),"#"
-      -#%h3
-        -#= link_to 'Marketing Exposure',"#"
-      -#%p
-        -#= link_to 'preview',"#"
-        -#|
-        -#= link_to 'download',"#"
-    -#%li
-      -#%div
-        -#= link_to image_tag( 'admin/materials.jpg'),"#"
-      -#%h3
-        -#= link_to 'Marketing Exposure',"#"
-      -#%p
-        -#= link_to 'preview',"#"
-        -#|
-        -#= link_to 'download',"#"
-    -#%li
-      -#%div
-        -#= link_to image_tag( 'admin/materials.jpg'),"#"
-      -#%h3
-        -#= link_to 'Marketing Exposure',"#"
-      -#%p
-        -#= link_to 'preview',"#"
-        -#|
-        -#= link_to 'download',"#"
-    -#%li
-      -#%div
-        -#= link_to image_tag( 'admin/materials.jpg'),"#"
-      -#%h3
-        -#= link_to 'Marketing Exposure',"#"
-      -#%p
-        -#= link_to 'preview',"#"
-        -#|
-        -#= link_to 'download',"#"
-    -#%li
-      -#%div
-        -#= link_to image_tag( 'admin/materials.jpg'),"#"
-      -#%h3
-        -#= link_to 'Marketing Exposure',"#"
-      -#%p
-        -#= link_to 'preview',"#"
-        -#|
-        -#= link_to 'download',"#"
+
+.row#materials
+  - @materials.in_groups_of(3, false) do |materials_group|
+    %ul.group
+      - materials_group.each do |material|
+        = render :partial => 'material', :locals => { :material => material }
 
 .clr
 
