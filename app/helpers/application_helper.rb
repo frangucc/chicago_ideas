@@ -9,6 +9,7 @@ module ApplicationHelper
   CIW_YOUTUBE_URL      = 'http://www.youtube.com/user/ChicagoIdeasWeek'
   SUPPORT_YOUTUBE_URL  = 'http://www.youtube.com/embed/Ctd7kAZrW6I'
   HOMEPAGE_YOUTUBE_URL = 'http://www.youtube.com/embed/OU9zZKFD9TQ'
+  SPONSOR_YOUTUBE_URL  = 'http://www.youtube.com/embed/c6LcUcXqYDo'
 
   # GOOGLE DOCS
   LABS_DOC_URL         = 'https://docs.google.com/spreadsheet/viewform?formkey=dG5EZTFJTV81Y1VUdFFHeGp6V3hsdUE6MQ'
