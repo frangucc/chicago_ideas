@@ -20,18 +20,22 @@
             Dear #{@resource.name},
 
           %p{ :style => 'margin: 22px 0;' }
-            Thank you for becoming a CIW #{@resource.sponsor.name} Sponsor! Your support is greatly appreciated.
-            To enhance your CIW experience, please login
+            As a way to maximize your sponsorship with Chicago Ideas Week, we've created a online portal for you to
+            register for events and receptions, share branded digital invitations with clients, and track RSVPs.
+            Tickets are not currently available, but you can access marketing materials to explain Chicago Ideas Week
+            to key stakeholders.
+
+            Please log in
             = link_to 'here', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), :style => 'color: #1DAFEF; text-decoration: none;'
-            using the username below and reset your password:
+            using your username below.
 
           %p{ :style => 'margin: 22px 0;' }
             Your username:
             = mail_to @resource.email, nil, :style => 'color: #1DAFEF; text-decoration: none;'
 
           %p{ :style => 'margin: 22px 0;' }
-            Upon your first time logging in, you will be prompted to set your own unique password.
-            Thanks again for all your support!
+            Thank you for helping us make Chicago Ideas Week the most accessible, inclusive, and action-oriented
+            ideas festival in the world.
 
           %p{ :style => 'margin: 22px 0;' }
             Best,
