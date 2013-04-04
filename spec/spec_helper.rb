@@ -24,6 +24,11 @@ def assert_presence(model, field)
   model.errors[field].join.should match(/can't be blank/)
 end
 
+def assert_uniqueness(model, field)
+  model.should be_invalid
+  model.errors[field].join.should match(/has already been taken/)
+end
+
 def assert_email(model, field)
   model.should be_invalid
   model.errors[field].join.should match(/is not an email/)
