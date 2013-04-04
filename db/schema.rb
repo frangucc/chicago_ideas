@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326232121) do
+ActiveRecord::Schema.define(:version => 20130404154610) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -412,6 +412,20 @@ ActiveRecord::Schema.define(:version => 20130326232121) do
     t.text     "body",                         :null => false
     t.string   "url"
     t.boolean  "published",  :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "materials", :force => true do |t|
+    t.string   "name"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
