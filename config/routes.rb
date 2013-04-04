@@ -567,6 +567,8 @@ CraigsAdmin::Application.routes.draw do
 
     resources :orders, :only => [:index, :show]
 
+    resources :materials
+
   end
 
   namespace :sponsor do
