@@ -1,0 +1,4 @@
+= f.inputs do
+  = f.input :name,      :required => true
+  = f.input :thumbnail, :required => true, :as => :file, :hint => 'Must be .png, .gif or .jpeg.'
+  = f.input :document,  :required => true, :as => :file, :hint => 'Must be .doc, .xls, .ppt or .pdf.'

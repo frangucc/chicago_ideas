@@ -1,0 +1,7 @@
+- content_for :breadcrumbs do
+  .crumb.end Materials
+
+- content_for :content_navigation do
+  %h2 Materials
+  %ul
+    %li{ :class => active_for('index') }= icon_link_to 'Search', admin_materials_path, 'search'

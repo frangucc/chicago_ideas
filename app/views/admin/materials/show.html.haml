@@ -1,0 +1,16 @@
+- content_for :top_links do
+  = edit_model_link @material, true
+  = destroy_model_link @material, true
+
+%h1
+  = @material.name
+
+#model_detail
+  %h4 Name
+  %p= @material.name
+
+  %h4 Thumbnail
+  %p= image_tag @material.thumbnail
+
+  %h4 Document
+  %p= link_to @material.document_file_name, @material.document.url

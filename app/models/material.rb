@@ -5,6 +5,8 @@ class Material < ActiveRecord::Base
   THUMBNAIL_WIDTH  = 271
   THUMBNAIL_HEIGHT = 211
 
+  has_many :notes, :as => :asset
+
   has_attached_file :thumbnail, :path => 'applications/material/thumbnails/:id/:filename'
   has_attached_file :document,  :path => 'applications/material/documents/:id/:filename'
 
