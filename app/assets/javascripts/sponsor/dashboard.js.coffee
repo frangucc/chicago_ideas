@@ -1,7 +1,7 @@
 $(document).ready ->
 
   #$.fancybox
-    #content: $('#personal_info_modal')
+    #content: $('#activation_modal')
     #autoDimensions: true
     #autoScale: true
     #padding: 0

@@ -1,7 +1,7 @@
-.personal_info_modal_hidden
-  #personal_info_modal
+.activation_modal_hidden
+  #activation_modal
     .inner
-      .personal_titles
+      .activation_titles
         %p.activation_title
           Activation
         %p.upload_logo_title
@@ -26,5 +26,5 @@
                 .uploaded_file
                   = @sponsor.logo_file_name
               %p.inline-hints Please provide a JPG version of your logo in 260x260.
-      .row#submit_personal_info
+      .row#submit_activation
         = submit_tag 'Activate Account', :disabled => true, :class => 'form-submit disabled'
