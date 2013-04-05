@@ -22,7 +22,7 @@ class Admin::MaterialsController < Admin::AdminController
 
   # notes associated with this material
   def notes
-    @event = Material.find(params[:id])
+    @material = Material.find(params[:id])
     @notes = @material.notes.includes(:author).search_sort_paginate(params, :parent => @material)
   end
 

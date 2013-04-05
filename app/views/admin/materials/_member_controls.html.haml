@@ -1,0 +1,12 @@
+= content_for :breadcrumbs do
+  = breadcrumbs @material
+  .crumb.end= section_title
+
+- content_for :content_navigation do
+  %h2 Materials
+  %ul
+    %li{ :class => active_for('index') }= icon_link_to 'Search', admin_materials_path, 'search'
+  %h2= @material.name
+  %ul
+    %li{ :class => active_for('show')  }= icon_link_to 'Detail', admin_material_path(@material),       'circle-zoomin'
+    %li{ :class => active_for('notes') }= icon_link_to 'Notes',  notes_admin_material_path(@material), 'comment'
