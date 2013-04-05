@@ -1,36 +1,31 @@
-.right-inner#sponsor_organization
-  .row
-    .title
-      %strong Your Organization
-  .title Primary Contact
-  .list-sponsor
-    .title Additional Sponsor Admins
-    - @sponsor.users.each do |user|
-      - unless current_user == user
-        .span{ :id => "user_#{user.id}" }
-          %span
-            = user.name
-            = '(pending)' if user.sign_in_count == 0
-          = link_to 'x', '', :class => 'del'
+- if @sponsor.primary_contact == current_user
+  .right-inner#sponsor_organization
+    .row
+      .title
+        %strong Your Organization
+    .list-sponsor
+      .title Additional Sponsor Admins
+      - @sponsor.users.each do |user|
+        - unless current_user == user
+          .span{ :id => "user_#{user.id}" }
+            %span
+              = user.name
+              = '(pending)' if user.sign_in_count == 0
+            = link_to 'x', '', :class => 'del'
 
-  .form-action
-    = link_to 'Add another sponsor admin', '', class: 'blue-btn'
-  .errors
-  .row
-    = text_field :request, :name, :placeholder => 'Name of Requested Admin'
-  .row
-    = text_field :request, :email, :placeholder => 'Email of Requested admin'
-  .form-action
-    = link_to 'Submit request', '', class: 'blue-btn', :id => "submit_request"
-  #loading_image.hidden
-    = image_tag 'admin/loader.gif'
-  .message.hint
+    .form-action
+      = link_to 'Add another sponsor admin', '', class: 'blue-btn'
+    .errors
+    .row
+      = text_field :request, :name, :placeholder => 'Name of Requested Admin'
+    .row
+      = text_field :request, :email, :placeholder => 'Email of Requested admin'
 
-.right-inner#interest_volunteer
-  .row
-    .title
-      %strong Interested in Volunteering?
-    %p
-      If anyone at your organization is interested in volunteering at CIW, please contact
-      %br
-      = mail_to ApplicationHelper::CIW_INFO_EMAIL
+  .right-inner#interest_volunteer
+    .row
+      .title
+        %strong Interested in Volunteering?
+      %p
+        If anyone at your organization is interested in volunteering at CIW, please contact
+        %br
+        = mail_to ApplicationHelper::CIW_INFO_EMAIL
