@@ -569,7 +569,13 @@ CraigsAdmin::Application.routes.draw do
 
     resources :orders, :only => [:index, :show]
 
-    resources :materials
+    resources :materials do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
 
   end
 

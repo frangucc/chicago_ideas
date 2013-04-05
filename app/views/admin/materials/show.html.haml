@@ -1,9 +1,13 @@
+= render 'member_controls'
+
 - content_for :top_links do
   = edit_model_link @material, true
   = destroy_model_link @material, true
 
 %h1
   = @material.name
+  -#= icon_link_to 'notes', notes_admin_material_path(@material), 'script'
+  -#= new_model_link Material, @material
 
 #model_detail
   %h4 Name
