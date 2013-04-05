@@ -1,0 +1,6 @@
+= render 'collection_controls'
+
+= semantic_form_for [:admin, @model], :html => { :multipart => true } do |f|
+  %h3 Create a New Material
+  = render :partial => 'fields', :locals => { :f => f }
+  = f.submit
