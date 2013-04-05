@@ -25,6 +25,7 @@ module ApplicationHelper
   CIW_JESSICA_EMAIL    = 'jessica@chicagoideas.com'
   CIW_COREY_EMAIL      = 'corey@chicagoideas.com'
   CIW_BECKY_EMAIL      = 'becky@chicagoideas.com'
+  CIW_SAM_EMAIL        = 'sam@chicagoideas.com'
   DAVID_EMAIL          = 'david@davidburstein.com'
   LEANDRO_EMAIL        = 'leandro@meetmantra.com'
   MARTIN_EMAIL         = 'martin@meetmantra.com'

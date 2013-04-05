@@ -1,14 +1,21 @@
 .row.box-upload-file#ciw_contacts
   %p.ciw_contacts_title
     %strong Your CIW Contacts
-
-  = render :partial => 'ciw_contact', :locals => { :name  => 'Leah Marshall',
-                                                   :role  => 'Director of Development',
-                                                   :phone => '312.999.3935',
-                                                   :email => ApplicationHelper::CIW_LEAH_EMAIL,
-                                                   :image => 'leah.png' }
-  = render :partial => 'ciw_contact', :locals => { :name  => 'Jessica Malkin',
-                                                   :role  => 'Executive Director',
-                                                   :phone => '312.662.7708',
-                                                   :email => ApplicationHelper::CIW_JESSICA_EMAIL,
-                                                   :image => 'jessica.png' }
+  %ul.contact_list.group
+    = render :partial => 'ciw_contact', :locals => { :name  => 'Leah Marshall',
+                                                     :role  => 'Director of Development',
+                                                     :phone => '312.999.3935',
+                                                     :email => ApplicationHelper::CIW_LEAH_EMAIL,
+                                                     :image => 'leah.png' }
+    = render :partial => 'ciw_contact', :locals => { :name  => 'Jessica Malkin',
+                                                     :role  => 'Executive Director',
+                                                     :phone => '312.662.7708',
+                                                     :email => ApplicationHelper::CIW_JESSICA_EMAIL,
+                                                     :image => 'jessica.png' }
+  %hr
+  %ul.contact_list.group
+    = render :partial => 'ciw_contact', :locals => { :name  => 'Sam Waterbury',
+                                                     :role  => 'Development Associate',
+                                                     :phone => '312.906.7416',
+                                                     :email => ApplicationHelper::CIW_SAM_EMAIL,
+                                                     :image => 'sam.png' }
