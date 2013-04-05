@@ -29,6 +29,7 @@
   float: left;
   width: 220px;
   .share_title {
+    width: 165px;
     margin-bottom: 25px;
     padding-left: 20px;
     color: #666;
@@ -55,6 +56,36 @@
     #twitter_share .stButton .stLarge {
       background-image: url(application/orders/twitter.png) !important;
     }
+  }
+}
+
+#newsletter_form {
+  float: left;
+  width: 370px;
+  padding-left: 30px;
+  border-left: 1px solid #E6E6E6;
+  .newsletter_title {
+    color: #666;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  fieldset {
+    width: 370px;
+    ol {
+      li {
+        float: left;
+        width: 170px;
+        input {
+          width: 150px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  #subscribe_news {
+    margin-left: 80px;
+    width: 222px;
+    line-height: 0;
   }
 }
 
