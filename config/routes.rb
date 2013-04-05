@@ -584,6 +584,7 @@ CraigsAdmin::Application.routes.draw do
     resources :dashboard,             :only => [:index]
     resources :key_sponsorship_dates, :only => [:index]
     resources :materials,             :only => [:index]
+    resources :sponsors,              :only => [:edit, :update]
   end
 
 end
