@@ -158,14 +158,14 @@
   }
 }
 
-.personal_info_modal_hidden {
+.activation_modal_hidden {
   display: none;
 }
 
-#personal_info_modal {
+#activation_modal {
   width: 700px;
   .inner {
-    .personal_titles {
+    .activation_titles {
       padding: 40px 40px;
       .activation_title {
         margin: 0;
@@ -181,7 +181,7 @@
       padding-ft: 0;
       list-style: none;
     }
-    #submit_personal_info {
+    #submit_activation {
       text-align: center;
       .form-submit {
         margin: 30px auto;
