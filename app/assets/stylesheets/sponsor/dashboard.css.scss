@@ -77,25 +77,33 @@
   .ciw_contacts_title {
     margin-bottom: 30px;
   }
-  .ciw_contact {
-    float: left;
-    img {
-      float: left;
-      border: 6px solid #E6E6E6;
-    }
-    .ciw_contact_info {
-      margin-left: 22px;
-      .title {
-        margin-bottom: 10px;
-        strong {
-          color: #666;
-        }
-      }
-      float: left;
-    }
+  hr {
+    margin: 30px 0;
+    color: #E6E6E6;
   }
-  .ciw_contact:nth-child(3) {
-    margin-left: 18px;
+  .contact_list {
+    padding-left: 0;
+    list-style: none;
+    .ciw_contact {
+      float: left;
+      img {
+        float: left;
+        border: 6px solid #E6E6E6;
+      }
+      .ciw_contact_info {
+        margin-left: 22px;
+        .title {
+          margin-bottom: 10px;
+          strong {
+            color: #666;
+          }
+        }
+        float: left;
+      }
+    }
+    .ciw_contact:nth-child(2) {
+      margin-left: 18px;
+    }
   }
 }
 
