@@ -96,7 +96,13 @@ class Sponsor < ActiveRecord::Base
   end
 
   def active?
-    eps_logo_file_name.present? && logo_file_name.present? && sponsor_agreement_file_name.present?
+    eps_logo_file_name.present? && logo_file_name.present?
+  end
+
+  def unlock!
+    if !self.active? && self.locked?
+      self.update_attribute(:locked, false)
+    end
   end
 
   private
