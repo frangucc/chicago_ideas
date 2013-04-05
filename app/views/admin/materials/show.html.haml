@@ -1,7 +1,7 @@
 = render 'member_controls'
 
 - content_for :top_links do
-  = edit_model_link @material, true
+  = icon_link_to 'edit', edit_admin_material_path(@material), 'pencil'
   = destroy_model_link @material, true
 
 %h1
