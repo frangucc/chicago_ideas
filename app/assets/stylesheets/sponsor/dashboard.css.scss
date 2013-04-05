@@ -25,31 +25,23 @@
   }
 }
 
-#share_sponsor {
-  padding: 45px 35px;
-  .share_description {
-    width: 270px;
-    float: left;
+#sponsor_shares {
+  float: left;
+  width: 220px;
+  .share_title {
+    margin-bottom: 25px;
+    padding-left: 20px;
     color: #666;
-    .share_title {
-      font-size: 15px;
-      font-weight: bold;
-    }
-    .share_info {
-      line-height: 25px;
-      font-size: 15px;
-    }
+    font-size: 15px;
+    font-weight: bold;
   }
   .share_links {
-    float: left;
-    margin-left: 40px;
-    margin-top: 20px;
     text-align: center;
-    #facebook_share, #twitter_share, #linkedin_share, #googleplus_share {
+    #facebook_share, #twitter_share {
       padding-right: 15px;
       .stButton .stLarge {
-        width: 55px;
-        height: 55px;
+        width: 70px;
+        height: 70px;
         background-size: 100% 100%;
       }
       .stButton .stLarge:hover {
@@ -62,12 +54,6 @@
     }
     #twitter_share .stButton .stLarge {
       background-image: url(application/orders/twitter.png) !important;
-    }
-    #linkedin_share .stButton .stLarge {
-      background-image: url(application/orders/linkedin.png) !important;
-    }
-    #googleplus_share .stButton .stLarge {
-      background-image: url(application/orders/google_plus.png) !important;
     }
   }
 }
