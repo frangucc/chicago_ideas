@@ -1,5 +1,6 @@
 // =require jquery
-//= require jquery_ujs
+// =require jquery_ujs
+// =require jquery.remotipart
 
 // =require general/utility
 // =require general/flash_helper

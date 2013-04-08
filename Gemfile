@@ -47,6 +47,7 @@ gem 'omniauth-facebook'
 
 # jquery
 gem 'jquery-rails', '1.0.14'
+gem 'remotipart', '1.0.2'
 
 # css framework
 gem 'bourbon', :git => 'git@github.com:thoughtbot/bourbon.git', :ref => 'e88945ad8a3f7f40c04319ee4b7214e7bed0e2f7'
