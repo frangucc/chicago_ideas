@@ -28,5 +28,9 @@ $(document).ready ->
     $('#loading_image').addClass 'hidden'
   )
 
+  $('.list-sponsor .span a').live('ajax:success', (xhr, data, status) ->
+    $(this).parent().remove()
+  )
+
 printErrors = (errors) ->
   $('.errors').append "<li>#{error}</li>" for error in eval(errors)

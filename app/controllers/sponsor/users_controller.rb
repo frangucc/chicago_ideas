@@ -20,6 +20,16 @@ class Sponsor::UsersController < Sponsor::BaseController
   end
 
   def destroy
+    user = User.find params[:id]
+
+    respond_to do |format|
+      if user
+        user.destroy
+        format.js { render :nothing => true, :status => :ok }
+      else
+        format.js { render :nothing => true, :status => :unprocessable_entity }
+      end
+    end
   end
 
 end

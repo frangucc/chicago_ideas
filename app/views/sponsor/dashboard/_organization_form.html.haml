@@ -11,7 +11,7 @@
             %span
               = user.name
               = '(pending)' if user.sign_in_count == 0
-            = link_to 'x', '', :class => 'del'
+            = link_to 'x', sponsor_user_path(:id => user.id), :class => 'del', :method => :delete, :remote => true
     = form_for User.new, :url => invite_sponsor_users_path, :remote => true do |f|
       .form-action
         = f.submit 'Add another sponsor admin', class: 'blue-btn', :id => 'submit_request'
