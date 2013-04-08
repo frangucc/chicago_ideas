@@ -17,3 +17,6 @@
 
 .clr
 
+= render :partial => 'sponsor/shared/activation_modal', :locals => { :sponsor => @sponsor }
+
+.hidden_dashboard{ :data => { 'sponsor-active' => @sponsor.active?.to_s } }
