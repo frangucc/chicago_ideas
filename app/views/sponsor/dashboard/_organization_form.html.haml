@@ -12,14 +12,17 @@
               = user.name
               = '(pending)' if user.sign_in_count == 0
             = link_to 'x', '', :class => 'del'
-
-    .form-action
-      = link_to 'Add another sponsor admin', '', class: 'blue-btn'
-    .errors
-    .row
-      = text_field :request, :name, :placeholder => 'Name of Requested Admin'
-    .row
-      = text_field :request, :email, :placeholder => 'Email of Requested admin'
+    = form_for User.new, :url => invite_sponsor_users_path, :remote => true do |f|
+      .form-action
+        = f.submit 'Add another sponsor admin', class: 'blue-btn', :id => 'submit_request'
+      .row
+        = f.text_field :name, :placeholder => 'Name of Requested Admin'
+      .row
+        = f.text_field :email, :placeholder => 'Email of Requested admin'
+      #loading_image.hidden{style: "width: 100%; text-align:center; margin-top: 10px;"}
+        = image_tag 'admin/loader.gif'
+      .message.hint
+      %ul.errors
 
   .right-inner#interest_volunteer
     .row
