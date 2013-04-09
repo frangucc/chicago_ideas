@@ -3,8 +3,10 @@ class Sponsor < ActiveRecord::Base
   # my bone dry solution to search, sort and paginate
   include SearchSortPaginate
 
-  LOGO_WIDTH = 260
-  LOGO_HEIGHT = 260
+  LOGO_WIDTH      = 260
+  LOGO_HEIGHT     = 260
+  EPS_LOGO_WIDTH  = 271
+  EPS_LOGO_HEIGHT = 211
 
   belongs_to :sponsorship_level
 
@@ -15,7 +17,8 @@ class Sponsor < ActiveRecord::Base
 
   validates :sponsorship_level_id, :presence => true
   validates :name, :presence => true, :uniqueness => true
-  validate :validate_logo_dimensions, :if => "logo.present?", :unless => "errors.any?"
+  validate :validate_logo_dimensions,     :if => "logo.present? && errors.empty?"
+  validate :validate_eps_logo_dimensions, :if => "eps_logo.present? && errors.empty?"
 
   scope :by_name, order('name asc')
   scope :featured_sponsors, :conditions => { :featured => true }
@@ -84,6 +87,10 @@ class Sponsor < ActiveRecord::Base
     "#{LOGO_WIDTH}x#{LOGO_HEIGHT}"
   end
 
+  def eps_logo_dimensions_string
+    "#{EPS_LOGO_WIDTH}x#{EPS_LOGO_HEIGHT}"
+  end
+
   # parses the description wih markdown and returns html
   def description_html
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :no_links => true, :hard_wrap => true)
@@ -112,6 +119,13 @@ class Sponsor < ActiveRecord::Base
       if self.logo.queued_for_write[:original]
         dimensions = Paperclip::Geometry.from_file(logo.queued_for_write[:original].path)
         errors.add(:logo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{logo_dimensions_string}") unless dimensions.width == LOGO_WIDTH && dimensions.height == LOGO_HEIGHT
+      end
+    end
+
+    def validate_eps_logo_dimensions
+      if self.eps_logo.queued_for_write[:original]
+        dimensions = Paperclip::Geometry.from_file(eps_logo.queued_for_write[:original].path)
+        errors.add(:eps_logo, "Image dimensions were #{dimensions.width.to_i}x#{dimensions.height.to_i}, they must be exactly #{eps_logo_dimensions_string}") unless dimensions.width == EPS_LOGO_WIDTH && dimensions.height == EPS_LOGO_HEIGHT
       end
     end
 
