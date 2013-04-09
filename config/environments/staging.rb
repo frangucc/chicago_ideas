@@ -6,7 +6,7 @@ CraigsAdmin::Application.configure do
   config.assets.compress = true
   config.assets.compile = true
   config.assets.digest = true
-  config.assets.precompile += %w( application.js application.css admin.js admin.css invoice.css)
+  config.assets.precompile += %w( application.js application.css admin.js admin.css invoice.css sponsor_admin.css )
   config.action_mailer.asset_host = "54.225.238.30"
   config.action_mailer.default_url_options = {:host => "54.225.238.30"}
 
