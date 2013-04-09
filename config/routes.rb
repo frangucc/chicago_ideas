@@ -100,7 +100,8 @@ CraigsAdmin::Application.routes.draw do
   match 'dashboard' => 'users#dashboard', :as => 'user_root'
   # authentication for the website, uses Devise and Omniauth for facebook and twitter connect
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",
-                                       :sessions => "sessions" }
+                                       :sessions           => "sessions",
+                                       :invitations        => "users/invitations" }
 
 
   # memberships
