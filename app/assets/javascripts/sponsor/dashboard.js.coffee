@@ -15,11 +15,8 @@ $(document).ready ->
       enableEscapeButton: false
       centerOnScroll: true
 
-  # TODO: Fancybox's assets should be added to asset pipeline.
-  #
   $('#activation_modal form').live('ajax:beforeSend', ->
-    #$.fancybox.showActivity()
-    $('#submit_logos').val 'sending...'
+    $.fancybox.showActivity()
   ).live('ajax:success', (xhr, data, status) ->
     $.fancybox.close()
   ).live('ajax:error', (xhr, data, status) ->
@@ -27,8 +24,7 @@ $(document).ready ->
     errors = data.responseText
     printUploadErrors errors
   ).live('ajax:complete', (xhr, data, status) ->
-    #$.fancybox.hideActivity()
-    $('#submit_logos').val 'Activate Account'
+    $.fancybox.hideActivity()
   )
 
   $('#new_user').live('ajax:beforeSend', ->
