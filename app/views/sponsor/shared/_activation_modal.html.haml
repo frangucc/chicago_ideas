@@ -6,7 +6,7 @@
           Activation
         %p.upload_logo_title
           Upload Logo
-      = form_for sponsor, :url => sponsor_sponsor_path(sponsor, :format => :js), :html => { :multipart => true }, :remote => true do |f|
+      = form_for sponsor, :url => sponsor_sponsor_path(sponsor), :html => { :multipart => true }, :remote => true do |f|
         .row.box-upload-file
           .lock-title Before you can activate, WE NEED YOUR LOGO in 2 formats
           .row
@@ -27,5 +27,6 @@
                   .uploaded_file
                     = sponsor.logo_file_name
                 %p.inline-hints Please provide a JPG version of your logo in 260x260.
+            %ul.upload_errors
         .row#submit_activation
-          = f.submit 'Activate Account', :class => 'form-submit'
+          = f.submit 'Activate Account', :class => 'form-submit', :id => 'submit_logos'

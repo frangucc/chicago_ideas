@@ -1,3 +1,7 @@
+.hidden_dashboard {
+  display: none;
+}
+
 #dashboard_index {
   .head-page-tab {
     margin-bottom: 40px !important;
@@ -192,8 +196,15 @@
       }
     }
     ul.span {
-      padding-ft: 0;
+      padding-left: 0;
       list-style: none;
+      font-size: 13px;
+    }
+    .upload_errors {
+      float: left;
+      list-style: none;
+      color: #F00;
+      font-size: 14px;
     }
     #submit_activation {
       text-align: center;

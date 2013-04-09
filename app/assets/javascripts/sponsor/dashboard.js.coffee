@@ -1,15 +1,35 @@
 $(document).ready ->
 
-  #$.fancybox
-    #content: $('#activation_modal')
-    #autoDimensions: true
-    #autoScale: true
-    #padding: 0
-    #margin: 0
-    #showCloseButton: false
-    #hideOnContentClick: false
-    #hideOnOverlayClick: false
-    #centerOnScroll: true
+  sponsorInactive = $('.hidden_dashboard').data('sponsor-active') is false
+
+  if sponsorInactive
+    $.fancybox
+      content: $('#activation_modal')
+      autoDimensions: true
+      autoScale: true
+      padding: 0
+      margin: 0
+      showCloseButton: false
+      hideOnContentClick: false
+      hideOnOverlayClick: false
+      enableEscapeButton: false
+      centerOnScroll: true
+
+  # TODO: Fancybox's assets should be added to asset pipeline.
+  #
+  $('#activation_modal form').live('ajax:beforeSend', ->
+    #$.fancybox.showActivity()
+    $('#submit_logos').val 'sending...'
+  ).live('ajax:success', (xhr, data, status) ->
+    $.fancybox.close()
+  ).live('ajax:error', (xhr, data, status) ->
+    $('.upload_errors').html ''
+    errors = data.responseText
+    printUploadErrors errors
+  ).live('ajax:complete', (xhr, data, status) ->
+    #$.fancybox.hideActivity()
+    $('#submit_logos').val 'Activate Account'
+  )
 
   $('#new_user').live('ajax:beforeSend', ->
     $('.errors').html ''
@@ -22,7 +42,7 @@ $(document).ready ->
     $('#new_user #user_email').val ''
   ).live('ajax:error', (xhr, data, status) ->
     errors = data.responseText
-    printErrors errors
+    printInviteErrors errors
   ).live('ajax:complete', (xhr, data, status) ->
     $('#submit_request').val 'Add another sponsor admin'
     $('#loading_image').addClass 'hidden'
@@ -32,5 +52,8 @@ $(document).ready ->
     $(this).parent().remove()
   )
 
-printErrors = (errors) ->
-  $('.errors').append "<li>#{error}</li>" for error in eval(errors)
+printInviteErrors = (errors) ->
+  $('.errors').append "<li>#{error}</li>" for error in $.parseJSON(errors)
+
+printUploadErrors = (errors) ->
+  $('.upload_errors').append "<li>#{error}</li>" for error in $.parseJSON(errors)
