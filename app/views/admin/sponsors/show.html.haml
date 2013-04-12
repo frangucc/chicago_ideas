@@ -26,4 +26,8 @@
   %p= image_tag @sponsor.logo.url
 
   %h4 URL
-  %p= @sponsor.url
+  %p= link_to @sponsor.url
+
+  - if @sponsor.logos_uploaded? && @sponsor.locked?
+    %h4 Activate sponsor?
+    %p= button_to 'Activate', activate_admin_sponsor_path(@sponsor)

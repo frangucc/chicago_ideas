@@ -501,6 +501,9 @@ CraigsAdmin::Application.routes.draw do
         # pages
         get :notes
       end
+      member do
+        post 'activate'
+      end
       resources :notes, :only => [:new, :create]
     end
 
