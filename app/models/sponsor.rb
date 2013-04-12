@@ -86,12 +86,12 @@ class Sponsor < ActiveRecord::Base
     return su ? su.user : nil
   end
 
-  def active?
+  def logos_uploaded?
     eps_logo_file_name.present? && logo_file_name.present?
   end
 
   def unlock!
-    if !self.active? && self.locked?
+    if !self.logos_uploaded? && self.locked?
       self.update_attribute(:locked, false)
     end
   end
