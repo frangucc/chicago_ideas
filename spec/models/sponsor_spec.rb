@@ -2,42 +2,6 @@ require 'spec_helper'
 
 describe Sponsor do
 
-  describe 'Validations' do
-
-    describe '#validate_logo_dimensions' do
-      context 'valid logo dimensions' do
-        it 'validates' do
-          sponsor = FactoryGirl.build(:sponsor, :logo => File.open('./spec/fixtures/sponsor_logo.jpg', 'r'))
-          sponsor.errors[:logo].should be_empty
-        end
-      end
-
-      context 'invalid logo dimensions' do
-        it 'returns error' do
-          sponsor = FactoryGirl.build(:sponsor, :logo => File.open('./spec/fixtures/sponsor_inv_logo.jpg', 'r'))
-          sponsor.errors[:logo].join.should match(/Image dimensions were 468x468, they must be exactly 260x260/)
-        end
-      end
-    end
-
-    describe '#validate_eps_logo_dimensions' do
-      context 'valid eps_logo dimensions' do
-        it 'validates' do
-          sponsor = FactoryGirl.build(:sponsor, :eps_logo => File.open('./spec/fixtures/sponsor_eps_logo.png', 'r'))
-          sponsor.errors[:eps_logo].should be_empty
-        end
-      end
-
-      context 'invalid eps_logo dimensions' do
-        it 'returns error' do
-          sponsor = FactoryGirl.build(:sponsor, :eps_logo => File.open('./spec/fixtures/sponsor_inv_logo.jpg', 'r'))
-          sponsor.errors[:eps_logo].join.should match(/Image dimensions were 468x468, they must be exactly 271x211/)
-        end
-      end
-    end
-
-  end
-
   describe '#active?' do
 
     let(:sponsor) { FactoryGirl.create(:sponsor, :eps_logo_file_name => 'eps_logo.png', :logo_file_name => 'logo.png') }

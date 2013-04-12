@@ -18,7 +18,7 @@
                   = f.file_field :eps_logo
                   .uploaded_file
                     = sponsor.eps_logo_file_name
-                %p.inline-hints Please provide an EPS version of your logo in high resolution.
+                %p.inline-hints Please provide an EPS version of your logo.
               %li#sponsor_logo_input.file.input.optional
                 %small.numb-step 2
                 %label.label{ :for => 'sponsor_logo' } JPG logo*
@@ -26,7 +26,7 @@
                   = f.file_field :logo, :size => 24, :style => 'opacity: 0;'
                   .uploaded_file
                     = sponsor.logo_file_name
-                %p.inline-hints Please provide a JPG version of your logo in 260x260.
+                %p.inline-hints Please provide a JPG version of your logo.
             %ul.upload_errors
         .row#submit_activation
           = f.submit 'Activate Account', :class => 'form-submit', :id => 'submit_logos'

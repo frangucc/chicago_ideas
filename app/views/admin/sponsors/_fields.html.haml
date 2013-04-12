@@ -73,12 +73,12 @@
     .label JPG Logo
     .span{style: "max-width: 400px;"}
       .span{style: "width: 100%; margin-top: 10px"}= f.object.logo_file_name
-      .span= f.input :logo, as: :file, label: false, :hint => "logo image must be #{@model.logo_dimensions_string}"
+      .span= f.input :logo, as: :file, label: false
   .row{style: "margin: 0"}
     .label EPS Logo
     .span{style: "max-width: 400px;"}
       .span{style: "width: 100%; margin-top: 10px"}= f.object.eps_logo_file_name
-      .span= f.input :eps_logo, as: :file, label: false, :hint => "Please provide an EPS version of your logo in high resolution."
+      .span= f.input :eps_logo, as: :file, label: false, :hint => "Please provide an EPS version of your logo."
   .row
     .label Sponsorship Agreement
     .span{style: "max-width: 400px;"}

@@ -68,20 +68,6 @@ describe Sponsor::SponsorsController do
         end
       end
 
-      context 'both logos provided with invalid dimensions' do
-        it 'returns error' do
-          put 'update', :format => :js, :id => @user.sponsor.id, :sponsor => { :logo     => File.open('./spec/fixtures/sponsor_inv_logo.jpg', 'r'),
-                                                                               :eps_logo => File.open('./spec/fixtures/sponsor_inv_logo.jpg', 'r') }
-          response.response_code.should == 422
-        end
-
-        it 'returns proper javascript error' do
-          put 'update', :format => :js, :id => @user.sponsor.id, :sponsor => { :logo     => File.open('./spec/fixtures/sponsor_inv_logo.jpg', 'r'),
-                                                                               :eps_logo => File.open('./spec/fixtures/sponsor_inv_logo.jpg', 'r') }
-          response.content_type.should == "text/javascript"
-          JSON.parse(response.body).should == ["Logo Image dimensions were 468x468, they must be exactly 260x260"]
-        end
-      end
     end
 
   end
