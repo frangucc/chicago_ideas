@@ -1,6 +1,6 @@
 $(document).ready ->
 
-  sponsorInactive = $('.hidden_dashboard').data('sponsor-active') is false
+  sponsorInactive = $('.hidden_sponsor').data('logos-uploaded') is false
 
   if sponsorInactive
     $.fancybox

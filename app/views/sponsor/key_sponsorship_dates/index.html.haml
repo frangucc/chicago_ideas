@@ -42,7 +42,3 @@
                    :description => '' }]
   - key_dates.each_with_index do |key_date, index|
     = render :partial => 'sponsor/shared/key_date', :locals => { :key_date => key_date, :key_id => index }
-
-= render :partial => 'sponsor/shared/activation_modal', :locals => { :sponsor => @sponsor }
-
-.hidden_dashboard{ :data => { 'sponsor-active' => @sponsor.active?.to_s } }

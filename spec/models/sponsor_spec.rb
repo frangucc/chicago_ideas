@@ -28,42 +28,13 @@ describe Sponsor do
 
   end
 
-  describe '#unlock!' do
+  describe '#activate!' do
 
     let(:sponsor) { FactoryGirl.create(:sponsor, :locked => true) }
 
-    context 'inlogos_uploaded? and locked' do
-      it 'unlocks the sponsor' do
-        sponsor.stub(:logos_uploaded?).and_return(false)
-        sponsor.unlock!
-        sponsor.reload.locked?.should be_false
-      end
-    end
-
-    context 'logos_uploaded? and locked' do
-      it 'does not unlock the sponsor' do
-        sponsor.stub(:logos_uploaded?).and_return(true)
-        sponsor.unlock!
-        sponsor.reload.locked?.should be_true
-      end
-    end
-
-    context 'logos_uploaded? and unlocked' do
-      it 'does not unlock the sponsor' do
-        sponsor.update_attributes(:locked => false)
-        sponsor.stub(:logos_uploaded?).and_return(true)
-        sponsor.unlock!
-        sponsor.reload.locked?.should be_false
-      end
-    end
-
-    context 'inlogos_uploaded? and unlocked' do
-      it 'does not unlock the sponsor' do
-        sponsor.update_attributes(:locked => false)
-        sponsor.stub(:logos_uploaded?).and_return(false)
-        sponsor.unlock!
-        sponsor.reload.locked?.should be_false
-      end
+    it 'activates the sponsor' do
+      sponsor.activate!
+      sponsor.reload.locked?.should be_false
     end
 
   end

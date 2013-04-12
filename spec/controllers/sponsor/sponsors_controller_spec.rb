@@ -17,10 +17,10 @@ describe Sponsor::SponsorsController do
   describe '#update' do
 
     context 'params[:sponsor] is blank' do
-      context 'sponsor is active' do
+      context 'sponsor has logos uploaded' do
         before do
           Sponsor.any_instance.stub(:logos_uploaded?).and_return(true)
-          Sponsor.any_instance.stub(:unlock!)
+          Sponsor.any_instance.stub(:activate!)
           SponsorsMailer.should_receive(:notify_logos_upload).and_return(double('mailer', :deliver => true))
         end
 
@@ -36,10 +36,10 @@ describe Sponsor::SponsorsController do
         end
       end
 
-      context 'sponsor is inactive' do
+      context 'sponsor has no logos uploaded' do
         before do
           Sponsor.any_instance.stub(:logos_uploaded?).and_return(false)
-          Sponsor.any_instance.stub(:unlock!)
+          Sponsor.any_instance.stub(:activate!)
         end
 
         it 'returns error' do
