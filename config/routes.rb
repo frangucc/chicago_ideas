@@ -581,6 +581,14 @@ CraigsAdmin::Application.routes.draw do
       resources :notes, :only => [:new, :create]
     end
 
+    resources :sponsor_events do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
   end
 
   namespace :sponsor do
