@@ -8,37 +8,5 @@
 
   %hr
 
-  - key_dates = [{ :month       => 'JULY',
-                   :day         => '10',
-                   :title       => 'Maximizing the CIW Sponsor Portal',
-                   :description => 'Info Session at Noon' },
-                 { :month       => 'JULY',
-                   :day         => '17',
-                   :title       => 'Maximizing the CIW Sponsor Portal',
-                   :description => 'Info session at 5:00pm' },
-                 { :month       => 'JULY',
-                   :day         => '29',
-                   :title       => 'Ticketing Opens for Sponsors',
-                   :description => '' },
-                 { :month       => 'LATE',
-                   :day         => 'JULY',
-                   :title       => 'Sponsors will receive invitations to all evening VIP receptions',
-                   :description => '' },
-                 { :month       => 'AUGUST',
-                   :day         => '01',
-                   :title       => 'Annual Sponsor Soiree',
-                   :description => '' },
-                 { :month       => 'AUGUST',
-                   :day         => '12',
-                   :title       => 'Ticketing Opens to CIW Members',
-                   :description => '' },
-                 { :month       => 'SEPTEMBER',
-                   :day         => '03',
-                   :title       => 'Ticketing Opens to General Public',
-                   :description => '' },
-                 { :month       => 'MID',
-                   :day         => 'SEPT',
-                   :title       => 'Menlo (VIP) Passes will be mailed to sponsors',
-                   :description => '' }]
-  - key_dates.each_with_index do |key_date, index|
-    = render :partial => 'sponsor/shared/key_date', :locals => { :key_date => key_date, :key_id => index }
+  - @sponsor_events.each do |sponsor_event|
+    = render :partial => 'sponsor/shared/sponsor_event', :locals => { :sponsor_event => sponsor_event }

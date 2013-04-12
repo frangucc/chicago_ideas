@@ -7,10 +7,10 @@
     color: #E3E3E3;
   }
 
-  .key_date_container {
+  .event_date_container {
     margin: 30px 0;
     border: 1px solid #E3E3E3;
-    .key_date {
+    .event_date {
       float: left;
       width: 120px;
       .month {
@@ -33,17 +33,17 @@
         font-size: 35px;
       }
     }
-    .key_info {
+    .event_info {
       float: left;
       min-height: 66px;
       width: 530px;
       padding: 30px;
       border-left: 1px solid #E3E3E3;
-      .key_title {
+      .event_name {
         margin: 0;
         font-size: 28px;
       }
-      .key_description {
+      .event_description {
         font-size: 20px;
       }
     }

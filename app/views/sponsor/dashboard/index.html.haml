@@ -5,7 +5,7 @@
     .desc-page
       Your one-stop-shop for maximizing your sponsorship benefits.
 
-  = render :partial => 'important_dates'
+  = render :partial => 'important_dates', :locals => { :upcoming_events => @upcoming_events }
   .row.box-upload-file
     = render :partial => 'share_sponsor'
     = render :partial => 'sponsor/shared/newsletter_form'
