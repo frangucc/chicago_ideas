@@ -1,0 +1,23 @@
+= render 'member_controls'
+
+- content_for :top_links do
+  = icon_link_to 'edit', edit_admin_sponsor_event_path(@sponsor_event), 'pencil'
+  = destroy_model_link @sponsor_event, true
+
+%h1
+  = @sponsor_event.name
+  -#= icon_link_to 'notes', notes_admin_sponsor_event_path(@sponsor_event), 'script'
+  -#= new_model_link SponsorEvent, @sponsor_event
+
+#model_detail
+  %h4 Name
+  %p= @sponsor_event.name
+
+  %h4 Month
+  %p= @sponsor_event.day
+
+  %h4 Day
+  %p= @sponsor_event.month
+
+  %h4 Information
+  %p= @sponsor_event.info

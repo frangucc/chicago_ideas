@@ -1,0 +1,7 @@
+%tr{ :sponsor_event => sponsor_event.id }
+  %td.name=  link_to sponsor_event.name, admin_sponsor_event_path(sponsor_event)
+  %td.month= sponsor_event.month
+  %td.day=   sponsor_event.day
+  %td.options
+    = icon_link_to 'edit', edit_admin_sponsor_event_path(sponsor_event), 'pencil'
+    = destroy_model_link sponsor_event

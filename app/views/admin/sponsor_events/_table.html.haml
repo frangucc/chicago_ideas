@@ -1,0 +1,7 @@
+%table#sponsor_events
+  %tr
+    %th.name  Name
+    %th.month Month
+    %th.day   Day
+    %th
+  = render :partial => 'admin/sponsor_events/sponsor_event.html.haml', :collection => sponsor_events

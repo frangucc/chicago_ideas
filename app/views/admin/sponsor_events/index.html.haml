@@ -1,0 +1,14 @@
+= render 'collection_controls'
+
+- content_for :top_links do
+  = icon_link_to 'add sponsor event', new_admin_sponsor_event_path, 'plusthick'
+
+= ssp_search_form SponsorEvent
+
+.table_section
+  %h3
+    Sponsor Events
+    = icon_link_to 'add sponsor event', new_admin_sponsor_event_path, 'plusthick'
+  .table_wrapper
+    = render 'admin/sponsor_events/table.html.haml', :sponsor_events => @sponsor_events
+  = paginate @sponsor_events
