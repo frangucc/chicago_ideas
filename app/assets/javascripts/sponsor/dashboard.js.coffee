@@ -16,16 +16,18 @@ $(document).ready ->
       centerOnScroll: true
 
   $('#activation_modal form').live('ajax:beforeSend', ->
-    $.fancybox.showActivity()
   ).live('ajax:success', (xhr, data, status) ->
     $.fancybox.close()
   ).live('ajax:error', (xhr, data, status) ->
+    $('#submit_logos').val 'Activate Account'
     $('.upload_errors').html ''
     errors = data.responseText
     printUploadErrors errors
   ).live('ajax:complete', (xhr, data, status) ->
-    $.fancybox.hideActivity()
   )
+
+  $('#submit_logos').live 'click', (event) ->
+    $(this).val 'sending...'
 
   $('#new_user').live('ajax:beforeSend', ->
     $('.errors').html ''
