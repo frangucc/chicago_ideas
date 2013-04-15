@@ -19,8 +19,15 @@
   %h4 Sponsorship Level
   %p= @sponsor.sponsorship_level.name
 
+  %h4 Eps Logo
+  %p= image_tag @sponsor.eps_logo.url
+
   %h4 Logo
   %p= image_tag @sponsor.logo.url
 
   %h4 URL
-  %p= @sponsor.url
+  %p= link_to @sponsor.url
+
+  - if @sponsor.logos_uploaded? && @sponsor.locked?
+    %h4 Activate sponsor?
+    %p= button_to 'Activate', activate_admin_sponsor_path(@sponsor)

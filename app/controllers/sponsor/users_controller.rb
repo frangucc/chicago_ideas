@@ -32,4 +32,20 @@ class Sponsor::UsersController < Sponsor::BaseController
     end
   end
 
+  def newsletter
+    if current_user
+      current_user.update_attribute(:newsletter, true)
+    elsif existing_user = User.find_by_email(params[:user][:email])
+      existing_user.update_attribute(:newsletter, true)
+    else
+      user = User.new(:email => params[:user][:email], :name => params[:user][:name])
+      user.temporary_password = Devise.friendly_token[0,8]
+      unless user.save
+        render_json_response :error, :html => render_to_string('partials/_newsletter_form.html.haml', :layout => false), :notice => user.errors.first.present? ? user.errors.first.join(' ') : 'Could not save, please check email and name are valid.'
+        return
+      end
+    end
+    render_json_response :ok, :notice => 'Thank you, You have been added to the CIW newsletter.'
+  end
+
 end

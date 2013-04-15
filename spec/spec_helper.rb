@@ -36,7 +36,7 @@ end
 
 def assert_phone_number(model, field)
   model.should be_invalid
-  model.errors[field].join.should match(/is not a valid phone number/)
+  model.errors[field].join.should match(/is too short \(minimum is 8 characters\)/)
 end
 
 def assert_min_words_count(model, field, min_words)
@@ -51,7 +51,7 @@ end
 
 def assert_numericality(model, field)
   model.should be_invalid
-  model.errors[field].join.should match(/is not a number/)
+  model.errors[field].join.should match(/is not a number|please use only numbers and the dot \(\.\) symbol/)
 end
 
 def assert_numerical_range(model, field, length)

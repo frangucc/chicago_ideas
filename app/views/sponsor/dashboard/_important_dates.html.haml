@@ -2,14 +2,5 @@
   %p.important_dates_title
     Important upcoming dates
 
-  - key_dates = [{ :month       => 'JULY',
-                   :day         => '10',
-                   :title       => 'Maximizing the CIW Sponsor Portal',
-                   :description => 'Info Session at Noon' },
-                 { :month       => 'JULY',
-                   :day         => '17',
-                   :title       => 'Maximizing the CIW Sponsor Portal',
-                   :description => 'Info session at 5:00pm' }]
-
-  - key_dates.each_with_index do |key_date, index|
-    = render :partial => 'sponsor/shared/key_date', :locals => { :key_date => key_date, :key_id => index }
+  - upcoming_events.each do |sponsor_event|
+    = render :partial => 'sponsor/shared/sponsor_event', :locals => { :sponsor_event => sponsor_event }

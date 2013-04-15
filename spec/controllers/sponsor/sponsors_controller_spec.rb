@@ -17,10 +17,11 @@ describe Sponsor::SponsorsController do
   describe '#update' do
 
     context 'params[:sponsor] is blank' do
-      context 'sponsor is active' do
+      context 'sponsor has logos uploaded' do
         before do
-          Sponsor.any_instance.stub(:active?).and_return(true)
-          Sponsor.any_instance.stub(:unlock!)
+          Sponsor.any_instance.stub(:logos_uploaded?).and_return(true)
+          Sponsor.any_instance.stub(:activate!)
+          SponsorsMailer.should_receive(:notify_logos_upload).and_return(double('mailer', :deliver => true))
         end
 
         it 'returns success' do
@@ -35,10 +36,10 @@ describe Sponsor::SponsorsController do
         end
       end
 
-      context 'sponsor is inactive' do
+      context 'sponsor has no logos uploaded' do
         before do
-          Sponsor.any_instance.stub(:active?).and_return(false)
-          Sponsor.any_instance.stub(:unlock!)
+          Sponsor.any_instance.stub(:logos_uploaded?).and_return(false)
+          Sponsor.any_instance.stub(:activate!)
         end
 
         it 'returns error' do
@@ -68,20 +69,6 @@ describe Sponsor::SponsorsController do
         end
       end
 
-      context 'both logos provided with invalid dimensions' do
-        it 'returns error' do
-          put 'update', :format => :js, :id => @user.sponsor.id, :sponsor => { :logo     => File.open('./spec/fixtures/sponsor_inv_logo.jpg', 'r'),
-                                                                               :eps_logo => File.open('./spec/fixtures/sponsor_inv_logo.jpg', 'r') }
-          response.response_code.should == 422
-        end
-
-        it 'returns proper javascript error' do
-          put 'update', :format => :js, :id => @user.sponsor.id, :sponsor => { :logo     => File.open('./spec/fixtures/sponsor_inv_logo.jpg', 'r'),
-                                                                               :eps_logo => File.open('./spec/fixtures/sponsor_inv_logo.jpg', 'r') }
-          response.content_type.should == "text/javascript"
-          JSON.parse(response.body).should == ["Logo Image dimensions were 468x468, they must be exactly 260x260"]
-        end
-      end
     end
 
   end

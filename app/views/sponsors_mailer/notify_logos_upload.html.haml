@@ -1,0 +1,10 @@
+!!! 5
+%html
+  %head
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+  %body
+    %p
+      The sponsor #{@sponsor.name} has been modified and is currently inactive:
+      A sponsor user has uploaded new logos for it.
+      You can accept them or not
+      = link_to 'here', admin_sponsor_url(@sponsor)

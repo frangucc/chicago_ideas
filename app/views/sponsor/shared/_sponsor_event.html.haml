@@ -1,0 +1,11 @@
+.row.event_date_container{ :id => "sponsor_event_#{sponsor_event.id}" }
+  .event_date
+    %p.month
+      = sponsor_event.month.upcase
+    %p.day{ :class => ('small_day' if sponsor_event.day.length > 3) }
+      = sponsor_event.day.upcase
+  .event_info
+    %p.event_name
+      = sponsor_event.name
+    %p.event_description
+      = sponsor_event.info

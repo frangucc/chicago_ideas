@@ -1,6 +1,6 @@
 $(document).ready ->
 
-  sponsorInactive = $('.hidden_dashboard').data('sponsor-active') is false
+  sponsorInactive = $('.hidden_sponsor').data('logos-uploaded') is false
 
   if sponsorInactive
     $.fancybox
@@ -16,16 +16,18 @@ $(document).ready ->
       centerOnScroll: true
 
   $('#activation_modal form').live('ajax:beforeSend', ->
-    $.fancybox.showActivity()
   ).live('ajax:success', (xhr, data, status) ->
     $.fancybox.close()
   ).live('ajax:error', (xhr, data, status) ->
+    $('#submit_logos').val 'Activate Account'
     $('.upload_errors').html ''
     errors = data.responseText
     printUploadErrors errors
   ).live('ajax:complete', (xhr, data, status) ->
-    $.fancybox.hideActivity()
   )
+
+  $('#submit_logos').live 'click', (event) ->
+    $(this).val 'sending...'
 
   $('#new_user').live('ajax:beforeSend', ->
     $('.errors').html ''
@@ -46,6 +48,10 @@ $(document).ready ->
 
   $('.list-sponsor .span a').live('ajax:success', (xhr, data, status) ->
     $(this).parent().remove()
+  )
+
+  $('#subscribe_to_newsletter').live('ajax:complete', (xhr, data, status) ->
+    $('#subscribe_news').val 'Subscribe to Newsletter'
   )
 
 printInviteErrors = (errors) ->

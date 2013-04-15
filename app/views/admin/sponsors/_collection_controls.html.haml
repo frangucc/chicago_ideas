@@ -7,4 +7,6 @@
     %li{:class => active_for_controller('admin/sponsorship_levels')}= icon_link_to "Sponsorship Levels", admin_sponsorship_levels_path, 'signal'
   %h2 Sponsors
   %ul
-    %li{:class => active_for_controller_and_action('admin/sponsors','index')}= icon_link_to "Search", admin_sponsors_path, 'search'
+    %li{:class => active_for_controller_and_action('admin/sponsors','index')}=        icon_link_to "Search", admin_sponsors_path,               'search'
+    %li{:class => active_for_controller_and_action('admin/materials', 'index')}=      icon_link_to "Materials", admin_materials_path,           'gear'
+    %li{:class => active_for_controller_and_action('admin/sponsor_events', 'index')}= icon_link_to "Sponsor Events", admin_sponsor_events_path, 'gear'

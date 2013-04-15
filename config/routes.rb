@@ -501,6 +501,9 @@ CraigsAdmin::Application.routes.draw do
         # pages
         get :notes
       end
+      member do
+        post 'activate'
+      end
       resources :notes, :only => [:new, :create]
     end
 
@@ -578,6 +581,14 @@ CraigsAdmin::Application.routes.draw do
       resources :notes, :only => [:new, :create]
     end
 
+    resources :sponsor_events do
+      member do
+        # pages
+        get :notes
+      end
+      resources :notes, :only => [:new, :create]
+    end
+
   end
 
   namespace :sponsor do
@@ -589,6 +600,7 @@ CraigsAdmin::Application.routes.draw do
     resources :users,                 :only => [:destroy] do
       collection do
         post :invite
+        post :newsletter
       end
     end
   end

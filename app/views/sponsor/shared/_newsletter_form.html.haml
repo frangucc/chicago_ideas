@@ -1,8 +1,9 @@
 #newsletter_form
   %p.newsletter_title
     Subscribe for CIW Newsletter
-  = semantic_form_for User.new, :url => newsletter_users_path, :remote => true, :html => { :id => 'subscribe_to_newsletter' } do |f|
+  = semantic_form_for User.new, :url => newsletter_sponsor_users_path, :remote => true, :html => { :id => 'subscribe_to_newsletter' } do |f|
     = f.inputs do
-      = f.input  :name,  :required => true, :input_html => { :placeholder => 'Your Name' },     :label => false
-      = f.input  :email, :required => true, :input_html => { :placeholder => 'Email Address' }, :label => false
-    = f.submit :value => 'Subscribe to Newsletter', :class => 'blue-btn', :id => :subscribe_news
+      = f.input  :name,  :required => true, :input_html => { :placeholder => 'Your Name',     :disabled => @sponsor.locked? }, :label => false
+      = f.input  :email, :required => true, :input_html => { :placeholder => 'Email Address', :disabled => @sponsor.locked? }, :label => false
+    - if !@sponsor.locked?
+      = f.submit :value => 'Subscribe to Newsletter', :class => 'blue-btn', :id => :subscribe_news

@@ -1,0 +1,6 @@
+= render 'collection_controls'
+
+= semantic_form_for [:admin, @model], :html => { :multipart => true } do |f|
+  %h3 Edit Sponsor Event
+  = render :partial => 'fields', :locals => { :f => f }
+  = f.submit
