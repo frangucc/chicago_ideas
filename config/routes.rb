@@ -600,6 +600,7 @@ CraigsAdmin::Application.routes.draw do
     resources :users,                 :only => [:destroy] do
       collection do
         post :invite
+        post :newsletter
       end
     end
   end

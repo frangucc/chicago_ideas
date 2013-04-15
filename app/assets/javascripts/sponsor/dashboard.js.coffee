@@ -50,6 +50,10 @@ $(document).ready ->
     $(this).parent().remove()
   )
 
+  $('#subscribe_to_newsletter').live('ajax:complete', (xhr, data, status) ->
+    $('#subscribe_news').val 'Subscribe to Newsletter'
+  )
+
 printInviteErrors = (errors) ->
   $('.errors').append "<li>#{error}</li>" for error in $.parseJSON(errors)
 
