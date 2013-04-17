@@ -1,12 +1,12 @@
 %tr{:volunteer => volunteer.id}
-  %td.user_id= link_to volunteer.user.name, admin_volunteer_path(volunteer)
+  %td.user_id= link_to(volunteer.user.present? ? volunteer.user.name : "#{volunteer.first_name} #{volunteer.last_name}", admin_volunteer_path(volunteer))
   %td.postcode= volunteer.postcode
   %td.email= volunteer.get_email
   %td.phone= volunteer.get_phone
   %td.interests_volunteering= volunteer.interests_volunteering
   %td.skills= volunteer.skills
   %td.wny= volunteer.why
-  %td.options 
+  %td.options
     = edit_model_link volunteer
     = destroy_model_link volunteer
- 
+

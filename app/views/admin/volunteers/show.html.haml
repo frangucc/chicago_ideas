@@ -1,7 +1,7 @@
 = render '/admin/admin/collection_controls'
 - content_for :breadcrumbs do
   = breadcrumbs @volunteer
-  .crumb.end= section_title   
+  .crumb.end= section_title
 
 - content_for :top_links do
   = edit_model_link @volunteer, true
@@ -15,15 +15,18 @@
 
 #model_detail
   %h4 User
-  %p= link_to @volunteer.user.name, admin_user_path(@volunteer.user)
-  %p= @volunteer.user.email
+  - if @volunteer.user.present?
+    %p= link_to @volunteer.user.name, admin_user_path(@volunteer.user)
+    %p= @volunteer.user.email
+  - else
+    %p= @volunteer.email
   %p= @volunteer.phone
 
   %h4 Postcode
   %p= @volunteer.postcode
-  
+
   %h4 Student, Work, and Community Organiations that you belong to
-  %div 
+  %div
     %p
       = @volunteer.organization_name_1
       = @volunteer.organization_department_1
@@ -36,7 +39,7 @@
       = @volunteer.organization_name_3
       = @volunteer.organization_department_3
       = @volunteer.organization_title_3
-  
+
   %h4 I am interested in volunteering:
   %p= @volunteer.interests_volunteering
 
@@ -49,8 +52,8 @@
   %h4 Is there anything else you would like us to know about?
   %p= @volunteer.anything_else
 
-  
 
-  
+
+
 
 

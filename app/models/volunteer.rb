@@ -10,7 +10,7 @@ class Volunteer < ActiveRecord::Base
   # we have a polymorphic relationship with notes
   has_many :notes, :as => :asset
 
-  validates :user_id #, :presence => true
+  # validates :user_id, :presence => true
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :email, :presence => true
