@@ -1,8 +1,10 @@
+- material_document_url = material.document.url
+
 %li
   %div
-    = image_tag(material.thumbnail)
+    = link_to image_tag(material.thumbnail), material_document_url
   %h3
-    = material.name
+    = link_to material.name, material_document_url
   %p
-    = link_to 'download', material.document.url
+    = link_to 'download', material_document_url
 
