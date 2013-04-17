@@ -192,7 +192,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     #puts session.to_json
-    cookies[:return_to] || (resource.is_sponsor? ? sponsor_root_path : user_root_path)
+    resource.is_sponsor? ? sponsor_root_path : user_root_path
   end
 
   private
