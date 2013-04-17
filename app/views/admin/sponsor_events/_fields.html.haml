@@ -1,5 +1,5 @@
 = f.inputs do
   = f.input :name,  :required => true
-  = f.input :month, :required => true
-  = f.input :day,   :required => true
+  = f.input :month, :required => true, :as => :select, :collection => SponsorEvent::MONTHS
+  = f.input :day,   :required => true, :as => :select, :collection => SponsorEvent::VALID_DAYS
   = f.input :info
