@@ -8,5 +8,6 @@
 
   %hr
 
-  - @sponsor_events.each do |sponsor_event|
-    = render :partial => 'sponsor/shared/sponsor_event', :locals => { :sponsor_event => sponsor_event }
+  - SponsorEvent::MONTHS.each do |month|
+    - @sponsor_events.select { |se| se.month == month }.each  do |sponsor_event|
+      = render :partial => 'sponsor/shared/sponsor_event', :locals => { :sponsor_event => sponsor_event }
