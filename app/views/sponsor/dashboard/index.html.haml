@@ -8,7 +8,7 @@
   = render :partial => 'important_dates', :locals => { :upcoming_events => @upcoming_events }
   .row.box-upload-file
     = render :partial => 'share_sponsor'
-    = render :partial => 'sponsor/shared/newsletter_form'
+    = render :partial => 'sponsor/shared/newsletter_form', :locals => { :sponsor => @sponsor }
   = render :partial => 'ciw_contacts'
 
 .right-column
