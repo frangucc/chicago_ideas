@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412194633) do
+ActiveRecord::Schema.define(:version => 20130418153140) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -597,6 +597,7 @@ ActiveRecord::Schema.define(:version => 20130412194633) do
     t.string   "info"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "year_id"
   end
 
   create_table "sponsor_users", :force => true do |t|

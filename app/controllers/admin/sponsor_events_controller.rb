@@ -22,6 +22,7 @@ class Admin::SponsorEventsController < Admin::AdminController
 
   def create
     @parent = parent_model
+    params[model_name][:year_id] = Time.current.year
     @model = new_model(params[model_name])
     @model = pre_create(@model)
 

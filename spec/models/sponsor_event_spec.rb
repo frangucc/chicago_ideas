@@ -41,14 +41,16 @@ describe SponsorEvent do
   describe '#order_by_month' do
 
     before do
-      @sponsor_1 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July', :day => 'Late')
-      @sponsor_2 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July', :day => '2')
-      @sponsor_3 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July', :day => '21')
-      @sponsor_4 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July', :day => 'Mid')
-      @sponsor_5 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July', :day => '1')
-      @sponsor_6 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July', :day => '12')
-      @sponsor_7 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July', :day => '30')
-      @sponsor_8 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'August', :day => '30')
+      current_year = FactoryGirl.create(:year)
+      @sponsor_1 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July',   :day => 'Late', :year => current_year)
+      @sponsor_2 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July',   :day => '2',    :year => current_year)
+      @sponsor_3 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July',   :day => '21',   :year => current_year)
+      @sponsor_4 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July',   :day => 'Mid',  :year => current_year)
+      @sponsor_5 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July',   :day => '1',    :year => current_year)
+      @sponsor_6 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July',   :day => '12',   :year => current_year)
+      @sponsor_7 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July',   :day => '30',   :year => current_year)
+      @sponsor_8 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'August', :day => '30',   :year => current_year)
+      @sponsor_9 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July',   :day => '30',   :year => FactoryGirl.create(:year, :id => Time.current.year-1))
     end
 
     it 'returns mid, late, number order' do
