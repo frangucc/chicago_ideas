@@ -192,7 +192,13 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     #puts session.to_json
-    resource.is_sponsor? ? sponsor_root_path : user_root_path
+    if resource.admin?
+      admin_root_path
+    elsif resource.is_sponsor?
+      sponsor_root_path
+    else
+      user_root_path
+    end
   end
 
   private
