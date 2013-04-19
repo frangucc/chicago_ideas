@@ -14,12 +14,12 @@ class PopulateSponsorEvents < ActiveRecord::Migration
                          :day   => '29',
                          :info  => '')
     SponsorEvent.create!(:name  => 'Sponsors will receive invitations to all evening VIP receptions',
-                         :month => 'Late',
-                         :day   => 'July',
+                         :month => 'July',
+                         :day   => 'Late',
                          :info  => '')
     SponsorEvent.create!(:name  => 'Annual Sponsor Soiree',
                          :month => 'August',
-                         :day   => '01',
+                         :day   => '1',
                          :info  => '')
     SponsorEvent.create!(:name  => 'Ticketing Opens to CIW Members',
                          :month => 'August',
@@ -27,11 +27,11 @@ class PopulateSponsorEvents < ActiveRecord::Migration
                          :info  => '')
     SponsorEvent.create!(:name  => 'Ticketing Opens to General Public',
                          :month => 'September',
-                         :day   => '03',
+                         :day   => '3',
                          :info  => '')
     SponsorEvent.create!(:name  => 'Menlo (VIP) Passes will be mailed to sponsors',
-                         :month => 'Mid',
-                         :day   => 'Sept',
+                         :month => 'September',
+                         :day   => 'Mid',
                          :info  => '')
   end
 
