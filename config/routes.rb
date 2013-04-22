@@ -593,13 +593,13 @@ CraigsAdmin::Application.routes.draw do
     resources :dashboard,             :only => [:index]
     resources :key_sponsorship_dates, :only => [:index]
     resources :materials,             :only => [:index]
-    resources :sponsors,              :only => [:edit, :update]
     resources :users,                 :only => [:destroy] do
       collection do
         post :invite
         post :newsletter
       end
     end
+    resources :sponsor_users,         :only => [:edit, :update]
   end
 
 end
