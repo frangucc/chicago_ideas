@@ -99,8 +99,8 @@
         #page
           = yield
 
-          = render :partial => 'sponsor/shared/activation_modal', :locals => { :sponsor => @sponsor }
-          .hidden_sponsor{ :data => { 'logos-uploaded' => @sponsor.logos_uploaded?.to_s } }
+          = render :partial => 'sponsor/shared/activation_modal', :locals => { :sponsor_user => current_user.sponsor_user }
+          .hidden_sponsor{ :data => { 'logos-uploaded' => current_user.sponsor_user.logos_uploaded?.to_s } }
           .clr
       .clr
 
