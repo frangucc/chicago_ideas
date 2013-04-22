@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422192358) do
+ActiveRecord::Schema.define(:version => 20130422194434) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_1"
@@ -607,10 +607,6 @@ ActiveRecord::Schema.define(:version => 20130422192358) do
     t.string   "phone"
     t.boolean  "newsletters_subscription"
     t.boolean  "primary_contact"
-    t.string   "sponsor_agreement_file_name"
-    t.string   "sponsor_agreement_content_type"
-    t.integer  "sponsor_agreement_file_size"
-    t.datetime "sponsor_agreement_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
