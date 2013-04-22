@@ -28,15 +28,4 @@ describe Sponsor do
 
   end
 
-  describe '#activate!' do
-
-    let(:sponsor) { FactoryGirl.create(:sponsor, :locked => true) }
-
-    it 'activates the sponsor' do
-      sponsor.activate!
-      sponsor.reload.locked?.should be_false
-    end
-
-  end
-
 end
