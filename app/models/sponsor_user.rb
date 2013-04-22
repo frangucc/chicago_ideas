@@ -10,6 +10,10 @@ class SponsorUser < ActiveRecord::Base
 
   before_save :check_primary
 
+  def logos_uploaded?
+    eps_logo.present? && logo.present?
+  end
+
   private
     def check_primary
       if self.primary_contact == true
