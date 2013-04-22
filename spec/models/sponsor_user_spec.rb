@@ -40,4 +40,30 @@ describe SponsorUser do
 
   end
 
+  describe '#logos_uploaded?' do
+
+    context 'has no eps_logo file' do
+      it 'returns false' do
+        sponsor_user.eps_logo = nil
+        sponsor_user.logos_uploaded?.should be_false
+      end
+    end
+
+    context 'has no logo file' do
+      it 'returns false' do
+        sponsor_user.logo = nil
+        sponsor_user.logos_uploaded?.should be_false
+      end
+    end
+
+    context 'has both logos uploaded' do
+      it 'returns true' do
+        sponsor_user.update_attributes(:logo     => File.open('./spec/fixtures/sponsor_logo.jpg'),
+                                       :eps_logo => File.open('./spec/fixtures/sponsor_logo.jpg'))
+        sponsor_user.logos_uploaded?.should be_true
+      end
+    end
+
+  end
+
 end
