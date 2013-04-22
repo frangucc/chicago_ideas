@@ -11,7 +11,6 @@ class Sponsor::SponsorsController < Sponsor::BaseController
     respond_to do |format|
       if @sponsor.update_attributes(params[:sponsor])
         if @sponsor.logos_uploaded?
-          @sponsor.activate!
           SponsorsMailer.notify_logos_upload(@sponsor).deliver
           format.js { render :nothing => true, :status => :ok }
         else
