@@ -1,8 +1,8 @@
 $(document).ready ->
 
-  sponsorInactive = $('.hidden_sponsor').data('logos-uploaded') is false
+  sponsorUserHasNoLogos = $('.hidden_sponsor').data('logos-uploaded') is false
 
-  if sponsorInactive
+  if sponsorUserHasNoLogos
     $.fancybox
       content: $('#activation_modal')
       autoDimensions: true
