@@ -44,21 +44,6 @@
     text-align: center;
     #facebook_share, #twitter_share {
       padding-right: 15px;
-      .stButton .stLarge {
-        width: 70px;
-        height: 70px;
-        background-size: 100% 100%;
-      }
-      .stButton .stLarge:hover {
-        opacity: 1 !important;
-        background-position: 0 !important;
-      }
-    }
-    #facebook_share .stButton .stLarge {
-      background-image: url(application/orders/facebook.png) !important;
-    }
-    #twitter_share .stButton .stLarge {
-      background-image: url(application/orders/twitter.png) !important;
     }
   }
 }

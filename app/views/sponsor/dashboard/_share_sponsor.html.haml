@@ -2,5 +2,5 @@
   %p.share_title
     Stay connected with insider updates
   .share_links
-    %span{ :class => 'st_facebook_large', 'st_url' => ApplicationHelper::CIW_FACEBOOK_URL, :id => 'facebook_share' }
-    %span{ :class => 'st_twitter_large',  'st_url' => ApplicationHelper::CIW_TWITTER_URL,  :id => 'twitter_share'  }
+    = link_to image_tag('application/orders/facebook.png'), ApplicationHelper::CIW_FACEBOOK_URL, :id => 'facebook_share'
+    = link_to image_tag('application/orders/twitter.png'),  ApplicationHelper::CIW_TWITTER_URL,  :id => 'twitter_share'
