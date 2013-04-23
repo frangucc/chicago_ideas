@@ -16,7 +16,7 @@ describe SponsorsMailer do
     it 'sends proper headers' do
       @email.subject.should    == 'New logos uploaded for sponsor user.'
       @email.from[0].should    == 'forms@chicagoideas.com'
-      @email.to.to_set.should  == ['leandro@meetmantra.com', 'martin@meetmantra.com'].to_set
+      @email.to.should  == ['martin@meetmantra.com']
     end
 
     it 'sends proper content' do

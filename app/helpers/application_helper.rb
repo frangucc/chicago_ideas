@@ -27,7 +27,6 @@ module ApplicationHelper
   CIW_BECKY_EMAIL      = 'becky@chicagoideas.com'
   CIW_SAM_EMAIL        = 'sam@chicagoideas.com'
   DAVID_EMAIL          = 'david@davidburstein.com'
-  LEANDRO_EMAIL        = 'leandro@meetmantra.com'
   MARTIN_EMAIL         = 'martin@meetmantra.com'
   FRANK_EMAIL          = 'frank@meetmantra.com'
   MAYBELLE_EMAIL       = 'maybelle@meetmantra.com'
@@ -38,29 +37,12 @@ module ApplicationHelper
                          when "production"
                           "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}"
                         when "staging"
-                          "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}, #{LEANDRO_EMAIL}, #{MARTIN_EMAIL}, #{FRANK_EMAIL}, #{MAYBELLE_EMAIL}"
-                        else
-                          "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
+                          "#{CIW_JESSICA_EMAIL}, #{CIW_COREY_EMAIL}, #{DAVID_EMAIL}, #{MARTIN_EMAIL}, #{FRANK_EMAIL}, #{MAYBELLE_EMAIL}"
                         end
-  BHSI_CCO = "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}, #{FRANK_EMAIL}, #{MAYBELLE_EMAIL}"
-  DAILY_REPORT_RECIPIENTS = case Rails.env
-                            when "production"
-                              CIW_BECKY_EMAIL
-                            when "staging"
-                              "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
-                            else
-                              "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
-                            end
-  MEMBER_PURCHASE_RECIPIENTS = case Rails.env
-                               when "production"
-                                 CIW_MEMBERSHIP_EMAIL
-                               when "staging"
-                                 "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
-                               else
-                                 "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
-                               end
-  LOGOS_UPLOAD_RECIPIENTS = Rails.env == "production" ? CIW_SAM_EMAIL : "#{LEANDRO_EMAIL}, #{MARTIN_EMAIL}"
-
+  BHSI_CCO = "#{FRANK_EMAIL}, #{MAYBELLE_EMAIL}"
+  DAILY_REPORT_RECIPIENTS = CIW_BECKY_EMAIL if Rails.env == 'production'
+  MEMBER_PURCHASE_RECIPIENTS = CIW_MEMBERSHIP_EMAIL if Rails.env == 'production'
+  LOGOS_UPLOAD_RECIPIENTS = Rails.env == "production" ? CIW_SAM_EMAIL : MARTIN_EMAIL
 
   def conditional_html( lang = "en", &block )
     fb_meta = "xml:lang='en' xmlns:fb='http://www.facebook.com/2008/fbml' xmlns:og='http://opengraphprotocol.org/schema/' xmlns='http://www.w3.org/1999/xhtml'"
