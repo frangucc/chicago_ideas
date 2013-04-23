@@ -19,7 +19,7 @@ describe DailyMembershipReportMailer do
     it 'sends proper headers' do
       @email.subject.should   == 'Daily Membership Report'
       @email.from[0].should   == 'membership@chicagoideas.com'
-      @email.to.to_set.should == ['leandro@meetmantra.com', 'martin@meetmantra.com'].to_set
+      @email.to.should        == ['user@domain.com']
     end
 
     it 'sends proper attachments' do
