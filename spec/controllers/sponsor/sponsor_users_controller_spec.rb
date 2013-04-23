@@ -48,12 +48,12 @@ describe Sponsor::SponsorUsersController do
         it 'sends notification email to staff' do
           SponsorsMailer.should_receive(:notify_logos_upload).and_return(double('mailer', :deliver => true))
           put :update, :format => :js, :id => @user.sponsor_user.id, :sponsor_user => { :logo     => File.open('./spec/fixtures/sponsor_logo.jpg', 'r'),
-                                                                                        :eps_logo => File.open('./spec/fixtures/sponsor_logo.jpg', 'r') }
+                                                                                        :eps_logo => File.open('./spec/fixtures/sponsor_eps_logo.eps', 'r') }
         end
 
         it 'returns ok' do
           put :update, :format => :js, :id => @user.sponsor_user.id, :sponsor_user => { :logo     => File.open('./spec/fixtures/sponsor_logo.jpg', 'r'),
-                                                                                        :eps_logo => File.open('./spec/fixtures/sponsor_logo.jpg', 'r') }
+                                                                                        :eps_logo => File.open('./spec/fixtures/sponsor_eps_logo.eps', 'r') }
           response.response_code.should == 200
           response.content_type.should  == 'text/javascript'
         end
