@@ -17,6 +17,7 @@ describe Sponsor::DashboardController do
   describe '#index' do
 
     it 'should success' do
+      Year.stub_chain(:current_year, :sponsor_events, :first).and_return([])
       get 'index'
       response.should be_success
     end
