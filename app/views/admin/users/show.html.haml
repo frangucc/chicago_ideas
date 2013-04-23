@@ -57,4 +57,9 @@
   %h4 Portrait2
   %p= image_tag @user.portrait2.url
 
+  - if @user.is_sponsor?
+    %h4 Eps Logo
+    %p= image_tag @user.sponsor_user.eps_logo.url
 
+    %h4 Logo
+    %p= image_tag @user.sponsor_user.logo.url

@@ -27,7 +27,3 @@
 
   %h4 URL
   %p= link_to @sponsor.url
-
-  - if @sponsor.logos_uploaded? && @sponsor.locked?
-    %h4 Activate sponsor?
-    %p= button_to 'Activate', activate_admin_sponsor_path(@sponsor)

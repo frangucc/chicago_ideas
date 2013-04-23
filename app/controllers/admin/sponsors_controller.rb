@@ -31,10 +31,4 @@ class Admin::SponsorsController < Admin::AdminController
   # MEMBER ACTIONS
   # ---------------------------------------------------------------------------------------------------------
 
-  def activate
-    @sponsor = Sponsor.find(params[:id])
-    @sponsor.activate!
-    render :show
-  end
-
 end

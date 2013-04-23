@@ -90,8 +90,4 @@ class Sponsor < ActiveRecord::Base
     eps_logo_file_name.present? && logo_file_name.present?
   end
 
-  def activate!
-    self.update_attribute(:locked, false)
-  end
-
 end
