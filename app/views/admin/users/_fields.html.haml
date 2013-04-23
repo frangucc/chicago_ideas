@@ -28,6 +28,9 @@
           .row
             .label Primary Contact?
             .span{style: "margin-top: 10px;"}= su_f.input :primary_contact
+          .row
+            = su_f.input :eps_logo, :as => :file
+            = su_f.input :logo,     :as => :file
   = f.input :years, :as => :check_boxes, :member_label => Proc.new { |year| year.id.to_s }
   = f.input :title 
   = f.input :bio, :hint => "bios accept basic markdown formatting"
