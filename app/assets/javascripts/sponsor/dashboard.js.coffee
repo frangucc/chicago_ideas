@@ -54,6 +54,12 @@ $(document).ready ->
     $('#subscribe_news').val 'Subscribe to Newsletter'
   )
 
+  $('#sponsor_user_eps_logo').live 'change', (event) ->
+    $('#sponsor_eps_logo_input .uploaded_file').html $(this).val()
+
+  $('#sponsor_user_logo').live 'change', (event) ->
+    $('#sponsor_logo_input .uploaded_file').html $(this).val()
+
 printInviteErrors = (errors) ->
   $('.errors').append "<li>#{error}</li>" for error in $.parseJSON(errors)
 
