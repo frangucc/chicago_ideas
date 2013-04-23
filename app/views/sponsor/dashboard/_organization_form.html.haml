@@ -11,20 +11,18 @@
             %span
               = user.name
               = '(pending)' if user.sign_in_count == 0
-            - if !@sponsor.locked?
-              = link_to 'x', sponsor_user_path(:id => user.id), :class => 'del', :method => :delete, :remote => true
-    - if !@sponsor.locked?
-      = form_for User.new, :url => invite_sponsor_users_path, :remote => true do |f|
-        .form-action
-          = f.submit 'Add another sponsor admin', class: 'blue-btn', :id => 'submit_request'
-        .row
-          = f.text_field :name, :placeholder => 'Name of Requested Admin'
-        .row
-          = f.text_field :email, :placeholder => 'Email of Requested admin'
-        #loading_image.hidden{style: "width: 100%; text-align:center; margin-top: 10px;"}
-          = image_tag 'admin/loader.gif'
-        .message.hint
-        %ul.errors
+            = link_to 'x', sponsor_user_path(:id => user.id), :class => 'del', :method => :delete, :remote => true
+    = form_for User.new, :url => invite_sponsor_users_path, :remote => true do |f|
+      .form-action
+        = f.submit 'Add another sponsor admin', class: 'blue-btn', :id => 'submit_request'
+      .row
+        = f.text_field :name, :placeholder => 'Name of Requested Admin'
+      .row
+        = f.text_field :email, :placeholder => 'Email of Requested admin'
+      #loading_image.hidden{style: "width: 100%; text-align:center; margin-top: 10px;"}
+        = image_tag 'admin/loader.gif'
+      .message.hint
+      %ul.errors
 
   .right-inner#interest_volunteer
     .row
