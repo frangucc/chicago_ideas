@@ -2,25 +2,25 @@ require "spec_helper"
 
 describe SponsorsMailer do
 
-  let(:sponsor) { FactoryGirl.build(:sponsor) }
+  let(:user) { FactoryGirl.create(:user, :is_sponsor => true, :sponsor => FactoryGirl.create(:sponsor)) }
 
   describe '#notify_logos_upload' do
 
     before do
-      SponsorsMailer.notify_logos_upload(sponsor).deliver
+      user.sponsor_user.update_attributes(:eps_logo => File.open('./spec/fixtures/sponsor_logo.jpg'),
+                                          :logo     => File.open('./spec/fixtures/sponsor_logo.jpg'))
+      SponsorsMailer.notify_logos_upload(user.sponsor_user).deliver
       @email = ActionMailer::Base.deliveries.last
     end
 
     it 'sends proper headers' do
-      @email.subject.should    == 'New logos uploaded for sponsor.'
+      @email.subject.should    == 'New logos uploaded for sponsor user.'
       @email.from[0].should    == 'forms@chicagoideas.com'
       @email.to.to_set.should  == ['leandro@meetmantra.com', 'martin@meetmantra.com'].to_set
     end
 
     it 'sends proper content' do
-      @email.body.should match(/The sponsor #{sponsor.name} has been modified and is currently inactive:/)
-      @email.body.should match(/A sponsor user has uploaded new logos for it\./)
-      @email.body.should match(/You can accept them or not/)
+      @email.body.should match(/The sponsor user #{user.name} has uploaded his eps_logo and logo/)
     end
 
   end
