@@ -54,7 +54,6 @@ describe SponsorEvent do
     end
 
     it 'returns mid, late, number order' do
-      #debugger
       SponsorEvent.order_by_month('July').should == [@sponsor_1, @sponsor_4, @sponsor_5, @sponsor_2, @sponsor_6, @sponsor_3, @sponsor_7]
       SponsorEvent.order_by_month('August').should == [@sponsor_8]
     end
