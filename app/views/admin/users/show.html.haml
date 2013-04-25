@@ -58,8 +58,13 @@
   %p= image_tag @user.portrait2.url
 
   - if @user.is_sponsor?
+    %h4 Associated Sponsor
+    %p= @user.sponsor.name
+
     %h4 Eps Logo
-    %p= link_to @user.sponsor_user.eps_logo.url
+    - eps_logo_url = @user.sponsor_user.eps_logo.url
+    %p= link_to eps_logo_url, eps_logo_url
 
     %h4 Logo
-    %p= image_tag @user.sponsor_user.logo.url
+    - logo_url = @user.sponsor_user.logo.url
+    %p= link_to image_tag(logo_url), logo_url
