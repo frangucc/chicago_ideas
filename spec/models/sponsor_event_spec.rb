@@ -60,4 +60,27 @@ describe SponsorEvent do
 
   end
 
+  describe '#upcoming_month' do
+
+    context 'no sponsor events' do
+      it 'returns nil' do
+        SponsorEvent.upcoming_month.should be_nil
+      end
+    end
+
+    context 'sponsor events with July as first month' do
+      before do
+        current_year = FactoryGirl.create(:year)
+        @sponsor_1 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'July',     :day => 'Late', :year => current_year)
+        @sponsor_2 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'August',   :day => '2',    :year => current_year)
+        @sponsor_3 = FactoryGirl.create(:sponsor_event, :name => 'Sponsor', :month => 'December', :day => '21',   :year => current_year)
+      end
+
+      it 'returns July' do
+        SponsorEvent.upcoming_month.should == 'July'
+      end
+    end
+
+  end
+
 end

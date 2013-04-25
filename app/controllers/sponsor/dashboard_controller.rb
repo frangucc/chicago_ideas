@@ -2,7 +2,8 @@ class Sponsor::DashboardController < Sponsor::BaseController
 
   def index
     @sponsor = current_user.sponsor
-    @upcoming_events = Year.current_year.sponsor_events.first(2)
+    upcoming_month = SponsorEvent.upcoming_month
+    @upcoming_events = SponsorEvent.order_by_month(upcoming_month)
   end
 
 end
